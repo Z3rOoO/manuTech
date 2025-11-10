@@ -34,4 +34,7 @@ empresa de manutenção focada em manutenção e reposição de peças
 
 manutenção: a empresa entra em contato com a gente abrindo um chamado / manutentor aceita o chamado e vai fazer a verificação e o relatório da situação / informamos a empresa o relatório e o orçamento / manutentor se direciona para realizar o concerto (coloca o celo de garantia de 1 ano) 
 
-reposição de peças: 
+reposição de peças: a empresa deve fornecer peças para repozição de maquinarios tais como polia e correa engrenagem motor e ferramentas etc assim como vender peças para facer melhorias e adequações dos maquinarios (opções de montagem: a montagem pode ser realizada pelo proprio comprador assim fornecemos garantia por apenas 3 meses e se restrimgindo a penas a peça em especifico exeto por mal uso ou montagem incorreta | montagem realizada por um dos nossos manutentores assim podendo prover uma garantia de 1 ano não se restringindo a penas a paça mas sim a todo o conjunto se o lacre de garantia colocado pelo mesmo estiver intacto exeto em questões de mal uso)
+
+comunicação extra: avera um chat ao vivo com um dos nossos funcionarios para tirar qualquer duvidas assim como fazer uma compra diretamente com o funcionaria assim tendo que o proprio funcionario devera realizar o pedido em nome da empresa
+lembrando que tudo que pode ser realizado no chati ao vivo tambem pode ser  realizado por meio de chamados requisições e forms dentro do site 
