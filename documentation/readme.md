@@ -1,40 +1,99 @@
- E-COMMERCE DE MANUTENÇÃO E REPOSIÇÃO — “ManutTech"
+# Sistema: E-Commerce de Manutenção e Reposição — “ManuTech”
 
- Contexto
-
-Empresas precisam repor constantemente ferramentas e peças para manutenção de máquinas. O “ManutTech” permitirá gerenciar catálogos de produtos e gerar solicitações de compra automatizadas.
-
- Destaques
-
-- Catálogo de ferramentas e componentes de manutenção.
-- Solicitação de compra e status de entrega.
-- Registro de histórico de manutenção por cliente.
-
-
-
-1	Documento de Requisitos	Escopo, objetivos, requisitos funcionais e não funcionais
-2	Modelagem do Banco de Dados	DER e script de criação das tabelas
-3	Protótipo de Interface	Layout das principais telas (Figma ou HTML estático)
-4	Desenvolvimento do Back-End	APIs, rotas e regras de negócio
-5	Integração Front-End + Back-End	Comunicação entre camadas e testes
-6	Apresentação Final	Sistema funcional + documentação técnica
-
-
-Banco de Dados	MySQL
-Back-End	Node.js
-Front-End	HTML5, CSS3, JavaScript, Bootstrap ou framework equivalente
-Versionamento	Git + GitHub
-
-
-
-
-Escopo 
-
-empresa de manutenção focada em manutenção e reposição de peças 
-
-manutenção: a empresa entra em contato com a gente abrindo um chamado / manutentor aceita o chamado e vai fazer a verificação e o relatório da situação / informamos a empresa o relatório e o orçamento / manutentor se direciona para realizar o concerto (coloca o celo de garantia de 1 ano) 
-
-reposição de peças: a empresa deve fornecer peças para repozição de maquinarios tais como polia e correa engrenagem motor e ferramentas etc assim como vender peças para facer melhorias e adequações dos maquinarios (opções de montagem: a montagem pode ser realizada pelo proprio comprador assim fornecemos garantia por apenas 3 meses e se restrimgindo a penas a peça em especifico exeto por mal uso ou montagem incorreta | montagem realizada por um dos nossos manutentores assim podendo prover uma garantia de 1 ano não se restringindo a penas a paça mas sim a todo o conjunto se o lacre de garantia colocado pelo mesmo estiver intacto exeto em questões de mal uso)
-
-comunicação extra: avera um chat ao vivo com um dos nossos funcionarios para tirar qualquer duvidas assim como fazer uma compra diretamente com o funcionaria assim tendo que o proprio funcionario devera realizar o pedido em nome da empresa
-lembrando que tudo que pode ser realizado no chati ao vivo tambem pode ser  realizado por meio de chamados requisições e forms dentro do site 
+1. Introdução
+1.1. Propósito
+O presente documento tem como finalidade descrever, de forma detalhada, os requisitos funcionais e não funcionais do sistema ManuTech, um e-commerce voltado para o gerenciamento de peças, ferramentas e serviços de manutenção industrial.
+ Este documento servirá de base para o desenvolvimento, validação e manutenção do sistema, garantindo clareza entre os envolvidos no projeto.
+1.2. Escopo
+O ManuTech é uma plataforma digital que permitirá às empresas:
+Consultar e adquirir peças e ferramentas para manutenção de máquinas;
+Gerenciar solicitações de manutenção corretiva e preventiva;
+Acompanhar o status de pedidos e serviços em tempo real;
+Manter um histórico completo de manutenções realizadas.
+Além disso, o sistema proporcionará uma comunicação direta entre clientes e técnicos, automatizando processos de solicitação, orçamento e acompanhamento de serviços.
+1.3. Definições, Acrônimos e Abreviações
+SRS: Software Requirements Specification (Documento de Requisitos de Software)
+DER: Diagrama Entidade-Relacionamento
+API: Application Programming Interface
+UI: User Interface (Interface do Usuário)
+1.4. Referências
+Padrões IEEE 830-1998 – Requisitos de Software.
+Documentação oficial: MySQL, Node.js, Bootstrap.
+2. Descrição Geral do Sistema
+2.1. Perspectiva do Produto
+O ManuTech é um sistema web composto por módulos integrados de catálogo de produtos, solicitação de serviços e gerenciamento de manutenção. O sistema será acessado via navegador, com interface responsiva e interação em tempo real com o servidor.
+2.2. Funções do Sistema
+Catálogo de Produtos: Exibição e busca de peças, ferramentas e componentes de manutenção.
+Solicitações de Compra: Geração e acompanhamento de pedidos, incluindo status de entrega.
+Gestão de Chamados: Registro e controle de solicitações de manutenção.
+Histórico de Manutenção: Armazenamento de relatórios e serviços realizados para cada cliente.
+Chat de Suporte: Comunicação direta entre clientes e equipe técnica/comercial.
+2.3. Tipos de Usuários
+Administrador: Gerencia produtos, usuários, pedidos e relatórios.
+Cliente Empresa: Realiza pedidos, solicita serviços e consulta históricos.
+Manutentor: Recebe chamados, executa serviços e emite relatórios.
+Atendente: Interage via chat e processa pedidos realizados diretamente com clientes.
+2.4. Restrições
+O sistema deverá operar em ambiente web.
+O banco de dados deverá ser implementado em MySQL.
+O back-end deverá ser desenvolvido em Node.js.
+O front-end deverá utilizar HTML5, CSS3, JavaScript e Bootstrap ou framework equivalente.
+O versionamento deverá ser realizado via GitHub.
+3. Requisitos Específicos
+3.1. Requisitos Funcionais (RF)
+|------------------------------------------------------------------------------------------------|
+|Código|Descrição                                                                     |Prioridade|
+|RF01  |O sistema deve permitir o cadastro, edição e exclusão de produtos no catálogo.|Alta      |
+|RF02  |O sistema deve permitir que o cliente realize solicitações de compra.         |Alta      |
+|RF03  |O sistema deve permitir o acompanhamento do status do pedido.                 |Média     |
+|RF04  |O sistema deve registrar o histórico de manutenção de cada cliente.           |Alta      |
+|RF05  |O sistema deve possibilitar a abertura de chamados de manutenção.             |Alta      |
+|RF06  |O manutentor deve poder aceitar e atualizar o status de chamados.             |Alta      |
+|RF07  |O sistema deve gerar relatórios e orçamentos de manutenção.                   |Média     |
+|RF08  |O sistema deve permitir a comunicação via chat ao vivo.                       |Média     |
+|RF09  |O atendente deve poder realizar pedidos em nome do cliente.                   |Média     |
+|________________________________________________________________________________________________|
+3.2. Requisitos Não Funcionais (RNF)
+|-------------------------------------------------------------------------------------------------|
+|Código|Descrição                                                                      |Prioridade|
+|RNF01 |O sistema deve ser acessível via navegadores modernos (Chrome, Edge, Firefox). |Alta      |
+|RNF02 |O sistema deve apresentar interface responsiva para uso em dispositivos móveis.|Alta      |
+|RNF03 |O tempo de resposta das requisições deve ser inferior a 3 segundos.            |Média     |
+|RNF04 |Os dados devem ser armazenados de forma segura no banco de dados.              |Alta      |
+|RNF05 |O sistema deve possuir autenticação de usuários.                               |Alta      |
+|RNF06 |O sistema deve permitir backup periódico do banco de dados.                    |Média     |
+|_________________________________________________________________________________________________|
+4. Modelagem do Banco de Dados
+Banco: MySQL
+Modelo: Entidade-Relacionamento (DER) contendo entidades como Clientes, Produtos, Pedidos, Chamados, Manutentores e Histórico de Manutenção.
+Entrega: Script SQL de criação das tabelas e chaves relacionais.
+5. Protótipo de Interface
+As telas principais incluirão:
+Página inicial e catálogo de produtos;
+Tela de solicitação de compra e acompanhamento;
+Tela de abertura e acompanhamento de chamados;
+Painel administrativo;
+Interface do chat ao vivo.
+O protótipo será desenvolvido em Figma ou HTML estático, conforme o cronograma.
+6. Desenvolvimento e Integração
+|------------------------------------------------------------------------------|
+|Etapa     |Descrição                                                          |
+|Back-End  |Implementação em Node.js, incluindo APIs REST e regras de negócio. |
+|Front-End |Construção em HTML, CSS, JavaScript e Bootstrap.                   |
+|Integração|Comunicação via APIs e testes de integração entre camadas.         |
+|______________________________________________________________________________|
+7. Garantias e Políticas de Serviço
+7.1. Garantia de Serviços
+Serviço realizado por técnico ManuTech: Garantia de 1 ano, válida para o conjunto completo, desde que o selo de garantia esteja intacto e não haja indícios de mau uso.
+Montagem realizada pelo cliente: Garantia de 3 meses, limitada à peça adquirida, não cobrindo mau uso ou montagem incorreta.
+7.2. Políticas de Reposição
+A ManuTech fornece peças e componentes como polias, correias, engrenagens, motores e ferramentas, tanto para reposição quanto para melhorias e adequações de maquinários.
+8. Comunicação e Suporte
+O sistema contará com um chat ao vivo para suporte técnico e comercial, permitindo:
+Esclarecimento de dúvidas;
+Realização de compras diretamente com um atendente;
+Registro de histórico de interações.
+As mesmas funcionalidades estarão disponíveis via chamados, requisições e formulários dentro do sistema.
+9. Conclusão
+O ManuTech visa otimizar a gestão de manutenção industrial e reposição de peças, unindo praticidade, automação e suporte personalizado.
+ Com uma arquitetura moderna e escalável, o sistema oferecerá eficiência operacional e melhoria na comunicação entre empresas e técnicos especializados.
