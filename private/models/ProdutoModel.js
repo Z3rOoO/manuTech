@@ -1,4 +1,5 @@
-import { create, read, update, deleteRecord, getConnection } from '../config/database.js';
+// import { create, read, update, deleteRecord, getConnection } from '../config/database.js';
+import db from '../config/database.js';
 
 // Model para operações com produtos
 class ProdutoModel {

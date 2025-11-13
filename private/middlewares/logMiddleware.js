@@ -1,4 +1,5 @@
-import { create } from '../config/database.js';
+// import { create } from '../config/database.js';
+import db from '../config/database.js';
 
 // Middleware para registrar logs de acesso
 export const logMiddleware = async (req, res, next) => {

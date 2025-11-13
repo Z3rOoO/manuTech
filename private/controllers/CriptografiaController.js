@@ -1,5 +1,5 @@
 import bcrypt from 'bcryptjs';
-import UsuarioModel from '../models/UsuarioModel.js';
+import * as UsuarioModel from '../models/UsuarioModel.js';
 
 /**
  * Controller Educativo para Demonstração de Criptografia de Senhas
