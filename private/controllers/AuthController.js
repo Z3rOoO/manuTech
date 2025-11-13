@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import UsuarioModel from '../models/UsuarioModel.js';
+import * as UsuarioModel from '../models/UsuarioModel.js';
 import { JWT_CONFIG } from '../config/jwt.js';
 
 // Controller para operações de autenticação
