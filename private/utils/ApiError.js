@@ -7,12 +7,15 @@ export class ApiError extends Error {
         this.timestamp = new Date().toISOString();
         this.name = 'ApiError';
         
-        // Mantém o stack trace
+        // Mantém o stack trace -- strack trace ( linha onde o erro ocorreu)
         Error.captureStackTrace(this, this.constructor);
     }
     
-    // Método estático para erros de validação
-    static validacao(mensagem, detalhes = null) {
+//lembrar de imxportar - import { ApiError } from '../utils/ApiError.js';
+// exemplo - throw ApiError.naoEncontrado("Usuário");
+
+    // Método estático para erros de validação        métodos estaticos sao pra adiantar erros,
+    static validacao(mensagem, detalhes = null) {    //  deixar de forma automatica
         return new ApiError(mensagem, 400, detalhes);
     }
     
