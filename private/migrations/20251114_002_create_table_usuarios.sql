@@ -2,7 +2,7 @@
 -- Data: 2025-01-15
 -- Descrição: Tabela para armazenar usuários do sistema
 
-USE produtos_api;
+USE dbmt;
 
 CREATE TABLE IF NOT EXISTS usuarios (
     id INT PRIMARY KEY AUTO_INCREMENT,
