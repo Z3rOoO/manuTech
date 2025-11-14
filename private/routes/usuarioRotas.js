@@ -1,29 +1,13 @@
-import express from 'express';
-import AuthController from '../controllers/AuthController.js';
+import { Router } from 'express';
+// 1. IMPORTAÇÃO CORRETA (default)
+import AuthController from '../controllers/AuthController.js'; 
 import { verificarToken } from '../middlewares/authMiddleware.js';
 
-const router = express.Router();
+const router = Router();
 
-// Rotas de usuários (apenas admin)
-router.get('/', verificarToken, AuthController.listarUsuarios);
-router.post('/', verificarToken, AuthController.criarUsuario);
-router.put('/:id', verificarToken, AuthController.atualizarUsuario);
-router.delete('/:id', verificarToken, AuthController.excluirUsuario);
-
-// Rotas OPTIONS para CORS (preflight requests)
-router.options('/', (req, res) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.sendStatus(200);
-});
-
-router.options('/:id', (req, res) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'PUT, DELETE, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.sendStatus(200);
-});
+// 2. Aponta para os métodos ESTÁTICOS da classe
+router.post("/login", AuthController.login);
+router.post("/registrar", AuthController.registrar);
+router.get("/perfil", verificarToken, AuthController.obterPerfil);
 
 export default router;
-
