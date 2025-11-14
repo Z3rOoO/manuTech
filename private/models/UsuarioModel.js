@@ -2,7 +2,7 @@
 import db from "../config/database.js"; 
 
 /**
- * Insere um novo usuário no banco de dados.
+ * coloca um novo usuário no banco de dados.
  * //sistema inserir um novo user no db, mas db.query pode servir para mexer no db pelo vsc
  */
 export async function criarUsuario(username, email, hash) {

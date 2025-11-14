@@ -106,12 +106,21 @@ function sanitizeRequestBody(body) {
     return sanitized;
 }
 
-// Função para salvar o log no banco de dados
+/**
+ * Função helper para salvar o log no banco de dados.
+ * É chamada pelo logMiddleware de forma assíncrona.
+ */
 async function saveLog(logData) {
     try {
-        await create('logs', logData);
-    } catch (error) {
-        console.error('Erro ao inserir log no banco:', error);
+        // A CORREÇÃO QUE FIZEMOS (agora DENTRO da função correta)
+        const sql = "INSERT INTO logs SET ?";
+        await db.query(sql, [logData]); // Executa a query com o db
+
+        console.log('Log salvo no banco com sucesso');
+
+    } catch (dbError) {
+        // Não quebre a aplicação se o log falhar, apenas avise no console
+        console.error('Erro ao inserir log no banco (dentAF da saveLog):', dbError.message);
     }
 }
 
