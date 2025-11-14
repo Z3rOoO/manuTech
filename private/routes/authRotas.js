@@ -1,38 +1,13 @@
-import express from 'express';
-import AuthController from '../controllers/AuthController.js';
+import { Router } from 'express';
+// 1. IMPORTAÇÃO CORRETA (default)
+import AuthController from '../controllers/AuthController.js'; 
 import { verificarToken } from '../middlewares/authMiddleware.js';
 
-const router = express.Router();
+const router = Router();
 
-// Rotas públicas de autenticação
-router.post('/login', AuthController.login);
-router.post('/registrar', AuthController.registrar);
-
-// Rotas protegidas (precisam de autenticação)
-router.get('/perfil', verificarToken, AuthController.obterPerfil);
-
-// Rotas OPTIONS para CORS (preflight requests)
-router.options('/login', (req, res) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'POST, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    res.sendStatus(200);
-});
-
-router.options('/registrar', (req, res) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'POST, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    res.sendStatus(200);
-});
-
-router.options('/perfil', (req, res) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.sendStatus(200);
-});
+// 2. Aponta para os métodos ESTÁTICOS da classe
+router.post("/login", AuthController.login);
+router.post("/registrar", AuthController.registrar);
+router.get("/perfil", verificarToken, AuthController.obterPerfil);
 
 export default router;
-
-
