@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     max-width: 100%;
     overflow-x: hidden;
     box-sizing: border-box;
@@ -16,24 +17,47 @@ header {
     border-bottom: 2px solid #ff751f;
 }
 
-.lista-header{
+.logo-manutech {
+    margin-top: 0.7%;
+    margin-bottom: 0.7%;
+}
+
+.lista-header {
     justify-content: center !important;
+    margin-left: 27vw
+
+}
+
+.titulo-geral h1 {
+    font-size: 5.5vh;
+    color: #ff751f;
+    font-weight: 700;
+}
+
+.fundo {
+    background: transparent url("../images/background.png") repeat-x scroll 0 0;
+    background-size: cover;
+    background-position: top;
+    padding-top: 8vw;
+    height: 9vh;
 }
 
 .header-icons {
     display: flex;
     width: 8vw;
-    margin-right: 2.5%;
+    margin-right: 3.5%;
 }
 
-
+.botoes-header {
+    font-size: 2.2vh;
+}
 
 .header-icons a {
     display: inline-block;
 }
 
 .icons-header {
-    width: 3vw;
+    width: 2.6vw;
 }
 
 main {
@@ -42,17 +66,31 @@ main {
 }
 
 .content-geral {
-    margin-top: 3%;
+    margin-top: 1%;
 }
 
 .card {
     border: none;
     background-color: #ff751f;
+    width: 28% !important;
+}
+
+.card:hover {
+    -moz-transform: scale(1.03);
+    -webkit-transform: scale(1.03);
+    -o-transform: scale(1.03);
+    -ms-transform: scale(1.03);
+    transform: scale(1.03);
+    transition: 0.3s;
+    cursor: pointer;
 }
 
 .card-body {
-    padding-top: 5%;
-    padding-bottom: 5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin: 0%;
+    justify-content: center;
+    display: flex;
 }
 
 .cards-produtos {
@@ -60,3 +98,25 @@ main {
     justify-content: space-around;
     margin-top: 3%;
 }
+
+.card-text {
+    color: #ffffff;
+    font-size: 3vh;
+    font-weight: 600;
+}
+
+footer {
+    margin-top: 4%;
+    background: #FF751F;
+    width: 100%;
+}
+
+.marca-footer {
+
+}
+
+.logo-footer {
+    width: 20%;
+}
+
+
