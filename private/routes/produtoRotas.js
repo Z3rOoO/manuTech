@@ -1,41 +1,19 @@
-import express from 'express';
+import { Router } from 'express';
 import ProdutoController from '../controllers/ProdutoController.js';
 import { verificarToken } from '../middlewares/authMiddleware.js';
+// Se der erro de "Module not found" aqui, é porque falta criar esse arquivo:
 import { uploadImagens, handleUploadError } from '../middlewares/uploadMiddleware.js';
 
-const router = express.Router();
+const router = Router();
 
-// Rotas públicas (não precisam de autenticação)
+// Rotas Públicas
 router.get('/', ProdutoController.listarTodos);
 router.get('/:id', ProdutoController.buscarPorId);
 
-// Rotas protegidas (precisam de autenticação)
+// Rotas Protegidas + Upload
 router.post('/', verificarToken, uploadImagens.single('imagem'), handleUploadError, ProdutoController.criar);
 router.post('/upload', verificarToken, uploadImagens.single('imagem'), handleUploadError, ProdutoController.uploadImagem);
 router.put('/:id', verificarToken, uploadImagens.single('imagem'), handleUploadError, ProdutoController.atualizar);
 router.delete('/:id', verificarToken, ProdutoController.excluir);
 
-// Rotas OPTIONS para CORS (preflight requests)
-router.options('/', (req, res) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.status(200).send();
-});
-
-router.options('/upload', (req, res) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'POST, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.status(200).send();
-});
-
-router.options('/:id', (req, res) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET, PUT, DELETE, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.status(200).send();
-});
-
 export default router;
-
