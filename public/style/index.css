@@ -22,20 +22,68 @@
     margin-right: 50px !important;
 }
 video{
-    display: block  ;
+   position: absolute;
     width: 100%;
     z-index: -1;
     overflow: hidden;
 }
 .txt-video-index{
+    width: 600px;
+    font-size: 4vw;
     position: absolute;
-    font-size: 70px;
-    font-weight: bold;
-    top: 50%;
-    left: 20% ;
-    transform: translate(-50%, -50%);
+    top: 45%;
+    left: 50%;
+    transform: translate(-131%, -50%);
     color: white;
     text-align: left;
     z-index: 10;
-    text-decoration-thickness: initial;
+    font-weight: bold;
+}
+@media (max-width: 576px) {
+    .txt-video-index {
+        position: absolute;
+        width: 70px;
+        margin-bottom: 50px;
+    }
+}
+.button-index-banner{
+    position: absolute;
+    width: 350px;
+    height: 110px;
+    border: none;
+    background-color: #0043ad;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    margin-left: 10.2rem;
+    margin-top: 30%;
+}
+@media (max-width: 576px) {
+    .button-index-banner {
+        width: 180px;
+        height: 70px;
+        font-size: 20px;
+    }
+}
+.button-index-banner:hover{
+    color: #0043ad;
+    background-color: #ffffff;
+}
+.title-conhecanossotrabalho{
+    color: #0043ad;
+    font-weight: bold;
+    margin-left: 8%;
+    margin-top: 1150px;
+}
+.txt-conhecanossotrabalho{
+    margin-top: 3%;
+    font-size: 25px;
+    width: 85%;
+    justify-self: center;
+}
+.title-porqueescolheramanutech{
+    color: #0043ad;
+    justify-self: center;
+    font-weight: bold;
+    margin-top: 7%;
 }
