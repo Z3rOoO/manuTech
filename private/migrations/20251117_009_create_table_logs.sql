@@ -25,3 +25,6 @@ CREATE INDEX idx_logs_data_hora ON logs(data_hora);
 CREATE INDEX idx_logs_rota ON logs(rota);
 CREATE INDEX idx_logs_metodo ON logs(metodo);
 CREATE INDEX idx_logs_status_code ON logs(status_code);
+
+
+

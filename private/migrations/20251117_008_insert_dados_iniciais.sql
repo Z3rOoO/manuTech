@@ -12,8 +12,22 @@ INSERT INTO usuarios (nome, email, senha, empresa, cargo, tipo) VALUES
 ('USUARIO Souza', 'user@email.com', '$2a$10$BLAcJu1irAzg06WbtoLoPe0RA.hkfZ0oJ25KYARPkHWRweJuWBALy', 'mercedes-benz', 'supervisor', 'USER');
 
 -- Inserir manutentor iniciais
-INSERT INTO usuarios (nome, email, senha, telefone, cargo, tipo) VALUES
-('Administrador', 'manutentor@email.com', '$2a$10$BLAcJu1irAzg06WbtoLoPe0RA.hkfZ0oJ25KYARPkHWRweJuWBALy', '11955978209', 'administrado', 'ADMIN');
+INSERT INTO manutentor (nome, email, senha, telefone) VALUES
+('manutenor gomes', 'manutentor@email.com', '$2a$10$BLAcJu1irAzg06WbtoLoPe0RA.hkfZ0oJ25KYARPkHWRweJuWBALy', '11955978209');
+
+-- Inserir categorias iniciais
+INSERT INTO categoria (nome) VALUES
+('Pastilhas'),
+('Furação'),
+('Fresamento'),
+('Torneamento'),
+('Rosqueamento'),
+('Motores'),
+('Polias'),
+('Correias'),
+('Engrenagens');
+
+
 -- Inserir produtos iniciais
 INSERT INTO produtos (nome, descricao, preco, categoria, imagem) VALUES
 ('Smartphone Galaxy', 'Celular Samsung Galaxy com 128GB', 1299.99, 'Eletrônicos', 'smartphone.jpg'),
