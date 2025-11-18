@@ -106,60 +106,48 @@ main {
     font-weight: 600;
 }
 
-footer {
-    margin-top: 4%;
-    background: #FF751F;
-    width: 100%;
-    color: #ffffff;
-    height: 20vw;
-}
-
-.content-footer {
+.footer-laranja {
+    background-color: #ff751f;
+    color: #ffffff!important;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    margin-bottom: 0%;
     justify-content: center;
-    display: flex;
 }
 
 .marca-footer {
-    width: 40%;
-    padding-top: 7%;
-    padding-left: 12%;
-}
-
-.marca-footer p {
-    font-size: 3vh;
-    margin-left: 11%;
-}
-
-.resto-footer {
-    width: 60%;
-    margin-top: 2%;
     align-items: center;
-    display: flex-start;
+    text-align: center;
 }
 
-.nicho-footer {
-    justify-content: center;
-    width: 100%;
-    margin-top: 3%;
+.texto-footer {
+    color: #ffffff!important;
+}
+
+.itens-footer {
     display: flex;
+    margin-top: 1%;
 }
 
-.nicho-footer p {
-    font-size: 2.5vh;
+.itens-footer p {
     display: grid;
     align-items: center;
-    margin-bottom: 0%;
-    margin-left: 2%;
+    font-size: 2vh;
 }
 
-.logo-footer {
-    width: 80%;
+.list-footer {
+    width: 40%;
+}
+
+.textinhos-footer {
+    align-items: center;
+    display: grid;
+}
+
+.textinhos-footer p {
+    margin: 0%;
 }
 
 .icons-footer {
-    width: 5%;
-}
-
-.pinLocal-footer {
-    width: 4%;
+    width: 10%;
 }
