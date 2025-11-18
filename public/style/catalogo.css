@@ -9,7 +9,7 @@ body {
     width: 100vw;
     justify-content: space-between;
     display: flex;
-    margin-left: 2%;
+    padding-left: 2%;
     margin-right: 2%;
 }
 
@@ -24,7 +24,7 @@ header {
 
 .lista-header {
     justify-content: center !important;
-    margin-left: 27vw
+    margin-left: 27vw;
 
 }
 
@@ -40,6 +40,7 @@ header {
     background-position: top;
     padding-top: 8vw;
     height: 9vh;
+    margin-top: 2vw;
 }
 
 .header-icons {
@@ -109,14 +110,56 @@ footer {
     margin-top: 4%;
     background: #FF751F;
     width: 100%;
+    color: #ffffff;
+    height: 20vw;
+}
+
+.content-footer {
+    justify-content: center;
+    display: flex;
 }
 
 .marca-footer {
+    width: 40%;
+    padding-top: 7%;
+    padding-left: 12%;
+}
 
+.marca-footer p {
+    font-size: 3vh;
+    margin-left: 11%;
+}
+
+.resto-footer {
+    width: 60%;
+    margin-top: 2%;
+    align-items: center;
+    display: flex-start;
+}
+
+.nicho-footer {
+    justify-content: center;
+    width: 100%;
+    margin-top: 3%;
+    display: flex;
+}
+
+.nicho-footer p {
+    font-size: 2.5vh;
+    display: grid;
+    align-items: center;
+    margin-bottom: 0%;
+    margin-left: 2%;
 }
 
 .logo-footer {
-    width: 20%;
+    width: 80%;
 }
 
+.icons-footer {
+    width: 5%;
+}
 
+.pinLocal-footer {
+    width: 4%;
+}
