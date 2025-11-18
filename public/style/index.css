@@ -113,3 +113,54 @@ video{
     height: 70%;
     margin-top: 15%;
 }
+.manutencao-loja{
+    position: relative;
+}
+.txt-manutencao-loja{
+    position: absolute;
+    inset: 0;
+    margin-top: 8%;
+    margin-left: 15%;
+    font-size: 2.1vw;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 2px rgb(0, 3, 145);
+}
+.txt-manutencao-loja2{
+    position: absolute;
+    inset: 0;
+    margin-top: 8%;
+    margin-left: 72%;
+    font-size: 2.1vw;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 2px rgb(187, 121, 0);
+}
+.button-solicitarvisita{
+    background-color: #0043ad;
+    border: none;
+    color: white;
+    margin-top: 29%;
+    margin-left: 12%;
+    width: 25%;
+    height: 10%;
+    font-weight: bold;
+    font-size: 1vw;
+    border-radius: 35px;
+    position: absolute;
+    inset: 0;                     /* ocupa toda a div */
+}
+.button-vercatalogo{
+    background-color: #ff751f;
+    border: none;
+    color: white;
+    margin-top: 29%;
+    margin-left: 63%;
+    width: 25%;
+    height: 10%;
+    font-weight: bold;
+    font-size: 1vw;
+    border-radius: 35px;
+    position: absolute;
+    inset: 0;   
+}
