@@ -10,8 +10,8 @@
     <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-    <link rel="stylesheet" href="/public/style/style.css">
-    <link rel="stylesheet" href="/public/style/index.css">
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/index.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
     <link rel="icon" href="/public/images/icons/icon_manutech.svg">
@@ -20,8 +20,8 @@
 <body>
     <header>
         <nav class="navbar bg-body-tertiary header-index">
-            <img class="logo-header-index" src="/public/images/icons/logo-manutech-white.png">
-            <a href="/public/html/login.html"><button class="btn btn-outline-success botao-header-index"
+            <img class="logo-header-index" src="../images/icons/logo-manutech-white.png">
+            <a href="../html/login.html"><button class="btn btn-outline-success botao-header-index"
                     type="submit">Entrar</button></a>
     </header>
 
@@ -30,7 +30,7 @@
             <div class="row">
                 <div class="col">
                     <video autoplay muted loop playsinline>
-                        <source src="/public/images/videos/home-welcome.crdownload" type="video/mp4">
+                        <source src="../images/videos/home-welcome.crdownload" type="video/mp4">
                     </video>
                 </div>
                 <div class="col-12 col-md-3 col-sm-1 col-lg-4">
@@ -41,37 +41,62 @@
             </div>
             <div class="row">
                 <div class="col-12 col-md-3 col-sm-2 col-lg-5>
-                    <a href=" /public/html/chamado.html"><button class="button-index-banner">Solicitar
+                    <a href="../html/chamado.html"><button class="button-index-banner">Solicitar
                         manutenção</button></a>
                 </div>
             </div>
         </div>
-        
+
         <h1 class="title-conhecanossotrabalho">Conheça nosso trabalho</h1>
-        <p class="txt-conhecanossotrabalho">A Manutech é uma empresa especializada em manutenção industrial e fornecimento de ferramentas profissionais. Nosso objetivo é manter as operações de nossos clientes sempre em pleno funcionamento, oferecendo soluções completas em manutenção mecânica, elétrica e hidráulica, além de um amplo portfólio de ferramentas industriais das marcas mais renomadas do mercado.
-            Nós acreditamos que a eficiência industrial começa com a confiabilidade dos equipamentos. Por isso, trabalhamos com foco em qualidade, segurança e inovação, buscando sempre superar as expectativas de cada cliente.
-            Contamos com uma equipe técnica altamente qualificada e em constante aperfeiçoamento, pronta para atender projetos de diferentes portes e complexidades. Nossa estrutura moderna e nossos processos otimizados nos permitem agir com agilidade e precisão, minimizando paradas e garantindo o melhor desempenho das operações industriais.
-            </p>
+        <p class="txt-conhecanossotrabalho">A Manutech é uma empresa especializada em manutenção industrial e
+            fornecimento de ferramentas profissionais. Nosso objetivo é manter as operações de nossos clientes sempre em
+            pleno funcionamento, oferecendo soluções completas em manutenção mecânica, elétrica e hidráulica, além de um
+            amplo portfólio de ferramentas industriais das marcas mais renomadas do mercado.
+            Nós acreditamos que a eficiência industrial começa com a confiabilidade dos equipamentos. Por isso,
+            trabalhamos com foco em qualidade, segurança e inovação, buscando sempre superar as expectativas de cada
+            cliente.
+            Contamos com uma equipe técnica altamente qualificada e em constante aperfeiçoamento, pronta para atender
+            projetos de diferentes portes e complexidades. Nossa estrutura moderna e nossos processos otimizados nos
+            permitem agir com agilidade e precisão, minimizando paradas e garantindo o melhor desempenho das operações
+            industriais.
+        </p>
 
-            <h1 class="title-porqueescolheramanutech">Por que escolher a Manutech?</h1>
+        <h1 class="title-porqueescolheramanutech">Por que escolher a Manutech?</h1>
 
-            <div class="container ">
-                <div class="row topicos-index">
-                    <div class="col-4 section-teste"><img src="/public/images/icons/icon-home-ferramenta.png" class="img-fluid img-topicos">
+        <div class="container">
+            <div class="row topicos-index">
+                <div class="col-4 section-teste"><img src="../images/icons/icon-home-ferramenta.png"
+                        class="img-fluid img-topicos">
                     <h1 class="title-topicos-index">Experiência e Profissionalismo</h1>
-                    <p class="txt-topicos-index">Contamos com uma equipe altamente qualificada e com anos de experiência no setor industrial, garantindo soluções precisas, seguras e dentro dos prazos.</p>
-                    </div>
-                    <div class="col-4 section-teste"><img src="/public/images/icons/icon-home-comunicacao.png" class="img-fluid img-topicos">
+                    <p class="txt-topicos-index">Contamos com uma equipe altamente qualificada e com anos de experiência
+                        no setor industrial, garantindo soluções precisas, seguras e dentro dos prazos.</p>
+                </div>
+                <div class="col-4 section-teste"><img src="../images/icons/icon-home-comunicacao.png"
+                        class="img-fluid img-topicos">
                     <h1 class="title-topicos-index">Atendimento Rápido e Eficiente</h1>
-                    <p class="txt-topicos-index">Priorizamos agilidade no atendimento e execução dos serviços, minimizando o tempo de parada das operações e maximizando a produtividade do cliente.</p>
-                    </div>
-                    <div class="col-4 section-teste"><img src="/public/images/icons/icon-home-seguranca.png" class="img-fluid img-topicos">
+                    <p class="txt-topicos-index">Priorizamos agilidade no atendimento e execução dos serviços,
+                        minimizando o tempo de parada das operações e maximizando a produtividade do cliente.</p>
+                </div>
+                <div class="col-4 section-teste"><img src="../images/icons/icon-home-seguranca.png"
+                        class="img-fluid img-topicos">
                     <h1 class="title-topicos-index">Qualidade e Segurança</h1>
-                    <p class="txt-topicos-index">Utilizamos materiais de primeira linha e seguimos rigorosos padrões de segurança e qualidade, garantindo resultados duradouros e confiáveis.</p>
-                    </div>
+                    <p class="txt-topicos-index">Utilizamos materiais de primeira linha e seguimos rigorosos padrões de
+                        segurança e qualidade, garantindo resultados duradouros e confiáveis.</p>
                 </div>
             </div>
+        </div>
 
+        <div class="container manutencao-loja">
+            <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                    <img src="../images/ilustracoes/img-home-manutencao.png" class="img-fluid">
+                    <p>Manutenção</p>
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                    <img src="../images/ilustracoes/img-home-loja.png" class="img-fluid">
+                    <p>Loja</p>
+                </div>
+            </div>
     </main>
 
     <footer>
