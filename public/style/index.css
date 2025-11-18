@@ -49,7 +49,7 @@ video{
 .button-index-banner{
     position: absolute;
     width: 350px;
-    height: 110px;
+    height: 90px;
     border: none;
     background-color: #0043ad;
     color: white;
@@ -86,4 +86,23 @@ video{
     justify-self: center;
     font-weight: bold;
     margin-top: 7%;
+}
+.topicos-index{
+    margin-top: 5%;
+}
+.txt-topicos-index{
+    text-align: center;
+    justify-self: center;
+    width: 60%;
+    align-items: center ;
+}
+.title-topicos-index{
+    color: #0043ad;
+    font-weight: bold;
+    font-size: 25px;
+    justify-self: center;
+    margin-top: 6%;
+}
+.topicos-index img{
+    margin-left: 27%;
 }
