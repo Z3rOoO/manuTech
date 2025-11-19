@@ -12,5 +12,3 @@ CREATE TABLE Produto (
     imagem VARCHAR(255), 
     FOREIGN KEY (categoria_id) REFERENCES Categoria (categoria_id)
 );
-
-ALTER TABLE Produto ADD COLUMN imagem VARCHAR(255);
