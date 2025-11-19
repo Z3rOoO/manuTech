@@ -1,56 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cadastro ManuTech</title>
 </head>
-<script>
-    
-const form= document.getElementyById('form-cadastro')
-
-form.addEventListener('submit', async (event) =>{
-const nome = document.getElementById('nome').value
-const email = document.getElementById('email').value
-const senha = document.getElementById('senha').senha
-
-if(senha.lenght < 8 ){ //lembrar de aumentar a verificação de senha
-	alert("A senha precisa ter pelo menos 8 caracter")
-	return;
-}
-
-try{
-const resposta = await fetch ('/api/auth/registrar',{
-method: 'POST',
-headers:{
-'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ nome, email, senha })
-            });
-
-            const resultado = await resposta.json();
-
-            
-            if (resultado.sucesso) {
-                alert('Conta criada com sucesso! Agora faça login.');
-                               window.location.href = '/manutech/login';
-            } else {
-                               alert('Erro ao cadastrar: ' + resultado.erro);
-            }
-
-        } catch (error) {
-            console.error('Erro:', error);
-            alert('Erro de conexão. Verifique se o servidor está ligado.');
-        }
-    });
-
-</script>
 <body>
     <form id="form-cadastro">
-    <input type="text" id="nome" placeholder="Nome" required>
-    <input type="email" id="email" placeholder="email" required>
-    <input type="password" id="senha" placeholder="senha" required>
-    <button type="submit">Cadastrar</button>
+        <input type="text" id="nome" placeholder="Nome" required>
+        <input type="email" id="email" placeholder="email" required>
+        <input type="password" id="senha" placeholder="senha" required>
+        
+        <input type="text" id="empresa" placeholder="Empresa vinculada" required>
+        <input type="text" id="cargo" placeholder="Cargo" required>
+        <input type="text" id="cnpj" placeholder="CNPJ" required>
+        
+        <button type="submit">Cadastrar</button>
     </form>
+
+    <script>
+      
+        const form = document.getElementById('form-cadastro');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+           
+            const senha = document.getElementById('senha').value; 
+
+           
+            if(senha.length < 8){ 
+                alert("A senha precisa ter pelo menos 8 caracteres");
+                return;
+            }
+
+            try {
+                const resposta = await fetch('/api/auth/registrar', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                   
+                    body: JSON.stringify({ nome, email, senha })
+                });
+
+                const resultado = await resposta.json();
+
+                if (resultado.sucesso) {
+                    alert('Conta criada com sucesso! Agora faça login.');
+                    window.location.href = '/manutech/login';
+                } else {
+                    alert('Erro ao cadastrar: ' + resultado.erro);     //erro(api)
+                }
+
+            } catch (error) {
+                console.error('Erro:', error);
+                alert('Erro de conexão. Verifique se o servidor está ligado.');
+            }
+        });
+    </script>
 </body>
 </html>
