@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .input-tipo1-chamado{
     border-radius: 20px;
     border: 2px solid #0043ad;
@@ -10,4 +11,53 @@
     color: white;
     border-radius: 20px;
     width: 500px;
+=======
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+.navbar {
+    width: 100vw;
+    justify-content: space-between;
+    display: flex;
+    padding-left: 2%;
+    margin-right: 2%;
+}
+
+header {
+    border-bottom: 2px solid #0043ad;
+}
+
+.logo-manutech {
+    margin-top: 0.7%;
+    margin-bottom: 0.7%;
+    width: 12%;
+}
+
+.lista-header {
+    justify-content: center !important;
+    margin-left: 27vw;
+
+}
+
+.header-icons {
+    display: flex;
+    width: 8vw;
+    margin-right: 3.5%;
+}
+
+.botoes-header {
+    font-size: 2.2vh;
+}
+
+.header-icons a {
+    display: inline-block;
+}
+
+.icons-header {
+    width: 2.6vw;
+>>>>>>> a5ff1080e97e84c57468914d82eb4f509e4345b0
 }
