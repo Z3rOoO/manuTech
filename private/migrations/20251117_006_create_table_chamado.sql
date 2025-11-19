@@ -8,7 +8,7 @@ CREATE TABLE chamado (
     cliente_id INTEGER NOT NULL,
     data_chamado DATE NOT NULL,
     descricao TEXT NOT NULL,
-    status_code ENUM('VISITA','AVALIACAO', 'ORCAMENTO', 'MANUTENCAO') NOT NULL DEFAULT 'VISITA',
+    status_code ENUM('CRIACAO','VISITA','AVALIACAO', 'ORCAMENTO', 'MANUTENCAO') NOT NULL DEFAULT 'VISITA',
     FOREIGN KEY (cliente_id) REFERENCES usuarios (id)
 );
 
