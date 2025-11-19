@@ -1,0 +1,13 @@
+.input-tipo1-chamado{
+    border-radius: 20px;
+    border: 2px solid #0043ad;
+    width: 500px;
+    height: 40px;
+}
+.input-tipo2-chamado{
+    border: none;
+    background-color: #0043ad;
+    color: white;
+    border-radius: 20px;
+    width: 500px;
+}
