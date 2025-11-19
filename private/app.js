@@ -70,6 +70,7 @@ siteRouter.get('/carrinho', (req, res) => { res.sendFile(path.join(__dirname, '.
 siteRouter.get('/produto', (req, res) => { res.sendFile(path.join(__dirname, '../public/html/produto.html')); });
 siteRouter.get('/catalogo', (req, res) => { res.sendFile(path.join(__dirname, '../public/html/catalogo.html')); });
 siteRouter.get('/painelAdmin', (req, res) => { res.sendFile(path.join(__dirname, '../public/html/painelAdmin.html')); });
+siteRouter.get('/teste', (req, res) => { res.sendFile(path.join(__dirname, '../public/html/teste.html')); });
 
 
 app.use('/manutech', siteRouter); //pega as rotas anteriores e coloca manutech na frente
@@ -82,7 +83,7 @@ app.get('/', (req, res) => {
 app.use('*', (req,res)=>{
  res.status(404).json({
  sucesso:false,
- erro: `Página não encontrada`,  mensagem: `A página/rota ${req.method} ${req.originalUrl} não foi encontrada`  //${req.method} ${req.originalUrl}  - pega a rota/pag do usuario
+ erro: `Página não encontrada`, mensagem: `A página/rota ${req.method} ${req.originalUrl} não foi encontrada` //${req.method} ${req.originalUrl}  - pega a rota/pag do usuario
  })
 })
 

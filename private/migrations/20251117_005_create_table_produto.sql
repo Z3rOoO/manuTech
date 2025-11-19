@@ -9,6 +9,7 @@ CREATE TABLE Produto (
     descricao TEXT NOT NULL,
     preco DECIMAL(10, 2) NOT NULL,
     categoria_id INTEGER,
+    imagem VARCHAR(255), 
     FOREIGN KEY (categoria_id) REFERENCES Categoria (categoria_id)
 );
 

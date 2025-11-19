@@ -29,9 +29,16 @@ INSERT INTO categoria (nome) VALUES
 
 
 -- Inserir produtos iniciais
-INSERT INTO produtos (nome, descricao, preco, categoria, imagem) VALUES
-('Smartphone Galaxy', 'Celular Samsung Galaxy com 128GB', 1299.99, 'Eletrônicos', 'smartphone.jpg'),
-('Notebook Dell', 'Notebook Dell Inspiron 15 polegadas', 2499.99, 'Eletrônicos', 'notebook.jpg'),
-('Camiseta Polo', 'Camiseta polo masculina azul', 89.90, 'Roupas', 'camiseta.jpg'),
-('Livro JavaScript', 'Livro sobre programação JavaScript', 79.90, 'Livros', 'livro.jpg');
+INSERT INTO produto (nome, descricao, preco, categoria_id, imagem) VALUES
+('Smartphone Galaxy', 'Celular Samsung Galaxy com 128GB', 1299.99, 1, 'smartphone.jpg'),
+('Notebook Dell', 'Notebook Dell Inspiron 15 polegadas', 2499.99, 2, 'notebook.jpg'),
+('Camiseta Polo', 'Camiseta polo masculina azul', 89.90, 3, 'camiseta.jpg'),
+('Livro JavaScript', 'Livro sobre programação JavaScript', 79.90, 4, 'livro.jpg');
+
+
+-- Inserir chamados iniciais
+INSERT INTO chamado (cliente_id, data_chamado, descricao, status_code) VALUES
+( 1, '2025-01-10', 'testando algo agora', 'VISITA'),
+( 2, '2025-01-11', 'Problema com o sistema de pagamento.', 'ORCAMENTO'),
+( 3, '2025-01-12', 'Falha na geração de relatórios.', 'MANUTENCAO');
 
