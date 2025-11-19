@@ -5,6 +5,53 @@ body{
     font-family: Nunito, sans-serif;
 }
 /* --------------------------------------------------------------------------------- HEADERS ------------------------------------------------------------------------- */
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+.navbar {
+    width: 100vw;
+    justify-content: space-between;
+    display: flex;
+    padding-left: 2%;
+    margin-right: 2%;
+}
+
+header {
+    border-bottom: 2px solid #0043ad;
+}
+
+.logo-manutech {
+    margin-top: 0.7%;
+    margin-bottom: 0.7%;
+    width: 12%;
+}
+
+.lista-header {
+    justify-content: center !important;
+    margin-left: 27vw;
+
+}
+
+.header-icons {
+    display: flex;
+    width: 8vw;
+    margin-right: 3.5%;
+}
+
+.botoes-header {
+    font-size: 2.2vh;
+}
+
+.header-icons a {
+    display: inline-block;
+}
+
+.icons-header{
+    width: 2.6vw;
+}
 /* --------------------------------------------------------------------------------- CHATBOX ------------------------------------------------------------------------- */
 .chatbox{
     width: 420px;
