@@ -4,11 +4,12 @@
 USE dbmt;
 
 CREATE TABLE chamado (
-    chamado_id INTEGER PRIMARY KEY,
+    chamado_id INT PRIMARY KEY AUTO_INCREMENT,
     cliente_id INTEGER NOT NULL,
     data_chamado DATE NOT NULL,
     descricao TEXT NOT NULL,
     status_code ENUM('VISITA','AVALIACAO', 'ORCAMENTO', 'MANUTENCAO') NOT NULL DEFAULT 'VISITA',
     FOREIGN KEY (cliente_id) REFERENCES usuarios (id)
 );
+
 

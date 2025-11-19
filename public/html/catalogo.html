@@ -12,29 +12,29 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <link rel="stylesheet" href="../style/style.css" />
     <link rel="stylesheet" href="../style/catalogo.css" />
+
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="/public/images/icons/icon_manutech.svg">
 </head>
 
 
 <body>
-    <header>
+    <header class="fixed-top">
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
-            <img src="../images/icons/logo-manutech-orange.png">
+            <img src="../images/icons/logo-manutech-orange.png" class="logo-manutech">
             <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse lista-header" style="margin-left: 27vw;" id="collapsibleNavId">
+            <div class="collapse navbar-collapse lista-header" id="collapsibleNavId">
                 <ul class="navbar-nav me-auto mt-2 mt-lg-0 botoes-header">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Manutenção</a>
+                        <a class="nav-link" href="chamado.html">Manutenção</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Reposição</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Orçamento</a>
                     </li>
                 </ul>
             </div>
@@ -47,6 +47,8 @@
         </nav>
     </header>
 
+    <div class="fundo"></div>
+
 
     <main>
         <div class="content-geral">
@@ -55,20 +57,20 @@
             </div>
             <div>
                 <div class="cards-produtos">
-                    <div class="card" style="width: 18rem;">
-                        <img src="../images/ilustracoes/pastilhas.png" class="card-img-top"">
+                    <div class="card">
+                        <img src="../images/ilustracoes/pastilhas.png" class="card-img-top">
                         <div class="card-body">
                             <p class="card-text">Pastilhas</p>
                         </div>
                     </div>
-                    <div class="card" style="width: 18rem;">
-                        <img src="../images/ilustracoes/furacao.png" class="card-img-top"">
+                    <div class="card">
+                        <img src="../images/ilustracoes/furacao.png" class="card-img-top">
                         <div class="card-body">
                             <p class="card-text">Furação</p>
                         </div>
                     </div>
-                    <div class="card" style="width: 18rem;">
-                        <img src="../images/ilustracoes/fresamento.png" class="card-img-top"">
+                    <div class="card">
+                        <img src="../images/ilustracoes/fresamento.png" class="card-img-top">
                         <div class="card-body">
                             <p class="card-text">Fresamento</p>
                         </div>
@@ -77,20 +79,20 @@
 
 
                 <div class="cards-produtos">
-                    <div class="card" style="width: 18rem;">
-                        <img src="../images/ilustracoes/torneamento.png" class="card-img-top"">
+                    <div class="card">
+                        <img src="../images/ilustracoes/torneamento.png" class="card-img-top">
                         <div class="card-body">
                             <p class="card-text">Torneamento</p>
                         </div>
                     </div>
-                    <div class="card" style="width: 18rem;">
-                        <img src="../images/ilustracoes/rosqueamento.png" class="card-img-top"">
+                    <div class="card">
+                        <img src="../images/ilustracoes/rosqueamento.png" class="card-img-top">
                         <div class="card-body">
                             <p class="card-text">Rosqueamento</p>
                         </div>
                     </div>
-                    <div class="card" style="width: 18rem;">
-                        <img src="../images/ilustracoes/motores.png" class="card-img-top"">
+                    <div class="card">
+                        <img src="../images/ilustracoes/motores.png" class="card-img-top">
                         <div class="card-body">
                             <p class="card-text">Motores</p>
                         </div>
@@ -99,20 +101,20 @@
 
 
                 <div class="cards-produtos">
-                    <div class="card" style="width: 18rem;">
-                        <img src="../images/ilustracoes/polias.png" class="card-img-top"">
+                    <div class="card">
+                        <img src="../images/ilustracoes/polias.png" class="card-img-top">
                         <div class="card-body">
                             <p class="card-text">Polias</p>
                         </div>
                     </div>
-                    <div class="card" style="width: 18rem;">
-                        <img src="../images/ilustracoes/correias.png" class="card-img-top"">
+                    <div class="card">
+                        <img src="../images/ilustracoes/correias.png" class="card-img-top">
                         <div class="card-body">
                             <p class="card-text">Correias</p>
                         </div>
                     </div>
-                    <div class="card" style="width: 18rem;">
-                        <img src="../images/ilustracoes/engrenagens.png" class="card-img-top"">
+                    <div class="card">
+                        <img src="../images/ilustracoes/engrenagens.png" class="card-img-top">
                         <div class="card-body">
                             <p class="card-text">Engrenagens</p>
                         </div>
@@ -123,13 +125,51 @@
     </main>
 
 
+    <footer class="row row-cols-1 row-cols-sm-2 d-flex row-cols-md-5 py-5 my-5 border-top footer-laranja ">
+        <div class="col mb-3 marca-footer">
+            <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none"
+                aria-label="Bootstrap">
+                <img src="../images/icons/logo-manutech-white.png" class="bi me-2" width="100%" aria-hidden="true"> </a>
+            <p class="text-body-secondary texto-footer">Manutenção e reparo</p>
+        </div>
 
 
-    <footer>
-        <!-- place footer here -->
+
+        <div class="col mb-6 list-footer">
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2 itens-footer">
+                    <div class="row">
+                        <div class="col icons-footer">
+                            <img src="../images/icons/icon-whatsapp.png" style="width: 14%;">
+                        </div>
+                        <div class="col textinhos-footer">
+                            <p>(11) 95597-8209</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item mb-2 itens-footer">
+                    <div class="row">
+                        <div class="col icons-footer">
+                            <img src="../images/icons/icon-telefone.png" style="width: 12%;">
+                        </div>
+                        <div class="col textinhos-footer">
+                            <p>(11) 95597-8209</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item mb-2 itens-footer">
+                    <div class="row div-endereco">
+                        <div class="col icons-footer">
+                            <img src="../images/icons/icon-pinLocal.png" style="width: 7%;">
+                        </div>
+                        <div class="col textinhos-footer">
+                            <p>R. Santo André, 680 - Boa Vista, São Caetano do Sul - SP</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </footer>
-
-
 
 
 

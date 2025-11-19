@@ -4,6 +4,9 @@
 USE dbmt;
 
 CREATE TABLE Categoria (
-    categoria_id INTEGER PRIMARY KEY,
+    categoria_id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(50) NOT NULL
 );
+
+
+

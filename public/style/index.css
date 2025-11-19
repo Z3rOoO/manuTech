@@ -22,20 +22,146 @@
     margin-right: 50px !important;
 }
 video{
-    display: block  ;
+   position: absolute;
     width: 100%;
     z-index: -1;
     overflow: hidden;
 }
 .txt-video-index{
+    width: 600px;
+    font-size: 4vw;
     position: absolute;
-    font-size: 70px;
-    font-weight: bold;
-    top: 50%;
-    left: 20% ;
-    transform: translate(-50%, -50%);
+    top: 45%;
+    left: 50%;
+    transform: translate(-131%, -50%);
     color: white;
     text-align: left;
     z-index: 10;
-    text-decoration-thickness: initial;
+    font-weight: bold;
 }
+@media (max-width: 576px) {
+    .txt-video-index {
+        position: absolute;
+        width: 70px;
+        margin-bottom: 50px;
+    }
+}
+.button-index-banner{
+    position: absolute;
+    width: 350px;
+    height: 90px;
+    border: none;
+    background-color: #0043ad;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    margin-left: 10.2rem;
+    margin-top: 30%;
+}
+@media (max-width: 576px) {
+    .button-index-banner {
+        width: 180px;
+        height: 70px;
+        font-size: 20px;
+    }
+}
+.button-index-banner:hover{
+    color: #0043ad;
+    background-color: #ffffff;
+}
+.title-conhecanossotrabalho{
+    color: #0043ad;
+    font-weight: bold;
+    margin-left: 8%;
+    margin-top: 1150px;
+}
+.txt-conhecanossotrabalho{
+    margin-top: 3%;
+    font-size: 25px;
+    width: 85%;
+    justify-self: center;
+}
+.title-porqueescolheramanutech{
+    color: #0043ad;
+    justify-self: center;
+    font-weight: bold;
+    margin-top: 7%;
+}
+.topicos-index{
+    margin-top: 5%;
+}
+.txt-topicos-index{
+    text-align: center;
+    justify-self: center;
+    width: 70%;
+    align-items: center ;
+    font-size: 1vw;
+}
+.title-topicos-index{
+    color: #0043ad;
+    font-weight: bold;
+    font-size: 25px;
+    justify-self: center;
+    margin-top: 6%;
+}
+.topicos-index img{
+    margin-left: 27%;
+}
+.manutencao-loja img{
+    border-radius: 15px;
+    width: 100%;
+    height: 70%;
+    margin-top: 15%;
+}
+.manutencao-loja{
+    position: relative;
+}
+.txt-manutencao-loja{
+    position: absolute;
+    inset: 0;
+    margin-top: 8%;
+    margin-left: 15%;
+    font-size: 2.1vw;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 2px rgb(0, 3, 145);
+}
+.txt-manutencao-loja2{
+    position: absolute;
+    inset: 0;
+    margin-top: 8%;
+    margin-left: 72%;
+    font-size: 2.1vw;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 2px rgb(187, 121, 0);
+}
+.button-solicitarvisita{
+    background-color: #0043ad;
+    border: none;
+    color: white;
+    margin-top: 29%;
+    margin-left: 12%;
+    width: 25%;
+    height: 10%;
+    font-weight: bold;
+    font-size: 1vw;
+    border-radius: 35px;
+    position: absolute;
+    inset: 0;                     /* ocupa toda a div */
+}
+.button-vercatalogo{
+    background-color: #ff751f;
+    border: none;
+    color: white;
+    margin-top: 29%;
+    margin-left: 63%;
+    width: 25%;
+    height: 10%;
+    font-weight: bold;
+    font-size: 1vw;
+    border-radius: 35px;
+    position: absolute;
+    inset: 0;   
+}
+/* --------------------------------------------------------------------------------- CHATBOX ---------------------------------------------------------------------- */
