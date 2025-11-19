@@ -5,6 +5,53 @@ body{
     font-family: Nunito, sans-serif;
 }
 /* --------------------------------------------------------------------------------- HEADERS ------------------------------------------------------------------------- */
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+.navbar {
+    width: 100vw;
+    justify-content: space-between;
+    display: flex;
+    padding-left: 2%;
+    margin-right: 2%;
+}
+
+header {
+    border-bottom: 2px solid #0043ad;
+}
+
+.logo-manutech {
+    margin-top: 0.7%;
+    margin-bottom: 0.7%;
+    width: 12%;
+}
+
+.lista-header {
+    justify-content: center !important;
+    margin-left: 27vw;
+
+}
+
+.header-icons {
+    display: flex;
+    width: 8vw;
+    margin-right: 3.5%;
+}
+
+.botoes-header {
+    font-size: 2.2vh;
+}
+
+.header-icons a {
+    display: inline-block;
+}
+
+.icons-header{
+    width: 2.6vw;
+}
 /* --------------------------------------------------------------------------------- CHATBOX ------------------------------------------------------------------------- */
 .chatbox{
     width: 420px;
@@ -12,6 +59,7 @@ body{
     border-radius: 25px;
     background-color: rgb(255, 255, 255);
     border: 2px solid #0043ad;
+    overflow: hidden;
 }
 .header-chatbox{
     background-color: #0043ad;
@@ -28,11 +76,12 @@ body{
 }
 .nome-chatbox{
     color: white;
-    margin-top: 15px;
-    width: 50px;
+    font-size: 17px;
+    font-weight: bold;
 }
 .mensagem-chatbox{
     max-width: 300px;
+    height: calc(100% - 60px);
     text-align: left;
     margin-left: 10px;
     color: white;
@@ -40,13 +89,37 @@ body{
     border-radius: 20px;
     margin-top: 25px;
     padding-right: 150px;
+    padding: 8px;
+    overflow-y: auto;
 }
 .mensagem2-chatbox{
     max-width: 300px;
+    height: calc(100% - 60px);
     color: white;
-    background-color: #525252;
+    background-color: #747474;
     text-align: left;
     margin-left: 100px;
     margin-top: 20px;
     border-radius: 20px;
+    padding: 8px;
+}
+.input-msg-chatbox input{
+    width: 390px;
+    margin-top: 145px;
+    border: 2px solid #0043ad;
+    border-radius: 15px;
+    padding: 5px;
+}
+.icon-enviarmsg-chatbox{
+    background-color: #0043ad;
+    width: 35px;
+    height: 35px;
+    margin-bottom: 30px;
+    position: absolute;
+    border-radius: 35px;
+}
+.icon-enviarmsg-chatbox img{
+    width: 25px;
+    height: 25px;
+    rotate: 35deg;
 }
