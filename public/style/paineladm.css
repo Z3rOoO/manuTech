@@ -1,0 +1,17 @@
+.container-paineladm{
+    border: 2px solid #0043ad;
+    padding: 10px;
+    border-radius: 15px;
+}
+.input-painel-adm{
+    border: 1.5px solid #0043ad;
+}
+.btt-painel-adm{
+    width: 70%;
+    height: 40px;
+    border: none;
+    background-color: #0043ad;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+}

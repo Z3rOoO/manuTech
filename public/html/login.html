@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <title>manutech</title>
@@ -11,34 +11,54 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <link rel="stylesheet" href="../style/login.css">
+    <link rel="icon" href="../images/icons/icon_manutech.svg">
 </head>
 
 
 <body>
-    <div class="img-background"><img src="../images/ilustracoes/fundo-login.png"></div>
     <main>
-        <div class="row">
-            <div class="container col-12 col-lg-6  geral ">
-                <div class="div-img-logo">
-                    <img src="../images/icons/logo-manutech.png" class="img-logo">
+        <div>
+            <div class="row">
+                <div class="fundo d-none d-md-block"><img src="../images/ilustracoes/fundo-login.png" alt=""></div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-6 tudo-login">
+
+                    <div class="content-login">
+                        <div class="row div-logo-login">
+                            <div class="logo-login col-8 col-sm-4 col-md-4 col-lg-7">
+                                <img src="../images/icons/logo-manutech.png">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="content-login">
+                                <div class="mb-3 inputs-login">
+                                    <input type="email" class="form-control input-login" id="exampleFormControlInput1"
+                                        placeholder="Email">
+                                </div>
+                                <div class="mb-3 inputs-login col-lg-6 col-md-4 col-sm-10 col-10">
+                                    <input type="password" class="form-control input-login"
+                                        id="exampleFormControlInput1" placeholder="Senha">
+                                </div>
+                            </div>
+
+                            <div class="row resto-login">
+                                <div class="col-10 col-sm-10 col-md-6 col-lg-6 texto-login">
+                                    <p>Não tem uma conta? <a href="cadastro.html">Crie uma</a></p>
+                                </div>
+                                <a class="btn btn-primary botao-login col-6 col-sm-6 col-md-4 col-lg-3" href="#"
+                                    role="button">Entrar</a>
+                            </div>
+                        </div>
+                        <div class="fundo-login-2 d-none d-md-block">
+                            <img src="../images/ilustracoes/fundo-login.png" class="">
+                        </div>
+                    </div>
                 </div>
-                <div class="inputs-login">
-                    <div class="mb-3 input-login">
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email">
-                    </div>
-                    <div class="mb-3 input-login">
-                        <input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Senha">
-                    </div>
-                    <div class="textinho-login">
-                        <p>Não tem uma conta? <a href="cadastro.html">Crie uma</a></p>
-                    </div>
-                    <div class="div-botao-login">
-                        <button type="button" class="btn btn-primary btn-lg botao-login">Entrar</button>
+
+                <div class="d-none d-sm-none d-md-none d-lg-block col-lg-6">
+                    <div class="img-login">
                     </div>
                 </div>
-            </div>
-            <div class="col-12 col-lg-6 d-none d-lg-block img">
-                <img src="../images/ilustracoes/imagem-login.png">
             </div>
         </div>
     </main>
