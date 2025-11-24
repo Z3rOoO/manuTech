@@ -72,7 +72,7 @@
                                 <div class="row resto-login">
                                     <button type="button" class="btn btn-secondary botao-voltar-etapa col-4 col-sm-4 col-md-3 col-lg-2" 
                                         onclick="prevStep()">Voltar</button>
-                                    <button type="submit" class="btn btn-primary botao-login col-6 col-sm-6 col-md-4 col-lg-3">
+                                    <button type="submit" class="btn btn-primary botao-login col-6 col-sm-6 col-md-4 col-lg-3" href="home.html"> 
                                         Cadastrar
                                     </button>
                                 </div>
@@ -146,7 +146,7 @@
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ nome, email, senha })
+                    body: JSON.stringify({ nome, email, senha, telefone, usuario })
                 });
 
                 const resultado = await resposta.json();
@@ -163,6 +163,12 @@
                 alert('Erro de conexão. Verifique se o servidor está ligado.');
             }
         });
+        //testar cadadastro/login 
+// nome - Miguel G
+// email - miguelsenai@gmail.com
+// telefone - 11 53345-0155
+// nome de usuário - miguel123
+// senha - 1DASDWJaw1@
     </script>
 </body>
 
