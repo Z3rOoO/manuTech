@@ -37,8 +37,9 @@ INSERT INTO produto (nome, descricao, preco, categoria_id, imagem) VALUES
 
 
 -- Inserir chamados iniciais
-INSERT INTO chamado (cliente_id, data_chamado, descricao, status_code) VALUES
-( 1, '2025-01-10', 'testando algo agora', 'VISITA'),
-( 2, '2025-01-11', 'Problema com o sistema de pagamento.', 'ORCAMENTO'),
-( 3, '2025-01-12', 'Falha na geração de relatórios.', 'MANUTENCAO');
+INSERT INTO chamado (cliente_id, data_chamado, descricao, modelo_maquina, numero_serie, numero_patrimonio, setor, responsavel, endereco_manutencao, data_manutencao, hora_manutencao, status_code) VALUES
+(3, '2025-01-10', 'Problema na tela do smartphone', 'Galaxy S21', 'SN123456', 'PAT001', 'TI', 'João Silva', 'Rua A, 123', '2025-01-12', '10:00:00', 'CRIACAO'),
+(3, '2025-01-11', 'Notebook não liga', 'Dell Inspiron 15', 'SN654321', 'PAT002', 'TI', 'Maria Souza', 'Avenida B, 456', '2025-01-13', '14:00:00', 'VISITA');
+
+
 
