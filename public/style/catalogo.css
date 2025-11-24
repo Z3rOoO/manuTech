@@ -138,6 +138,7 @@ main {
 
 .list-footer {
     width: 40%;
+    margin-left: 3%;
 }
 
 .textinhos-footer {
@@ -151,4 +152,8 @@ main {
 
 .icons-footer {
     width: 10%;
+}
+
+.logo-footer {
+    margin-right: 0% !important;
 }
