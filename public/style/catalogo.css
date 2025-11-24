@@ -115,9 +115,10 @@ main {
     justify-content: center;
 }
 
-.marca-footer {
-    align-items: center;
+.marca-footer { 
     text-align: center;
+    justify-content: center;
+    display: grid;
 }
 
 .texto-footer {
