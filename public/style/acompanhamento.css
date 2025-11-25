@@ -1,6 +1,8 @@
 .card {
     border: 5px solid #0043ad;
-    border-radius: 2px;
+    background-color: #0043ad;
+    color: white;
+    border-radius: 20px;
 }
 
 .title-acompanhamento {
@@ -13,10 +15,17 @@
 .cards-container {
     justify-content: space-between;
     margin-top: 150px;
+    padding: 35px;
+    padding-top: 55px;
+}
+
+.card-header {
+    padding: 10px;
 }
 
 .card-body {
     background-color: white;
+    border-radius: 20px;
 }
 
 .btt-agendar-visita {
@@ -29,6 +38,7 @@
     font-weight: bold;
     border-radius: 50px;
 }
-.card-text{
-    font-size: 110%;
+
+.card-text {
+    font-size: 120%;
 }
