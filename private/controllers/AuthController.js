@@ -68,7 +68,9 @@ class AuthController {
                         id: usuario.id,
                         nome: usuario.nome,
                         email: usuario.email,
-                        tipo: usuario.tipo
+                        tipo: usuario.tipo,
+                        cargo: usuario.cargo,     
+                        empresa: usuario.empresa
                     }
                 }
             });
@@ -82,86 +84,47 @@ class AuthController {
         }
     }
 
-    // POST /auth/registrar - Registrar novo usuário
+// POST /auth/registrar - Registrar novo usuário
     static async registrar(req, res) {
         try {
-            const { nome, email, senha, tipo } = req.body;
+            // 1. CORREÇÃO: Adicionei cargo, empresa e cnpj aqui
+            const { nome, email, senha, tipo, cargo, empresa, cnpj } = req.body;
             
             // Validações básicas
             if (!nome || nome.trim() === '') {
-                return res.status(400).json({
-                    sucesso: false,
-                    erro: 'Nome obrigatório',
-                    mensagem: 'O nome é obrigatório'
-                });
+                return res.status(400).json({ sucesso: false, erro: 'Nome obrigatório' });
             }
-
             if (!email || email.trim() === '') {
-                return res.status(400).json({
-                    sucesso: false,
-                    erro: 'Email obrigatório',
-                    mensagem: 'O email é obrigatório'
-                });
+                return res.status(400).json({ sucesso: false, erro: 'Email obrigatório' });
             }
-
             if (!senha || senha.trim() === '') {
-                return res.status(400).json({
-                    sucesso: false,
-                    erro: 'Senha obrigatória',
-                    mensagem: 'A senha é obrigatória'
-                });
+                return res.status(400).json({ sucesso: false, erro: 'Senha obrigatória' });
             }
 
             // Validações de formato
-            if (nome.length < 2) {
-                return res.status(400).json({
-                    sucesso: false,
-                    erro: 'Nome muito curto',
-                    mensagem: 'O nome deve ter pelo menos 2 caracteres'
-                });
-            }
-
-            if (nome.length > 255) {
-                return res.status(400).json({
-                    sucesso: false,
-                    erro: 'Nome muito longo',
-                    mensagem: 'O nome deve ter no máximo 255 caracteres'
-                });
-            }
+            if (nome.length < 2) return res.status(400).json({ sucesso: false, erro: 'Nome muito curto' });
+            if (nome.length > 255) return res.status(400).json({ sucesso: false, erro: 'Nome muito longo' });
 
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                return res.status(400).json({
-                    sucesso: false,
-                    erro: 'Email inválido',
-                    mensagem: 'Formato de email inválido'
-                });
-            }
+            if (!emailRegex.test(email)) return res.status(400).json({ sucesso: false, erro: 'Email inválido' });
 
-            if (senha.length < 6) {
-                return res.status(400).json({
-                    sucesso: false,
-                    erro: 'Senha muito curta',
-                    mensagem: 'A senha deve ter pelo menos 6 caracteres'
-                });
-            }
+            if (senha.length < 6) return res.status(400).json({ sucesso: false, erro: 'Senha muito curta' });
 
             // Verificar se o email já existe
             const usuarioExistente = await UsuarioModel.buscarPorEmail(email);
             if (usuarioExistente) {
-                return res.status(409).json({
-                    sucesso: false,
-                    erro: 'Email já cadastrado',
-                    mensagem: 'Este email já está sendo usado por outro usuário'
-                });
+                return res.status(409).json({ sucesso: false, erro: 'Email já cadastrado' });
             }
 
-            // Preparar dados do usuário
+            // 2. CORREÇÃO: Adicionei os campos no objeto que vai pro banco
             const dadosUsuario = {
                 nome: nome.trim(),
                 email: email.trim().toLowerCase(),
                 senha: senha,
-                tipo: tipo || 'comum'
+                tipo: tipo || 'comum',
+                cargo: cargo,       // <--- NOVO
+                empresa: empresa,   // <--- NOVO
+                cnpj: cnpj          // <--- NOVO
             };
 
             // Criar usuário
@@ -174,7 +137,7 @@ class AuthController {
                     id: usuarioId,
                     nome: dadosUsuario.nome,
                     email: dadosUsuario.email,
-                    tipo: dadosUsuario.tipo
+                    cargo: dadosUsuario.cargo // Retorna o cargo pra confirmar
                 }
             });
         } catch (error) {
@@ -186,7 +149,6 @@ class AuthController {
             });
         }
     }
-
     // GET /auth/perfil - Obter perfil do usuário logado
     static async obterPerfil(req, res) {
         try {
@@ -346,7 +308,10 @@ class AuthController {
                 nome: nome.trim(),
                 email: email.trim().toLowerCase(),
                 senha: senha,
-                tipo: tipo || 'comum'
+                tipo: tipo || 'comum',
+                cargo: cargo,
+                empresa: empresa,
+                cnpj: cnpj
             };
 
             // Criar usuário

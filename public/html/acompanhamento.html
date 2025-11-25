@@ -37,9 +37,26 @@
             <div class="header-icons">
                 <a href="#"><img src="../images/icons/icon-home-solicitacoes.png" class="icons-header"
                         style="margin-top: 10%;"></a>
-                <a href="#" style="margin-left: 15%;"><img src="../images/icons/perfil-azul.png"
-                        class="icons-header"></a>
-            </div>
+
+                                                      <!-- fazer o menu suspenso para sair do login e voltar para o index/ substituir o icone azul-->
+               <div class="dropdown" style="display: inline-block; margin-left: 15%;">
+    <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="../images/icons/perfil-azul.png" class="icons-header">
+    </a>
+
+   <ul class="dropdown-menu dropdown-menu-end">
+    <li><span class="dropdown-item-text fw-bold" id="nome-usuario-menu">Olá!</span></li>
+    
+    <li><span class="dropdown-item-text text-muted small" id="cargo-usuario-menu" style="font-size: 0.85em;"></span></li>
+    
+    <li><hr class="dropdown-divider"></li>
+    <li>
+        <a class="dropdown-item text-danger" href="#" onclick="fazerLogout()">Sair</a>
+    </li>
+</ul>
+    </ul>
+</div>
+                        <!-- fazer o menu suspenso para sair do login e voltar para o index-->
         </nav>
     </header>
 
@@ -107,6 +124,7 @@
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
 
+         <script src="../js/sessao.js"></script> <!--script para o sair da sessao -->
 </body>
 
 </html>
