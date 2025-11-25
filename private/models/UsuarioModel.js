@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt';
 
 class UsuarioModel {
 
-    // 1. Criar Usuário (Usado no Cadastro)
+    //  Criar Usuário 
     static async criar(dados) {
         const salt = await bcrypt.genSalt(10);
         const senhaHash = await bcrypt.hash(dados.senha, salt);
@@ -18,21 +18,21 @@ class UsuarioModel {
         return resultado.insertId;
     }
 
-    // 2. Buscar por Email (A função que está dando erro agora!)
+    //  Buscar por Email 
     static async buscarPorEmail(email) {
         const sql = 'SELECT * FROM usuarios WHERE email = ?';
         const [linhas] = await db.query(sql, [email]);
         return linhas[0]; // Retorna o usuário ou undefined
     }
 
-    // 3. Buscar por ID
+    // Buscar por ID
     static async buscarPorId(id) {
         const sql = 'SELECT * FROM usuarios WHERE id = ?';
         const [linhas] = await db.query(sql, [id]);
         return linhas[0];
     }
 
-    // 4. Verificar Credenciais (Usado no Login)
+    // verificar o Login
     static async verificarCredenciais(email, senha) {
         const usuario = await this.buscarPorEmail(email);
 
@@ -44,7 +44,7 @@ class UsuarioModel {
         return senhaCorreta ? usuario : null;
     }
     
-    // 5. Listar Todos
+    // Listar Todos
     static async listarTodos(pagina = 1, limite = 10) {
         const offset = (pagina - 1) * limite;
         const sql = 'SELECT id, nome, email, tipo, criado_em FROM usuarios LIMIT ? OFFSET ?';
@@ -53,7 +53,7 @@ class UsuarioModel {
         return { usuarios, total: totalResult[0].total };
     }
 
-    // 6. Atualizar
+    // tualizar
     static async atualizar(id, dados) {
         if (dados.senha) {
             const salt = await bcrypt.genSalt(10);
@@ -64,7 +64,7 @@ class UsuarioModel {
         return resultado.affectedRows;
     }
 
-    // 7. Excluir
+    // Excluir
     static async excluir(id) {
         const sql = 'DELETE FROM usuarios WHERE id = ?';
         const [resultado] = await db.query(sql, [id]);

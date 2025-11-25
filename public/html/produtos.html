@@ -11,7 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <link rel="stylesheet" href="../style/style.css" />
-    <link rel="stylesheet" href="../style/catalogo.css" />
+    <link rel="stylesheet" href="../style/produtos.css" />
 
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -32,7 +32,7 @@
             <div class="collapse navbar-collapse lista-header" id="collapsibleNavId">
                 <ul class="navbar-nav me-auto mt-2 mt-lg-0 botoes-header">
                     <li class="nav-item">
-                        <a class="nav-link" href="chamado">Manutenção</a>
+                        <a class="nav-link" href="chamado.html">Manutenção</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Reposição</a>
@@ -42,26 +42,9 @@
             <div class="header-icons">
                 <a href="#"><img src="../images/icons/icon-solicitacoes-orange.png" class="icons-header"
                         style="margin-top: 10%;"></a>
-
-                                <!-- fazer o menu suspenso para sair do login e voltar para o index/ substituir o icone azul-->
-               <div class="dropdown" style="display: inline-block; margin-left: 15%;">
-    <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="../images/icons/perfil-azul.png" class="icons-header">
-    </a>
-
-   <ul class="dropdown-menu dropdown-menu-end">
-    <li><span class="dropdown-item-text fw-bold" id="nome-usuario-menu">Olá!</span></li>
-    
-    <li><span class="dropdown-item-text text-muted small" id="cargo-usuario-menu" style="font-size: 0.85em;"></span></li>
-    
-    <li><hr class="dropdown-divider"></li>
-    <li>
-        <a class="dropdown-item text-danger" href="#" onclick="fazerLogout()">Sair</a>
-    </li>
-</ul>
-    </ul>
-</div>
-                        <!-- fazer o menu suspenso para sair do login e voltar para o index-->
+                <a href="#" style="margin-left: 15%;"><img src="../images/icons/icon-perfil-orange.png"
+                        class="icons-header"></a>
+            </div>
         </nav>
     </header>
 
@@ -69,75 +52,68 @@
 
 
     <main>
-        <div class="content-geral">
-            <div class="titulo-geral">
-                <h1>Catálogo</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col titulo-geral">
+                    <h1>Catálogo</h1>
+                </div>
             </div>
-            <div>
-                <div class="cards-produtos">
-                    <div class="card">
-                        <img src="../images/ilustracoes/pastilhas.png" class="card-img-top">
-                        <div class="card-body">
-                            <p class="card-text">Pastilhas</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="../images/ilustracoes/furacao.png" class="card-img-top">
-                        <div class="card-body">
-                            <p class="card-text">Furação</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="../images/ilustracoes/fresamento.png" class="card-img-top">
-                        <div class="card-body">
-                            <p class="card-text">Fresamento</p>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="cards-produtos">
-                    <div class="card">
-                        <img src="../images/ilustracoes/torneamento.png" class="card-img-top">
-                        <div class="card-body">
-                            <p class="card-text">Torneamento</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="../images/ilustracoes/rosqueamento.png" class="card-img-top">
-                        <div class="card-body">
-                            <p class="card-text">Rosqueamento</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="../images/ilustracoes/motores.png" class="card-img-top">
-                        <div class="card-body">
-                            <p class="card-text">Motores</p>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="cards-produtos">
-                    <div class="card">
-                        <img src="../images/ilustracoes/polias.png" class="card-img-top">
-                        <div class="card-body">
-                            <p class="card-text">Polias</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="../images/ilustracoes/correias.png" class="card-img-top">
-                        <div class="card-body">
-                            <p class="card-text">Correias</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="../images/ilustracoes/engrenagens.png" class="card-img-top">
-                        <div class="card-body">
-                            <p class="card-text">Engrenagens</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="row">
+                <div class="col">
+                    <table class="darkTable">
+                        <thead>
+                        <tr>
+                        <th>head1</th>
+                        <th>head2</th>
+                        <th>head3</th>
+                        <th>head4</th>
+                        <th>head5</th>
+                        <th>head6</th>
+                        </tr>
+                        </thead>-
+                        <tbody>
+                        <tr>
+                        <td>cell1_1</td>
+                        <td>cell2_1</td>
+                        <td>cell3_1</td>
+                        <td>cell4_1</td>
+                        <td>cell5_1</td>
+                        <td>cell6_1</td>
+                        </tr>
+                        <tr>
+                        <td>cell1_2</td>
+                        <td>cell2_2</td>
+                        <td>cell3_2</td>
+                        <td>cell4_2</td>
+                        <td>cell5_2</td>
+                        <td>cell6_2</td>
+                        </tr>
+                        <tr>
+                        <td>cell1_3</td>
+                        <td>cell2_3</td>
+                        <td>cell3_3</td>
+                        <td>cell4_3</td>
+                        <td>cell5_3</td>
+                        <td>cell6_3</td>
+                        </tr>
+                        <tr>
+                        <td>cell1_4</td>
+                        <td>cell2_4</td>
+                        <td>cell3_4</td>
+                        <td>cell4_4</td>
+                        <td>cell5_4</td>
+                        <td>cell6_4</td>
+                        </tr>
+                        <tr>
+                        <td>cell1_5</td>
+                        <td>cell2_5</td>
+                        <td>cell3_5</td>
+                        <td>cell4_5</td>
+                        <td>cell5_5</td>
+                        <td>cell6_5</td>
+                        </tr>
+                        </tbody>
+                        </table>
             </div>
         </div>
     </main>
@@ -203,5 +179,5 @@
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
 </body>
-<script src="../js/sessao.js"></script> <!--script para o sair da sessao -->
+
 </html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Manutech</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/chat.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="icon" href="../images/icons/icon_manutech.svg">
+</head>
+
+<body>
+    <header class="fixed-top">
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <img src="../images/icons/logo-manutech.png" class="logo-manutech">
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse lista-header" id="collapsibleNavId">
+            </div>
+            <div class="header-icons">
+                <a href="../html/home.html"><img src="../images/icons/icon-home-solicitacoes.png" class="icons-header"
+                        style="margin-top: 10%;"></a>
+
+                                          <!-- fazer o menu suspenso para sair do login e voltar para o index/ substituir o icone azul-->
+               <div class="dropdown" style="display: inline-block; margin-left: 15%;">
+    <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="../images/icons/perfil-azul.png" class="icons-header">
+    </a>
+
+   <ul class="dropdown-menu dropdown-menu-end">
+    <li><span class="dropdown-item-text fw-bold" id="nome-usuario-menu">Olá!</span></li>
+    
+    <li><span class="dropdown-item-text text-muted small" id="cargo-usuario-menu" style="font-size: 0.85em;"></span></li>
+    
+    <li><hr class="dropdown-divider"></li>
+    <li>
+        <a class="dropdown-item text-danger" href="#" onclick="fazerLogout()">Sair</a>
+    </li>
+</ul>
+    </ul>
+</div>
+                        <!-- fazer o menu suspenso para sair do login e voltar para o index-->
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="card" style="width: 18rem;">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">An item</li>
+                  <li class="list-group-item">A second item</li>
+                  <li class="list-group-item">A third item</li>
+                </ul>
+              </div>
+                <div class="row contato-chat">
+                    <div class="col-2"><img src="../images/icons/perfil.png"></div>
+                    <div class="col-10"><p>Miguel Guedeslarios</p></div>
+                </div>
+                <div class="row contato-chat">
+                    <div class="col-2"><img src="../images/icons/perfil.png"></div>
+                    <div class="col-10"><p>Miguel Guedeslarios</p></div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+<script src="../js/sessao.js"></script> <!--script para o sair da sessao -->
+</html>

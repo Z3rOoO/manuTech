@@ -1,18 +1,45 @@
-import jwt from "jsonwebtoken";
-import { ApiError } from '../utils/ApiError.js'
+import jwt from 'jsonwebtoken';
+import { JWT_CONFIG } from '../config/jwt.js';
 
-export function verificarToken(req, res, next) {
-  const token = req.headers.authorization?.split(" ")[1];// separar baerer
+export const verificarToken = (req, res, next) => {
+    // 
+    const authHeader = req.headers.authorization;
 
-  if (!token) {
-    throw ApiError.naoAutorizado("Token não fornecido")
-  }
+    // ve se ta logado e tem token
+    if (!authHeader) {
+        return res.status(401).json({ 
+            sucesso: false, 
+            erro: 'Token não fornecido',
+            mensagem: 'Você precisa estar logado para acessar este recurso.'
+        });
+    }
 
-  try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET); // ve se o token é valido, se foi gerado no servidor e se nao
-    req.user = decoded;                                        // da erro
-    next();
-  } catch (err) {
-    throw ApiError.acessoNegado("Token inválido")
-  }
-}
+    // 3. Separa o Bearer
+    const token = authHeader.split(' ')[1];
+
+    if (!token) {
+        return res.status(401).json({ 
+            sucesso: false, 
+            erro: 'Token mal formatado' 
+        });
+    }
+
+    try {
+        // token
+        const decoded = jwt.verify(token, JWT_CONFIG.secret);
+
+      
+        //  Controlle racessa 'req.usuario.id'
+        req.usuario = decoded; 
+
+        
+        next();
+
+    } catch (error) {
+        return res.status(401).json({ 
+            sucesso: false, 
+            erro: 'Token inválido ou expirado',
+            mensagem: 'Faça login novamente.'
+        });
+    }
+};
