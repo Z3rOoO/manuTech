@@ -1,4 +1,6 @@
-   //logout
+
+  
+  //logout
         function fazerLogout() {
             localStorage.removeItem('token');
             localStorage.removeItem('usuario');
@@ -28,3 +30,4 @@
                 
             }
         });
+
