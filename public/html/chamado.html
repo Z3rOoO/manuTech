@@ -30,7 +30,7 @@
                         <a class="nav-link" href="#">Manutenção</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="catalogo.html">Reposição</a>
+                        <a class="nav-link" href="catalogo">Reposição</a>
                     </li>
                 </ul>
             </div>
@@ -48,26 +48,24 @@
     <div class="container-chamado">
         <div class="row row-chamado column-gap-5 ">
             <div class="col-5 row-gap-4 primeira">
-                <div class="row"><input class="input-tipo0-chamado" type="text" placeholder="Descreva seu problema:">
+                <div class="row"><input class="input-tipo0-chamado" type="text" placeholder="Descreva seu problema:" id="descricao" required>
                 </div>
                 <div class="row"><input class="input-tipo1-chamado" type="text"
-                        placeholder="Modelo da máquina/ferramenta:"></div>
-                <div class="row"><input class="input-tipo1-chamado" type="text" placeholder="Número de série:"></div>
-                <div class="row"><input class="input-tipo1-chamado" type="text" placeholder="Número de patrimônio:">
+                        placeholder="Modelo da máquina/ferramenta:" id="modelo_maquina"required></div>
+                <div class="row"><input class="input-tipo1-chamado" type="text" placeholder="Número de série:"id="numero_serie"required></div>
+                <div class="row"><input class="input-tipo1-chamado" type="text" placeholder="Número de patrimônio:"id="numero_patrimonio"required>
                 </div>
-                <div class="row"><input class="input-tipo1-chamado" type="text" placeholder="Setor:"></div>
-                <div class="row"><input class="input-tipo1-chamado" type="text" placeholder="Responsável:"></div>
+                <div class="row"><input class="input-tipo1-chamado" type="text" placeholder="Setor:" id="setor"></div>
+                <div class="row"><input class="input-tipo1-chamado" type="text" placeholder="Responsável:" id="responsavel"required></div>
             </div>
             <div class="col-5 row-gap-4 segunda">
-                <div class="row"><input class="input-tipo1-chamado" type="text" placeholder="Endereço:"></div>
-                <div class="row"><input class="input-tipo2-chamado" type="date"></div>
-                <div class="row"><input class="input-tipo2-chamado" type="time" placeholder="Horário da visita">
+                <div class="row"><input class="input-tipo1-chamado" type="text" placeholder="Endereço:" id="endereco_manutencao"required></div>
+                <div class="row"><input class="input-tipo2-chamado" type="date" id="data_manutencao"></div>
+                <div class="row"><input class="input-tipo2-chamado" type="time" placeholder="Horário da visita" id="hora_manutencao"required>
                 </div>
                 <div class="row">
                     <div class="col text-center">
-                        <a href="../html/acompanhamento.html">
-                            <button class="button-enviar-chamado">Enviar</button>
-                        </a>
+                         <button class="button-enviar-chamado" onclick="abrirChamado(event)">Enviar</button><!-- só vai mudar a pagina quando a acao terminar, eai o event funciona -->
                     </div>
                 </div>
             </div>
@@ -82,8 +80,76 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"
+        ></script>
+<script>
+    async function abrirChamado(event) {
+    event.preventDefault(); // Se for um form submit
 
+    //token
+    const token = localStorage.getItem('token');
+    if (!token) {
+        alert("Você precisa estar logado!");
+        window.location.href = "/manutech/login";
+        return;
+    }
+
+    // pega os input tudo
+    const dadosChamado = {
+        descricao: document.getElementById('descricao').value,
+        modelo_maquina: document.getElementById('modelo_maquina').value,
+        numero_serie: document.getElementById('numero_serie').value,
+        numero_patrimonio: document.getElementById('numero_patrimonio').value,
+        setor: document.getElementById('setor').value,
+        responsavel: document.getElementById('responsavel').value,
+        endereco_manutencao: document.getElementById('endereco_manutencao').value,
+        data_manutencao: document.getElementById('data_manutencao').value, 
+        hora_manutencao: document.getElementById('hora_manutencao').value
+    };
+              //faz um fetch pra enviar informação já em json
+
+
+
+
+//vê se todos os campos estão preenchidos, se estiver funciona, senão não
+    if (!dadosChamado.descricao || 
+            !dadosChamado.modelo_maquina || 
+            !dadosChamado.numero_serie || 
+            !dadosChamado.numero_patrimonio || 
+            !dadosChamado.setor || 
+            !dadosChamado.responsavel || 
+            !dadosChamado.endereco_manutencao || 
+            !dadosChamado.data_manutencao || 
+            !dadosChamado.hora_manutencao) {
+            
+            alert("Por favor, preencha todos os campos obrigatórios antes de enviar.");
+            return; 
+        }
+    try {
+        const resposta = await fetch('/api/chamados', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`  //separa o bearer do token
+            },
+            body: JSON.stringify(dadosChamado) 
+        });
+
+        const resultado = await resposta.json();
+
+        if(resultado.sucesso) {
+            alert("Chamado aberto com sucesso! ID: " + resultado.id);  //id ja ta na migration
+           
+        } else {
+            alert("Erro: " + resultado.erro);
+        }
+    } catch (err) {
+        console.error(err);
+        alert("Erro de conexão");
+    }
+}
+//na migration o AUTO_INCREMENT ja pega o id do chamado automaticamente
+</script>
 </body>
 
 </html>

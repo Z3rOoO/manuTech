@@ -4,7 +4,7 @@
 USE dbmt;
 
 CREATE TABLE chamado (
-    chamado_id INT PRIMARY KEY AUTO_INCREMENT,
+    chamado_id INT PRIMARY KEY AUTO_INCREMENT, 
     cliente_id INTEGER NOT NULL,
     data_chamado DATE NOT NULL,
     descricao TEXT NOT NULL,
