@@ -61,6 +61,11 @@
     justify-content: center;
     gap: 5px;
     height: 100%;
+    line-break: auto;
+}
+.primeira p{
+    word-break: break-word; /* Permite quebrar palavras longas */
+width: 200px; /* Define uma largura fixa para demonstrar o efeito */
 }
 .segunda{
     display: flex;

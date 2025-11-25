@@ -77,7 +77,7 @@ siteRouter.get('/teste', (req, res) => { res.sendFile(path.join(__dirname, '../p
 siteRouter.get('/acompanhamento', (req, res) => { res.sendFile(path.join(__dirname, '../public/html/acompanhamento.html')); });
 
 
-app.use('/manutech', siteRouter); //pega as rotas anteriores e coloca manutech na frente
+app.use('', siteRouter); //pega as rotas anteriores e coloca manutech na frente
 
 // Redireciona o localhost sem nada para a home
 app.get('/', (req, res) => {

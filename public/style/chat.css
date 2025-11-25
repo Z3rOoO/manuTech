@@ -1,11 +1,17 @@
-.container{
-    width: 1200px;
-    margin-right: 200px;
+.container-contatos{
+    display: block;
+    margin-top: 7%;
+}
+.container-conversa{
+    border: 2px solid #0043ad;
+    width: 60%;
+    height: 900px;
+    border-radius: 20px;
 }
 .contato-chat{
-    margin-top: 200px;
+    margin: 10px;
     background-color: #0043ad;
-    width: 30%;
+    width: 100%;
     height: 60px;
     border-radius: 50px;
     color: white;
@@ -15,4 +21,14 @@
 }
 .contato-chat img{
     width: 40px;
+}
+.contato-chat p{
+    margin-bottom: 0;
+}
+.container-conversa{
+    width: 95%;
+    height: 95vh;
+    border: 2px solid #0043ad;
+    margin: 10px;
+    
 }
