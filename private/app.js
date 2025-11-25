@@ -14,6 +14,7 @@ import usuarioRotas from './routes/usuarioRotas.js'
 import { logMiddleware} from './middlewares/logMiddleware.js'
 import {errorMiddleware} from './middlewares/errorMiddleware.js'
 import path from 'path';
+import chamadoRotas from './routes/chamadoRotas.js';
 
 dotenv.config()
 
@@ -38,6 +39,7 @@ app.use('/api/auth', authRotas);
 app.use('/api/produtos', produtoRotas);
 app.use('/api/criptografia', criptografiaRotas);
 app.use('/api/usuarios', usuarioRotas);
+app.use('/api/chamados', chamadoRotas);
 
 //rotas 
 
@@ -71,6 +73,7 @@ siteRouter.get('/produto', (req, res) => { res.sendFile(path.join(__dirname, '..
 siteRouter.get('/catalogo', (req, res) => { res.sendFile(path.join(__dirname, '../public/html/catalogo.html')); });
 siteRouter.get('/painelAdmin', (req, res) => { res.sendFile(path.join(__dirname, '../public/html/painelAdmin.html')); });
 siteRouter.get('/teste', (req, res) => { res.sendFile(path.join(__dirname, '../public/html/teste.html')); });
+siteRouter.get('/acompanhamento', (req, res) => { res.sendFile(path.join(__dirname, '../public/html/acompanhamento.html')); });
 
 
 app.use('/manutech', siteRouter); //pega as rotas anteriores e coloca manutech na frente
