@@ -1,13 +1,13 @@
 import { ApiError } from '../utils/ApiError.js';
 
-// Middleware centralizado para tratamento de erros
+// middlewre para tratamento de erros
 export const errorMiddleware = (error, req, res, next) => {
-    // Se for um ApiError, usar seus dados
+    // Se for um ApiError usa seus dados
     if (error instanceof ApiError) {
         return res.status(error.statusCode).json(error.toJSON());
     }
     
-    // Se for erro de validação do multer (upload)
+    // Se for erro de upload
     if (error.code === 'LIMIT_FILE_SIZE') {
         return res.status(400).json({
             sucesso: false,
@@ -16,7 +16,7 @@ export const errorMiddleware = (error, req, res, next) => {
         });
     }
     
-    // Se for erro de token JWT
+    // erro do token JWT
     if (error.name === 'JsonWebTokenError') {
         return res.status(401).json({
             sucesso: false,
@@ -42,7 +42,7 @@ export const errorMiddleware = (error, req, res, next) => {
         });
     }
     
-    // Erro genérico - logar detalhes mas não expor para o cliente
+    // logar detalhes 
     console.error('Erro não tratado:', {
         mensagem: error.message,
         stack: error.stack,
@@ -51,7 +51,7 @@ export const errorMiddleware = (error, req, res, next) => {
         timestamp: new Date().toISOString()
     });
     
-    // Retornar erro genérico
+    // retornar erro gene´rico
     res.status(500).json({
         sucesso: false,
         erro: 'Erro interno do servidor',

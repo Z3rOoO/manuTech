@@ -1,11 +1,11 @@
 // import { create } from '../config/database.js';
 import db from '../config/database.js';
 
-// Middleware para registrar logs de acesso
+// middlewae para registrar logs de acesso
 export const logMiddleware = async (req, res, next) => {
     const startTime = Date.now();
     
-    // Capturar dados da requisição (sem usuario_id ainda, será capturado na resposta)
+    //pegar dados da requisição
     const logData = {
         rota: req.originalUrl,
         metodo: req.method,
@@ -22,7 +22,7 @@ export const logMiddleware = async (req, res, next) => {
         })
     };
 
-    // Interceptar a resposta para capturar status code, tempo e usuário (após authMiddleware executar)
+    // pegar a resposta e deixar para json ou send
     const originalSend = res.send;
     const originalJson = res.json;
     
@@ -34,12 +34,12 @@ export const logMiddleware = async (req, res, next) => {
             tempo_resposta_ms: Date.now() - startTime
         };
         
-        // Capturar usuário se autenticado (após authMiddleware ter executado)
+        // pegar usuário se autenticado 
         if (req.usuario && req.usuario.id) {
             finalLogData.usuario_id = req.usuario.id;
         }
         
-        // Capturar dados da resposta (limitado para evitar logs muito grandes)
+        // resposta
         if (res.statusCode >= 400) {
             finalLogData.dados_resposta = JSON.stringify({
                 error: true,
@@ -48,7 +48,7 @@ export const logMiddleware = async (req, res, next) => {
             });
         }
         
-        // Salvar log de forma assíncrona (não bloquear a resposta)
+        //impedir de bloquear a resposta
         saveLog(finalLogData).catch(error => {
             console.error('Erro ao salvar log:', error);
         });
@@ -57,19 +57,19 @@ export const logMiddleware = async (req, res, next) => {
     };
     
     res.json = function(data) {
-        // Capturar dados atualizados no momento da resposta (após todos os middlewares executarem)
+       
         const finalLogData = {
             ...logData,
             status_code: res.statusCode,
             tempo_resposta_ms: Date.now() - startTime
         };
         
-        // Capturar usuário se autenticado (após authMiddleware ter executado)
+        
         if (req.usuario && req.usuario.id) {
             finalLogData.usuario_id = req.usuario.id;
         }
         
-        // Capturar dados da resposta (limitado para evitar logs muito grandes)
+       
         if (res.statusCode >= 400) {
             finalLogData.dados_resposta = {
                 error: true,
@@ -78,7 +78,7 @@ export const logMiddleware = async (req, res, next) => {
             };
         }
         
-        // Salvar log de forma assíncrona (não bloquear a resposta)
+       
         saveLog(finalLogData).catch(error => {
             console.error('Erro ao salvar log:', error);
         });
@@ -89,44 +89,41 @@ export const logMiddleware = async (req, res, next) => {
     next();
 };
 
-// Função para sanitizar dados sensíveis do body
+// funcao para censurar certas palavras quando pega algo do boddy,
 function sanitizeRequestBody(body) {
     if (!body || typeof body !== 'object') return body;
     
     const sanitized = { ...body };
     
-    // Remover campos sensíveis
-    const sensitiveFields = ['senha', 'password', 'token', 'authorization'];
-    sensitiveFields.forEach(field => {
+   
+    const sensitiveFields = ['senha', 'password', 'token', 'authorization'];// se tiver essas palavras
+    sensitiveFields.forEach(field => {                                     //troca por REDACTED
         if (sanitized[field]) {
-            sanitized[field] = '[REDACTED]';
+            sanitized[field] = '[Dado oculto por motivos de segurança]'; //readcted
         }
     });
     
     return sanitized;
 }
 
-/**
- * Função helper para salvar o log no banco de dados.
- * É chamada pelo logMiddleware de forma assíncrona.
- */
+//guarda as informcão no mysql
 async function saveLog(logData) {
     try {
-        // A CORREÇÃO QUE FIZEMOS (agora DENTRO da função correta)
+        // pega uma variavel do js e ja trasnforma automaticamente em um insert into
         const sql = "INSERT INTO logs SET ?";
         await db.query(sql, [logData]); // Executa a query com o db
 
         console.log('Log salvo no banco com sucesso');
 
     } catch (dbError) {
-        // Não quebre a aplicação se o log falhar, apenas avise no console
+        // caso ocorra erro, o site continua funiconando
         console.error('Erro ao inserir log no banco (dentAF da saveLog):', dbError.message);
     }
 }
 
-// Middleware para logs simples (apenas console)
+// middleare para log basico, mostrando a data, o usuario, o ip, etc, mas sem mostrar a senha e coisas privadas
 export const simpleLogMiddleware = (req, res, next) => {
-    const timestamp = new Date().toISOString();
+    const timestamp = new Date().toISOString(); 
     const usuario = req.usuario ? `[${req.usuario.email}]` : '[Anônimo]';
     
     console.log(`${timestamp} - ${req.method} ${req.originalUrl} ${usuario} - IP: ${req.ip || 'N/A'}`);
