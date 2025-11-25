@@ -1,0 +1,146 @@
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f1f1f1;
+}
+
+.navbar {
+    width: 100vw;
+    justify-content: space-between;
+    display: flex;
+    padding-left: 2%;
+    margin-right: 2%;
+}
+
+header {
+    border-bottom: 2px solid #ff751f;
+}
+
+.logo-manutech {
+    margin-top: 0.7%;
+    margin-bottom: 0.7%;
+}
+
+.lista-header {
+    justify-content: center !important;
+    margin-left: 27vw;
+
+}
+
+.titulo-geral h1 {
+    font-size: 5.5vh;
+    color: #ff751f;
+    font-weight: 700;
+}
+
+.fundo {
+    background: transparent url("../images/background.png") repeat-x scroll 0 0;
+    background-size: cover;
+    background-position: top;
+    padding-top: 8vw;
+    height: 9vh;
+    margin-top: 2vw;
+}
+
+.header-icons {
+    display: flex;
+    width: 8vw;
+    margin-right: 3.5%;
+}
+
+.botoes-header {
+    font-size: 2.2vh;
+}
+
+.header-icons a {
+    display: inline-block;
+}
+
+.icons-header {
+    width: 2.6vw;
+}
+
+
+
+/*-------------------------------------------------*/
+
+main {
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.content-carrinho {
+    justify-content: center;
+    display: flex;
+}
+
+.carrinho-geral {
+    width: 90%;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.produto-carrinho {
+    display: flex;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.img-produto {
+    width: 14%;
+}
+
+.img-produto img {
+    width: 100%;
+    border: solid #000000;
+    border-radius: 10px;
+}
+
+.nomeModelo-produto {
+    margin-left: 5%;
+}
+
+.nome-produto p {
+    font-size: 3.5vh;
+    font-weight: 800;
+    justify-self: center;
+}
+
+.modelo-produto {
+    font-size: 2vh;
+    justify-self: center;
+}
+
+.preco-produto {
+    margin-left: auto;
+}
+
+.preco-produto p {
+    font-size: 4vh;
+}
+
+.quantidade-produto {
+    display: flex;
+    margin-left: auto;
+}
+
+
+
+
+.content-compra {
+    display: flex;
+    justify-content: center             ;
+}
+
+.compra-total {
+    background-color: #ff751f;
+    width: 90%;
+    border-radius: 20px;
+}
