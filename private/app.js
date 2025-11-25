@@ -70,6 +70,7 @@ siteRouter.get('/chat', (req, res) => { res.sendFile(path.join(__dirname, '../pu
 siteRouter.get('/chamado', (req, res) => { res.sendFile(path.join(__dirname, '../public/html/chamado.html')); });
 siteRouter.get('/carrinho', (req, res) => { res.sendFile(path.join(__dirname, '../public/html/carrinho.html')); });
 siteRouter.get('/produto', (req, res) => { res.sendFile(path.join(__dirname, '../public/html/produto.html')); });
+siteRouter.get('/produtos', (req, res) => { res.sendFile(path.join(__dirname, '../public/html/produtos.html')); });
 siteRouter.get('/catalogo', (req, res) => { res.sendFile(path.join(__dirname, '../public/html/catalogo.html')); });
 siteRouter.get('/painelAdmin', (req, res) => { res.sendFile(path.join(__dirname, '../public/html/painelAdmin.html')); });
 siteRouter.get('/teste', (req, res) => { res.sendFile(path.join(__dirname, '../public/html/teste.html')); });
