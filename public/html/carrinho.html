@@ -32,7 +32,7 @@
             <div class="collapse navbar-collapse lista-header" id="collapsibleNavId">
                 <ul class="navbar-nav me-auto mt-2 mt-lg-0 botoes-header">
                     <li class="nav-item">
-                        <a class="nav-link" href="chamado.html">Manutenção</a>
+                        <a class="nav-link" href="chamado">Manutenção</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Reposição</a>
@@ -40,7 +40,7 @@
                 </ul>
             </div>
             <div class="header-icons">
-                <a href="#"><img src="../images/icons/icon-solicitacoes-orange.png" class="icons-header"
+                <a href="#"><img src="../images/icons/carrinho.svg" class="icons-header"
                         style="margin-top: 10%;"></a>
                 <a href="#" style="margin-left: 15%;"><img src="../images/icons/icon-perfil-orange.png"
                         class="icons-header"></a>
@@ -57,33 +57,47 @@
 
             <div class="col-12 col-sm-12 col-md-8 col-lg-8 content-carrinho">
 
-                <div class="carrinho-geral">
+                <div class="carrinho-geral ">
 
                     <div class="divisoes-produtos">
 
-                        <div class="produto-carrinho">
-                            <div class="img-produto">
-                                <img src="../images/ilustracoes/teste-produtoCarrinho.png">
-                            </div>
+                        <div class="row">
 
-                            <div class="nomeModelo-produto">
-                                <div class="nome-produto">
-                                    <p>Nome do produto</p>
+                            <div class="row produto-carrinho">
+
+                                <div class="col-12 col-sm-6 col-md-4 col-lg-2 coluna-img">
+                                    <div class="img-produto">
+                                        <img src="../images/ilustracoes/teste-produtoCarrinho.png">
+                                    </div>
                                 </div>
-                                <div class="modelo-produto">
-                                    <p>Modelo do produto</p>
+
+                                <div class="col-12 col-sm-6 col-md-4 col-lg-4 coluna-nomeModelo">
+                                    <div class="nomeModelo-produto">
+                                        <div class="nome-produto">
+                                            <p>Nome do produto</p>
+                                        </div>
+                                        <div class="modelo-produto">
+                                            <p>Modelo do produto</p>
+                                        </div>
+                                    </div>
                                 </div>
+
+                                <div class="col-12 col-sm-6 col-md-3 col-lg-3 coluna-preco">
+                                    <div class="preco-produto">
+                                        <p>R$150,00</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-sm-6 col-md-1 col-lg-1 coluna-quantidade">
+                                    <div class="quantidade-produto">
+                                        <button>-</button>
+                                        <p>1</p>
+                                        <button>+</button>
+                                    </div>
+                                </div>
+
                             </div>
 
-                            <div class="preco-produto">
-                                <p>R$150,00</p>
-                            </div>
-
-                            <div class="quantidade-produto">
-                                <button>-</button>
-                                <p>1</p>
-                                <button>+</button>
-                            </div>
                         </div>
 
                     </div>
@@ -92,36 +106,41 @@
 
             </div>
 
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4 content-compra">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 content-compra ">
                 <div class="compra-total">
-                    <div>
-                        <p>Resumo da compra</p>
-                    </div>
-                    <div>
-                        <div>
-                            <p>Produto</p>
-                        </div>
-                        <div>
-                            <p>R$ 150,00</p>
+                    <div class="row">
+                        <div class="titulo-compra">
+                            <p>Resumo da compra</p>
                         </div>
                     </div>
-                    <div>
-                        <div>
-                            <p>Frete</p>
+
+                    <div class="dadosgerais-compra">
+                        <div class="produtoPreco-compra">
+                            <div class="produto-compra">
+                                <p>Produto</p>
+                            </div>
+                            <div class="preco-compra">
+                                <p>R$ 150,00</p>
+                            </div>
                         </div>
-                        <div>
-                            <p>R$ 40,00</p>
+                        <div class="fretePreco-compra">
+                            <div class="frete-compra">
+                                <p>Frete</p>
+                            </div>
+                            <div class="precoDoFrete-compra">
+                                <p>R$ 40,00</p>
+                            </div>
                         </div>
                     </div>
-                    <div>
-                        <div>
+                    <div class="resultado-compra">
+                        <div class="txtTotal-compra">
                             <p>Total</p>
                         </div>
-                        <div>
+                        <div class="precofinal-compra">
                             <p>R$ 190,00</p>
                         </div>
                     </div>
-                    <div>
+                    <div class="botaoContinuar-compra">
                         <button>Continuar</button>
                     </div>
                 </div>
