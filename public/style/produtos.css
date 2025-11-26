@@ -61,51 +61,16 @@ header {
     width: 2.6vw;
 }
 
-table.darkTable {
-    font-family: "Arial Black", Gadget, sans-serif;
-    border: 1px solid #000000;
-    background-color: #ECECEC;
-    width: 100%;
-    height: 200px;
-    text-align: center;
-    border-collapse: collapse;
-}
+/* --------------------------------------------------table---------------------------------------------------- */
 
-table.darkTable td,
-table.darkTable th {
-    border: 0px solid #000000;
-    padding: 3px 2px;
-}
-
-table.darkTable tbody td {
-    font-size: 13px;
-    color: #000000;
-}
-
-table.darkTable tr:nth-child(even) {
-    background: #FFFFFF;
-}
-
-table.darkTable thead {
-    background: #FF8900;
-    border-bottom: 2px solid #000000;
-}
-
-table.darkTable thead th {
-    font-size: 15px;
+.headT {
     font-weight: bold;
-    color: #000000;
+    font-size: 2.2vh;
+    padding: 1.5vh 0;
     text-align: center;
-    border-left: 0px solid #FFBC00;
+    border-bottom: 2px solid #ff751f;
 }
 
-table.darkTable thead th:first-child {
-    border-left: none;
-}
-
-table.darkTable tfoot td {
-    font-size: 12px;
-}
 
 .footer-laranja {
     background: #E7691C;

@@ -4,16 +4,16 @@
 
 USE dbmt;
 
--- Inserir usuários iniciais (senha: 123456)
--- Hash gerado com bcrypt para a senha "123456" (validado)
+-- Inserir usuários iniciais (senha: 12345678)
+-- Hash gerado com bcrypt para a senha "12345678" (validado)
 INSERT INTO usuarios (nome, email, senha, empresa, cargo, tipo) VALUES
-('Administrador', 'admin@produtos.com', '$2a$10$BLAcJu1irAzg06WbtoLoPe0RA.hkfZ0oJ25KYARPkHWRweJuWBALy', 'manutech', 'administrado', 'ADMIN'),
-('FUNCIONARIO Silva', 'func@email.com', '$2a$10$BLAcJu1irAzg06WbtoLoPe0RA.hkfZ0oJ25KYARPkHWRweJuWBALy', 'manutech', 'estagiario', 'FUNC'),
-('USUARIO Souza', 'user@email.com', '$2a$10$BLAcJu1irAzg06WbtoLoPe0RA.hkfZ0oJ25KYARPkHWRweJuWBALy', 'mercedes-benz', 'supervisor', 'USER');
+('Administrador', 'admin@produtos.com', '$2b$10$MPYBVCBAPOdcQgPrr1wyDeMggsTArUL1pkvHGOPIi5W6OC363HHle', 'manutech', 'administrado', 'ADMIN'),
+('FUNCIONARIO Silva', 'func@email.com', '$2b$10$MPYBVCBAPOdcQgPrr1wyDeMggsTArUL1pkvHGOPIi5W6OC363HHle', 'manutech', 'estagiario', 'FUNC'),
+('USUARIO Souza', 'user@email.com', '$2b$10$MPYBVCBAPOdcQgPrr1wyDeMggsTArUL1pkvHGOPIi5W6OC363HHle', 'mercedes-benz', 'supervisor', 'USER');
 
 -- Inserir manutentor iniciais
 INSERT INTO manutentor (nome, email, senha, telefone) VALUES
-('manutenor gomes', 'manutentor@email.com', '$2a$10$BLAcJu1irAzg06WbtoLoPe0RA.hkfZ0oJ25KYARPkHWRweJuWBALy', '11955978209');
+('manutenor gomes', 'manutentor@email.com', '$2b$10$MPYBVCBAPOdcQgPrr1wyDeMggsTArUL1pkvHGOPIi5W6OC363HHle', '11955978209');
 
 -- Inserir categorias iniciais
 INSERT INTO categoria (nome) VALUES
