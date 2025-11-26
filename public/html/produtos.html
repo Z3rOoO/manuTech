@@ -70,48 +70,9 @@
                                 <th>head5</th>
 
                             </tr>
-                        </thead>-
-                        <tbody>
-                            <tr>
-                                <td>cell1_1</td>
-                                <td>cell2_1</td>
-                                <td>cell3_1</td>
-                                <td>cell4_1</td>
-                                <td>cell5_1</td>
-
-                            </tr>
-                            <tr>
-                                <td>cell1_2</td>
-                                <td>cell2_2</td>
-                                <td>cell3_2</td>
-                                <td>cell4_2</td>
-                                <td>cell5_2</td>
-
-                            </tr>
-                            <tr>
-                                <td>cell1_3</td>
-                                <td>cell2_3</td>
-                                <td>cell3_3</td>
-                                <td>cell4_3</td>
-                                <td>cell5_3</td>
-
-                            </tr>
-                            <tr>
-                                <td>cell1_4</td>
-                                <td>cell2_4</td>
-                                <td>cell3_4</td>
-                                <td>cell4_4</td>
-                                <td>cell5_4</td>
-
-                            </tr>
-                            <tr>
-                                <td>cell1_5</td>
-                                <td>cell2_5</td>
-                                <td>cell3_5</td>
-                                <td>cell4_5</td>
-                                <td>cell5_5</td>
-
-                            </tr>
+                        </thead>
+                        <tbody id="lista-produtos">
+                            <script> carregarProdutos();</script>
                         </tbody>
                     </table>
                 </div>
@@ -183,25 +144,24 @@
             const resposta = await fetch('/api/produtos');
             const produtos = await resposta.json();
             console.log(produtos);
+
             const lista = document.getElementById('lista-produtos');
 
             produtos.forEach(produto => {
-                const item = document.createElement('li');
-                item.classList.add('produto');
-                item.innerHTML = `
-                <tr>
+                const row = document.createElement('tr');
+
+                row.innerHTML = `
                     <td><img src="${produto.imagem_url}" alt="${produto.nome}" width="150" /></td>
-                    <td><h3>${produto.nome}</h3></td>
-                    <td><p>Descrição: ${produto.descricao}</p></td>
-                    <td><p>Preço: R$ ${produto.preco.toFixed(2)}</p></td>
+                    <td>${produto.nome}</td>
+                    <td>${produto.descricao}</td>
+                    <td>R$ ${Number(produto.preco).toFixed(2)}</td>
                     <td>carrinho</td>
-                </tr>          
                 `;
-                lista.appendChild(item);
+                lista.appendChild(row);
             });
         }
 
-        carregarProdutos();
+
     </script>
 </body>
 
