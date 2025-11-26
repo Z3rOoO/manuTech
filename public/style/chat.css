@@ -1,6 +1,7 @@
 .container-contatos{
     display: block;
     margin-top: 7%;
+
 }
 .contato-chat{
     margin: 10px;
@@ -22,10 +23,9 @@
 .container-conversa{
     margin-top: 100px;
     border: 2px solid #0043ad;
-    height: auto;
     width: 98%;
     border-radius: 20px;
-    z-index: -1;
+    padding-bottom: 10px;
 }
 .header-conversa{
     background-color: #0043ad;
@@ -69,7 +69,7 @@
    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .enviar-msg{
-    width: 98%;
+    width: 200%;
     height: 50px;
     border-radius: 25px;
     margin-top: 20px;
@@ -79,18 +79,22 @@
     font-size: 20px;
     margin-top: 390px;
 }
-.btn-enviar-msg{
+.btn-enviar{
     width: 100px;
     height: 50px;
     border-radius: 25px;
-    margin-top: -90px;
-    margin-left: 1220px;
     background-color: #0043ad;
     color: white;
     font-weight: bold;
     border: none;
+    margin-left: 555px;
 }  
 .btn-enviar-msg :hover{
     background-color: #003090;
     cursor: pointer;
+}
+.centralizar-botao-enviar{
+    display: flex;
+    justify-content: center;
+    align-items: end;
 }
