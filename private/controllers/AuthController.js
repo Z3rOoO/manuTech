@@ -108,7 +108,7 @@ class AuthController {
                 nome: nome.trim(),
                 email: email.trim().toLowerCase(),
                 senha: senha,
-                tipo: tipo || 'comum',
+                tipo: tipo || 'USER',
                 cargo: cargo,       // <--- OBRIGATÓRIO PARA APARECER NO SITE
                 empresa: empresa,   // <--- OBRIGATÓRIO
                 cnpj: cnpj
