@@ -79,63 +79,68 @@
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
         <script>
-             
-       const btnEntrar = document.getElementById('btn-entrar')
-       
-       //login
-       async function realizarLogin(event) {
-        event.preventDefault() //impede de recarregar a tela
-        const email = document.getElementById('email').value
-        const senha = document.getElementById('senha').value
+const btnEntrar = document.getElementById('btn-entrar')
 
-        if (!email || !senha){
-            alert('Necessário preencher email e senha.')
-            return
-        }
+// Função de login
+async function realizarLogin(event) {
+    event.preventDefault()
 
-        try{
-            const resposta = await fetch('/api/auth/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json' 
-                },
-                body: JSON.stringify({ email, senha })
-           });
+    const email = document.getElementById('email').value
+    const senha = document.getElementById('senha').value
 
-            const dados = await resposta.json();
+    if (!email || !senha) {
+        alert('Necessário preencher email e senha.')
+        return
+    }
+//mandar pra api pra fzr login
+    try {
+        const resposta = await fetch('/api/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, senha })
+        })
 
-            if (dados.sucesso) {
-                localStorage.setItem('token', dados.dados.token);
-                localStorage.setItem('usuario', JSON.stringify(dados.dados.usuario));
+        const dados = await resposta.json()
 
-                alert('Login realizado com sucesso!');
+        if (dados.sucesso) {
+            localStorage.setItem('token', dados.dados.token)
+            localStorage.setItem('usuario', JSON.stringify(dados.dados.usuario))
 
+            alert('Login realizado com sucesso!')
 
-                //logar de acordo ao cargo ||
+            const tipo = dados.dados.usuario.cargo.toUpperCase()
 
-const cargo = 
+            //mandar de acordo ao tipo, para a pagina certo
 
-
-
-                window.location.href = '/home';
+            if (tipo === 'ADMIN') {
+                window.location.href = '/painelAdmin'
+            } else if (tipo === 'FUNC') {
+                window.location.href = '/acompanhamento'
             } else {
-                alert('Erro: ' + dados.erro);
+                window.location.href = '/home'
             }
 
-        } catch (error) {
-            console.error('Erro:', error);
-            alert('Erro ao tentar conectar com o servidor.');
+        } else {
+            alert('Erro: ' + dados.erro)
         }
-    }
-       //adicionar evento
-       btnEntrar.addEventListener('click', realizarLogin)
 
-       //fazer o enter funcionar
-       document.getElementById('senha').addEventListener('keypress', function (e) {
-        if (e.key === 'Enter') {
-            realizarLogin(e);
-        }
-    });
+    } catch (erro) {
+        console.error('Erro no login:', erro)
+        alert('Erro ao conectar com o servidor.')
+    }
+}
+
+// Evento do botão
+btnEntrar.addEventListener('click', realizarLogin)
+
+// Enter no campo senha
+document.getElementById('senha').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        realizarLogin(e)
+    }
+})
+
+
 // nome -  miguelglr
 // email - miguel...senai@gmail.com
 // telefone - 11 53345-0155
