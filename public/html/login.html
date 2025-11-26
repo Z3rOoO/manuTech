@@ -45,7 +45,7 @@
                                 <div class="col-10 col-sm-10 col-md-6 col-lg-6 texto-login">
                                     <p>Não tem uma conta? <a href="cadastro">Crie uma</a></p>
                                 </div>
-                                <a  id ="btn-entrar"class="btn btn-primary botao-login col-6 col-sm-6 col-md-4 col-lg-3" href="home.html"
+                                <a  id ="btn-entrar"class="btn btn-primary botao-login col-6 col-sm-6 col-md-4 col-lg-3" href="#"
                                     role="button">Entrar</a>
                             </div>
                         </div>
@@ -109,7 +109,7 @@
                 localStorage.setItem('usuario', JSON.stringify(dados.dados.usuario));
 
                 alert('Login realizado com sucesso!');
-                window.location.href = '/manutech/home';
+                window.location.href = '/home';
             } else {
                 alert('Erro: ' + dados.erro);
             }
@@ -128,12 +128,16 @@
             realizarLogin(e);
         }
     });
-            //testar cadadastro/login 
-// nome - Miguel G
-// email - miguelsenai@gmail.com
+// nome -  miguelglr
+// email - miguel...senai@gmail.com
 // telefone - 11 53345-0155
 // nome de usuário - miguel123
 // senha - 1DASDWJaw1@
+// empresa vinculada - manutech
+//cargo - manutentor
+//cnpj - 64.341.047/0001-00
+//models ; controllers ; routes / adicionar a rota e a api no app.js
+
         </script>
 </body>
 

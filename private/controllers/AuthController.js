@@ -87,28 +87,15 @@ class AuthController {
 // POST /auth/registrar - Registrar novo usuário
     static async registrar(req, res) {
         try {
-            // 1. CORREÇÃO: Adicionei cargo, empresa e cnpj aqui
+            // 1. AQUI ESTAVA O ERRO: Adicionei cargo, empresa e cnpj
             const { nome, email, senha, tipo, cargo, empresa, cnpj } = req.body;
             
-            // Validações básicas
-            if (!nome || nome.trim() === '') {
-                return res.status(400).json({ sucesso: false, erro: 'Nome obrigatório' });
-            }
-            if (!email || email.trim() === '') {
-                return res.status(400).json({ sucesso: false, erro: 'Email obrigatório' });
-            }
-            if (!senha || senha.trim() === '') {
-                return res.status(400).json({ sucesso: false, erro: 'Senha obrigatória' });
-            }
+            // Validações básicas...
+            if (!nome || nome.trim() === '') return res.status(400).json({ sucesso: false, erro: 'Nome obrigatório' });
+            if (!email || email.trim() === '') return res.status(400).json({ sucesso: false, erro: 'Email obrigatório' });
+            if (!senha || senha.trim() === '') return res.status(400).json({ sucesso: false, erro: 'Senha obrigatória' });
 
-            // Validações de formato
-            if (nome.length < 2) return res.status(400).json({ sucesso: false, erro: 'Nome muito curto' });
-            if (nome.length > 255) return res.status(400).json({ sucesso: false, erro: 'Nome muito longo' });
-
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) return res.status(400).json({ sucesso: false, erro: 'Email inválido' });
-
-            if (senha.length < 6) return res.status(400).json({ sucesso: false, erro: 'Senha muito curta' });
+            // ... (Mantenha suas validações de tamanho/regex aqui) ...
 
             // Verificar se o email já existe
             const usuarioExistente = await UsuarioModel.buscarPorEmail(email);
@@ -116,15 +103,15 @@ class AuthController {
                 return res.status(409).json({ sucesso: false, erro: 'Email já cadastrado' });
             }
 
-            // 2. CORREÇÃO: Adicionei os campos no objeto que vai pro banco
+            // 2. AQUI TAMBÉM FALTAVA: Montar o objeto completo
             const dadosUsuario = {
                 nome: nome.trim(),
                 email: email.trim().toLowerCase(),
                 senha: senha,
                 tipo: tipo || 'comum',
-                cargo: cargo,       // <--- NOVO
-                empresa: empresa,   // <--- NOVO
-                cnpj: cnpj          // <--- NOVO
+                cargo: cargo,       // <--- OBRIGATÓRIO PARA APARECER NO SITE
+                empresa: empresa,   // <--- OBRIGATÓRIO
+                cnpj: cnpj
             };
 
             // Criar usuário
@@ -135,9 +122,7 @@ class AuthController {
                 mensagem: 'Usuário registrado com sucesso',
                 dados: {
                     id: usuarioId,
-                    nome: dadosUsuario.nome,
-                    email: dadosUsuario.email,
-                    cargo: dadosUsuario.cargo // Retorna o cargo pra confirmar
+                    ...dadosUsuario
                 }
             });
         } catch (error) {

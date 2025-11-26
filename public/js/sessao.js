@@ -4,7 +4,7 @@
         function fazerLogout() {
             localStorage.removeItem('token');
             localStorage.removeItem('usuario');
-            window.location.href = '/manutech/index'; 
+            window.location.href = '/index'; 
         }
 
         document.addEventListener('DOMContentLoaded', () => {
