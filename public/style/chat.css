@@ -1,6 +1,9 @@
 .container-contatos{
     display: block;
-    margin-top: 7%;
+    margin-top: 4.75%;
+    height: 900px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .contato-chat{
     margin: 10px;
@@ -12,6 +15,7 @@
     font-weight: bold;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 .contato-chat img{
     width: 40px;
@@ -22,11 +26,12 @@
 .container-conversa{
     margin-top: 100px;
     border: 2px solid #0043ad;
-    height: auto;
     width: 98%;
+    height: 800px;
     border-radius: 20px;
-    z-index: -1;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
+    overflow-y: auto;       /* ativa o scroll vertical */
+    overflow-x: hidden;
 }
 .header-conversa{
     background-color: #0043ad;

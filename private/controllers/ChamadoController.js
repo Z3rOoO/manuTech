@@ -32,7 +32,7 @@ class ChamadoController {
                 endereco_manutencao,
                 data_manutencao,
                 hora_manutencao,
-                status_code: 'VISITA'
+                status_code: 'criacao' // Status inicial
             };
 
             const id = await ChamadoModel.criar(novoChamado);
