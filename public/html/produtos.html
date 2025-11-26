@@ -3,6 +3,7 @@
 
 <head>
     <title>manutech</title>
+    <script src="../js/verificar_login.js"></script>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -139,34 +140,33 @@
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
     <script>
-        // Carrega a lista de produtos do endpoint '/api/produtos' e exibe-os na tabela do catálogo.
         async function carregarProdutos() {
-            const resposta = await fetch('/api/produtos');
-            const produtos = await resposta.json();
-            console.log(produtos);
+            const resposta = await fetch('/produtos');
+            const data = await resposta.json();
+            const produtos = data;
 
             const lista = document.getElementById('lista-produtos');
+            lista.innerHTML = "";
 
             produtos.forEach(produto => {
+                const imagem = produto.imagemUrl || produto.imagem;
+
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td><img src="${produto.imagem_url}" alt="${produto.nome}" width="150" loading="lazy" /></td>
-                    <td>${produto.nome}</td>
-                    <td>${produto.descricao}</td>
-                    <td>R$ ${Number(produto.preco).toFixed(2)}</td>
-                    <td>carrinho</td>
-                    <td>
-                        <button class="btn btn-outline-primary" title="Adicionar ao carrinho">
-                            <img src="../images/icons/icon-carrinho.png" alt="Carrinho" style="width:24px; height:24px;">
-                        </button>
-                    </td>`
+            <td><img src="${imagem}" alt="${produto.nome}" width="150" loading="lazy" /></td>
+            <td>${produto.nome}</td>
+            <td>${produto.descricao}</td>
+            <td>R$ ${Number(produto.preco).toFixed(2)}</td>
+            <td>carrinho</td>
+            <td>
+                <button class="btn btn-outline-primary" title="Adicionar ao carrinho">
+                    <img src="../images/icons/icon-carrinho.png" width="24" height="24">
+                </button>
+            </td>
+        `;
                 lista.appendChild(row);
             });
-        };
-        
-
-        // Call the function after the DOM is loaded
-        window.addEventListener('DOMContentLoaded', carregarProdutos);
+        }
     </script>
 </body>
 

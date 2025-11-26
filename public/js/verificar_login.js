@@ -5,7 +5,7 @@
     if (!token) {
        
         alert("Acesso restrito! Faça login");
-        window.location.href = '/manutech/login';
+        window.location.href = '/login';
     }
 })();
 //cod pra se nn tiver com token nn permitir acesso
