@@ -99,7 +99,7 @@ function nextStep() {
             const nome = document.getElementById('nome').value;
             const email = document.getElementById('email').value;
             const senha = document.getElementById('senha').value;
-
+            
             
             if (!nome || !email || !senha) {
                 alert('Por favor, preencha Nome, Email e Senha.');
@@ -133,6 +133,7 @@ function nextStep() {
             const empresa = document.getElementById('empresa').value;
             const cargo = document.getElementById('cargo').value;
             const cnpj = document.getElementById('cnpj').value;
+          
 
             try {
                 const resposta = await fetch('/api/auth/registrar', {
@@ -145,7 +146,7 @@ function nextStep() {
                         senha, 
                         empresa, 
                         cargo, 
-                        cnpj 
+                        cnpj
                     })
                 });
 
