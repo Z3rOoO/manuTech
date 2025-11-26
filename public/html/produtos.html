@@ -60,20 +60,17 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col">
-                    <table class="darkTable">
-                        <thead>
-                            <tr>
-                                <th>head1</th>
-                                <th>head2</th>
-                                <th>head3</th>
-                                <th>head4</th>
-                                <th>head5</th>
+                <div class="col darkTable">
+                        <div class="row">
+                            <div class="col headT">head1</div>
+                            <div class="col headT">head2</div>
+                            <div class="col headT">head3</div>
+                            <div class="col headT">head4</div>
+                            <div class="col headT">head5</div>
+                        </div>
+                        <div id="lista-produtos row">
 
-                            </tr>
-                        </thead>
-                        <tbody id="lista-produtos">
-                        </tbody>
+                        </div>
                     </table>
                 </div>
             </div>
@@ -141,32 +138,41 @@
         crossorigin="anonymous"></script>
     <script>
         async function carregarProdutos() {
-            const resposta = await fetch('/produtos');
+            const resposta = await fetch('/api/produtos');
             const data = await resposta.json();
-            const produtos = data;
+            console.log(data);
 
-            const lista = document.getElementById('lista-produtos');
-            lista.innerHTML = "";
+            if (!data.sucesso) {
+                alert('Erro ao carregar produtos: ' + data.erro);
+                return;
+            }
 
-            produtos.forEach(produto => {
-                const imagem = produto.imagemUrl || produto.imagem;
+            if (data.sucesso) {
+                const lista = document.getElementById('lista-produtos');
+                lista.innerHTML = "";
 
-                const row = document.createElement('tr');
-                row.innerHTML = `
-            <td><img src="${imagem}" alt="${produto.nome}" width="150" loading="lazy" /></td>
-            <td>${produto.nome}</td>
-            <td>${produto.descricao}</td>
-            <td>R$ ${Number(produto.preco).toFixed(2)}</td>
-            <td>carrinho</td>
-            <td>
-                <button class="btn btn-outline-primary" title="Adicionar ao carrinho">
-                    <img src="../images/icons/icon-carrinho.png" width="24" height="24">
-                </button>
-            </td>
-        `;
-                lista.appendChild(row);
-            });
+                data.produtos.forEach(produto => {
+                    const imagem = produto.imagemUrl || produto.imagem;
+
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td><img src="${imagem}" alt="${produto.nome}" width="150" loading="lazy" /></td>
+                        <td>${produto.nome}</td>
+                        <td>${produto.descricao}</td>
+                        <td>R$ ${Number(produto.preco).toFixed(2)}</td>
+                        <td>
+                            <button class="btn btn-outline-primary" title="Adicionar ao carrinho">
+                                <img src="../images/icons/icon-carrinho.png" width="24" height="24">
+                            </button>
+                        </td>
+                    `;
+                    lista.appendChild(row);
+                });
+            }
         }
+
+
+        carregarProdutos();
     </script>
 </body>
 

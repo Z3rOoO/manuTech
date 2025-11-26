@@ -3,6 +3,8 @@
 
 <head>
     <title>Manutech</title>
+    <script src="../js/sessao.js"></script>
+    <script src="../js/verificar_login.js"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
@@ -56,20 +58,19 @@
     </header>
 
     <main>
+        <h1 class="">Serviços</h1>
         <div class="container">
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Accordion Item #1
-                  </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <strong>This is the first item’s accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                  </div>
-                </div>
-              </div>
+            <p class="row titulo-servico d-flex justify-content-center">Fresa ferramenteira Lagun ISO 30</p>
+            <div class="row txt-descricao"><b>Descrição do problema:</b></div>
+            <div class="row txt-endereco"><b>Endereço:</b></div>
+            <div class="row txt-responsavel"><b>Responsável:</b></div>
+            <div class="row d-flex justify-content-center txt-aceitar-servico">Deseja aceitar esse serviço?</div>
+            <div class="row d-flex text-center justify-content-center">
+                <div class="col"><button class="btt-servico">Recusar ✖</button></div>
+                <div class="col"><button class="btt-servico">Aceitar ✔</button></div>
+            </div>
         </div>
+        
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
