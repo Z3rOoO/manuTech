@@ -64,10 +64,44 @@ header {
 /* --------------------------------------------------table---------------------------------------------------- */
 
 .headT {
+    padding: 5px;
+    margin: 0;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-weight: bold;
-    font-size: 2.2vh;
-    padding: 1.5vh 0;
+    font-size: 100%;
     text-align: center;
+    border-bottom: 2px solid #ff751f;
+}
+
+.linhaT {
+    margin: 5px;
+    background-color: aliceblue;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.7s ease;
+}
+
+.linhaT:hover {
+    transition: all 0.2s ease;
+    transform: scale(1.01);
+    background-color: #ffefd5;
+    cursor: pointer;
+    -webkit-box-shadow: 0px 10px 13px -7px #0000004f, 0px 0px 25px -18px rgba(0, 0, 0, 0.01);
+    box-shadow: 0px 10px 13px -7px #0000004f, 0px 0px 25px -18px rgba(0, 0, 0, 0.01);
+}
+
+.bodyT {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100%;
+    text-align: center;
+    height: 100px;
     border-bottom: 2px solid #ff751f;
 }
 

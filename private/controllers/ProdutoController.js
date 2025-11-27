@@ -14,7 +14,7 @@ class ProdutoController {
     
             resultado.produtos = resultado.produtos.map(p => ({
                 ...p,
-                imagemUrl: p.imagem ? `/upload/${p.imagem}` : null
+                imagemUrl: p.imagem ? `/uploads/imagens/${p.imagem}` : null
             }));
     
             res.json({ sucesso: true, ...resultado });
