@@ -224,3 +224,21 @@ header {
     margin: 0;
     font-size: 100%;
 }
+.nome-modal{
+    color: #0043ad;
+}
+.box-modal{
+    width: 300px;
+}
+.empresa-modal{
+    color: #737373;
+    margin-left: 60px;
+}
+.foto-modal{
+    width: 50px;
+}
+.alinhar-modal{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
