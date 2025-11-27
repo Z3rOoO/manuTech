@@ -1,16 +1,29 @@
-.bg-header {
-    width: auto;
-    height: auto;
-    min-height: 100px;
-    background-color: #0043ad !important;
-    align-items: center;
-    text-align: center;
-    display: flex;
+/* ===== RESET E ESTILOS GERAIS ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.logo-header-index{
+body {
+    font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
+}
+
+/* ===== HEADER ===== */
+.bg-header {
+    width: 100%;
+    min-height: 100px;
+    background-color: #0043ad !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 3rem;
+}
+
+.logo-header-index {
     width: 240px;
-    margin: auto;
+    height: auto;
 }
 
 .botao-header-index {
@@ -20,260 +33,268 @@
     color: #0043ad !important;
     border: none !important;
     font-weight: bold;
+    border-radius: 50px;
+}
+
+/* ===== SEÇÃO DO VÍDEO/BANNER ===== */
+main > div:first-child {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
 }
 
 video {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    z-index: -3;
-    overflow: hidden;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
 }
 
 .txt-video-index {
     position: absolute;
-    width: 600px;
-    font-size: 4vw;
-    top: 45%;
-    left: 50%;
-    transform: translate(-131%, -50%);
+    top: 25%;
+    left: 5%;
+    max-width: 600px;
+    font-size: 3.5rem;
+    font-weight: 700;
     color: white;
-    text-align: left;
-    z-index: 10;
-    font-weight: bold;
-    z-index: -1;
-}
-
-@media (max-width: 576px) {
-    .txt-video-index {
-        position: absolute;
-        width: 70px;
-        margin-bottom: 50px;
-    }
+    line-height: 1.2;
+    z-index: 2;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .button-index-banner {
+    position: absolute;
+    top: 65%;
+    left: 5%;
     width: 350px;
-    height: 90px;
+    height: 70px;
     border: none;
     background-color: #0043ad;
     color: white;
     font-weight: bold;
-    font-size: 25px;
-}
-
-@media (max-width: 576px) {
-    .button-index-banner {
-        width: 180px;
-        height: 70px;
-        font-size: 20px;
-    }
+    font-size: 22px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 2;
 }
 
 .button-index-banner:hover {
-    color: #0043ad;
     background-color: #ffffff;
+    color: #0043ad;
+    transform: scale(1.02);
 }
 
+/* ===== CONHEÇA NOSSO TRABALHO ===== */
 .title-conhecanossotrabalho {
     color: #0043ad;
-    font-weight: bold;
-    margin-left: 8%;
-    margin-top: 1150px;
+    font-weight: 700;
+    font-size: 2.8rem;
+    margin: 5rem 0 2rem 8%;
 }
 
 .txt-conhecanossotrabalho {
-    margin-top: 3%;
-    font-size: 25px;
-    width: 85%;
-    justify-self: center;
+    margin: 2rem auto;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    max-width: 70%;
+    color: #333;
+    text-align: left;
 }
 
+/* ===== POR QUE ESCOLHER A MANUTECH ===== */
 .title-porqueescolheramanutech {
     color: #0043ad;
-    justify-self: center;
-    font-weight: bold;
-    margin-top: 7%;
+    font-weight: 700;
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 5rem 0 3rem;
 }
 
 .topicos-index {
-    margin-top: 5%;
+    margin: 3rem 0;
+    padding: 0 2rem;
 }
 
-.txt-topicos-index {
-    text-align: center;
-    justify-self: center;
-    width: 70%;
+.topicos-index > div {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    font-size: 1vw;
+    text-align: center;
+}
+
+.img-topicos {
+    width: auto;
+    height: auto;
+    margin-bottom: 1.5rem;
 }
 
 .title-topicos-index {
     color: #0043ad;
-    font-weight: bold;
-    font-size: 25px;
-    justify-self: center;
-    margin-top: 6%;
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
 }
 
-.topicos-index img {
-    margin-left: 27%;
+.txt-topicos-index {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    max-width: 90%;
+}
+
+/* ===== MANUTENÇÃO E LOJA ===== */
+.manutencao-loja {
+    margin: 5rem auto;
+    padding: 0 2rem;
+    max-width: 1400px;
+}
+
+.manutencao-loja .position-relative {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    height: 400px;
 }
 
 .manutencao-loja img {
-    border-radius: 15px;
     width: 100%;
-    height: 70%;
-    margin-top: 15%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
 }
 
-.manutencao-loja {
-    position: relative;
+.manutencao-loja .position-relative:hover img {
+    transform: scale(1.05);
+}
+
+.txt-manutencao-loja,
+.txt-manutencao-loja2 {
+    position: absolute;
+    text-align: center;
+    top: 10%;
+    left: 8%;
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    z-index: 2;
 }
 
 .txt-manutencao-loja {
-    position: absolute;
-    inset: 0;
-    margin-top: 8%;
-    margin-left: 15%;
-    font-size: 2.1vw;
-    font-weight: bold;
-    color: white;
-    text-shadow: 2px 2px 2px rgb(0, 3, 145);
+    text-shadow: 2px 2px 4px rgb(0, 3, 145);
 }
 
 .txt-manutencao-loja2 {
+    text-shadow: 2px 2px 4px rgb(187, 121, 0);
+}
+
+.button-solicitarvisita,
+.button-vercatalogo {
+    
     position: absolute;
-    inset: 0;
-    margin-top: 8%;
-    margin-left: 72%;
-    font-size: 2.1vw;
-    font-weight: bold;
+    bottom: 12%;
+    left: 35%;
+    width: 200px;
+    height: 55px;
+    border: none;
     color: white;
-    text-shadow: 2px 2px 2px rgb(187, 121, 0);
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 35px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 2;
 }
 
 .button-solicitarvisita {
     background-color: #0043ad;
-    border: none;
-    color: white;
-    margin-top: 29%;
-    margin-left: 12%;
-    width: 25%;
-    height: 10%;
-    font-weight: bold;
-    font-size: 1vw;
-    border-radius: 35px;
-    position: absolute;
-    inset: 0;
-    /* ocupa toda a div */
+}
+
+.button-solicitarvisita:hover {
+    background-color: #0056d6;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 67, 173, 0.4);
 }
 
 .button-vercatalogo {
     background-color: #ff751f;
-    border: none;
-    color: white;
-    margin-top: 29%;
-    margin-left: 63%;
-    width: 25%;
-    height: 10%;
-    font-weight: bold;
-    font-size: 1vw;
-    border-radius: 35px;
-    position: absolute;
-    inset: 0;
 }
 
-/* --------------------------------------FOOTER------------------------------- */
+.button-vercatalogo:hover {
+    background-color: #ff8a3d;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(255, 117, 31, 0.4);
+}
 
+/* ===== FOOTER ===== */
 .footer-laranja {
-    background: #0042A9;
-    background: -moz-linear-gradient(top, #0042A9 0%, #0043AD 50%, #0043AD 100%);
-    background: -webkit-linear-gradient(top, #0042A9 0%, #0043AD 50%, #0043AD 100%);
     background: linear-gradient(to bottom, #0042A9 0%, #0043AD 50%, #0043AD 100%);
     color: #ffffff !important;
-    height: auto;
-    margin-top: 5%;
-    padding-top: 3%;
-    padding-bottom: 3%;
-
-}
-
-.marca-footer {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2%;
-    flex-direction: column;
-    gap: 0;
-}
-
-.texto-footer {
-    margin: 0;
-    color: #ffffff !important;
-    letter-spacing: 1.25px;
-}
-
-.itens-footer {
-    display: flex;
-    margin-top: 1%;
-}
-
-.itens-footer p {
-    display: grid;
-    align-items: center;
-    font-size: 2vh;
-}
-
-
-.textinhos-footer {
-    align-items: center;
-    display: grid;
-}
-
-.textinhos-footer p {
-    margin: 0%;
-}
-
-.icons-footer {
-    width: 70px;
-    height: auto;
-    margin-right: 2%;
-
-}
-
-.logo-footer {
-    margin: 0% !important;
-    width: 100%;
-    max-width: 460px;
-    height: auto;
-
-
+    padding: 3rem 0;
+    margin-top: 5rem;
 }
 
 .row-footer {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
     gap: 50px;
+}
 
+.marca-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.logo-footer {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+}
+
+.texto-footer {
+    color: #ffffff !important;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    margin-top: 1rem;
 }
 
 .ul-contatos {
-    gap: 10px;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .ul-contatos li {
-    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.ul-contatos .row {
+    width: 100%;
+    align-items: center;
 }
 
 .img-contato {
     display: flex;
-    justify-content: right;
+    justify-content: flex-end;
     align-items: center;
-    padding: 0;
+    padding-right: 1rem;
+}
+
+.img-contato img {
+    width: 40px;
+    height: auto;
 }
 
 .texto-contato {
@@ -283,5 +304,367 @@ video {
 
 .texto-contato p {
     margin: 0;
-    font-size: 100%;
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+/* ===== MEDIA QUERIES - RESPONSIVIDADE ===== */
+
+/* Tablets grandes e desktops pequenos (992px - 1199px) */
+@media (max-width: 1199px) {
+    .txt-video-index {
+        font-size: 3rem;
+        max-width: 500px;
+    }
+
+    .button-index-banner {
+        width: 300px;
+        height: 65px;
+        font-size: 20px;
+    }
+
+    .title-conhecanossotrabalho,
+    .title-porqueescolheramanutech {
+        font-size: 2.3rem;
+    }
+
+    .txt-manutencao-loja,
+    .txt-manutencao-loja2 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Tablets (768px - 991px) */
+@media (max-width: 991px) {
+    .bg-header {
+        padding: 1rem 2rem;
+        justify-content: center;
+    }
+
+    .logo-header-index {
+        width: 200px;
+    }
+
+    main > div:first-child {
+        height: 500px;
+    }
+
+    .txt-video-index {
+        font-size: 2.5rem;
+        max-width: 450px;
+        top: 20%;
+    }
+
+    .button-index-banner {
+        width: 280px;
+        height: 60px;
+        font-size: 18px;
+        top: 60%;
+    }
+
+    .title-conhecanossotrabalho {
+        font-size: 2rem;
+        margin-left: 5%;
+    }
+
+    .txt-conhecanossotrabalho {
+        font-size: 1.05rem;
+        max-width: 90%;
+    }
+
+    .title-porqueescolheramanutech {
+        font-size: 2rem;
+    }
+
+    .manutencao-loja .position-relative {
+        height: 350px;
+        margin-bottom: 2rem;
+    }
+
+    .txt-manutencao-loja,
+    .txt-manutencao-loja2 {
+        font-size: 2.2rem;
+    }
+
+    .button-solicitarvisita,
+    .button-vercatalogo {
+        width: 180px;
+        height: 50px;
+        font-size: 1rem;
+    }
+}
+
+/* Mobile grande (576px - 767px) */
+@media (max-width: 767px) {
+    .bg-header {
+        padding: 1rem;
+        min-height: 70px;
+    }
+
+    .logo-header-index {
+        width: 160px;
+    }
+
+    main > div:first-child {
+        height: 450px;
+    }
+
+    .txt-video-index {
+        font-size: 2rem;
+        max-width: 85%;
+        top: 15%;
+        left: 5%;
+    }
+
+    .button-index-banner {
+        width: 250px;
+        height: 55px;
+        font-size: 16px;
+        top: 65%;
+    }
+
+    .title-conhecanossotrabalho {
+        font-size: 1.8rem;
+        margin: 3rem 0 1.5rem 5%;
+    }
+
+    .txt-conhecanossotrabalho {
+        font-size: 1rem;
+        max-width: 90%;
+        padding: 0 1rem;
+    }
+
+    .title-porqueescolheramanutech {
+        font-size: 1.8rem;
+        margin: 3rem 0 2rem;
+    }
+
+    .title-topicos-index {
+        font-size: 1.3rem;
+    }
+
+    .txt-topicos-index {
+        font-size: 0.95rem;
+    }
+
+    .manutencao-loja {
+        padding: 0 1rem;
+    }
+
+    .manutencao-loja .position-relative {
+        height: 300px;
+    }
+
+    .txt-manutencao-loja,
+    .txt-manutencao-loja2 {
+        font-size: 2rem;
+        top: 8%;
+    }
+
+    .button-solicitarvisita,
+    .button-vercatalogo {
+        width: 160px;
+        height: 45px;
+        font-size: 0.9rem;
+        bottom: 10%;
+    }
+
+    .row-footer {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .marca-footer {
+        margin-bottom: 1rem;
+    }
+
+    .logo-footer {
+        max-width: 200px;
+    }
+}
+
+/* Mobile médio (481px - 575px) */
+@media (max-width: 575px) {
+    main > div:first-child {
+        height: 400px;
+    }
+
+    .txt-video-index {
+        font-size: 1.7rem;
+        max-width: 90%;
+        top: 12%;
+    }
+
+    .button-index-banner {
+        width: 220px;
+        height: 50px;
+        font-size: 15px;
+        top: 60%;
+    }
+
+    .title-conhecanossotrabalho {
+        font-size: 1.6rem;
+        margin: 2.5rem 0 1.5rem 5%;
+    }
+
+    .txt-conhecanossotrabalho {
+        font-size: 0.95rem;
+    }
+
+    .title-porqueescolheramanutech {
+        font-size: 1.6rem;
+    }
+
+    .img-topicos {
+        width: 100px;
+    }
+
+    .title-topicos-index {
+        font-size: 1.2rem;
+    }
+
+    .txt-topicos-index {
+        font-size: 0.9rem;
+    }
+
+    .manutencao-loja .position-relative {
+        height: 280px;
+    }
+
+    .txt-manutencao-loja,
+    .txt-manutencao-loja2 {
+        font-size: 1.8rem;
+        top: 6%;
+        left: 6%;
+    }
+
+    .button-solicitarvisita,
+    .button-vercatalogo {
+        width: 150px;
+        height: 42px;
+        font-size: 0.85rem;
+        left: 6%;
+    }
+
+    .texto-contato p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile pequeno (376px - 480px) */
+@media (max-width: 480px) {
+    main > div:first-child {
+        height: 350px;
+    }
+
+    .txt-video-index {
+        font-size: 1.5rem;
+        top: 10%;
+    }
+
+    .button-index-banner {
+        width: 200px;
+        height: 48px;
+        font-size: 14px;
+        top: 58%;
+    }
+
+    .title-conhecanossotrabalho,
+    .title-porqueescolheramanutech {
+        font-size: 1.5rem;
+    }
+
+    .txt-conhecanossotrabalho {
+        font-size: 0.9rem;
+    }
+
+    .img-topicos {
+        width: 100px;
+    }
+
+    .title-topicos-index {
+        font-size: 1.1rem;
+    }
+
+    .txt-topicos-index {
+        font-size: 0.85rem;
+    }
+
+    .manutencao-loja .position-relative {
+        height: 250px;
+    }
+
+    .txt-manutencao-loja,
+    .txt-manutencao-loja2 {
+        font-size: 1.6rem;
+        top: 5%;
+        left: 5%;
+    }
+
+    .button-solicitarvisita,
+    .button-vercatalogo {
+        width: 140px;
+        height: 40px;
+        font-size: 0.8rem;
+        left: 5%;
+        bottom: 8%;
+    }
+}
+
+/* Mobile extra pequeno (até 375px) */
+@media (max-width: 375px) {
+    .logo-header-index {
+        width: 140px;
+    }
+
+    main > div:first-child {
+        height: 320px;
+    }
+
+    .txt-video-index {
+        font-size: 1.3rem;
+        top: 8%;
+    }
+
+    .button-index-banner {
+        width: 180px;
+        height: 45px;
+        font-size: 13px;
+        top: 55%;
+    }
+
+    .title-conhecanossotrabalho,
+    .title-porqueescolheramanutech {
+        font-size: 1.3rem;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .txt-conhecanossotrabalho {
+        font-size: 0.85rem;
+    }
+
+    .manutencao-loja .position-relative {
+        height: 220px;
+    }
+
+    .txt-manutencao-loja,
+    .txt-manutencao-loja2 {
+        font-size: 1.4rem;
+    }
+
+    .button-solicitarvisita,
+    .button-vercatalogo {
+        width: 130px;
+        height: 38px;
+        font-size: 0.75rem;
+    }
+
+    .img-contato img {
+        width: 35px;
+    }
+
+    .texto-contato p {
+        font-size: 0.85rem;
+    }
 }
