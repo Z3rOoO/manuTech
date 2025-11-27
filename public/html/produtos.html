@@ -2,8 +2,8 @@
 <html lang="pt-br">
 
 <head>
-    <title>manutech</title>
-    <script src="../js/verificar_login.js"></script>
+    <title>Catálogo - Manutech</title>
+        <!-- <script src="../js/verificar_login.js"></script> -->
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -20,62 +20,131 @@
     <link rel="icon" href="../images/icons/icon_manutech.svg">
 </head>
 
-
 <body>
+
     <header class="fixed-top">
+
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
-            <img src="../images/icons/logo-manutech-orange.png" class="logo-manutech">
-            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse lista-header" id="collapsibleNavId">
-                <ul class="navbar-nav me-auto mt-2 mt-lg-0 botoes-header">
-                    <li class="nav-item">
-                        <a class="nav-link" href="chamado">Manutenção</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="catalogo">Reposição</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="header-icons">
-                <a href="#"><img src="../images/icons/icon-solicitacoes-orange.png" class="icons-header"
-                        style="margin-top: 10%;"></a>
-                <a href="#" style="margin-left: 15%;"><img src="../images/icons/icon-perfil-orange.png"
-                        class="icons-header"></a>
-            </div>
 
-            <div class="dropdown" style="display: inline-block; margin-left: 15%;">
-                <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="../images/icons/perfil-azul.png" class="icons-header">
-                </a>
+            <div class="row content-navbar">
+
+                <div class="col-8 col-sm-8 col-md-4 col-lg-2">
+
+                    <div style="width: 100%;">
+
+                        <img src="../images/icons/logo-manutech-orange.png" style="width: 100%;">
+
+                    </div>
+
+                </div>
 
 
-                <ul class="dropdown-menu dropdown-menu-end box-modal">
-                    <li class="alinhar-modal"><img class="foto-modal" src="../images/icons/perfil-azul.png">
-                        <span class="dropdown-item-text fw-bold nome-modal" id="nome-usuario-menu">Henrique
-                            Cosme</span>
-                    </li>
-                    <li><span class="dropdown-item-text empresa-modal" id="nome-usuario-menu">Mercedes</span></li>
-                    <li><span class="dropdown-item-text text-muted small" id="cargo-usuario-menu"
-                            style="font-size: 0.85em;"></span></li>
+                <div class="col-3 col-sm-3 d-md-none d-lg-none menu-mobile">
 
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li>
-                        <a class="dropdown-item text-danger" style="text-align: center; font-size: 20px;" href="#"
-                            onclick="fazerLogout()">Sair</a>
-                    </li>
-                </ul>
-            </div>
+                    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                </div>
+
+                <div class="d-md-block col-md-2 col-lg-2">
+
+                    <div class="collapse navbar-collapse lista-header" id="collapsibleNavId">
+                        <ul class="navbar-nav me-auto mt-2 mt-lg-0 botoes-header">
+                            <li class="nav-item">
+                                <a class="nav-link" href="chamado">Manutenção</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Reposição</a>
+                            </li>
+                        </ul>
+
+                        <div class="col-3 col-sm-3 d-block d-md-none">
+                            <div class="header-icons-menu">
+                                <a href="#"><img src="../images/icons/carrinho.svg" width="55px"></a>
+                                <!-- fazer o menu suspenso para sair do login e voltar para o index/ substituir o icone azul-->
+                                <div class="dropdown" style="display: inline-block; margin-left: 15%;">
+                                    <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img src="../images/icons/icon-perfil-orange.png" width="55px">
+                                    </a>
+
+
+                                    <ul class="dropdown-menu dropdown-menu-end box-modal">
+                                        <li class="alinhar-modal"><img class="foto-modal"
+                                                src="../images/icons/perfil-azul.png">
+                                            <span class="dropdown-item-text fw-bold nome-modal"
+                                                id="nome-usuario-menu">Henrique
+                                                Cosme</span>
+                                        </li>
+                                        <li><span class="dropdown-item-text empresa-modal"
+                                                id="nome-usuario-menu">Mercedes</span></li>
+                                        <li><span class="dropdown-item-text text-muted small" id="cargo-usuario-menu"
+                                                style="font-size: 0.85em;"></span></li>
+
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item text-danger"
+                                                style="text-align: center; font-size: 20px;" href="#"
+                                                onclick="fazerLogout()">Sair</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- fazer o menu suspenso para sair do login e voltar para o index-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="d-none d-md-block col-md-2">
+
+                    <div class="header-icons">
+                        <a href="#"><img src="../images/icons/carrinho.svg" width="55px"></a>
+
+
+                        <!-- fazer o menu suspenso para sair do login e voltar para o index/ substituir o icone azul-->
+                        <div class="dropdown" style="display: inline-block; margin-left: 15%;">
+                                    <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img src="../images/icons/icon-perfil-orange.png" width="55px">
+                                    </a>
+
+
+                                    <ul class="dropdown-menu dropdown-menu-end box-modal">
+                                        <li class="alinhar-modal"><img class="foto-modal"
+                                                src="../images/icons/perfil-azul.png">
+                                            <span class="dropdown-item-text fw-bold nome-modal"
+                                                id="nome-usuario-menu">Henrique
+                                                Cosme</span>
+                                        </li>
+                                        <li><span class="dropdown-item-text empresa-modal"
+                                                id="nome-usuario-menu">Mercedes</span></li>
+                                        <li><span class="dropdown-item-text text-muted small" id="cargo-usuario-menu"
+                                                style="font-size: 0.85em;"></span></li>
+
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item text-danger"
+                                                style="text-align: center; font-size: 20px;" href="#"
+                                                onclick="fazerLogout()">Sair</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                        <!-- fazer o menu suspenso para sair do login e voltar para o index-->
+
+                    </div>
+
+                </div>
         </nav>
     </header>
 
     <div class="fundo"></div>
-
 
     <main>
         <div class="container">
@@ -88,17 +157,17 @@
                 <div class="col ">
                     <div class="row">
                         <div class="col-4 d-none d-md-block headT">PRODUTO</div>
-                        <div class="col-3 d-none d-md-block headT">DESCIÇÃO</div>
+                        <div class="col-3 d-none d-md-block headT">DESCRIÇÃO</div>
                         <div class="col-3 d-none d-md-block headT">PREÇO</div>
                         <div class="col-2 d-none d-md-block headT">COMPRAR</div>
                     </div>
                     <div class="row linhaT">
                         <div class="col-12 col-md-2 order-2 order-md-1 bodyT"><img src="../images/produtos/${produto.imagem}" alt="${produto.nome}" height="100%" loading="lazy" /></div>
-                         <div class="col-12 col-md-2 order-1 order-md-2 bodyT">nomme</div>
+                         <div class="col-12 col-md-2 order-1 order-md-2 bodyT nome-produto">Divlo</div>
                          <div class="col-12 col-md-3 order-3 order-md-3 bodyT">desc</div>
                          <div class="col-6 col-md-3 order-4 order-md-4 bodyT">R$ </div>
                          <div class="col-6 col-md-2 order-5 order-md-5 bodyT">
-                             <button class="btn btn-outline-primary" title="Adicionar ao carrinho">
+                             <button class="btn btn-outline-primary btt-comprar" title="Adicionar ao carrinho">
                                  <img src="../images/icons/carrinho.svg" width="24" height="24">
                              </button>
                          </div>
