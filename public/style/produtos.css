@@ -5,61 +5,7 @@ body {
     box-sizing: border-box;
 }
 
-.navbar {
-    width: 100vw;
-    justify-content: space-between;
-    display: flex;
-    padding-left: 2%;
-    margin-right: 2%;
-}
 
-header {
-    border-bottom: 2px solid #ff751f;
-}
-
-.logo-manutech {
-    margin-top: 0.7%;
-    margin-bottom: 0.7%;
-}
-
-.lista-header {
-    justify-content: center !important;
-    margin-left: 27vw;
-
-}
-
-.titulo-geral h1 {
-    font-size: 5.5vh;
-    color: #ff751f;
-    font-weight: 700;
-}
-
-.fundo {
-    background: transparent url("../images/background.png") repeat-x scroll 0 0;
-    background-size: cover;
-    background-position: top;
-    padding-top: 8vw;
-    height: 9vh;
-    margin-top: 2vw;
-}
-
-.header-icons {
-    display: flex;
-    width: 8vw;
-    margin-right: 3.5%;
-}
-
-.botoes-header {
-    font-size: 2.2vh;
-}
-
-.header-icons a {
-    display: inline-block;
-}
-
-.icons-header {
-    width: 2.6vw;
-}
 
 /* --------------------------------------------------table---------------------------------------------------- */
 

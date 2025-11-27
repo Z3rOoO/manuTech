@@ -4,41 +4,67 @@ body{
     background-color: #ffffff;
     font-family: Nunito, sans-serif;
 }
-/* --------------------------------------------------------------------------------- HEADERS ------------------------------------------------------------------------- */
-body {
-    max-width: 100%;
-    overflow-x: hidden;
-    box-sizing: border-box;
-}
-
+/* ------------------------------------------------------------------------------ HEADER LARANJA --------------------------------------------------------------------- */
 .navbar {
-    width: 100vw;
+    width: 100%;
     justify-content: space-between;
     display: flex;
-    padding-left: 2%;
-    margin-right: 2%;
+    margin: 0%;
+    align-items: center;
+}
+
+.content-navbar {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1%;
 }
 
 header {
-    border-bottom: 2px solid #0043ad;
+    width: 100%;
+    border-bottom: 2px solid #ff751f;
 }
 
 .logo-manutech {
     margin-top: 0.7%;
     margin-bottom: 0.7%;
-    width: 12%;
 }
 
 .lista-header {
     justify-content: center !important;
-    margin-left: 27vw;
+    margin-left: 0%;
+}
 
+.titulo-geral h1 {
+    font-size: 5.5vh;
+    color: #ff751f;
+    font-weight: 700;
+}
+
+.fundo {
+    background: transparent url("../images/background.png") repeat-x scroll 0 0;
+    background-size: cover;
+    background-position: top;
+    padding-top: 8vw;
+    height: 9vh;
+    margin-top: 2vw;
+}
+
+.menu-mobile {
+    display: flex;
+    justify-content: end;
 }
 
 .header-icons {
     display: flex;
-    width: 8vw;
-    margin-right: 3.5%;
+    justify-content: right;
+    width: 100%;
+}
+
+.header-icons-menu{
+    display: flex;
+    width: 100%;
+    margin-top: 6%;
 }
 
 .botoes-header {
@@ -49,9 +75,14 @@ header {
     display: inline-block;
 }
 
-.icons-header{
-    width: 2.6vw;
+.icons-header {
+    width: 100%;
 }
+
+/* ------------------------------------------------------------------------------- HEADER AZUL ----------------------------------------------------------------------- */
+
+
+
 /* --------------------------------------------------------------------------------- CHATBOX ------------------------------------------------------------------------- */
 .chatbox{
     width: 420px;

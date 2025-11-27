@@ -6,14 +6,22 @@ body {
 }
 
 .navbar {
-    width: 100vw;
+    width: 100%;
     justify-content: space-between;
     display: flex;
-    padding-left: 2%;
-    margin-right: 2%;
+    margin: 0%;
+    align-items: center;
+}
+
+.content-navbar {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1%;
 }
 
 header {
+    width: 100%;
     border-bottom: 2px solid #ff751f;
 }
 
@@ -24,8 +32,7 @@ header {
 
 .lista-header {
     justify-content: center !important;
-    margin-left: 27vw;
-
+    margin-left: 0%;
 }
 
 .titulo-geral h1 {
@@ -43,10 +50,21 @@ header {
     margin-top: 2vw;
 }
 
+.menu-mobile {
+    display: flex;
+    justify-content: end;
+}
+
 .header-icons {
     display: flex;
-    width: 8vw;
-    margin-right: 3.5%;
+    justify-content: right;
+    width: 100%;
+}
+
+.header-icons-menu{
+    display: flex;
+    width: 100%;
+    margin-top: 6%;
 }
 
 .botoes-header {
@@ -58,8 +76,11 @@ header {
 }
 
 .icons-header {
-    width: 2.6vw;
+    width: 100%;
 }
+
+
+
 
 main {
     padding-left: 15%;
@@ -160,7 +181,6 @@ main {
     width: 70px;
     height: auto;
     margin-right: 2%;
-
 }
 
 .logo-footer {
