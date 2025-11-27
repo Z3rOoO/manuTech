@@ -2,8 +2,8 @@
 <html lang="pt-br">
 
 <head>
-    <title>manutech</title>
-    <script src="../js/verificar_login.js"></script>
+    <title>Catálogo - Manutech</title>
+        <!-- <script src="../js/verificar_login.js"></script> -->
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -20,7 +20,6 @@
     <link rel="icon" href="../images/icons/icon_manutech.svg">
 </head>
 
-
 <body>
     <header class="fixed-top">
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
@@ -33,10 +32,10 @@
             <div class="collapse navbar-collapse lista-header" id="collapsibleNavId">
                 <ul class="navbar-nav me-auto mt-2 mt-lg-0 botoes-header">
                     <li class="nav-item">
-                        <a class="nav-link" href="chamado">Manutenção</a>
+                        <a class="nav-link" href="../html/chamado.html">Manutenção</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="catalogo">Reposição</a>
+                        <a class="nav-link" href="../html/catalogo.html">Reposição</a>
                     </li>
                 </ul>
             </div>
@@ -76,7 +75,6 @@
 
     <div class="fundo"></div>
 
-
     <main>
         <div class="container">
             <div class="row">
@@ -88,17 +86,17 @@
                 <div class="col ">
                     <div class="row">
                         <div class="col-4 d-none d-md-block headT">PRODUTO</div>
-                        <div class="col-3 d-none d-md-block headT">DESCIÇÃO</div>
+                        <div class="col-3 d-none d-md-block headT">DESCRIÇÃO</div>
                         <div class="col-3 d-none d-md-block headT">PREÇO</div>
                         <div class="col-2 d-none d-md-block headT">COMPRAR</div>
                     </div>
                     <div class="row linhaT">
                         <div class="col-12 col-md-2 order-2 order-md-1 bodyT"><img src="../images/produtos/${produto.imagem}" alt="${produto.nome}" height="100%" loading="lazy" /></div>
-                         <div class="col-12 col-md-2 order-1 order-md-2 bodyT">nomme</div>
+                         <div class="col-12 col-md-2 order-1 order-md-2 bodyT nome-produto">Divlo</div>
                          <div class="col-12 col-md-3 order-3 order-md-3 bodyT">desc</div>
                          <div class="col-6 col-md-3 order-4 order-md-4 bodyT">R$ </div>
                          <div class="col-6 col-md-2 order-5 order-md-5 bodyT">
-                             <button class="btn btn-outline-primary" title="Adicionar ao carrinho">
+                             <button class="btn btn-outline-primary btt-comprar" title="Adicionar ao carrinho">
                                  <img src="../images/icons/carrinho.svg" width="24" height="24">
                              </button>
                          </div>
