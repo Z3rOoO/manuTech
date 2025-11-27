@@ -1,23 +1,23 @@
 import ChamadoModel from '../models/ChamadoModel.js';
 
-class ChamadoController { 
-    
+class ChamadoController {
+
     static async criar(req, res) {
         try {
-            const { 
-                descricao, 
-                modelo_maquina, 
-                numero_serie, 
-                numero_patrimonio, 
-                setor, 
-                responsavel, 
+            const {
+                descricao,
+                modelo_maquina,
+                numero_serie,
+                numero_patrimonio,
+                setor,
+                responsavel,
                 endereco_manutencao,
                 data_manutencao,
                 hora_manutencao
             } = req.body;
 
             // Token
-            const cliente_id = req.usuario.id; 
+            const cliente_id = req.usuario.id;
             const data_chamado = new Date(); // Data de hoje
 
             const novoChamado = {
@@ -42,7 +42,19 @@ class ChamadoController {
         } catch (error) {
             console.error('Erro ao abrir chamado:', error);
             res.status(500).json({ sucesso: false, erro: "Erro ao abrir chamado." });
-        } 
+        }
+    }
+    static async listar(req, res) {
+        try {
+            const cliente_id = req.usuario.id; // Pega o ID do cliente do token
+            const chamados = await ChamadoModel.listarPorCliente(cliente_id);
+            res.status(200).json({ sucesso: true, chamados });
+            
+
+        } catch (error) {
+            console.error('Erro ao listar chamados:', error);
+            res.status(500).json({ sucesso: false, erro: "Erro ao listar chamados." });
+        }
     }
 }
 

@@ -17,30 +17,29 @@
 
 <body>
     <header>
-        <nav class="navbar bg-body-tertiary header-index">
+        <nav class="bg-header">
             <img class="logo-header-index" src="../images/icons/logo-manutech-white.png">
-            <a href="login"><button class="btn btn-outline-success botao-header-index"
-                    type="submit">Entrar</button></a>
+            <!-- <a href="login"><button class="btn btn-outline-success botao-header-index" -->
+            <!-- type="submit">Entrar</button></a> -->
+        </nav>
     </header>
 
     <main>
-        <div class="video-wrapper">
+        <div>
+            <video autoplay muted loop playsinline>
+                <source src="../images/videos/home-welcome.crdownload" type="video/mp4">
+            </video>
             <div class="row">
-                <div class="col">
-                    <video autoplay muted loop playsinline>
-                        <source src="../images/videos/home-welcome.crdownload" type="video/mp4">
-                    </video>
-                </div>
                 <div class="col-12 col-md-3 col-sm-1 col-lg-4">
                     <p class="txt-video-index" style="font-family: League Spartan, sans-serif;">A maior empresa de <span
                             style="color: #ff751f !important;">manutenções industriais</span> da América Latina<span
                             style="color: #ff751f !important;">.</span></p>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-12 col-md-3 col-sm-2 col-lg-5">
-                    <a href="../html/chamado.html"><button class="button-index-banner">Solicitar
-                        manutenção</button></a>
+                <div class="row">
+                    <div class="col-12 col-md-3 col-sm-2 col-lg-5">
+                        <a href="../html/chamado.html"><button class="button-index-banner">Solicitar
+                                manutenção</button></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -59,7 +58,7 @@
             industriais.
         </p>
 
-               <section class="container text-center my-5">
+        <section class="container text-center my-5">
             <h1 class="title-porqueescolheramanutech">Por que escolher a Manutech?</h1>
 
             <div class="row topicos-index">
@@ -93,27 +92,40 @@
         </section>
 
         <!-- SEÇÃO MANUTENÇÃO E LOJA -->
-        <section class="container manutencao-loja mt-5">
-            <div class="row g-4">
-                <div class="col-lg-6 col-sm-12 position-relative">
-                    <img src="../images/ilustracoes/img-home-manutencao.png" class="img-fluid">
-                    <p class="txt-manutencao-loja">Manutenção</p>
-
+       <!-- SEÇÃO MANUTENÇÃO E LOJA -->
+<section class="container manutencao-loja mt-5">
+    <div class="row g-4">
+        <!-- Card Manutenção -->
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="card-manutencao-loja position-relative">
+                <img src="../images/ilustracoes/img-home-manutencao.png" 
+                     class="img-fluid" 
+                     alt="Manutenção Industrial">
+                <div class="overlay-content">
+                    <h2 class="txt-manutencao-loja">Manutenção</h2>
                     <a href="../html/chamado.html">
                         <button class="button-solicitarvisita">Solicitar visita</button>
                     </a>
                 </div>
+            </div>
+        </div>
 
-                <div class="col-lg-6 col-sm-12 position-relative">
-                    <img src="../images/ilustracoes/img-home-loja.png" class="img-fluid">
-                    <p class="txt-manutencao-loja2">Loja</p>
-
+        <!-- Card Loja -->
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="card-manutencao-loja position-relative">
+                <img src="../images/ilustracoes/img-home-loja.png" 
+                     class="img-fluid" 
+                     alt="Loja de Ferramentas">
+                <div class="overlay-content">
+                    <h2 class="txt-manutencao-loja2">Loja</h2>
                     <a href="../html/catalogo.html">
                         <button class="button-vercatalogo">Ver catálogo</button>
                     </a>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
     </main>
 
     <footer class="footer-laranja ">

@@ -8,13 +8,12 @@ class ProdutoController {
             const limite = Number(req.query.limite) || 50;
             const pagina = Number(req.query.pagina) || 1;
             const offset = (pagina - 1) * limite;
-            console.log('alguma coisa');
             const resultado = await ProdutoModel.listarTodos(limite, offset);
             console.log('Produtos encontrados:', resultado);
     
             resultado.produtos = resultado.produtos.map(p => ({
                 ...p,
-                imagemUrl: p.imagem ? `/upload/${p.imagem}` : null
+                imagemUrl: p.imagem ? `/uploads/imagens/${p.imagem}` : null
             }));
     
             res.json({ sucesso: true, ...resultado });
