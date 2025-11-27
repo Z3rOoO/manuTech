@@ -114,13 +114,13 @@
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
     <script>
-        async function carregarProdutos() {
-            const resposta = await fetch('/api/chamados');
+        async function carregarChamados() {
+            const resposta = await fetch('/api/chamados/5');
             const data = await resposta.json();
             console.log(data);
 
             if (!data.sucesso) {
-                alert('Erro ao carregar produtos: ' + data.erro);
+                alert('Erro ao carregar chaados: ' + data.erro);
                 return;
             }
 
@@ -128,7 +128,7 @@
                 const lista = document.getElementById('accordionServico');
                 lista.innerHTML = "";
 
-                data.produtos.forEach(produto => {
+                data.chamados.forEach(chamado => {
 
 
                     const row = document.createElement('div');
@@ -143,7 +143,7 @@
                                 data-bs-target="#collapseOne" 
                                 aria-expanded="false" 
                                 aria-controls="collapseOne">
-                            <h1 class="titulo-servico">Fresa ferramenteira Lagun ISO 30</h1>
+                            <h1 class="titulo-servico">${chamado.cliente_id}</h1>
                         </button>
                     </h2>
         
@@ -182,7 +182,7 @@
         }
 
 
-        carregarProdutos();
+        carregarChamados();
     </script>
 </body>
 
