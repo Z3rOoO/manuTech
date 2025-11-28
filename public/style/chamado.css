@@ -1,3 +1,6 @@
+body{
+    overflow: hidden;
+}
 .container-chamado{
     margin-top: 120px;
 }
