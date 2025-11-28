@@ -5,6 +5,9 @@ body{
     font-family: Nunito, sans-serif;
 }
 /* ------------------------------------------------------------------------------ HEADER LARANJA --------------------------------------------------------------------- */
+.ajuste{
+   
+}
 .navbar {
     width: 100%;
     justify-content: space-between;
@@ -21,7 +24,8 @@ body{
 }
 
 header {
-    width: 100%;
+    
+   
     border-bottom: 2px solid #ff751f;
 }
 

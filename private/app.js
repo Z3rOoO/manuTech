@@ -55,7 +55,7 @@ siteRouter.get('/produtos', (req, res) => res.sendFile(path.join(htmlPath, 'prod
 siteRouter.get('/catalogo', (req, res) => res.sendFile(path.join(htmlPath, 'catalogo.html')));
 siteRouter.get('/painelAdmin', (req, res) => res.sendFile(path.join(htmlPath, 'painelAdmin.html')));
 siteRouter.get('/teste', (req, res) => res.sendFile(path.join(htmlPath, 'teste.html')));
-siteRouter.get('/acompanhamento', (req, res) => res.sendFile(path.join(htmlPath, 'acompanhamento.html')));
+siteRouter.get('/acompanhamento/:id', (req, res) => res.sendFile(path.join(htmlPath, 'acompanhamento.html')));
 siteRouter.get('/manutencoes', (req, res) => res.sendFile(path.join(htmlPath, 'manutencoes.html')));
 
 // deixa padrao ( tirando o manutech q tava antes)
