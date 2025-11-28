@@ -5,11 +5,13 @@ function verificarLogin() {
     const headerLogado = document.getElementById('header-logado');
 
     if (!token) {
+        headerPublico.style.display = 'block';
+        headerLogado.style.display = 'none';
         headerPublico.style.display = 'none';
         headerLogado.style.display = 'block';
     } else {
-        headerPublico.style.display = 'block';
-        headerLogado.style.display = 'none';
+        headerPublico.style.display = 'none';
+        headerLogado.style.display = 'block';
     }
 }
 
