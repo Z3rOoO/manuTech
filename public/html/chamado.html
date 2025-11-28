@@ -131,8 +131,8 @@
     <div class="container-chamado">
         <div class="row row-chamado column-gap-5 ">
             <div class="col-5 row-gap-4 primeira">
-                <div class="row"><input class="input-tipo0-chamado" type="text" placeholder="Descreva seu problema:"
-                        id="descricao" required>
+                <div class="row"><textarea class="input-tipo0-chamado" type="text" placeholder="Descreva seu problema:"
+                        id="descricao" required></textarea> 
                 </div>
                 <div class="row"><input class="input-tipo1-chamado" type="text"
                         placeholder="Modelo da máquina/ferramenta:" id="modelo_maquina" required></div>
@@ -226,7 +226,7 @@
 
                 if (resultado.sucesso) {
                     alert("Chamado aberto com sucesso! ID: " + resultado.id);  //id ja ta na migration
-
+                    window.location.href = "manutencoes"; // Redireciona para a página de manutenções após o sucesso
                 } else {
                     alert("Erro: " + resultado.erro);
                 }
