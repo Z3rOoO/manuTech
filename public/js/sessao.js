@@ -39,4 +39,4 @@ async function obterUsuarioLogado() {
     return null;
 }
 
-export { obterUsuarioLogado, fazerLogout };
+export { obterUsuarioLogado, fazerLogout,};
