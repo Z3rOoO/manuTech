@@ -39,4 +39,8 @@ async function obterUsuarioLogado() {
     return null;
 }
 
-export { obterUsuarioLogado, fazerLogout,};
+export { obterUsuarioLogado};
+
+
+// Torna o logout global para funcionar no onclick
+window.fazerLogout = fazerLogout;
