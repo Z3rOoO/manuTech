@@ -16,7 +16,7 @@ CREATE TABLE chamado (
     endereco_manutencao VARCHAR(255) NOT NULL,
     data_manutencao DATE NOT NULL,
     hora_manutencao TIME NOT NULL,
-    status_code ENUM('CRIACAO','VISITA','AVALIACAO', 'ORCAMENTO', 'MANUTENCAO') NOT NULL DEFAULT 'VISITA',
+    status_code ENUM('Criado','Aceito','Avaliado', 'Orçamento', 'Concluido') NOT NULL DEFAULT 'Criado',
     FOREIGN KEY (cliente_id) REFERENCES usuarios (id)
 );
 
