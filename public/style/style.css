@@ -35,12 +35,6 @@ header {
     margin-left: 0%;
 }
 
-.titulo-geral h1 {
-    font-size: 5.5vh;
-    color: #ff751f;
-    font-weight: 700;
-}
-
 .fundo {
     background: transparent url("../images/background.png") repeat-x scroll 0 0;
     background-size: cover;
@@ -59,12 +53,14 @@ header {
     display: flex;
     justify-content: right;
     width: 100%;
+    align-items: center;
 }
 
 .header-icons-menu{
     display: flex;
     width: 100%;
     margin-top: 6%;
+    align-items: center;
 }
 
 .botoes-header {
@@ -82,14 +78,14 @@ header {
 /* ------------------------------------------------------------------------------- HEADER AZUL ----------------------------------------------------------------------- */
 
 .header-azul {
-    width: 100%;
-    border-bottom: 2px solid #ff751f;
+    width: 100% !important;
+    border-bottom: 2px solid #0042A9 !important;
 }
 
 .titulo-geral h1 {
-    font-size: 5.5vh;
-    color: #ff751f;
-    font-weight: 700;
+    font-size: 5.5vh !important;
+    color: #0042A9 !important;
+    font-weight: 700 !important;
 }
 
 /* --------------------------------------------------------------------------------- CHATBOX ------------------------------------------------------------------------- */

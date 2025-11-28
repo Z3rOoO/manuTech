@@ -1,162 +1,88 @@
-html,
-body {
-    max-width: 100%;
-    overflow-x: hidden;
+/* Estilo para a tabela de produtos */
+.tabela-produtos {
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Linha do produto */
+.linhaT {
+    width: 100%;
+    margin: 0;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    flex-wrap: wrap;
     box-sizing: border-box;
 }
 
+/* Garante que cada coluna respeite o tamanho do Bootstrap */
+.linhaT > [class*="col-"] {
+    max-width: 100%;
+}
 
-
-/* --------------------------------------------------table---------------------------------------------------- */
-
+/* Cabeçalho */
 .headT {
-    padding: 5px;
-    margin: 0;
-    margin-bottom: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-weight: bold;
-    font-size: 100%;
-    text-align: center;
-    border-bottom: 2px solid #ff751f;
+    padding: 15px 10px;
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
 }
 
-.linhaT {
-    margin: 5px;
-    background-color: aliceblue;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: all 0.7s ease;
-}
-
-.linhaT:hover {
-    transition: all 0.2s ease;
-    transform: scale(1.01);
-    background-color: #ffefd5;
-    cursor: pointer;
-    -webkit-box-shadow: 0px 10px 13px -7px #0000004f, 0px 0px 25px -18px rgba(0, 0, 0, 0.01);
-    box-shadow: 0px 10px 13px -7px #0000004f, 0px 0px 25px -18px rgba(0, 0, 0, 0.01);
-}
-
+/* Corpo da tabela */
 .bodyT {
-    padding: 0;
-    margin: 0;
+    padding: 15px 10px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-size: 100%;
-    text-align: center;
-    height: 100px;
-    border-bottom: 2px solid #ff751f;
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Impede qualquer elemento interno de estourar horizontalmente */
+.bodyT {
+    max-width: 100%;
+    gap: 20px;
+}
+
+/* Container da lista de produtos */
+#lista-produtos {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Mantém o container dentro da tela */
+.container {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .bodyT {
+        padding: 10px 5px;
+        font-size: 14px;
+        align-items: flex-start;
+    }
+}
+
+/* Imagens sempre controladas */
+.bodyT img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Botão comprar não quebra */
+.btn-outline-primary {
+    white-space: nowrap;
 }
 .btt-comprar{
-    border: 1px solid #E7691C;
-    margin-left: 25px;
+    border: 1px solid #ff751f;
 }
-
-
-/* -------------------------------------------------------- footer -------------------------------------------------------- */
-
-.footer-laranja {
-    background: #E7691C;
-    background: -moz-linear-gradient(top, #E7691C 0%, #FF751F 50%, #FF751F 100%);
-    background: -webkit-linear-gradient(top, #E7691C 0%, #FF751F 50%, #FF751F 100%);
-    background: linear-gradient(to bottom, #E7691C 0%, #FF751F 50%, #FF751F 100%);
-    color: #ffffff !important;
-    height: auto;
-    margin-top: 5%;
-    padding-top: 3%;
-    padding-bottom: 3%;
-
-}
-
-.marca-footer {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2%;
-    flex-direction: column;
-    gap: 0;
-}
-
-.texto-footer {
-    margin: 0;
-    color: #ffffff !important;
-    letter-spacing: 1.25px;
-}
-
-.itens-footer {
-    display: flex;
-    margin-top: 1%;
-}
-
-.itens-footer p {
-    display: grid;
-    align-items: center;
-    font-size: 2vh;
-}
-
-
-.textinhos-footer {
-    align-items: center;
-    display: grid;
-}
-
-.textinhos-footer p {
-    margin: 0%;
-}
-
-.icons-footer {
-    width: 70px;
-    height: auto;
-    margin-right: 2%;
-
-}
-
-.logo-footer {
-    margin: 0% !important;
-    width: 100%;
-    max-width: 460px;
-    height: auto;
-
-
-}
-
-/* -------------------------------------------------------- */
-
-.row-footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 50px;
-
-}
-
-.ul-contatos {
-    gap: 10px;
-}
-
-.ul-contatos li {
-    height: 40px;
-}
-
-.img-contato {
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    padding: 0;
-}
-
-.texto-contato {
-    display: flex;
-    align-items: center;
-}
-
-.texto-contato p {
-    margin: 0;
-    font-size: 100%;
+.nome-produto{
+    max-width: 50px;
 }
