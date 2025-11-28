@@ -71,7 +71,7 @@
 
 /* Imagens sempre controladas */
 .bodyT img {
-    max-width: 100%;
+    max-width: 100px;
     height: auto;
     object-fit: contain;
 }
@@ -82,7 +82,23 @@
 }
 .btt-comprar{
     border: 1px solid #ff751f;
+    margin-left: 20px
 }
 .nome-produto{
     max-width: 50px;
+}
+
+/* -------------------------------------------------footer-------------------------------- */
+.footer-laranja {
+    margin-top: 207px !important;
+    background: #E7691C;
+    background: -moz-linear-gradient(top, #E7691C 0%, #FF751F 50%, #FF751F 100%);
+    background: -webkit-linear-gradient(top, #E7691C 0%, #FF751F 50%, #FF751F 100%);
+    background: linear-gradient(to bottom, #E7691C 0%, #FF751F 50%, #FF751F 100%);
+    color: #ffffff !important;
+    height: auto;
+    margin-top: 5%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+
 }

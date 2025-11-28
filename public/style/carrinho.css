@@ -3,7 +3,6 @@ body {
     max-width: 100%;
     overflow-x: hidden;
     box-sizing: border-box;
-    
 }
 
 body {
@@ -44,6 +43,7 @@ main {
     transition: 0.2s ease;
     justify-content: space-between;
     align-items: center;
+    justify-self: center;
 }
 
 .produto-carrinho:hover {
@@ -220,4 +220,18 @@ main {
     font-size: 120%;
     font-weight: 700;
     margin-bottom: 60px;
+}
+
+/* ----------------------------footer----------------------------- */
+.footer-laranja {
+    background: #E7691C;
+    background: -moz-linear-gradient(top, #E7691C 0%, #FF751F 50%, #FF751F 100%);
+    background: -webkit-linear-gradient(top, #E7691C 0%, #FF751F 50%, #FF751F 100%);
+    background: linear-gradient(to bottom, #E7691C 0%, #FF751F 50%, #FF751F 100%);
+    color: #ffffff !important;
+    height: auto;
+    margin-top: 5%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+
 }
