@@ -46,10 +46,17 @@ class ChamadoController {
     }
     static async listar(req, res) {
         try {
-            const cliente_id = req.usuario.id; // Pega o ID do cliente do token
-            const chamados = await ChamadoModel.listarPorCliente(cliente_id);
-            res.status(200).json({ sucesso: true, chamados });
+            console.log(req.usuario);
             
+            const { id } = req.params; // Pega o ID do cliente do token
+            const chamados = await ChamadoModel.listarPorCliente(id);
+            res.status(200).json({ sucesso: true, chamados });
+
+            if (!chamados) {
+                return res.status(404).json({ sucesso: false, erro: 'Chamados não encontrados.' });
+            }
+
+            res.json({ sucesso: true, dados: chamados });
 
         } catch (error) {
             console.error('Erro ao listar chamados:', error);
@@ -57,5 +64,7 @@ class ChamadoController {
         }
     }
 }
+
+
 
 export default ChamadoController;

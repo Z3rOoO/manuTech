@@ -242,6 +242,78 @@
         crossorigin="anonymous"></script>
 
     <script src="../js/sessao.js"></script> <!--script para o sair da sessao -->
+
+        <script type="module">
+        import { obterUsuarioLogado } from '../js/sessao.js';
+
+        async function carregarChamados() {
+            const usuario = await obterUsuarioLogado();
+            if (!usuario) {
+                alert('Usuário não está logado.');
+                return;
+            }
+            const resposta = await fetch(`/api/chamados/${usuario.id}`);
+            const data = await resposta.json();
+            console.log(data);
+
+            if (!data.sucesso) {
+                alert('Erro ao carregar chaados: ' + data.erro);
+                return;
+            }
+// se o que o id que o botão do historico mandar for igual ao id do array ele vai exibir e fara mais verificações uma pra cada status e com respostas em divs diferentes//
+            if (data.sucesso) {
+                const lista = document.getElementById('accordionServico');
+                lista.innerHTML = "";
+
+                data.chamados.forEach(chamado => {
+
+
+                    const row = document.createElement('div');
+                    row.innerHTML = `
+                        <div class="accordion" id="accordionServico${chamado.chamado_id}">
+        
+                            <div class="accordion-item" style="border: none; border-radius: 20px;">
+                                <h2 class="accordion-header" id="headingOne${chamado.chamado_id}">
+                                    <button class="accordion-button collapsed titulo-servico d-flex justify-content-center"
+                                            type="button" 
+                                            data-bs-toggle="collapse" 
+                                            data-bs-target="#collapseOne${chamado.chamado_id}" 
+                                            aria-expanded="false" 
+                                            aria-controls="collapseOne${chamado.chamado_id}">
+                                        <h1 class="titulo-servico">${chamado.numero_serie}</h1>
+                                    </button>
+                                </h2>
+                    
+                                <div id="collapseOne${chamado.chamado_id}" class="accordion-collapse collapse" 
+                                    aria-labelledby="headingOne${chamado.chamado_id}" 
+                                    data-bs-parent="#accordionServico${chamado.chamado_id}">
+                    
+                                    <div class="accordion-body">
+                    
+                                        <div class="row txt-descricao"><b>Status: ${chamado.status_code}</b></div>
+                                        <div class="row txt-endereco"><b>Endereço: ${chamado.endereco_manutencao}</b></div>
+                                        <div class="row txt-responsavel"><b>Responsável: ${chamado.responsavel}</b></div>
+                    
+                                        <div class="row d-flex text-center justify-content-center">
+                                            <a href="acompanhamento">
+                                                <div class="col">
+                                                    <button class="btt-servico">VER MAIS</button>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        `;
+                    lista.appendChild(row);
+                });
+            }
+        }
+
+
+        carregarChamados();
+    </script>
 </body>
 
 </html>

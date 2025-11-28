@@ -35,8 +35,14 @@ header {
     margin-left: 0%;
 }
 
+.titulo-geral{
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+    margin-left: 15%;
+}
 .titulo-geral h1 {
-    font-size: 5.5vh;
+    font-size: 300%;
     color: #ff751f;
     font-weight: 700;
 }
@@ -48,6 +54,8 @@ header {
     padding-top: 8vw;
     height: 9vh;
     margin-top: 2vw;
+    position: relative;
+
 }
 
 .menu-mobile {
@@ -80,21 +88,21 @@ header {
 }
 
 
-
-
-main {
-    padding-left: 15%;
-    padding-right: 15%;
-}
-
-.content-geral {
-    margin-top: 1%;
+.colCtrol{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+   
 }
 
 .card {
+    
     border: none;
     background-color: #ff751f;
-    width: 28% !important;
+    border-radius: 7px;
+    width: 100%;
+    
 }
 
 .card:hover {
@@ -117,13 +125,14 @@ main {
 
 .cards-produtos {
     display: flex;
-    justify-content: space-around;
-    margin-top: 3%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .card-text {
     color: #ffffff;
-    font-size: 3vh;
+    font-size: 140%;
     font-weight: 600;
 }
 
@@ -228,3 +237,16 @@ main {
     margin: 0;
     font-size: 100%;
 }
+
+
+/* -----------------------------------henrique-------------------------------------- */
+
+.col{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.row{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+

@@ -1,33 +1,42 @@
 
-  
-  //logout
-        function fazerLogout() {
-            localStorage.removeItem('token');
-            localStorage.removeItem('usuario');
-            window.location.href = '/index'; 
-        }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const usuarioSalvo = localStorage.getItem('usuario');
+//logout
+function fazerLogout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('usuario');
+    window.location.href = '/index';
+}
 
-            if (usuarioSalvo) {
-                const usuario = JSON.parse(usuarioSalvo);
+document.addEventListener('DOMContentLoaded', () => {
+    const usuarioSalvo = localStorage.getItem('usuario');
 
-                // Nome
-                const spanNome = document.getElementById('nome-usuario-menu');
-                if (spanNome) spanNome.innerText = `Olá, ${usuario.nome}`;
+    if (usuarioSalvo) {
+        const usuario = JSON.parse(usuarioSalvo);
 
-                //coloca o Cargo
-                const spanCargo = document.getElementById('cargo-usuario-menu');
-                if (spanCargo) {
-                    if (usuario.cargo) {
-                        spanCargo.innerText = `${usuario.empresa || 'Empresa'}`;
-                    } else {
-                        spanCargo.style.display = 'none';
-                    }
-                }
+        // Nome
+        const spanNome = document.getElementById('nome-usuario-menu');
+        if (spanNome) spanNome.innerText = `Olá, ${usuario.nome}`;
+
+        //coloca o Cargo
+        const spanCargo = document.getElementById('cargo-usuario-menu');
+        if (spanCargo) {
+            if (usuario.cargo) {
+                spanCargo.innerText = `${usuario.empresa || 'Empresa'}`;
             } else {
-                
+                spanCargo.style.display = 'none';
             }
-        });
+        }
+    } else {
 
+    }
+});
+
+async function obterUsuarioLogado() {
+    const usuarioSalvo = localStorage.getItem('usuario');
+    if (usuarioSalvo) {
+        return JSON.parse(usuarioSalvo);
+    }
+    return null;
+}
+
+export { obterUsuarioLogado, fazerLogout };
