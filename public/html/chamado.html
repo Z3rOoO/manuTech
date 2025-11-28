@@ -3,7 +3,7 @@
 
 <head>
     <title>Manutech</title>
-    <script src="../js/verificar_login.js"></script>
+    <!-- <script src="../js/verificar_login.js"></script> -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
@@ -18,30 +18,20 @@
 
 <body>
     <header class="fixed-top header-azul">
-
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
-
             <div class="row content-navbar">
-
                 <div class="col-8 col-sm-8 col-md-4 col-lg-2">
-
                     <div style="width: 100%;">
-
                         <img src="../images/icons/logo-manutech.png" style="width: 100%;">
-
                     </div>
-
                 </div>
 
-
                 <div class="col-3 col-sm-3 d-md-none d-lg-none menu-mobile">
-
                     <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
                         aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-
                 </div>
 
                 <div class="d-md-block col-md-2 col-lg-2">
@@ -65,7 +55,6 @@
                                         <img src="../images/icons/perfil-azul.png" width="55px">
                                     </a>
 
-
                                     <ul class="dropdown-menu dropdown-menu-end box-modal">
                                         <li class="alinhar-modal"><img class="foto-modal"
                                                 src="../images/icons/perfil-azul.png">
@@ -77,7 +66,6 @@
                                                 id="nome-usuario-menu">Mercedes</span></li>
                                         <li><span class="dropdown-item-text text-muted small" id="cargo-usuario-menu"
                                                 style="font-size: 0.85em;"></span></li>
-
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
@@ -89,12 +77,10 @@
                                     </ul>
                                 </div>
                                 <!-- fazer o menu suspenso para sair do login e voltar para o index-->
-
                             </div>
                         </div>
                     </div>
                 </div>
-
 
                 <div class="d-none d-md-block col-md-2">
 
@@ -104,37 +90,32 @@
 
                         <!-- fazer o menu suspenso para sair do login e voltar para o index/ substituir o icone azul-->
                         <div class="dropdown" style="display: inline-block; margin-left: 15%;">
-                                    <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src="../images/icons/perfil-azul.png" width="55px">
-                                    </a>
+                            <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="../images/icons/perfil-azul.png" width="55px">
+                            </a>
 
 
-                                    <ul class="dropdown-menu dropdown-menu-end box-modal">
-                                        <li class="alinhar-modal"><img class="foto-modal"
-                                                src="../images/icons/perfil-azul.png">
-                                            <span class="dropdown-item-text fw-bold nome-modal"
-                                                id="nome-usuario-menu">Henrique
-                                                Cosme</span>
-                                        </li>
-                                        <li><span class="dropdown-item-text empresa-modal"
-                                                id="nome-usuario-menu">Mercedes</span></li>
-                                        <li><span class="dropdown-item-text text-muted small" id="cargo-usuario-menu"
-                                                style="font-size: 0.85em;"></span></li>
+                            <ul class="dropdown-menu dropdown-menu-end box-modal">
+                                <li class="alinhar-modal"><img class="foto-modal" src="../images/icons/perfil-azul.png">
+                                    <span class="dropdown-item-text fw-bold nome-modal" id="nome-usuario-menu">Henrique
+                                        Cosme</span>
+                                </li>
+                                <li><span class="dropdown-item-text empresa-modal"
+                                        id="nome-usuario-menu">Mercedes</span></li>
+                                <li><span class="dropdown-item-text text-muted small" id="cargo-usuario-menu"
+                                        style="font-size: 0.85em;"></span></li>
 
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item text-danger"
-                                                style="text-align: center; font-size: 20px;" href="#"
-                                                onclick="fazerLogout()">Sair</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <a class="dropdown-item text-danger" style="text-align: center; font-size: 20px;"
+                                        href="#" onclick="fazerLogout()">Sair</a>
+                                </li>
+                            </ul>
+                        </div>
                         <!-- fazer o menu suspenso para sair do login e voltar para o index-->
-
                     </div>
-
                 </div>
         </nav>
     </header>
@@ -143,7 +124,7 @@
         <div class="row row-chamado column-gap-5 ">
             <div class="col-5 row-gap-4 primeira">
                 <div class="row"><textarea class="input-tipo0-chamado" type="text" placeholder="Descreva seu problema:"
-                        id="descricao" required></textarea> 
+                        id="descricao" required></textarea>
                 </div>
                 <div class="row"><input class="input-tipo1-chamado" type="text"
                         placeholder="Modelo da máquina/ferramenta:" id="modelo_maquina" required></div>
@@ -152,14 +133,15 @@
                 <div class="row"><input class="input-tipo1-chamado" type="text" placeholder="Número de patrimônio:"
                         id="numero_patrimonio" required>
                 </div>
-                <div class="row"><input class="input-tipo1-chamado" type="text" placeholder="Setor:" id="setor"></div>
+                <div class="row"><input class="input-tipo1-chamado" type="text" placeholder="Setor:" id="setor"
+                        required></div>
                 <div class="row"><input class="input-tipo1-chamado" type="text" placeholder="Responsável:"
                         id="responsavel" required></div>
             </div>
             <div class="col-5 row-gap-4 segunda">
                 <div class="row"><input class="input-tipo1-chamado" type="text" placeholder="Endereço:"
                         id="endereco_manutencao" required></div>
-                <div class="row"><input class="input-tipo2-chamado" type="date" id="data_manutencao"></div>
+                <div class="row"><input class="input-tipo2-chamado" type="date" id="data_manutencao" required></div>
                 <div class="row"><input class="input-tipo2-chamado" type="time" placeholder="Horário da visita"
                         id="hora_manutencao" required>
                 </div>
@@ -205,9 +187,6 @@
                 hora_manutencao: document.getElementById('hora_manutencao').value
             };
             //faz um fetch pra enviar informação já em json
-
-
-
 
             //vê se todos os campos estão preenchidos, se estiver funciona, senão não
             if (!dadosChamado.descricao ||
