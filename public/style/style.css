@@ -266,6 +266,10 @@ header {
 .box-modal{
     width: 300px;
 }
+.box-modal-menu{
+    width: 100px;
+    margin-left: 80%;
+}
 .empresa-modal{
     color: #737373;
     margin-left: 60px;
