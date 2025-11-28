@@ -315,6 +315,11 @@ video {
         font-size: 3rem;
         max-width: 500px;
     }
+    @media (max-width: 991px) {
+        nav{
+            gap: 25%;
+        }
+    }
 
     .button-index-banner {
         width: 300px;
@@ -439,11 +444,11 @@ video {
     }
 
     .title-topicos-index {
-        font-size: 1.3rem;
+        font-size: 1.7rem;
     }
 
     .txt-topicos-index {
-        font-size: 0.95rem;
+        font-size: 1rem;
     }
 
     .manutencao-loja {
