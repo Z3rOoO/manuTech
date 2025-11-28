@@ -13,11 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (usuarioSalvo) {
         const usuario = JSON.parse(usuarioSalvo);
 
-        // Nome
+        // MENU
         const spanNome = document.getElementById('nome-usuario-menu');
         if (spanNome) spanNome.innerText = `Olá, ${usuario.nome}`;
 
-        //coloca o Cargo
         const spanCargo = document.getElementById('cargo-usuario-menu');
         if (spanCargo) {
             if (usuario.cargo) {
@@ -26,8 +25,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 spanCargo.style.display = 'none';
             }
         }
-    } else {
 
+        // MODAL
+        const spanNome2 = document.getElementById('nome-usuario-menuCEL');
+        if (spanNome2) spanNome2.innerText = `Olá, ${usuario.nome}`;
+
+        const spanCargo2 = document.getElementById('cargo-usuario-menuCEL');
+        if (spanCargo2) {
+            if (usuario.cargo) {
+                spanCargo2.innerText = `${usuario.empresa || 'Empresa'}`;
+            } else {
+                spanCargo2.style.display = 'none';
+            }
+        }
     }
 });
 
@@ -39,7 +49,7 @@ async function obterUsuarioLogado() {
     return null;
 }
 
-export { obterUsuarioLogado};
+export { obterUsuarioLogado };
 
 
 // Torna o logout global para funcionar no onclick
