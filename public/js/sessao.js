@@ -1,54 +1,61 @@
+
+
+(function protegerPagina() {
+    if (typeof window !== 'undefined') {
+        const token = localStorage.getItem('token');
+        const paginasPublicas = ['login', 'cadastro', 'index', '/'];
+        const caminhoAtual = window.location.pathname.toLowerCase();
+        const ehPublica = paginasPublicas.some(pagina => caminhoAtual.includes(pagina));
+
+        if (!token && !ehPublica) {
+            alert("Acesso restrito! Faça login.");
+            window.location.href = '/login'; 
+        }
+    }
+})();
+
+// logout
+
 //logout
+
 function fazerLogout() {
     localStorage.removeItem('token');
     localStorage.removeItem('usuario');
     window.location.href = '/index';
 }
+window.fazerLogout = fazerLogout;
 
+// --- 3. PREENCHIMENTO DE DADOS (CORREÇÃO AQUI) ---
 document.addEventListener('DOMContentLoaded', () => {
     const usuarioSalvo = localStorage.getItem('usuario');
 
     if (usuarioSalvo) {
         const usuario = JSON.parse(usuarioSalvo);
 
-        // MENU
-        const spanNome = document.getElementById('nome-usuario-menu');
-        if (spanNome) spanNome.innerText = `Olá, ${usuario.nome}`;
+        // funcao pra preencher no mobile e no pc
+        const preencher = (id, valor) => {
+            const elementos = document.querySelectorAll(`#${id}`);
+            elementos.forEach(el => el.innerText = valor);
+        };
 
-        const spanCargo = document.getElementById('cargo-usuario-menu');
-        if (spanCargo) {
-            if (usuario.cargo) {
-                spanCargo.innerText = `${usuario.empresa || 'Empresa'}`;
-            } else {
-                spanCargo.style.display = 'none';
-            }
-        }
+        // nome
+        preencher('nome-usuario-menu', `Olá, ${usuario.nome}`);
 
-        // MODAL
-        const spanNome2 = document.getElementById('nome-usuario-menuCEL');
-        if (spanNome2) spanNome2.innerText = `Olá, ${usuario.nome}`;
+        //empresa
+        preencher('empresa-usuario-menu', usuario.empresa || '');
 
-        const spanCargo2 = document.getElementById('cargo-usuario-menuCEL');
-        if (spanCargo2) {
-            if (usuario.cargo) {
-                spanCargo2.innerText = `${usuario.empresa || 'Empresa'}`;
-            } else {
-                spanCargo2.style.display = 'none';
-            }
+        // cargo
+        if (usuario.cargo) {
+            preencher('cargo-usuario-menu', usuario.cargo);
+        } else {
+            // Esconde se não tiver cargo
+            document.querySelectorAll('#cargo-usuario-menu').forEach(el => el.style.display = 'none');
         }
     }
 });
 
 async function obterUsuarioLogado() {
     const usuarioSalvo = localStorage.getItem('usuario');
-    if (usuarioSalvo) {
-        return JSON.parse(usuarioSalvo);
-    }
-    return null;
+    return usuarioSalvo ? JSON.parse(usuarioSalvo) : null;
 }
-
 export { obterUsuarioLogado };
-
-
-// Torna o logout global para funcionar no onclick
-window.fazerLogout = fazerLogout;

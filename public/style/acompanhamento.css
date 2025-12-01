@@ -21,6 +21,9 @@
 
 .card-header {
     padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .card-body {
@@ -41,4 +44,9 @@
 
 .card-text {
     font-size: 120%;
+}
+
+.icons{
+    width: 20px;
+
 }
