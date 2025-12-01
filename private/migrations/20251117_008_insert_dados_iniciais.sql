@@ -38,8 +38,12 @@ INSERT INTO produto (nome, descricao, preco, categoria_id, imagem) VALUES
 
 -- Inserir chamados iniciais
 INSERT INTO chamado (cliente_id, data_chamado, descricao, modelo_maquina, numero_serie, numero_patrimonio, setor, responsavel, endereco_manutencao, data_manutencao, hora_manutencao, status_code) VALUES
-(3, '2025-01-10', 'Problema na tela do smartphone', 'Galaxy S21', 'SN123456', 'PAT001', 'TI', 'João Silva', 'Rua A, 123', '2025-01-12', '10:00:00', 'Criado'),
-(3, '2025-01-11', 'Notebook não liga', 'Dell Inspiron 15', 'SN654321', 'PAT002', 'TI', 'Maria Souza', 'Avenida B, 456', '2025-01-13', '14:00:00', 'Criado');
+(3, '2025-01-10', 'Problema na tela do smartphone', 'Galaxy S21', 'SN123451', 'PAT001', 'TI', 'João Silva', 'Rua A, 123', '2025-01-12', '10:00:00', 'Criado'),
+(3, '2025-01-11', 'Notebook não liga', 'Dell Inspiron 15', 'SN123452', 'PAT002', 'TI', 'Maria Souza', 'Avenida B, 456', '2025-01-13', '14:00:00', 'Aceito'),
+(3, '2025-01-12', 'Notebook não liga', 'Dell Inspiron 15', 'SN123453', 'PAT003', 'TI', 'Maria Souza', 'Avenida B, 456', '2025-01-13', '14:00:00', 'Avaliado'),
+(3, '2025-01-13', 'Notebook não liga', 'Dell Inspiron 15', 'SN123454', 'PAT004', 'TI', 'Maria Souza', 'Avenida B, 456', '2025-01-13', '14:00:00', 'Orçamento'),
+(3, '2025-01-14', 'Notebook não liga', 'Dell Inspiron 15', 'SN123455', 'PAT00', 'TI', 'Maria Souza', 'Avenida B, 456', '2025-01-13', '14:00:00', 'Concluido');
+
 
 
 
