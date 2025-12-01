@@ -230,8 +230,6 @@ header {
     width: 100%;
     max-width: 460px;
     height: auto;
-
-
 }
 
 .row-footer {
@@ -279,7 +277,7 @@ header {
     margin-left: 80%;
 }
 .empresa-modal{
-    color: #737373;
+    color: #424242;
     margin-left: 60px;
 }
 .foto-modal{
@@ -289,4 +287,9 @@ header {
     display: flex;
     align-items: center;
     margin-left: 10px;
+}
+.cargo-modal{
+    color: #424242;
+    margin-left: 60px;
+    align-items: center;
 }
