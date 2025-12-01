@@ -27,6 +27,7 @@ header {
     justify-self: center;
     text-align: center; 
     border-bottom: 2px solid #ff751f;
+    width: 100%;
 }
 
 .logo-manutech {
