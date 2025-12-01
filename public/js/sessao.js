@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 (function protegerPagina() {
     if (typeof window !== 'undefined') {
@@ -14,6 +15,9 @@
 })();
 
 // logout
+=======
+//logout
+>>>>>>> b81e9d5a9ad620caad096597c55a7ac861383645
 function fazerLogout() {
     localStorage.removeItem('token');
     localStorage.removeItem('usuario');
