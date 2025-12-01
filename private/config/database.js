@@ -14,12 +14,8 @@ const db = await mysql.createConnection({
   host: process.env.DB_HOST || "localhost",
   user: process.env.DB_USER || "root",
   password: process.env.DB_PASSWORD || "",
-<<<<<<< HEAD
   database: process.env.DB_DATABASE || "dbmt"
-=======
-  database: process.env.DB_DATABASE || "dbmt",
-  port: process.env.DB_PORT ?? 3306
->>>>>>> 42dd555eb3c066ab084882552e24de90a225a78b
+
 });
 
 // exportar o banco
