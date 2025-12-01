@@ -1,0 +1,104 @@
+/* Estilo para a tabela de produtos */
+.tabela-produtos {
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Linha do produto */
+.linhaT {
+    width: 100%;
+    margin: 0;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+/* Garante que cada coluna respeite o tamanho do Bootstrap */
+.linhaT > [class*="col-"] {
+    max-width: 100%;
+}
+
+/* Cabeçalho */
+.headT {
+    font-weight: bold;
+    padding: 15px 10px;
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+}
+
+/* Corpo da tabela */
+.bodyT {
+    padding: 15px 10px;
+    display: flex;
+    align-items: center;
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Impede qualquer elemento interno de estourar horizontalmente */
+.bodyT {
+    max-width: 100%;
+    gap: 20px;
+}
+
+/* Container da lista de produtos */
+#lista-produtos {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Mantém o container dentro da tela */
+.container {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .bodyT {
+        padding: 10px 5px;
+        font-size: 14px;
+        align-items: flex-start;
+    }
+}
+
+/* Imagens sempre controladas */
+.bodyT img {
+    max-width: 100px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Botão comprar não quebra */
+.btn-outline-primary {
+    white-space: nowrap;
+}
+.btt-comprar{
+    border: 1px solid #ff751f;
+    margin-left: 20px
+}
+.nome-produto{
+    max-width: 50px;
+}
+
+/* -------------------------------------------------footer-------------------------------- */
+.footer-laranja {
+    margin-top: 207px !important;
+    background: #E7691C;
+    background: -moz-linear-gradient(top, #E7691C 0%, #FF751F 50%, #FF751F 100%);
+    background: -webkit-linear-gradient(top, #E7691C 0%, #FF751F 50%, #FF751F 100%);
+    background: linear-gradient(to bottom, #E7691C 0%, #FF751F 50%, #FF751F 100%);
+    color: #ffffff !important;
+    height: auto;
+    margin-top: 5%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+
+}

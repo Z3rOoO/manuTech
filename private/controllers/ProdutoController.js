@@ -5,15 +5,19 @@ class ProdutoController {
     // GET /api/produtos
     static async listarTodos(req, res) {
         try {
-            const produtos = await ProdutoModel.listarTodos();
-            
-            // Adiciona a URL completa da imagem para o frontend
-            const produtosComUrl = produtos.map(produto => ({
-                ...produto,
-                imagemUrl: produto.imagem ? `/uploads/imagens/${produto.imagem}` : null
+            const limite = Number(req.query.limite) || 50;
+            const pagina = Number(req.query.pagina) || 1;
+            const offset = (pagina - 1) * limite;
+            const resultado = await ProdutoModel.listarTodos(limite, offset);
+            console.log('Produtos encontrados:', resultado);
+    
+            resultado.produtos = resultado.produtos.map(p => ({
+                ...p,
+                imagemUrl: p.imagem ? `/uploads/imagens/${p.imagem}` : null
             }));
-
-            res.json({ sucesso: true, dados: produtosComUrl });
+    
+            res.json({ sucesso: true, ...resultado });
+    
         } catch (error) {
             console.error('Erro ao listar produtos:', error);
             res.status(500).json({ sucesso: false, erro: 'Erro ao buscar produtos.' });

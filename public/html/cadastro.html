@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro ManuTech</title>
+    <title>Cadastro - ManuTech</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <link rel="stylesheet" href="../style/login.css">
+    <link rel="icon" href="../images/icons/icon_manutech.svg">
 </head>
 
 <body>
@@ -26,7 +27,7 @@
                         </div>
 
                         <form id="form-cadastro">
-                            <div class="row form-step active" id="step1">
+                            <div class="row form-step active tamanho-div" id="step1">
                                 <div class="content-login">
                                     <div class="mb-3 inputs-login">
                                         <input type="text" class="form-control input-login"
@@ -37,14 +38,14 @@
                                             id="email" placeholder="Email" required>
                                     </div>
                                     <div class="mb-3 inputs-login col-lg-6 col-md-4 col-sm-10 col-10">
-                                        <input type="text" class="form-control input-login"
-                                            id="telefone" placeholder="Telefone" required>
+                                        <input type="password" class="form-control input-login"
+                                            id="senha" placeholder="Senha" required>
                                     </div>
                                 </div>
 
                                 <div class="row resto-login">
                                     <div class="col-10 col-sm-10 col-md-6 col-lg-6 texto-login">
-                                        <p>Já tem uma conta? <a href="login.html">Faça login</a></p>
+                                        <p>Já tem uma conta? <a href="login">Faça login</a></p>
                                     </div>
                                     <button type="button" class="btn btn-primary botao-login col-6 col-sm-6 col-md-4 col-lg-3" 
                                         onclick="nextStep()">Próximo</button>
@@ -53,26 +54,26 @@
 
                             
 
-                            <div class="row form-step" id="step2">
+                            <div class="row form-step tamanho-div" id="step2">
                                 <div class="content-login">
                                     <div class="mb-3 inputs-login">
                                         <input type="text" class="form-control input-login"
-                                            id="usuario" placeholder="Nome de usuário" required>
+                                            id="empresa" placeholder="Empresa vinculada" required>
                                     </div>
                                     <div class="mb-3 inputs-login col-lg-6 col-md-4 col-sm-10 col-10">
-                                        <input type="password" class="form-control input-login"
-                                            id="senha" placeholder="Senha" required>
+                                        <input type="text" class="form-control input-login"
+                                            id="cargo" placeholder="Cargo" required>
                                     </div>
                                     <div class="mb-3 inputs-login col-lg-6 col-md-4 col-sm-10 col-10">
-                                        <input type="password" class="form-control input-login"
-                                            id="confirmar-senha" placeholder="Confirmar senha" required>
+                                        <input type="text" class="form-control input-login"
+                                            id="cnpj" placeholder="CNPJ" min="14" max="14" required>
                                     </div>
                                 </div>
 
                                 <div class="row resto-login">
                                     <button type="button" class="btn btn-secondary botao-voltar-etapa col-4 col-sm-4 col-md-3 col-lg-2" 
                                         onclick="prevStep()">Voltar</button>
-                                    <button type="submit" class="btn btn-primary botao-login col-6 col-sm-6 col-md-4 col-lg-3">
+                                    <button type="submit" class="btn btn-primary botao-login col-6 col-sm-6 col-md-4 col-lg-3" href="home.html"> 
                                         Cadastrar
                                     </button>
                                 </div>
@@ -95,31 +96,33 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        let currentStep = 1;
-
-        function nextStep() {
+function nextStep() {
             const nome = document.getElementById('nome').value;
             const email = document.getElementById('email').value;
-            const telefone = document.getElementById('telefone').value;
+            const senha = document.getElementById('senha').value;
+            
+            
+            if (!nome || !email || !senha) {
+                alert('Por favor, preencha Nome, Email e Senha.');
+                return;
+            }
 
-            if (!nome || !email || !telefone) {
-                alert('Por favor, preencha todos os campos.');
+            if (senha.length < 8) {
+                alert("A senha precisa ter pelo menos 8 caracteres.");
                 return;
             }
 
             document.getElementById('step1').classList.remove('active');
             document.getElementById('step2').classList.add('active');
-
-            currentStep = 2;
         }
 
+       1
         function prevStep() {
             document.getElementById('step2').classList.remove('active');
             document.getElementById('step1').classList.add('active');
-
-            currentStep = 1;
         }
 
+        
         const form = document.getElementById('form-cadastro');
 
         form.addEventListener('submit', async (event) => {
@@ -128,41 +131,52 @@
             const nome = document.getElementById('nome').value;
             const email = document.getElementById('email').value;
             const senha = document.getElementById('senha').value;
-            const confirmarSenha = document.getElementById('confirmar-senha').value;
-
-            if (senha !== confirmarSenha) {
-                alert('As senhas não coincidem!');
-                return;
-            }
-
-            if (senha.length < 8) {
-                alert("A senha precisa ter pelo menos 8 caracteres");
-                return;
-            }
-
+            const empresa = document.getElementById('empresa').value;
+            const cargo = document.getElementById('cargo').value;
+            const cnpj = document.getElementById('cnpj').value;
+          
             try {
                 const resposta = await fetch('/api/auth/registrar', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ nome, email, senha })
+                    headers: { 'Content-Type': 'application/json' },
+                    
+                    body: JSON.stringify({ 
+                        nome, 
+                        email, 
+                        senha, 
+                        empresa, 
+                        cargo, 
+                        cnpj
+                    })
                 });
 
                 const resultado = await resposta.json();
 
                 if (resultado.sucesso) {
                     alert('Conta criada com sucesso! Agora faça login.');
-                    window.location.href = '/manutech/login';
+                    window.location.href = '/login';
                 } else {
                     alert('Erro ao cadastrar: ' + resultado.erro);
                 }
 
             } catch (error) {
                 console.error('Erro:', error);
-                alert('Erro de conexão. Verifique se o servidor está ligado.');
+                alert('Erro de conexão com o servidor.');
             }
         });
+
+        //testar cadadastro/login 
+
+// nome -  miguell
+// email - miguelpsenai@gmail.com
+// telefone - 11 53345-0155
+// nome de usuário - miguel123
+// senha - 1DASDWJaw1@
+// empresa vinculada - manutech
+//cargo - manutentor
+//cnpj - 64.341.047/0001-00
+//models ; controllers ; routes / adicionar a rota e a api no app.js
+
     </script>
 </body>
 

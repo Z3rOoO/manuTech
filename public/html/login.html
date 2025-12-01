@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-    <title>manutech</title>
+    <title>Login - Manutech</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -29,26 +29,27 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        <div class="row tamanho-div">
                             <div class="content-login">
                                 <div class="mb-3 inputs-login">
-                                    <input type="email" class="form-control input-login" id="exampleFormControlInput1"
+                                    <input type="email" class="form-control input-login" id="email"
                                         placeholder="Email">
                                 </div>
                                 <div class="mb-3 inputs-login col-lg-6 col-md-4 col-sm-10 col-10">
                                     <input type="password" class="form-control input-login"
-                                        id="exampleFormControlInput1" placeholder="Senha">
+                                        id="senha" placeholder="Senha">
                                 </div>
                             </div>
 
                             <div class="row resto-login">
                                 <div class="col-10 col-sm-10 col-md-6 col-lg-6 texto-login">
-                                    <p>Não tem uma conta? <a href="cadastro.html">Crie uma</a></p>
+                                    <p>Não tem uma conta? <a href="cadastro">Crie uma</a></p>
                                 </div>
-                                <a class="btn btn-primary botao-login col-6 col-sm-6 col-md-4 col-lg-3" href="#"
+                                <a  id ="btn-entrar"class="btn btn-primary botao-login col-6 col-sm-6 col-md-4 col-lg-3" href="#"
                                     role="button">Entrar</a>
                             </div>
                         </div>
+
                         <div class="fundo-login-2 d-none d-md-block">
                             <img src="../images/ilustracoes/fundo-login.png" class="">
                         </div>
@@ -77,6 +78,81 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
+        <script>
+const btnEntrar = document.getElementById('btn-entrar')
+
+// Função de login
+async function realizarLogin(event) {
+    event.preventDefault()
+
+    const email = document.getElementById('email').value
+    const senha = document.getElementById('senha').value
+
+    if (!email || !senha) {
+        alert('Necessário preencher email e senha.')
+        return
+    }
+//mandar pra api pra fzr login
+    try {
+        const resposta = await fetch('/api/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, senha })
+        })
+
+        const dados = await resposta.json()
+
+        if (dados.sucesso) {
+            localStorage.setItem('token', dados.dados.token)
+            localStorage.setItem('usuario', JSON.stringify(dados.dados.usuario))
+
+            alert('Login realizado com sucesso!')
+
+            const tipo = dados.dados.usuario.tipo.toUpperCase()
+
+            //mandar de acordo ao tipo, para a pagina certo
+
+            if (tipo === 'ADMIN') {
+                window.location.href = '/painelAdmin'
+            } else if (tipo === 'FUNC') {
+                window.location.href = '/acompanhamento'
+            } else {
+                window.location.href = '/index'
+            }
+
+        } else {
+            alert('Erro: ' + dados.erro)
+        }
+
+    } catch (erro) {
+        console.error('Erro no login:', erro)
+        alert('Erro ao conectar com o servidor.')
+    }
+}
+
+// Evento do botão
+btnEntrar.addEventListener('click', realizarLogin)
+
+// Enter no campo senha
+document.getElementById('senha').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+        realizarLogin(e)
+    }
+})
+
+
+// nome -  miguelglr
+// email - miguel...senai@gmail.com
+// telefone - 11 53345-0155
+// nome de usuário - miguel123
+// senha - 1DASDWJaw1@
+// empresa vinculada - manutech
+//cargo - manutentor
+//cnpj - 64.341.047/0001-00
+//models ; controllers ; routes / adicionar a rota e a api no app.js
+
+//CARGOS- 'ADMIN','FUNC', 'USER'
+        </script>
 </body>
 
 </html>

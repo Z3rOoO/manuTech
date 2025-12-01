@@ -1,3 +1,6 @@
+body{
+    overflow: hidden;
+}
 .container-chamado{
     margin-top: 120px;
 }
@@ -14,6 +17,8 @@
     height: 300px;
     padding-left: 10px;
     padding-bottom: 260px;
+    overflow-wrap: break-word;
+    resize: none;
 }
 .input-tipo1-chamado{
     border-radius: 10px;
@@ -61,6 +66,11 @@
     justify-content: center;
     gap: 5px;
     height: 100%;
+    line-break: auto;
+}
+.primeira p{
+    word-break: break-word; /* Permite quebrar palavras longas */
+width: 200px; /* Define uma largura fixa para demonstrar o efeito */
 }
 .segunda{
     display: flex;

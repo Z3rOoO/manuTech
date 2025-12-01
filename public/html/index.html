@@ -5,7 +5,8 @@
     <title>Manutech</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
+    <script src="../js/verficarLoginIndex.js"></script>
+    <script src="../js/sessao.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <link rel="stylesheet" href="../style/style.css">
@@ -16,31 +17,142 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar bg-body-tertiary header-index">
+    <header id="header-publico">
+        <nav class="bg-header">
             <img class="logo-header-index" src="../images/icons/logo-manutech-white.png">
-            <a href="../html/login.html"><button class="btn btn-outline-success botao-header-index"
-                    type="submit">Entrar</button></a>
+            <a href="login"><button class="btn btn-outline-success botao-header-index"
+            type="submit">Entrar</button></a>
+        </nav>
+    </header>
+
+    <header id="header-logado" class="fixed-top header-azul">
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <div class="row content-navbar">
+                <div class="col-8 col-sm-8 col-md-4 col-lg-2">
+                    <div style="width: 100%;">
+                        <a href="index"><img src="../images/icons/logo-manutech.png" style="width: 100%;"></a>
+                    </div>
+                </div>
+
+                <div class="col-3 col-sm-3 d-md-none d-lg-none menu-mobile">
+                    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <div class="d-md-block col-md-2 col-lg-2">
+
+                    <div class="collapse navbar-collapse lista-header" id="collapsibleNavId">
+                        <ul class="navbar-nav me-auto mt-2 mt-lg-0 botoes-header">
+                            <li class="nav-item">
+                                <a class="nav-link" href="chamado">Manutenção</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="catalogo">Reposição</a>
+                            </li>
+                        </ul>
+
+                        <div class="col-3 col-sm-3 d-block d-md-none">
+                            <div class="header-icons-menu">
+                                <a href="acompanhamento"><img src="../images/icons/icon-home-solicitacoes.png" width="55px"></a>
+                                <!-- fazer o menu suspenso para sair do login e voltar para o index/ substituir o icone azul-->
+                                <div class="dropdown" style="display: inline-block; margin-left: 15%;">
+                                    <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img src="../images/icons/perfil-azul.png" width="55px">
+                                    </a>
+
+
+                                    <ul class="dropdown-menu dropdown-menu-end box-modal">
+                                        <li class="alinhar-modal"><img class="foto-modal"
+                                                src="../images/icons/perfil-azul.png">
+                                            <span class="dropdown-item-text fw-bold nome-modal"
+                                                id="nome-usuario-menu">Henrique
+                                                Cosme</span>
+                                        </li>
+                                        <li><span class="dropdown-item-text empresa-modal"
+                                                id="nome-usuario-menu">Mercedes</span></li>
+                                        <li><span class="dropdown-item-text text-muted small" id="cargo-usuario-menu"
+                                                style="font-size: 0.85em;"></span></li>
+
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item text-danger"
+                                                style="text-align: center; font-size: 20px;" href="#"
+                                                onclick="fazerLogout()">Sair</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- fazer o menu suspenso para sair do login e voltar para o index-->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="d-none d-md-block col-md-2">
+
+                    <div class="header-icons">
+                        <a href="acompanhamento"><img src="../images/icons/icon-home-solicitacoes.png" width="55px"></a>
+
+
+                        <!-- fazer o menu suspenso para sair do login e voltar para o index/ substituir o icone azul-->
+                        <div class="dropdown" style="display: inline-block; margin-left: 15%;">
+                                    <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img src="../images/icons/perfil-azul.png" width="55px">
+                                    </a>
+
+
+                                    <ul class="dropdown-menu dropdown-menu-end box-modal">
+                                        <li class="alinhar-modal"><img class="foto-modal"
+                                                src="../images/icons/perfil-azul.png">
+                                            <span class="dropdown-item-text fw-bold nome-modal"
+                                                id="nome-usuario-menu">Henrique
+                                                Cosme</span>
+                                        </li>
+                                        <li><span class="dropdown-item-text empresa-modal"
+                                                id="nome-usuario-menu">Mercedes</span></li>
+                                        <li><span class="dropdown-item-text text-muted small" id="cargo-usuario-menu"
+                                                style="font-size: 0.85em;"></span></li>
+
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item text-danger"
+                                                style="text-align: center; font-size: 20px;" href="#"
+                                                onclick="fazerLogout()">Sair</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                        <!-- fazer o menu suspenso para sair do login e voltar para o index-->
+
+                    </div>
+
+                </div>
+        </nav>
     </header>
 
     <main>
-        <div class="video-wrapper">
+        <div>
+            <video autoplay muted loop playsinline>
+                <source src="../images/videos/home-welcome.crdownload" type="video/mp4">
+            </video>
             <div class="row">
-                <div class="col">
-                    <video autoplay muted loop playsinline>
-                        <source src="../images/videos/home-welcome.crdownload" type="video/mp4">
-                    </video>
-                </div>
                 <div class="col-12 col-md-3 col-sm-1 col-lg-4">
                     <p class="txt-video-index" style="font-family: League Spartan, sans-serif;">A maior empresa de <span
                             style="color: #ff751f !important;">manutenções industriais</span> da América Latina<span
                             style="color: #ff751f !important;">.</span></p>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-12 col-md-3 col-sm-2 col-lg-5>
-                    <a href="../html/chamado.html"><button class="button-index-banner">Solicitar
-                        manutenção</button></a>
+                <div class="row">
+                    <div class="col-12 col-md-3 col-sm-2 col-lg-5">
+                        <a href="chamado"><button class="button-index-banner">Solicitar
+                                manutenção</button></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -59,7 +171,7 @@
             industriais.
         </p>
 
-               <section class="container text-center my-5">
+        <section class="container text-center my-5">
             <h1 class="title-porqueescolheramanutech">Por que escolher a Manutech?</h1>
 
             <div class="row topicos-index">
@@ -93,32 +205,90 @@
         </section>
 
         <!-- SEÇÃO MANUTENÇÃO E LOJA -->
-        <section class="container manutencao-loja mt-5">
-            <div class="row g-4">
-                <div class="col-lg-6 col-sm-12 position-relative">
-                    <img src="../images/ilustracoes/img-home-manutencao.png" class="img-fluid">
-                    <p class="txt-manutencao-loja">Manutenção</p>
-
-                    <a href="../html/chamado.html">
+       <!-- SEÇÃO MANUTENÇÃO E LOJA -->
+<section class="container manutencao-loja mt-5">
+    <div class="row g-4">
+        <!-- Card Manutenção -->
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="card-manutencao-loja position-relative">
+                <img src="../images/ilustracoes/img-home-manutencao.png" 
+                     class="img-fluid" 
+                     alt="Manutenção Industrial">
+                <div class="overlay-content">
+                    <h2 class="txt-manutencao-loja">Manutenção</h2>
+                    <a href="chamado">
                         <button class="button-solicitarvisita">Solicitar visita</button>
                     </a>
                 </div>
+            </div>
+        </div>
 
-                <div class="col-lg-6 col-sm-12 position-relative">
-                    <img src="../images/ilustracoes/img-home-loja.png" class="img-fluid">
-                    <p class="txt-manutencao-loja2">Loja</p>
-
-                    <a href="../html/catalogo.html">
+        <!-- Card Loja -->
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="card-manutencao-loja position-relative">
+                <img src="../images/ilustracoes/img-home-loja.png" 
+                     class="img-fluid" 
+                     alt="Loja de Ferramentas">
+                <div class="overlay-content">
+                    <h2 class="txt-manutencao-loja2">Loja</h2>
+                    <a href="catalogo">
                         <button class="button-vercatalogo">Ver catálogo</button>
                     </a>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
     </main>
 
-    <footer>
+    <footer class="footer-laranja ">
+        <div class="container">
+            <div class="row row-footer">
+                <div class="col-12 col-md-4 marca-footer">
+                    <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none"
+                        aria-label="Bootstrap">
+                        <img src="../images/icons/logo-manutech-white.png" class="bi me-2 logo-footer" width="100%"
+                            aria-hidden="true"> </a>
+                    <p class="text-body-secondary texto-footer">MANUTENÇÃO E REPOSIÇÃO</p>
+                </div>
+                <div class="col-12 col-md-7">
+                    <ul class="nav flex-column ul-contatos">
+                        <li>
+                            <div class="row">
+                                <div class="col-3 img-contato">
+                                    <img src="../images/icons/icon-whatsapp.png" style="width: 100%; max-width: 40px;">
+                                </div>
+                                <div class="col-9 texto-contato">
+                                    <p>(11) 95597-8209</p>
+                                </div>
+                            </div>
+                        </li>
 
+                        <li>
+                            <div class="row">
+                                <div class="col-3 img-contato">
+                                    <img src="../images/icons/icon-telefone.png" style="width: 100%; max-width: 40px;">
+                                </div>
+                                <div class="col-9 texto-contato">
+                                    <p>(11) 95597-8209</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row">
+                                <div class="col-3 img-contato">
+                                    <img src="../images/icons/icon-pinLocal.png" style="width: 100%; max-width: 40px;">
+                                </div>
+                                <div class="col-9 texto-contato">
+                                    <p>R. Santo André, 680 - Boa Vista, São Caetano do Sul - SP</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
     </footer>
+
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

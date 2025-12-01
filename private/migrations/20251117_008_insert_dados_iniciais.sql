@@ -4,16 +4,16 @@
 
 USE dbmt;
 
--- Inserir usuários iniciais (senha: 123456)
--- Hash gerado com bcrypt para a senha "123456" (validado)
-INSERT INTO usuarios (nome, email, senha, empresa, cargo, tipo) VALUES
-('Administrador', 'admin@produtos.com', '$2a$10$BLAcJu1irAzg06WbtoLoPe0RA.hkfZ0oJ25KYARPkHWRweJuWBALy', 'manutech', 'administrado', 'ADMIN'),
-('FUNCIONARIO Silva', 'func@email.com', '$2a$10$BLAcJu1irAzg06WbtoLoPe0RA.hkfZ0oJ25KYARPkHWRweJuWBALy', 'manutech', 'estagiario', 'FUNC'),
-('USUARIO Souza', 'user@email.com', '$2a$10$BLAcJu1irAzg06WbtoLoPe0RA.hkfZ0oJ25KYARPkHWRweJuWBALy', 'mercedes-benz', 'supervisor', 'USER');
+-- Inserir usuários iniciais (senha: 12345678)
+-- Hash gerado com bcrypt para a senha "12345678" (validado)
+INSERT INTO usuarios (nome, email, senha, empresa, cargo, cnpj, tipo) VALUES
+('Administrador', 'admin@produtos.com', '$2b$10$MPYBVCBAPOdcQgPrr1wyDeMggsTArUL1pkvHGOPIi5W6OC363HHle', 'manutech', 'administrado', '1212121212121212', 'ADMIN'),
+('FUNCIONARIO Silva', 'func@email.com', '$2b$10$MPYBVCBAPOdcQgPrr1wyDeMggsTArUL1pkvHGOPIi5W6OC363HHle', 'manutech', 'estagiario', '1212121212121212','FUNC'),
+('USUARIO Souza', 'user@email.com', '$2b$10$MPYBVCBAPOdcQgPrr1wyDeMggsTArUL1pkvHGOPIi5W6OC363HHle', 'mercedes-benz', 'supervisor', '1212121212121212','USER');
 
 -- Inserir manutentor iniciais
 INSERT INTO manutentor (nome, email, senha, telefone) VALUES
-('manutenor gomes', 'manutentor@email.com', '$2a$10$BLAcJu1irAzg06WbtoLoPe0RA.hkfZ0oJ25KYARPkHWRweJuWBALy', '11955978209');
+('manutenor gomes', 'manutentor@email.com', '$2b$10$MPYBVCBAPOdcQgPrr1wyDeMggsTArUL1pkvHGOPIi5W6OC363HHle', '11955978209');
 
 -- Inserir categorias iniciais
 INSERT INTO categoria (nome) VALUES
@@ -37,8 +37,9 @@ INSERT INTO produto (nome, descricao, preco, categoria_id, imagem) VALUES
 
 
 -- Inserir chamados iniciais
-INSERT INTO chamado (cliente_id, data_chamado, descricao, status_code) VALUES
-( 1, '2025-01-10', 'testando algo agora', 'VISITA'),
-( 2, '2025-01-11', 'Problema com o sistema de pagamento.', 'ORCAMENTO'),
-( 3, '2025-01-12', 'Falha na geração de relatórios.', 'MANUTENCAO');
+INSERT INTO chamado (cliente_id, data_chamado, descricao, modelo_maquina, numero_serie, numero_patrimonio, setor, responsavel, endereco_manutencao, data_manutencao, hora_manutencao, status_code) VALUES
+(3, '2025-01-10', 'Problema na tela do smartphone', 'Galaxy S21', 'SN123456', 'PAT001', 'TI', 'João Silva', 'Rua A, 123', '2025-01-12', '10:00:00', 'Criado'),
+(3, '2025-01-11', 'Notebook não liga', 'Dell Inspiron 15', 'SN654321', 'PAT002', 'TI', 'Maria Souza', 'Avenida B, 456', '2025-01-13', '14:00:00', 'Criado');
+
+
 

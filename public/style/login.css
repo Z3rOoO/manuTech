@@ -132,7 +132,7 @@ body {
 .resto-login {
     justify-content: center;
     width: 100%;
-    padding-left: 5%;
+    padding-left: 2%;
     padding-right: 0%;
     display: flex;
 }
@@ -262,4 +262,3 @@ body {
 .botao-voltar-etapa:hover {
     background-color: #5a6268;
 }
->>>>>>> 562465af106a879eaa5683d2f2e0c98900bec80b

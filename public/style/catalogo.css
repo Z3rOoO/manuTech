@@ -6,14 +6,22 @@ body {
 }
 
 .navbar {
-    width: 100vw;
+    width: 100%;
     justify-content: space-between;
     display: flex;
-    padding-left: 2%;
-    margin-right: 2%;
+    margin: 0%;
+    align-items: center;
+}
+
+.content-navbar {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1%;
 }
 
 header {
+    width: 100%;
     border-bottom: 2px solid #ff751f;
 }
 
@@ -24,13 +32,19 @@ header {
 
 .lista-header {
     justify-content: center !important;
-    margin-left: 27vw;
+    margin-left: 0%;
+}
 
+.titulo-geral{
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+    margin-left: 15%;
 }
 
 .titulo-geral h1 {
-    font-size: 5.5vh;
-    color: #ff751f;
+    font-size: 300%;
+    color: #ff751f !important;
     font-weight: 700;
 }
 
@@ -41,12 +55,25 @@ header {
     padding-top: 8vw;
     height: 9vh;
     margin-top: 2vw;
+    position: relative;
+
+}
+
+.menu-mobile {
+    display: flex;
+    justify-content: end;
 }
 
 .header-icons {
     display: flex;
-    width: 8vw;
-    margin-right: 3.5%;
+    justify-content: right;
+    width: 100%;
+}
+
+.header-icons-menu{
+    display: flex;
+    width: 100%;
+    margin-top: 6%;
 }
 
 .botoes-header {
@@ -58,22 +85,25 @@ header {
 }
 
 .icons-header {
-    width: 2.6vw;
+    width: 100%;
 }
 
-main {
-    padding-left: 15%;
-    padding-right: 15%;
-}
 
-.content-geral {
-    margin-top: 1%;
+.colCtrol{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+   
 }
 
 .card {
+    
     border: none;
     background-color: #ff751f;
-    width: 28% !important;
+    border-radius: 7px;
+    width: 100%;
+    
 }
 
 .card:hover {
@@ -96,32 +126,44 @@ main {
 
 .cards-produtos {
     display: flex;
-    justify-content: space-around;
-    margin-top: 3%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .card-text {
     color: #ffffff;
-    font-size: 3vh;
+    font-size: 140%;
     font-weight: 600;
 }
 
 .footer-laranja {
-    background-color: #ff751f;
-    color: #ffffff!important;
-    padding-left: 2vh;
-    padding-right: 2vh;
-    margin-bottom: 0%;
-    justify-content: center;
+    background: #E7691C;
+    background: -moz-linear-gradient(top, #E7691C 0%, #FF751F 50%, #FF751F 100%);
+    background: -webkit-linear-gradient(top, #E7691C 0%, #FF751F 50%, #FF751F 100%);
+    background: linear-gradient(to bottom, #E7691C 0%, #FF751F 50%, #FF751F 100%);
+    color: #ffffff !important;
+    height: auto;
+    margin-top: 5%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+
 }
 
 .marca-footer {
-    align-items: center;
+    display: flex;
     text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+    flex-direction: column;
+    gap: 0;
 }
 
 .texto-footer {
-    color: #ffffff!important;
+    margin: 0;
+    color: #ffffff !important;
+    letter-spacing: 1.25px;
 }
 
 .itens-footer {
@@ -135,9 +177,6 @@ main {
     font-size: 2vh;
 }
 
-.list-footer {
-    width: 40%;
-}
 
 .textinhos-footer {
     align-items: center;
@@ -149,5 +188,66 @@ main {
 }
 
 .icons-footer {
-    width: 10%;
+    width: 70px;
+    height: auto;
+    margin-right: 2%;
 }
+
+.logo-footer {
+    margin: 0% !important;
+    width: 100%;
+    max-width: 460px;
+    height: auto;
+
+
+}
+
+/* -------------------------------------------------------- */
+
+.row-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+
+}
+
+.ul-contatos {
+    gap: 10px;
+}
+
+.ul-contatos li {
+    height: 40px;
+}
+
+.img-contato {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding: 0;
+}
+
+.texto-contato {
+    display: flex;
+    align-items: center;
+}
+
+.texto-contato p {
+    margin: 0;
+    font-size: 100%;
+}
+
+
+/* -----------------------------------henrique-------------------------------------- */
+
+.col{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.row{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
