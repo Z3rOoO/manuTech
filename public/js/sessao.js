@@ -1,5 +1,3 @@
-
-
 //logout
 function fazerLogout() {
     localStorage.removeItem('token');
