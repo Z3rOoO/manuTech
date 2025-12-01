@@ -6,10 +6,10 @@ USE dbmt;
 
 -- Inserir usuários iniciais (senha: 12345678)
 -- Hash gerado com bcrypt para a senha "12345678" (validado)
-INSERT INTO usuarios (nome, email, senha, empresa, cargo, tipo) VALUES
-('Administrador', 'admin@produtos.com', '$2b$10$MPYBVCBAPOdcQgPrr1wyDeMggsTArUL1pkvHGOPIi5W6OC363HHle', 'manutech', 'administrado', 'ADMIN'),
-('FUNCIONARIO Silva', 'func@email.com', '$2b$10$MPYBVCBAPOdcQgPrr1wyDeMggsTArUL1pkvHGOPIi5W6OC363HHle', 'manutech', 'estagiario', 'FUNC'),
-('USUARIO Souza', 'user@email.com', '$2b$10$MPYBVCBAPOdcQgPrr1wyDeMggsTArUL1pkvHGOPIi5W6OC363HHle', 'mercedes-benz', 'supervisor', 'USER');
+INSERT INTO usuarios (nome, email, senha, empresa, cargo, cnpj, tipo) VALUES
+('Administrador', 'admin@produtos.com', '$2b$10$MPYBVCBAPOdcQgPrr1wyDeMggsTArUL1pkvHGOPIi5W6OC363HHle', 'manutech', 'administrado', '1212121212121212', 'ADMIN'),
+('FUNCIONARIO Silva', 'func@email.com', '$2b$10$MPYBVCBAPOdcQgPrr1wyDeMggsTArUL1pkvHGOPIi5W6OC363HHle', 'manutech', 'estagiario', '1212121212121212','FUNC'),
+('USUARIO Souza', 'user@email.com', '$2b$10$MPYBVCBAPOdcQgPrr1wyDeMggsTArUL1pkvHGOPIi5W6OC363HHle', 'mercedes-benz', 'supervisor', '1212121212121212','USER');
 
 -- Inserir manutentor iniciais
 INSERT INTO manutentor (nome, email, senha, telefone) VALUES
@@ -38,8 +38,8 @@ INSERT INTO produto (nome, descricao, preco, categoria_id, imagem) VALUES
 
 -- Inserir chamados iniciais
 INSERT INTO chamado (cliente_id, data_chamado, descricao, modelo_maquina, numero_serie, numero_patrimonio, setor, responsavel, endereco_manutencao, data_manutencao, hora_manutencao, status_code) VALUES
-(3, '2025-01-10', 'Problema na tela do smartphone', 'Galaxy S21', 'SN123456', 'PAT001', 'TI', 'João Silva', 'Rua A, 123', '2025-01-12', '10:00:00', 'CRIACAO'),
-(3, '2025-01-11', 'Notebook não liga', 'Dell Inspiron 15', 'SN654321', 'PAT002', 'TI', 'Maria Souza', 'Avenida B, 456', '2025-01-13', '14:00:00', 'VISITA');
+(3, '2025-01-10', 'Problema na tela do smartphone', 'Galaxy S21', 'SN123456', 'PAT001', 'TI', 'João Silva', 'Rua A, 123', '2025-01-12', '10:00:00', 'Criado'),
+(3, '2025-01-11', 'Notebook não liga', 'Dell Inspiron 15', 'SN654321', 'PAT002', 'TI', 'Maria Souza', 'Avenida B, 456', '2025-01-13', '14:00:00', 'Criado');
 
 
 
