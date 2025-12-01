@@ -251,7 +251,8 @@
 
 
                 const row = document.createElement('div');
-                row.innerHTML = `
+                if (chamado.status_code === 'Criado') {
+                    row.innerHTML = `
                     <div class="row g-5 justify-content-center" id="manStatus">
                         <div class="col-lg-3 col-md-6 col-sm-12" style="margin-bottom: 30px;">
                             <h1 class="title-acompanhamento">Visita para avaliação</h1>
@@ -307,11 +308,243 @@
                         </div>
                     </div>
                         `;
-                lista.appendChild(row);
+                    lista.appendChild(row);
+                } else if (chamado.status_code === 'Criado') {
+                    row.innerHTML = `
+                    <div class="row g-5 justify-content-center" id="manStatus">
+                        <div class="col-lg-3 col-md-6 col-sm-12" style="margin-bottom: 30px;">
+                            <h1 class="title-acompanhamento">Visita para avaliação</h1>
+                            <div class="card  mb-3">
+                                <div class="card-header" style="background-color: #0043ad;"><b>${chamado.numero_serie}</b><img
+                                        src="STATUS" alt=""></div>
+                                <div class="card-body">
+                                    <p class="card-text" style="color: #0043ad;"><b>Manutentor: ${chamado.chamado_id}</b><br>
+                                        <b>Data de visita: ${formatarData(chamado.data_manutencao)}</b><br>
+                                        <b>Modelo do maquinário: ${chamado.numero_serie}</b><br>
+                                        <b>Ordem de serviço: ${chamado.chamado_id}</b><br>
+                                        <b>Status: ${chamado.status_code}</b>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <h1 class="title-acompanhamento">Avaliação Técnica</h1>
+                            <div class="card  mb-3">
+                                <div class="card-header" style="background-color: #0043ad;"><b>DESCRICAO DO PROBLEMA</b><img
+                                        src="STATUS" alt=""></div>
+                                <div class="card-body">
+                                    <p class="card-text" style="color: #0043ad;">PENDENTE</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <h1 class="title-acompanhamento">Orçamento</h1>
+                            <div class="card  mb-3">
+                                <div class="card-header" style="background-color: #0043ad;"><b>${chamado.numero_serie}</b><img
+                                        src="STATUS" alt=""></div>
+                                <div class="card-body">
+                                    <p class="card-text" style="color: #0043ad;"><b>Ferramentas: Pendente</b><br>
+                                        <b>Peças:  Pendente</b><br>
+                                        <b>Mão de obra:  Pendente</b><br>
+                                        <b>Valor total:  Pendente</b>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <h1 class="title-acompanhamento">Visita para manutenção</h1>
+                            <div class="card  mb-3">
+                                <div class="card-header" style="background-color: #0043ad;"><b>${chamado.numero_serie}</b><img
+                                        src="STATUS" alt=""></div>
+                                <div class="card-body" style="background-color: #0043ad;">
+                                    <button class="btn btn-primary btt-agendar-visita" type=" submit">Agendar visita</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        `;
+                    lista.appendChild(row);
+                }else if (chamado.status_code === 'Criado') {
+                    row.innerHTML = `
+                    <div class="row g-5 justify-content-center" id="manStatus">
+                        <div class="col-lg-3 col-md-6 col-sm-12" style="margin-bottom: 30px;">
+                            <h1 class="title-acompanhamento">Visita para avaliação</h1>
+                            <div class="card  mb-3">
+                                <div class="card-header" style="background-color: #0043ad;"><b>${chamado.numero_serie}</b><img
+                                        src="STATUS" alt=""></div>
+                                <div class="card-body">
+                                    <p class="card-text" style="color: #0043ad;"><b>Manutentor: ${chamado.chamado_id}</b><br>
+                                        <b>Data de visita: ${formatarData(chamado.data_manutencao)}</b><br>
+                                        <b>Modelo do maquinário: ${chamado.numero_serie}</b><br>
+                                        <b>Ordem de serviço: ${chamado.chamado_id}</b><br>
+                                        <b>Status: ${chamado.status_code}</b>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <h1 class="title-acompanhamento">Avaliação Técnica</h1>
+                            <div class="card  mb-3">
+                                <div class="card-header" style="background-color: #0043ad;"><b>DESCRICAO DO PROBLEMA</b><img
+                                        src="STATUS" alt=""></div>
+                                <div class="card-body">
+                                    <p class="card-text" style="color: #0043ad;">PENDENTE</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <h1 class="title-acompanhamento">Orçamento</h1>
+                            <div class="card  mb-3">
+                                <div class="card-header" style="background-color: #0043ad;"><b>${chamado.numero_serie}</b><img
+                                        src="STATUS" alt=""></div>
+                                <div class="card-body">
+                                    <p class="card-text" style="color: #0043ad;"><b>Ferramentas: Pendente</b><br>
+                                        <b>Peças:  Pendente</b><br>
+                                        <b>Mão de obra:  Pendente</b><br>
+                                        <b>Valor total:  Pendente</b>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <h1 class="title-acompanhamento">Visita para manutenção</h1>
+                            <div class="card  mb-3">
+                                <div class="card-header" style="background-color: #0043ad;"><b>${chamado.numero_serie}</b><img
+                                        src="STATUS" alt=""></div>
+                                <div class="card-body" style="background-color: #0043ad;">
+                                    <button class="btn btn-primary btt-agendar-visita" type=" submit">Agendar visita</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        `;
+                    lista.appendChild(row);
+                }else if (chamado.status_code === 'Criado') {
+                    row.innerHTML = `
+                    <div class="row g-5 justify-content-center" id="manStatus">
+                        <div class="col-lg-3 col-md-6 col-sm-12" style="margin-bottom: 30px;">
+                            <h1 class="title-acompanhamento">Visita para avaliação</h1>
+                            <div class="card  mb-3">
+                                <div class="card-header" style="background-color: #0043ad;"><b>${chamado.numero_serie}</b><img
+                                        src="STATUS" alt=""></div>
+                                <div class="card-body">
+                                    <p class="card-text" style="color: #0043ad;"><b>Manutentor: ${chamado.chamado_id}</b><br>
+                                        <b>Data de visita: ${formatarData(chamado.data_manutencao)}</b><br>
+                                        <b>Modelo do maquinário: ${chamado.numero_serie}</b><br>
+                                        <b>Ordem de serviço: ${chamado.chamado_id}</b><br>
+                                        <b>Status: ${chamado.status_code}</b>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <h1 class="title-acompanhamento">Avaliação Técnica</h1>
+                            <div class="card  mb-3">
+                                <div class="card-header" style="background-color: #0043ad;"><b>DESCRICAO DO PROBLEMA</b><img
+                                        src="STATUS" alt=""></div>
+                                <div class="card-body">
+                                    <p class="card-text" style="color: #0043ad;">PENDENTE</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <h1 class="title-acompanhamento">Orçamento</h1>
+                            <div class="card  mb-3">
+                                <div class="card-header" style="background-color: #0043ad;"><b>${chamado.numero_serie}</b><img
+                                        src="STATUS" alt=""></div>
+                                <div class="card-body">
+                                    <p class="card-text" style="color: #0043ad;"><b>Ferramentas: Pendente</b><br>
+                                        <b>Peças:  Pendente</b><br>
+                                        <b>Mão de obra:  Pendente</b><br>
+                                        <b>Valor total:  Pendente</b>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <h1 class="title-acompanhamento">Visita para manutenção</h1>
+                            <div class="card  mb-3">
+                                <div class="card-header" style="background-color: #0043ad;"><b>${chamado.numero_serie}</b><img
+                                        src="STATUS" alt=""></div>
+                                <div class="card-body" style="background-color: #0043ad;">
+                                    <button class="btn btn-primary btt-agendar-visita" type=" submit">Agendar visita</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        `;
+                    lista.appendChild(row);
+                }else if (chamado.status_code === 'Criado') {
+                    row.innerHTML = `
+                    <div class="row g-5 justify-content-center" id="manStatus">
+                        <div class="col-lg-3 col-md-6 col-sm-12" style="margin-bottom: 30px;">
+                            <h1 class="title-acompanhamento">Visita para avaliação</h1>
+                            <div class="card  mb-3">
+                                <div class="card-header" style="background-color: #0043ad;"><b>${chamado.numero_serie}</b><img
+                                        src="STATUS" alt=""></div>
+                                <div class="card-body">
+                                    <p class="card-text" style="color: #0043ad;"><b>Manutentor: ${chamado.chamado_id}</b><br>
+                                        <b>Data de visita: ${formatarData(chamado.data_manutencao)}</b><br>
+                                        <b>Modelo do maquinário: ${chamado.numero_serie}</b><br>
+                                        <b>Ordem de serviço: ${chamado.chamado_id}</b><br>
+                                        <b>Status: ${chamado.status_code}</b>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <h1 class="title-acompanhamento">Avaliação Técnica</h1>
+                            <div class="card  mb-3">
+                                <div class="card-header" style="background-color: #0043ad;"><b>DESCRICAO DO PROBLEMA</b><img
+                                        src="STATUS" alt=""></div>
+                                <div class="card-body">
+                                    <p class="card-text" style="color: #0043ad;">PENDENTE</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <h1 class="title-acompanhamento">Orçamento</h1>
+                            <div class="card  mb-3">
+                                <div class="card-header" style="background-color: #0043ad;"><b>${chamado.numero_serie}</b><img
+                                        src="STATUS" alt=""></div>
+                                <div class="card-body">
+                                    <p class="card-text" style="color: #0043ad;"><b>Ferramentas: Pendente</b><br>
+                                        <b>Peças:  Pendente</b><br>
+                                        <b>Mão de obra:  Pendente</b><br>
+                                        <b>Valor total:  Pendente</b>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <h1 class="title-acompanhamento">Visita para manutenção</h1>
+                            <div class="card  mb-3">
+                                <div class="card-header" style="background-color: #0043ad;"><b>${chamado.numero_serie}</b><img
+                                        src="STATUS" alt=""></div>
+                                <div class="card-body" style="background-color: #0043ad;">
+                                    <button class="btn btn-primary btt-agendar-visita" type=" submit">Agendar visita</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        `;
+                    lista.appendChild(row);
+                }
             }
+
         }
-
-
 
         carregarChamados();
     </script>
