@@ -5,6 +5,9 @@ body {
     box-sizing: border-box;
 }
 
+a{
+    text-decoration: none;
+}
 .navbar {
     width: 100%;
     justify-content: space-between;
@@ -98,7 +101,7 @@ header {
 }
 
 .card {
-    
+   
     border: none;
     background-color: #ff751f;
     border-radius: 7px;
@@ -117,6 +120,7 @@ header {
 }
 
 .card-body {
+    
     padding-top: 2%;
     padding-bottom: 2%;
     margin: 0%;
