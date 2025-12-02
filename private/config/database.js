@@ -18,5 +18,39 @@ const db = await mysql.createConnection({
   database: process.env.DB_DATABASE,
 });
 
+async function create(table, data) {
+  const keys = Object.keys(data);
+  const placeholders = keys.map(_ => '?').join(',');
+  const sql = `INSERT INTO \`${table}\` (${keys.map(k => `\`${k}\``).join(',')}) VALUES (${placeholders})`;
+  const values = keys.map(k => data[k]);
+  const [result] = await db.execute(sql, values);
+  return result; // result.insertId, affectedRows, etc
+}
+
+async function read(table, where = null, params = []) {
+  console.log(`cheguei aqui '${id}'`)
+  let sql = `SELECT * FROM \`${table}\``;
+  if (where) sql += ` WHERE ${where}`;
+  const [rows] = await db.execute(sql, params);
+  return rows;
+}
+
+async function update(table, data, where, params = []) {
+  const keys = Object.keys(data);
+  const set = keys.map(k => `\`${k}\` = ?`).join(', ');
+  const values = keys.map(k => data[k]);
+  const sql = `UPDATE \`${table}\` SET ${set} WHERE ${where}`;
+  const [result] = await db.execute(sql, [...values, ...params]);
+  return result; // affectedRows
+}
+
+async function deleteRecord(table, where, params = []) {
+  const sql = `DELETE FROM \`${table}\` WHERE ${where}`;
+  const [result] = await db.execute(sql, params);
+  return result;
+}
+
+
+export { create, read, update, deleteRecord };
 // exportar o banco
 export default db;

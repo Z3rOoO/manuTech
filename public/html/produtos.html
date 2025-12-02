@@ -150,7 +150,7 @@
                         <div class="col-3 d-none d-md-block headT">PREÇO</div>
                         <div class="col-2 d-none d-md-block headT">COMPRAR</div>
                     </div>
-                    
+
                     <div id="lista-produtos">
 
                     </div>
@@ -217,9 +217,13 @@
         crossorigin="anonymous"></script>
     <script>
         async function carregarProdutos() {
-            const resposta = await fetch('/api/produtos');
+            const idCategoria = window.location.pathname.split("/").at(-1);
+            const resposta = await fetch(`/api/produtos/categoria/${idCategoria}`);
             const data = await resposta.json();
             console.log(data);
+
+           
+            
 
             if (!data.sucesso) {
                 alert('Erro ao carregar produtos: ' + data.erro);
@@ -228,7 +232,7 @@
 
             if (data.sucesso) {
                 const lista = document.getElementById('lista-produtos');
-                lista.innerHTML = "";
+
 
                 data.produtos.forEach(produto => {
 
@@ -256,7 +260,7 @@
 
         carregarProdutos();
     </script>
-   
+
 </body>
 
 </html>
