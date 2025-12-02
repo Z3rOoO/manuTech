@@ -16,4 +16,6 @@ router.post('/upload', verificarToken, uploadImagens.single('imagem'), handleUpl
 router.put('/:id', verificarToken, uploadImagens.single('imagem'), handleUploadError, ProdutoController.atualizar);
 router.delete('/:id', verificarToken, ProdutoController.excluir);
 
+router.get('/:id', ProdutoController.buscarPorId);//produto/ id
+
 export default router;
