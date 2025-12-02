@@ -210,12 +210,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
-   <script>
+<script>
+       //criar produto e o botao de + ou -
         let produtoAtual = null;
         let quantidade = 1;
+        let precoUnitario = 0; 
 
         async function carregarProduto() {
-            // Pega o ID da URL limpa: /produto/4
+            // Pega o ID da url  
             const id = window.location.pathname.split('/').pop();
 
             if (!id || isNaN(id)) {
@@ -226,20 +228,28 @@
 
             try {
                 const response = await fetch(`/api/produtos/${id}`);
-                // CORREÇÃO CRUCIAL AQUI:
                 const dados = await response.json(); 
 
                 if (dados.sucesso) {
                     produtoAtual = dados.produto; 
+                    
+                    // 1. SALVA O PREÇO PARA A CONTA FUNCIONAR
+                    precoUnitario = parseFloat(produtoAtual.preco);
 
                     document.getElementById('prod-nome').innerText = produtoAtual.nome;
                     document.getElementById('prod-modelo').innerText = produtoAtual.modelo || ''; 
                     document.getElementById('prod-descricao').innerText = produtoAtual.descricao;
-                    document.getElementById('prod-preco').innerText = `R$ ${parseFloat(produtoAtual.preco).toFixed(2)}`;
                     
-                    if(produtoAtual.imagemUrl) {
+                    // atulia preco
+                    atualizarPrecoTela();
+                    
+                    // imagem
+                    if(produtoAtual.imagem) {
+                       
+                        document.getElementById('prod-img').src = `/images/produtos/${produtoAtual.imagem}`;
+                    } else {
                         
-document.getElementById('prod-img').src = `/images/produtos/${produtoAtual.imagem}`;
+                        document.getElementById('prod-img').src = "/images/ilustracoes/teste-produtoCarrinho.png";
                     }
 
                 } else {
@@ -252,18 +262,29 @@ document.getElementById('prod-img').src = `/images/produtos/${produtoAtual.image
             }
         }
 
-        // Funções para os botões
-        function alterarQtd(valor) {
-            quantidade += valor;
-            if (quantidade < 1) quantidade = 1;
-            document.getElementById('qtd').innerText = quantidade;
+    //BOTAO ---------------------------------------
+        function atualizarPrecoTela() {
+            const total = precoUnitario * quantidade;
+            document.getElementById('prod-preco').innerText = `R$ ${total.toFixed(2)}`;
         }
 
-        function addCarrinho() {
-            if(!produtoAtual) return;
-            alert(`Adicionado: ${quantidade}x ${produtoAtual.nome}`);
+      
+        function alterarQtd(valor) {
+            quantidade += valor;
+            
+            //Nn ficar menor q 1
+            if (quantidade < 1) quantidade = 1;
+            
+   
+            document.getElementById('qtd').innerText = quantidade;
+            
+            
+            atualizarPrecoTela();
         }
+
+     
         
+       
         carregarProduto();
     </script>
 </body>
