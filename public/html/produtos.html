@@ -150,22 +150,7 @@
                         <div class="col-3 d-none d-md-block headT">PREÇO</div>
                         <div class="col-2 d-none d-md-block headT">COMPRAR</div>
                     </div>
-                    <div class="row linhaT">
-                        <div class="col-12 col-md-2 order-2 order-md-1 bodyT"><img
-                                src="../images/produtos/${produto.imagem}" alt="${produto.nome}" height="100%"
-                                loading="lazy" /></div>
-                        <div class="col-12 col-md-2 order-1 order-md-2 bodyT nome-produto">
-                            NOMENOMENOMENOMENOMENOMENOMENOMENOMENOME</div>
-                        <div class="col-12 col-md-3 order-3 order-md-3 bodyT descricao-produto">
-                            descricaodescricaodescricaodescricaodescricaodescricaodescricaodescricaodescricaodescricao
-                        </div>
-                        <div class="col-6 col-md-3 order-4 order-md-4 bodyT">R$ </div>
-                        <div class="col-6 col-md-2 order-5 order-md-5 bodyT">
-                            <button class="btn btn-outline-primary btt-comprar" title="Adicionar ao carrinho">
-                                <img src="../images/icons/carrinho.svg" width="24" height="24">
-                            </button>
-                        </div>
-                    </div>
+                    
                     <div id="lista-produtos">
 
                     </div>
@@ -256,9 +241,11 @@
                         <div class="col-12 col-md-3 order-3 order-md-3 bodyT">${produto.descricao}</div>
                         <div class="col-6 col-md-3 order-4 order-md-4 bodyT">R$ ${Number(produto.preco).toFixed(2)}</div>
                         <div class="col-6 col-md-2 order-5 order-md-5 bodyT">
-                            <button class="btn btn-outline-primary" title="Adicionar ao carrinho">
+                             <a href="/produto/${produto.produto_id}">
+                            <button class="btn btn-outline-primary btt-comprar" title="Adicionar ao carrinho">
                                 <img src="../images/icons/carrinho.svg" width="24" height="24">
                             </button>
+                            </a>
                         </div>
                     </div>
                     `;
@@ -269,7 +256,7 @@
 
         carregarProdutos();
     </script>
-
+   
 </body>
 
 </html>
