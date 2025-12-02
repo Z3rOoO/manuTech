@@ -12,6 +12,23 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <link rel="stylesheet" href="../style/login.css">
     <link rel="icon" href="../images/icons/icon_manutech.svg">
+    <style>
+    .senha-container {
+        position: relative;
+    }
+    .icon-ver-senha {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        width: 25px; /* Tamanho do ícone */
+        opacity: 0.6;
+    }
+    .icon-ver-senha:hover {
+        opacity: 1;
+    }
+</style>
 </head>
 
 
@@ -35,10 +52,13 @@
                                     <input type="email" class="form-control input-login" id="email"
                                         placeholder="Email">
                                 </div>
-                                <div class="mb-3 inputs-login col-lg-6 col-md-4 col-sm-10 col-10">
-                                    <input type="password" class="form-control input-login"
-                                        id="senha" placeholder="Senha">
-                                </div>
+                                <div class="mb-3 inputs-login col-lg-6 col-md-4 col-sm-10 col-10 senha-container">
+    
+    <input type="password" class="form-control input-login" id="senha" placeholder="Senha">
+    
+    <img src="../images/icons/olho.svg" class="icon-ver-senha" 
+         onclick="toggleSenha('senha', this)" alt="Ver senha">
+</div>
                             </div>
 
                             <div class="row resto-login">
@@ -140,6 +160,20 @@ document.getElementById('senha').addEventListener('keypress', function(e) {
     }
 })
 
+
+
+//-----------------
+function toggleSenha(idInput, icone) {
+    const input = document.getElementById(idInput);
+    
+    if (input.type === "password") {
+        input.type = "text";
+        icone.style.opacity = "1"; // Indica que está visível
+    } else {
+        input.type = "password";
+        icone.style.opacity = "0.6";
+    }
+}
 
 // nome -  miguelglr
 // email - miguel...senai@gmail.com
