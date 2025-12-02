@@ -28,7 +28,6 @@ async function create(table, data) {
 }
 
 async function read(table, where = null, params = []) {
-  console.log(`cheguei aqui '${id}'`)
   let sql = `SELECT * FROM \`${table}\``;
   if (where) sql += ` WHERE ${where}`;
   const [rows] = await db.execute(sql, params);
