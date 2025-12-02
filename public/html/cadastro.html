@@ -9,6 +9,7 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <link rel="stylesheet" href="../style/login.css">
     <link rel="icon" href="../images/icons/icon_manutech.svg">
+<<<<<<< HEAD
     <style>
     .senha-container {
         position: relative;
@@ -26,6 +27,9 @@
         opacity: 1;
     }
 </style>
+=======
+    <script src="https://unpkg.com/imask"></script>
+>>>>>>> 2a677e33df2da7602b4da3b681b08c03d19cfd46
 </head>
 
 <body>
@@ -47,13 +51,14 @@
                             <div class="row form-step active tamanho-div" id="step1">
                                 <div class="content-login">
                                     <div class="mb-3 inputs-login">
-                                        <input type="text" class="form-control input-login"
-                                            id="nome" placeholder="Nome" required>
+                                        <input type="text" class="form-control input-login" id="nome" placeholder="Nome"
+                                            required>
                                     </div>
                                     <div class="mb-3 inputs-login col-lg-6 col-md-4 col-sm-10 col-10">
-                                        <input type="email" class="form-control input-login"
-                                            id="email" placeholder="Email" required>
+                                        <input type="email" class="form-control input-login" id="email"
+                                            placeholder="Email" required>
                                     </div>
+<<<<<<< HEAD
                                     <div class="mb-3 inputs-login col-lg-6 col-md-4 col-sm-10 col-10 senha-container">
     
     <input type="password" class="form-control input-login" id="senha" placeholder="Senha" required>
@@ -61,39 +66,49 @@
     <img src="../images/icons/olho.svg" class="icon-ver-senha" 
          onclick="toggleSenha('senha', this)" alt="Ver senha">
 </div>
+=======
+                                    <div class="mb-3 inputs-login col-lg-6 col-md-4 col-sm-10 col-10">
+                                        <input type="password" class="form-control input-login" id="senha"
+                                            placeholder="Senha" required>
+                                    </div>
+>>>>>>> 2a677e33df2da7602b4da3b681b08c03d19cfd46
                                 </div>
 
                                 <div class="row resto-login">
                                     <div class="col-10 col-sm-10 col-md-6 col-lg-6 texto-login">
-                                        <p>Já tem uma conta? <a href="login">Faça login</a></p>
+                                        <p>Já tem uma conta? <a href="/login">Faça login</a></p>
                                     </div>
-                                    <button type="button" class="btn btn-primary botao-login col-6 col-sm-6 col-md-4 col-lg-3" 
+                                    <button type="button"
+                                        class="btn btn-primary botao-login col-6 col-sm-6 col-md-4 col-lg-3"
                                         onclick="nextStep()">Próximo</button>
                                 </div>
                             </div>
 
-                            
+
 
                             <div class="row form-step tamanho-div" id="step2">
                                 <div class="content-login">
                                     <div class="mb-3 inputs-login">
-                                        <input type="text" class="form-control input-login"
-                                            id="empresa" placeholder="Empresa vinculada" required>
+                                        <input type="text" class="form-control input-login" id="empresa"
+                                            placeholder="Empresa vinculada" required>
                                     </div>
                                     <div class="mb-3 inputs-login col-lg-6 col-md-4 col-sm-10 col-10">
-                                        <input type="text" class="form-control input-login"
-                                            id="cargo" placeholder="Cargo" required>
+                                        <input type="text" class="form-control input-login" id="cargo"
+                                            placeholder="Cargo" required>
                                     </div>
                                     <div class="mb-3 inputs-login col-lg-6 col-md-4 col-sm-10 col-10">
-                                        <input type="text" class="form-control input-login"
-                                            id="cnpj" placeholder="CNPJ" min="14" max="14" required>
+                                        <input type="text"" class="form-control input-login" id="cnpj" placeholder="CNPJ"
+                                            minlength="14" maxlength="14" required>
                                     </div>
                                 </div>
 
                                 <div class="row resto-login">
-                                    <button type="button" class="btn btn-secondary botao-voltar-etapa col-4 col-sm-4 col-md-3 col-lg-2" 
+                                    <button type="button"
+                                        class="btn btn-secondary botao-voltar-etapa col-4 col-sm-4 col-md-3 col-lg-2"
                                         onclick="prevStep()">Voltar</button>
-                                    <button type="submit" class="btn btn-primary botao-login col-6 col-sm-6 col-md-4 col-lg-3" href="home.html"> 
+                                    <button type="submit"
+                                        class="btn btn-primary botao-login col-6 col-sm-6 col-md-4 col-lg-3"
+                                        href="home.html">
                                         Cadastrar
                                     </button>
                                 </div>
@@ -116,12 +131,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 
     <script>
-function nextStep() {
+        function nextStep() {
             const nome = document.getElementById('nome').value;
             const email = document.getElementById('email').value;
             const senha = document.getElementById('senha').value;
-            
-            
+
+
             if (!nome || !email || !senha) {
                 alert('Por favor, preencha Nome, Email e Senha.');
                 return;
@@ -136,13 +151,13 @@ function nextStep() {
             document.getElementById('step2').classList.add('active');
         }
 
-       1
+        1
         function prevStep() {
             document.getElementById('step2').classList.remove('active');
             document.getElementById('step1').classList.add('active');
         }
 
-        
+
         const form = document.getElementById('form-cadastro');
 
         form.addEventListener('submit', async (event) => {
@@ -154,18 +169,18 @@ function nextStep() {
             const empresa = document.getElementById('empresa').value;
             const cargo = document.getElementById('cargo').value;
             const cnpj = document.getElementById('cnpj').value;
-          
+
             try {
                 const resposta = await fetch('/api/auth/registrar', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    
-                    body: JSON.stringify({ 
-                        nome, 
-                        email, 
-                        senha, 
-                        empresa, 
-                        cargo, 
+
+                    body: JSON.stringify({
+                        nome,
+                        email,
+                        senha,
+                        empresa,
+                        cargo,
                         cnpj
                     })
                 });
@@ -203,15 +218,15 @@ function toggleSenha(idInput, icone) {
 
         //testar cadadastro/login 
 
-// nome -  miguell
-// email - miguelposenai@gmail.com
-// telefone - 11 53345-0155
-// nome de usuário - miguel123
-// senha - 1DASDWJaw1@
-// empresa vinculada - manutech
-//cargo - manutentor
-//cnpj - 64.341.047/0001-00
-//models ; controllers ; routes / adicionar a rota e a api no app.js
+        // nome -  miguell
+        // email - miguelposenai@gmail.com
+        // telefone - 11 53345-0155
+        // nome de usuário - miguel123
+        // senha - 1DASDWJaw1@
+        // empresa vinculada - manutech
+        //cargo - manutentor
+        //cnpj - 64.341.047/0001-00
+        //models ; controllers ; routes / adicionar a rota e a api no app.js
 
     </script>
 </body>

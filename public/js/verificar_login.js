@@ -2,7 +2,7 @@
     const token = localStorage.getItem('token');
    
     if (!token) {
-        alert("Acesso restrito! Faça login");
+        alert("É necessário efetuar login para acessar esta página.");
         window.location.href = '/login';
     }
 })();

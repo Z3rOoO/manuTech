@@ -152,7 +152,6 @@
 
             const token = localStorage.getItem('token');
             if (!token) {
-                alert("Você precisa estar logado!");
                 window.location.href = "/login";
                 return;
             }
@@ -172,7 +171,7 @@
             if (!dadosChamado.descricao || !dadosChamado.modelo_maquina || !dadosChamado.numero_serie ||
                 !dadosChamado.numero_patrimonio || !dadosChamado.setor || !dadosChamado.responsavel ||
                 !dadosChamado.endereco_manutencao || !dadosChamado.data_manutencao || !dadosChamado.hora_manutencao) {
-                alert("Por favor, preencha todos os campos obrigatórios antes de enviar.");
+                alert("Por favor, preencha todos os campos obrigatórios antes de enviar=.");
                 return;
             }
 
