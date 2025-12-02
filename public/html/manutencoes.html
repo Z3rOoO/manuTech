@@ -141,13 +141,13 @@
             console.log(data);
 
             if (!data.sucesso) {
-                alert('Erro ao carregar chaados: ' + data.erro);
+                alert('Erro ao carregar chamados: ' + data.erro);
                 return;
             }
 
             if (data.sucesso) {
                 const lista = document.getElementById('accordionServico');
-                lista.innerHTML = "";
+                
 
                 data.chamados.forEach(chamado => {
 

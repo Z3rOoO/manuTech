@@ -98,32 +98,49 @@ header {
 .chatbox{
     width: 420px;
     height: auto;
-    
+    max-height: 600px;
     overflow: auto;
     border-radius: 25px;
     background-color: rgb(255, 255, 255);
     border: 2px solid #0043ad;
     overflow: hidden;
+    justify-self: flex-end;
+    margin-right: 1%;
+    margin-bottom: 1%;
 }
+
 .header-chatbox{
     background-color: #0043ad;
     width: 417px;
     -webkit-border-radius: 20px 20px 0px 0px;
     -moz-border-radius: 20px 20px 0px 0px;
     border-radius: 20px 20px 0px 0px;
-    height: 15%;
+    height: 65px;
+    display: flex;
 }
+
+.foto-chatbox {
+    display: flex;
+    align-items: center;
+}
+
 .foto-chatbox img{
     width: 35px;
     height: 35px;
-    margin-top: 20px;
 }
+
 .nome-chatbox{
     color: white;
     font-size: 17px;
     font-weight: bold;
-    margin-top: 20px    ;
+    display: flex;
+    align-items: center;
 }
+
+.nome-chatbox p {
+    margin: 0%;
+}
+
 .mensagem-chatbox{
     max-width: 300px;
     height: calc(100% - 60px);
@@ -137,6 +154,7 @@ header {
     padding: 8px;
     overflow-y: auto;
 }
+
 .mensagem2-chatbox{
     max-width: 300px;
     height: calc(100% - 60px);
@@ -148,13 +166,17 @@ header {
     border-radius: 20px;
     padding: 8px;
 }
+
 .input-msg-chatbox input{
     width: 390px;
-    margin-top: 145px;
+    margin-top: 10px;
     border: 2px solid #0043ad;
     border-radius: 15px;
     padding: 5px;
+    margin-right: 1%;
+    margin-bottom: 1%;
 }
+
 .icon-enviarmsg-chatbox{
     background-color: #0043ad;
     width: 35px;
@@ -163,11 +185,34 @@ header {
     position: absolute;
     border-radius: 35px;
 }
+
 .icon-enviarmsg-chatbox img{
     width: 25px;
     height: 25px;
     rotate: 35deg;
 }
+
+.content-mensagens {
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.coluna-botao-fechar {
+    display: flex;
+    align-items: center;
+}
+
+.botao-fechar-mensagens {
+    border: none;
+    background-color: transparent;
+    align-self: center;
+    width: 60%;
+}
+
+.botao-fechar-mensagens img {
+    width: 100%;
+}
+
 /* --------------------------------------FOOTER------------------------------- */
 
 .footer-laranja {
@@ -294,6 +339,46 @@ header {
     color: #8f8f8f;
     margin-left: 60px;
     align-items: center;
+}
+
+/* -------------------------------------------------------------------------------------------- */
+
+.botao-modal-mensagem {
+    margin-right: 1%;
+    margin-bottom: 1%;
+    width: 8vh;
+    height: 8vh;
+    justify-self: flex-end;
+    background-color: #0042A9;
+    border-radius: 100%;
+}
+
+.img-botao-mensagem {
+    width: 85%;
+}
+
+#chat-div {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#chat-div.visivel {
+    display: block;
+    opacity: 1;
+}
+
+#chat-div.oculto {
+    display: none;
+    opacity: 0;
+}
+
+#button-chat.oculto {
+    display: none;
+}
+
+#button-chat.visivel {
+    display: block;
 }
 /* garante que o li seja flex e alinha os itens */
 .empresa-cargo-wrapper {

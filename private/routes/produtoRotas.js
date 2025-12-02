@@ -9,6 +9,7 @@ const router = Router();
 // Rotas Públicas
 router.get('/', ProdutoController.listarTodos);
 router.get('/:id', ProdutoController.buscarPorId);
+router.get('/categoria/:id', ProdutoController.buscarPorCategoria);
 
 // Rotas Protegidas + Upload
 router.post('/', verificarToken, uploadImagens.single('imagem'), handleUploadError, ProdutoController.criar);

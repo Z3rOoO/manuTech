@@ -18,5 +18,6 @@ const db = await mysql.createConnection({
   database: process.env.DB_DATABASE,
 });
 
+
 // exportar o banco
 export default db;
