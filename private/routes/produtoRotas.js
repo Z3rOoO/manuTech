@@ -9,11 +9,14 @@ const router = Router();
 // Rotas Públicas
 router.get('/', ProdutoController.listarTodos);
 router.get('/:id', ProdutoController.buscarPorId);
+router.get('/categoria/:id', ProdutoController.buscarPorCategoria);
 
 // Rotas Protegidas + Upload
 router.post('/', verificarToken, uploadImagens.single('imagem'), handleUploadError, ProdutoController.criar);
 router.post('/upload', verificarToken, uploadImagens.single('imagem'), handleUploadError, ProdutoController.uploadImagem);
 router.put('/:id', verificarToken, uploadImagens.single('imagem'), handleUploadError, ProdutoController.atualizar);
 router.delete('/:id', verificarToken, ProdutoController.excluir);
+
+router.get('/:id', ProdutoController.buscarPorId);//produto/ id
 
 export default router;

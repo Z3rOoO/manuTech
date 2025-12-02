@@ -9,11 +9,11 @@ class ProdutoController {
             const pagina = Number(req.query.pagina) || 1;
             const offset = (pagina - 1) * limite;
             const resultado = await ProdutoModel.listarTodos(limite, offset);
-            console.log('Produtos encontrados:', resultado);
     
+            
             resultado.produtos = resultado.produtos.map(p => ({
                 ...p,
-                imagemUrl: p.imagem ? `/uploads/imagens/${p.imagem}` : null
+                imagemUrl: p.imagem ? `/uploads/imagens/${p.imagem}` : '../images/ilustracoes/teste-produtoCarrinho.png'
             }));
     
             res.json({ sucesso: true, ...resultado });
@@ -28,19 +28,51 @@ class ProdutoController {
     static async buscarPorId(req, res) {
         try {
             const { id } = req.params;
-            const produto = await ProdutoModel.buscarPorId(id);
+            let produto = await ProdutoModel.buscarPorId(id);
+
+            if (Array.isArray(produto)) {
+                produto = produto[0];
+            }
 
             if (!produto) {
                 return res.status(404).json({ sucesso: false, erro: 'Produto não encontrado.' });
             }
-            if (produto.imagem) {
-                produto.imagemUrl = `/uploads/imagens/${produto.imagem}`;
-            }
 
-            res.json({ sucesso: true, dados: produto });
+            // Tratamento da imagem
+            const produtoFormatado = {
+                ...produto,
+                // Se não tiver imagem, manda null ou uma imagem padrão
+                imagemUrl: produto.imagem ? `/uploads/imagens/${produto.imagem}` : '../images/ilustracoes/teste-produtoCarrinho.png'
+            };
+
+            
+            res.json({ sucesso: true, produto: produtoFormatado });
+
         } catch (error) {
             console.error('Erro ao buscar produto:', error);
             res.status(500).json({ sucesso: false, erro: 'Erro interno.' });
+        }
+    }
+
+    static async buscarPorCategoria(req,res) {
+        try {
+            const {id} = req.params;
+            let produto = await ProdutoModel.buscarPorCategoria(id)
+            let produtos = []
+            produtos.push(produto)
+            if (Array.isArray(produtos)) {
+                produtos = produtos[0];
+            }
+
+            if (!produtos) {
+                return res.status(404).json({ sucesso: false, erro: 'Produto não encontrado.' });
+            }   
+
+            res.json({ sucesso: true, produtos });
+
+        }catch (error) {
+            console.error('Erro ao buscar produtos:', error)
+            res.status(500).json({ sucesso:false, erro: 'Erro interno.'})
         }
     }
 
@@ -66,7 +98,6 @@ class ProdutoController {
     static async criar(req, res) {
         try {
             const { nome, descricao, preco, estoque } = req.body;
-            // Se veio arquivo no upload, usa o nome dele. Se não, null.
             const imagem = req.file ? req.file.filename : null;
 
             if (!nome || !preco) {
