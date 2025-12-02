@@ -218,9 +218,12 @@
     <script>
         async function carregarProdutos() {
             const idCategoria = window.location.pathname.split("/").at(-1);
-            const resposta = await fetch(`/api/produtos/categoria/${idCategoria}`);
+            const resposta = await fetch(`http://localhost:3000/api/produtos/categoria/${idCategoria}`);
+            console.log(resposta);
+            
             const data = await resposta.json();
             console.log(data);
+            
 
            
             
@@ -232,7 +235,8 @@
 
             if (data.sucesso) {
                 const lista = document.getElementById('lista-produtos');
-
+                console.log(data.produtos);
+                
 
                 data.produtos.forEach(produto => {
 

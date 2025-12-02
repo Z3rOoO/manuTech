@@ -57,15 +57,18 @@ class ProdutoController {
     static async buscarPorCategoria(req,res) {
         try {
             const {id} = req.params;
-            let produtos = await ProdutoModel.buscarPorCategoria(id)
-
+            let produto = await ProdutoModel.buscarPorCategoria(id)
+            let produtos = []
+            produtos.push(produto)
             if (Array.isArray(produtos)) {
                 produtos = produtos[0];
             }
 
             if (!produtos) {
                 return res.status(404).json({ sucesso: false, erro: 'Produto não encontrado.' });
-            }
+            }   
+
+            res.json({ sucesso: true, produtos });
 
         }catch (error) {
             console.error('Erro ao buscar produtos:', error)
