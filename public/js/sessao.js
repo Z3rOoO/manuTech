@@ -13,7 +13,7 @@
 
         // BLOQUEIO 1: Não tem token e tenta acessar página privada
         if (!token && !ehPublica) {
-            alert("Acesso restrito! Faça login.");
+            alert("É necessário efetuar login para acessar esta página.");
             window.location.href = '/login'; 
             return; // Para tudo
         }
@@ -67,14 +67,16 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         // Preenche Nome
-        preencher('nome-usuario-menu', `Olá, ${usuario.nome}`);
+        preencher('nome-usuario-menu', `Olá, ${usuario.nome.toUpperCase()}`);
 
         // Preenche Empresa
-        preencher('empresa-usuario-menu', usuario.empresa || '');
+        // Função charAt(0) deixa a primeira letra maiúscula
+        preencher('empresa-usuario-menu', usuario.empresa.charAt(0).toUpperCase() + usuario.empresa.slice(1));
 
         // Preenche Cargo
+        // Função charAt(0) deixa a primeira letra maiúscula
         if (usuario.cargo) {
-            preencher('cargo-usuario-menu', usuario.cargo);
+            preencher('cargo-usuario-menu', usuario.cargo.charAt(0).toUpperCase() + usuario.cargo.slice(1));
         } else {
             // Esconde se não tiver cargo
             document.querySelectorAll('#cargo-usuario-menu').forEach(el => el.style.display = 'none');
