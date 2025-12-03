@@ -64,7 +64,7 @@
     
     <input type="password" class="form-control input-login" id="senha" placeholder="Senha" required>
     
-    <img src="../images/icons/olho.svg" class="icon-ver-senha" 
+    <img src="../images/icons/olho.png" class="icon-ver-senha" 
          onclick="toggleSenha('senha', this)" alt="Ver senha">
 </div>
 
@@ -197,18 +197,19 @@
         });
 
 //---------------------------
+
+
 function toggleSenha(idInput, icone) {
     const input = document.getElementById(idInput);
     
     if (input.type === "password") {
         input.type = "text";
-        icone.style.opacity = "1"; // Indica que está visível
+        icone.src = "../images/icons/olho-fechado.png"; 
     } else {
         input.type = "password";
-        icone.style.opacity = "0.6";
+        icone.src = "../images/icons/olho.png"; 
     }
 }
-
 
 
 
@@ -228,7 +229,7 @@ function toggleSenha(idInput, icone) {
 
  
 
-// painel admin-fznd
+// painel admin-feito
 // carrinho-fznd
 // produto-feito
 // catalogo-feito
