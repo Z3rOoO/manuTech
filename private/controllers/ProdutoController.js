@@ -42,7 +42,7 @@ class ProdutoController {
             const produtoFormatado = {
                 ...produto,
                 // Se não tiver imagem, manda null ou uma imagem padrão
-                imagemUrl: produto.imagem ? `/uploads/imagens/${produto.imagem}` : '../images/ilustracoes/teste-produtoCarrinho.png'
+                imagemUrl: produto.imagem ? `../../public/images/produtos/${produto.imagem}` : '../images/ilustracoes/teste-produtoCarrinho.png'
             };
 
             

@@ -34,13 +34,17 @@ class ProdutoModel {
     // Buscar produto por ID
     static async buscarPorId(id) {
         try {
-            const rows = await read('produtos', `id = ${id}`);
-            return rows[0] || null;
+            const sql = 'SELECT * FROM produto WHERE produto_id = ? ';
+
+            const [produtos] = await db.query(sql, [Number(id)]);
+            
+            return produtos;
         } catch (error) {
-            console.error('Erro ao buscar produto por ID:', error);
+            console.error('Erro ao listar produtos:', error);
             throw error;
         }
     }
+    
 
     // Criar novo produto
     static async criar(dadosProduto) {
