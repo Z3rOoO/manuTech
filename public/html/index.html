@@ -232,7 +232,7 @@
                         src="../images/icons/botaofechar-chat.png"></button>
             </div>
         </div>
-        <div class="content-mensagens">
+        <div class="content-mensagens"id="box-mensagens-modal">
             <div class="row">
                 <div class="col mensagem-chatbox">Oi, eu sou o Miguel Guedes larios!</div>
             </div>
@@ -267,11 +267,11 @@
 
         <div class="fixed-bottom div-enviarmsg">
             <div class="input-msg-chatbox">
-                <input type="text" placeholder="Sua mensagem">
+                <input type="text" placeholder="Sua mensagem"id="input-msg-modal">
             </div>
 
             <div class="icone-enviarmsg">
-                <button><img src="../images/icons/icon-enviarmsg.png" class="icon-img-enviarmsg"></button>
+                <button onclick="enviarModal()"><img src="../images/icons/icon-enviarmsg.png" class="icon-img-enviarmsg"></button>
             </div>
         </div>
     </div>
@@ -324,6 +324,45 @@
                 </div>
             </div>
     </footer>
+
+
+<script>
+  
+      async function enviarModal() {
+    let input = document.getElementById('input-msg-modal');
+    let texto = input.value;
+    if (texto.trim() === "") return;
+
+    const token = localStorage.getItem('token'); // Precisa do token 
+
+    // manda pro servidor
+    const response = await fetch('/api/chat/enviar', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ texto })
+    });
+
+    //  e deu certo, mostra na tela
+    if (response.ok) {
+        let box = document.getElementById('box-mensagens-modal');
+        let row = document.createElement('div');
+        row.className = 'row';
+        let col = document.createElement('div');
+        col.className = 'col mensagem2-chatbox';
+        col.innerText = texto;
+        row.appendChild(col);
+        box.appendChild(row);
+        
+        input.value = "";
+        box.scrollTop = box.scrollHeight;
+    } else {
+        alert("Erro ao enviar. Você está logado?");
+    }
+}
+    </script>
 
     <script>
         document.getElementById('button-chat').addEventListener('click', function () {
