@@ -12,6 +12,7 @@ import authRotas from './routes/authRotas.js';
 import criptografiaRotas from './routes/criptografiaRotas.js';
 import usuarioRotas from './routes/usuarioRotas.js';
 import chamadoRotas from './routes/chamadoRotas.js';
+import carrinhoRotas from './routes/carrinhoRotas.js'
 
 import { logMiddleware } from './middlewares/logMiddleware.js';
 import { errorMiddleware } from './middlewares/errorMiddleware.js';
@@ -36,6 +37,7 @@ app.use('/api/produtos', produtoRotas);
 app.use('/api/criptografia', criptografiaRotas);
 app.use('/api/usuarios', usuarioRotas);
 app.use('/api/chamados', chamadoRotas);
+app.use('/api/carrinho', carrinhoRotas)
 
 
 const siteRouter = express.Router();
