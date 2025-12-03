@@ -27,16 +27,16 @@
             if (caminhoAtual.includes('paineladmin')) {
                 if (tipo !== 'ADMIN') {
                     alert("Acesso negado! Área exclusiva para Administradores.");
-                    window.location.href = '/home';
+                    window.location.href = '/index';
                     return;
                 }
             }
 
             // REGRA B: USER (Cliente) não entra no chat nem acompanhamento
-            if (caminhoAtual.includes('chat') || caminhoAtual.includes('acompanhamento')) {
+            if (caminhoAtual.includes('chat') || caminhoAtual.includes('servicos')|| caminhoAtual.includes('paineladmin')) {
                 if (tipo === 'USER') {
                     alert("Acesso restrito a funcionários.");
-                    window.location.href = '/home';
+                    window.location.href = '/index';
                     return;
                 }
             }
