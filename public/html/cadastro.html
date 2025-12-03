@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="../style/login.css">
     <link rel="icon" href="../images/icons/icon_manutech.svg">
 
+    <script src="https://unpkg.com/imask"></script>
+  
+
     <style>
     .senha-container {
         position: relative;
@@ -90,7 +93,7 @@
                                             placeholder="Cargo" required>
                                     </div>
                                     <div class="mb-3 inputs-login col-lg-6 col-md-4 col-sm-10 col-10">
-                                        <input type="text"" class="form-control input-login" id="cnpj" placeholder="CNPJ"
+                                        <input type="text" class="form-control input-login" id="cnpj" placeholder="CNPJ"
                                             minlength="14" maxlength="14" required>
                                     </div>
                                 </div>
@@ -221,7 +224,37 @@ function toggleSenha(idInput, icone) {
         //cnpj - 64.341.047/0001-00
         //models ; controllers ; routes / adicionar a rota e a api no app.js
 
+
+
+ 
+
+// painel admin-fznd
+// carrinho-fznd
+// produto-feito
+// catalogo-feito
+// resposta do manutentor-fazer
+
     </script>
+
+    <!-- mascara do cnpj -->
+<script src="https://unpkg.com/imask"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const campoCnpj = document.getElementById('cnpj');
+            
+            if (campoCnpj) {
+                const mascaraOptions = {
+                    mask: '00.000.000/0000-00'
+                };
+                
+               
+                const mask = IMask(campoCnpj, mascaraOptions);
+            }
+        });
+    </script>
+</body>
+</html>
 </body>
 
 </html>

@@ -48,7 +48,8 @@
 
                         <div class="col-3 col-sm-3 d-block d-md-none">
                             <div class="header-icons-menu">
-                                <a href="/manutencoes"><img src="../images/icons/icon-home-solicitacoes.png" width="55px"></a>
+                                <a href="/manutencoes"><img src="../images/icons/icon-home-solicitacoes.png"
+                                        width="55px"></a>
 
                                 <div class="dropdown" style="display: inline-block; margin-left: 15%;">
                                     <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -60,10 +61,11 @@
                                             <span class="dropdown-item-text fw-bold nome-modal"
                                                 id="nome-usuario-menu"></span>
                                         </li>
-                                        <li><span class="dropdown-item-text empresa-modal" id="empresa-usuario-menu"></span>
-                                                <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
-                                            </li>
-                                        
+                                        <li><span class="dropdown-item-text empresa-modal"
+                                                id="empresa-usuario-menu"></span>
+                                            <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
+                                        </li>
+
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
@@ -124,19 +126,32 @@
                 </div>
             </div>
             <div class="col-9 ">
+                <!-- =============================================== -->
                 <div class="container-conversa">
                     <div class="header-conversa">
                         <img src="../images/icons/perfil.png">
                         <p class="nome-contato">Miguel Guedeslarios</p>
                     </div>
-                    <div class="msg1">TESTANDO AQUI VIU</div>
-                    <div class="msg2">BLZ DOG</div>
-                    <div class="row footer-conversa">
-                        <div class="col"><input class="enviar-msg" placeholder="Sua mensagem:" type="text"></div>
-                        <div class="col centralizar-botao-enviar"><button class="btn-enviar">Enviar</button></div>
+
+                    <div id="box-mensagens"
+                        style="flex: 1; overflow-y: auto; padding: 10px; display: flex; flex-direction: column;">
+                        <div class="msg1">TESTANDO AQUI VIU</div>
+                        <div class="msg2">BLZ DOG</div>
                     </div>
-                </div>
+                    <div class="row footer-conversa">
+                        <div class="col">
+                            <input id="texto-msg" class="enviar-msg" placeholder="Sua mensagem:" type="text">
+                        </div>
+                        <div class="col centralizar-botao-enviar">
+                            <button class="btn-enviar" onclick="enviar()">Enviar</button>
+                        </div>
+                    </div>
+             
             </div>
+            <!-- =-================================= -->
+        </div>
+        </div>
+        </div>
         </div>
 
     </main>
@@ -150,6 +165,41 @@
         crossorigin="anonymous"></script>
 
 </body>
-<script src="../js/sessao.js"></script> <!--script para o sair da sessao -->
+
+
+
+
+<script>
+    function enviar() {
+
+        let input = document.getElementById('texto-msg');
+        let box = document.getElementById('box-mensagens');
+        let texto = input.value;
+
+
+        if (texto.trim() === "") return;
+
+
+        let novaMsg = document.createElement('div'); //criar o elemoento da div,
+        novaMsg.classList.add('msg2');
+        novaMsg.innerText = texto;
+
+
+        box.appendChild(novaMsg);
+
+        //Limpa o input
+        input.value = "";
+
+        // Rola para baixo  document.body.scrollHeight
+        box.scrollTop = box.scrollHeight;
+    }
+
+    // enter funcionar
+    document.getElementById('texto-msg').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            enviar();
+        }
+    });
+</script>
 
 </html>
