@@ -9,7 +9,28 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <link rel="stylesheet" href="../style/login.css">
     <link rel="icon" href="../images/icons/icon_manutech.svg">
+
     <script src="https://unpkg.com/imask"></script>
+  
+
+    <style>
+    .senha-container {
+        position: relative;
+    }
+    .icon-ver-senha {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        width: 25px; /* Tamanho do ícone */
+        opacity: 0.6;
+    }
+    .icon-ver-senha:hover {
+        opacity: 1;
+    }
+</style>
+
 </head>
 
 <body>
@@ -38,10 +59,15 @@
                                         <input type="email" class="form-control input-login" id="email"
                                             placeholder="Email" required>
                                     </div>
-                                    <div class="mb-3 inputs-login col-lg-6 col-md-4 col-sm-10 col-10">
-                                        <input type="password" class="form-control input-login" id="senha"
-                                            placeholder="Senha" required>
-                                    </div>
+
+                                    <div class="mb-3 inputs-login col-lg-6 col-md-4 col-sm-10 col-10 senha-container">
+    
+    <input type="password" class="form-control input-login" id="senha" placeholder="Senha" required>
+    
+    <img src="../images/icons/olho.png" class="icon-ver-senha" 
+         onclick="toggleSenha('senha', this)" alt="Ver senha">
+</div>
+
                                 </div>
 
                                 <div class="row resto-login">
@@ -67,7 +93,7 @@
                                             placeholder="Cargo" required>
                                     </div>
                                     <div class="mb-3 inputs-login col-lg-6 col-md-4 col-sm-10 col-10">
-                                        <input type="text"" class="form-control input-login" id="cnpj" placeholder="CNPJ"
+                                        <input type="text" class="form-control input-login" id="cnpj" placeholder="CNPJ"
                                             minlength="14" maxlength="14" required>
                                     </div>
                                 </div>
@@ -170,6 +196,23 @@
             }
         });
 
+//---------------------------
+
+
+function toggleSenha(idInput, icone) {
+    const input = document.getElementById(idInput);
+    
+    if (input.type === "password") {
+        input.type = "text";
+        icone.src = "../images/icons/olho-fechado.png"; 
+    } else {
+        input.type = "password";
+        icone.src = "../images/icons/olho.png"; 
+    }
+}
+
+
+
         //testar cadadastro/login 
 
         // nome -  miguell
@@ -182,7 +225,37 @@
         //cnpj - 64.341.047/0001-00
         //models ; controllers ; routes / adicionar a rota e a api no app.js
 
+
+
+ 
+
+// painel admin-feito
+// carrinho-fznd
+// produto-feito
+// catalogo-feito
+// resposta do manutentor-fazer
+
     </script>
+
+    <!-- mascara do cnpj -->
+<script src="https://unpkg.com/imask"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const campoCnpj = document.getElementById('cnpj');
+            
+            if (campoCnpj) {
+                const mascaraOptions = {
+                    mask: '00.000.000/0000-00'
+                };
+                
+               
+                const mask = IMask(campoCnpj, mascaraOptions);
+            }
+        });
+    </script>
+</body>
+</html>
 </body>
 
 </html>

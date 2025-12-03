@@ -48,7 +48,8 @@
 
                         <div class="col-3 col-sm-3 d-block d-md-none">
                             <div class="header-icons-menu">
-                                <a href="/manutencoes"><img src="../images/icons/icon-home-solicitacoes.png" width="55px"></a>
+                                <a href="/manutencoes"><img src="../images/icons/icon-home-solicitacoes.png"
+                                        width="55px"></a>
 
                                 <div class="dropdown" style="display: inline-block; margin-left: 15%;">
                                     <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -60,10 +61,11 @@
                                             <span class="dropdown-item-text fw-bold nome-modal"
                                                 id="nome-usuario-menu"></span>
                                         </li>
-                                        <li><span class="dropdown-item-text empresa-modal" id="empresa-usuario-menu"></span>
-                                                <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
-                                            </li>
-                                        
+                                        <li><span class="dropdown-item-text empresa-modal"
+                                                id="empresa-usuario-menu"></span>
+                                            <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
+                                        </li>
+
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
@@ -107,38 +109,37 @@
     </header>
 
     <main>
-
         <div class="row">
             <div class="col-3 container-contatos">
                 <div class="row contato-chat">
                     <div class="col-2"><img src="../images/icons/perfil.png"></div>
-                    <div class="col-10">
-                        <p>Miguel Guedeslarios</p>
-                    </div>
-                </div>
-                <div class="row contato-chat">
-                    <div class="col-2"><img src="../images/icons/perfil.png"></div>
-                    <div class="col-10">
-                        <p>Miguel Guedeslarios</p>
-                    </div>
+                    <div class="col-10"><p>Miguel Guedeslarios</p></div>
                 </div>
             </div>
+
             <div class="col-9 ">
                 <div class="container-conversa">
                     <div class="header-conversa">
                         <img src="../images/icons/perfil.png">
                         <p class="nome-contato">Miguel Guedeslarios</p>
                     </div>
-                    <div class="msg1">TESTANDO AQUI VIU</div>
-                    <div class="msg2">BLZ DOG</div>
+
+                    <div id="box-mensagens" style="flex: 1; overflow-y: auto; padding: 10px; display: flex; flex-direction: column;">
+                        <div class="msg1">TESTANDO AQUI VIU</div>
+                        <div class="msg2">BLZ DOG</div>
+                    </div>
+
                     <div class="row footer-conversa">
-                        <div class="col"><input class="enviar-msg" placeholder="Sua mensagem:" type="text"></div>
-                        <div class="col centralizar-botao-enviar"><button class="btn-enviar">Enviar</button></div>
+                        <div class="col">
+                            <input id="texto-msg" class="enviar-msg" placeholder="Sua mensagem:" type="text">
+                        </div>
+                        <div class="col centralizar-botao-enviar">
+                            <button class="btn-enviar" onclick="enviar()">Enviar</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -150,6 +151,36 @@
         crossorigin="anonymous"></script>
 
 </body>
-<script src="../js/sessao.js"></script> <!--script para o sair da sessao -->
+
+
+
+
+<script>
+        function enviar() {
+            let input = document.getElementById('texto-msg');
+            let box = document.getElementById('box-mensagens');
+            
+            if(!input || !box) return; 
+
+            let texto = input.value;
+            if (texto.trim() === "") return;
+
+            let novaMsg = document.createElement('div');
+            novaMsg.classList.add('msg2'); 
+            novaMsg.innerText = texto;
+
+            box.appendChild(novaMsg);
+            input.value = "";
+            box.scrollTop = box.scrollHeight;
+        }
+
+        // Enter para enviar
+        const inputElement = document.getElementById('texto-msg');
+        if(inputElement) {
+            inputElement.addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') enviar();
+            });
+        }
+    </script>
 
 </html>

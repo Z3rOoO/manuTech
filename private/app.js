@@ -12,9 +12,11 @@ import authRotas from './routes/authRotas.js';
 import criptografiaRotas from './routes/criptografiaRotas.js';
 import usuarioRotas from './routes/usuarioRotas.js';
 import chamadoRotas from './routes/chamadoRotas.js';
+import carrinhoRotas from './routes/carrinhoRotas.js'
 
 import { logMiddleware } from './middlewares/logMiddleware.js';
 import { errorMiddleware } from './middlewares/errorMiddleware.js';
+import MensagemController from './controllers/MensagemController.js';
 
 dotenv.config();
 
@@ -24,6 +26,17 @@ const __dirname = path.dirname(__filename); //pega a pasta do app.js
 
 app.use(express.json());
 app.use(logMiddleware);
+
+
+//---------
+app.get('/api/usuarios/buscar', UsuarioController.buscarPorEmail); 
+app.put('/api/usuarios/:id', UsuarioController.atualizar);
+app.delete('/api/usuarios/:id', UsuarioController.excluir);
+import UsuarioController from './controllers/UsuarioController.js';
+//----
+
+app.post('/api/chat/enviar', verificarToken, MensagemController.enviar);
+app.get('/api/chat/mensagens', verificarToken, MensagemController.listar);
 
 
 //  acessa localhost:3000/style/style.css direto
@@ -36,6 +49,7 @@ app.use('/api/produtos', produtoRotas);
 app.use('/api/criptografia', criptografiaRotas);
 app.use('/api/usuarios', usuarioRotas);
 app.use('/api/chamados', chamadoRotas);
+app.use('/api/carrinho', carrinhoRotas)
 
 
 const siteRouter = express.Router();
@@ -86,5 +100,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
+
+
 
 export default app;

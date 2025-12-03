@@ -107,54 +107,66 @@
     </header>
 
     <main>
-
         <div class="container container-paineladm" style="margin-top: 120px; padding: 20px;">
             <div class="row justify-content-center">
                 <h1 style="color: #0043ad; text-align: center; margin-bottom: 20px;">Painel de Administrador</h1>
+                
+                <input type="hidden" id="adm-id-usuario">
+<!-- ---------------- -->
                 <div class="col-12 mb-3">
-                    <input type="text" style="margin-bottom: 20px;" class="form-control input-painel-adm"
-                        placeholder="Pesquisar usuário:">
+                    <input type="text" id="adm-pesquisa" 
+                        placeholder="Pesquisar usuário (Digite o email):">
+                    <button class="btt-buscar" onclick="buscarUsuario()">Buscar</button>
+                </div>
+<!-- ------------------ -->
+ <!-- ------------------ -->
+                <div class="col-6 mb-3">
+                    <input type="text" id="adm-nome" class="form-control input-painel-adm" placeholder="Nome completo:">
+                </div>
+                <div class="col-6 mb-3">
+                    <input type="text" id="adm-cargo" class="form-control input-painel-adm" placeholder="Cargo:">
                 </div>
 
                 <div class="col-6 mb-3">
-                    <input type="text" class="form-control input-painel-adm" placeholder="Nome completo:">
+                    <input type="text" id="adm-empresa" class="form-control input-painel-adm" placeholder="Empresa vinculada:">
                 </div>
                 <div class="col-6 mb-3">
-                    <input type="text" class="form-control input-painel-adm" placeholder="Cargo:">
-                </div>
-
-                <div class="col-6 mb-3">
-                    <input type="text" class="form-control input-painel-adm" placeholder="Empresa vinculada:">
-                </div>
-                <div class="col-6 mb-3">
-                    <input type="text" class="form-control input-painel-adm" placeholder="CNPJ:">
+                    <input type="text" id="adm-cnpj" class="form-control input-painel-adm" placeholder="CNPJ:">
                 </div>
 
                 <div class="col-12 mb-3">
-                    <input type="text" class="form-control input-painel-adm" placeholder="Email:">
+                    <input type="text" id="adm-email" class="form-control input-painel-adm" placeholder="Email:">
+                </div>
+                
+                <div class="col-12 mb-3">
+                    <input type="password" id="adm-senha" class="form-control input-painel-adm" placeholder="Senha (Apenas para Criar/Alterar):">
                 </div>
 
                 <div class="col-12 mb-4 text-center">
-                    <select class="custom-select"
+                    <select id="adm-tipo" class="custom-select"
                         style="border: 2px solid #0043ad; width: 300px; height: 40px; border-radius: 20px; padding: 3px;">
                         <option selected disabled>Tipo do usuário</option>
-                        <option value="admin">Administrador</option>
-                        <option value="editor">Editor</option>
-                        <option value="user">Usuário comum</option>
+                        <option value="ADMIN">Administrador</option>
+                        <option value="FUNC">Funcionário</option>
+                        <option value="USER">Usuário Comum</option>
                     </select>
                 </div>
+
                 <div class="col-4 text-center">
-                    <button class="btt-painel-adm">Atualizar</button>
+                    <button id="btn-atualizar" class="btt-painel-adm" onclick="atualizarUsuario()">Atualizar</button>
                 </div>
                 <div class="col-4 text-center">
-                    <button class="btt-painel-adm">Criar</button>
+                    <button id="btn-criar" class="btt-painel-adm" onclick="criarUsuario()">Criar</button>
                 </div>
                 <div class="col-4 text-center">
-                    <button class="btt-painel-adm">Excluir</button>
+                    <button id="btn-excluir" class="btt-painel-adm" onclick="excluirUsuario()">Excluir</button>
                 </div>
             </div>
+            
+            <div id="lista-resultados" class="mt-4"></div>
         </div>
     </main>
+    <!-- ------------------ -->
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
@@ -163,8 +175,155 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
+<script src="https://unpkg.com/imask"></script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const campoCnpj = document.getElementById('adm-cnpj');
+            
+            if (campoCnpj) {
+                const mascaraOptions = {
+                    mask: '00.000.000/0000-00'
+                };
+                
+               
+                const mask = IMask(campoCnpj, mascaraOptions);
+            }
+        });
+    </script>
 </body>
-<script src="../js/sessao.js"></script> <!--script para o sair da sessao -->
+<script src="../js/sessao.js"></script> 
+<script type="module">
+       
+        import '../js/sessao.js';
 
+
+
+        async function buscarUsuario() {
+            const emailBusca = document.getElementById('adm-pesquisa').value;
+            if(!emailBusca) return alert("Digite um email para buscar.");
+
+            try {
+                const response = await fetch(`/api/usuarios/buscar?email=${emailBusca}`);
+                const dados = await response.json();
+
+                if(dados.sucesso && dados.usuario) { //funcao q faz aparecer as infomrcao no input se der certp
+                    const u = dados.usuario;
+                    document.getElementById('adm-id-usuario').value = u.id; 
+                    document.getElementById('adm-nome').value = u.nome;
+                    document.getElementById('adm-email').value = u.email;
+                    document.getElementById('adm-cargo').value = u.cargo;
+                    document.getElementById('adm-empresa').value = u.empresa;
+                    document.getElementById('adm-cnpj').value = u.cnpj;
+                    
+                    // Seleciona o tipo no select 
+                    document.getElementById('adm-tipo').value = u.tipo; 
+                    
+                    document.getElementById('adm-senha').value = ""; 
+                   //alert("Usuário encontrado!");
+                } else {
+                    alert("Usuário não encontrado.");
+                    limparinput();
+                }
+            } catch (error) {
+                console.error(error);
+                alert("Erro de busca // verificar rota");
+            }
+        }
+
+        async function criarUsuario() {
+            const dados = pegarDadosDoFormulario();
+            if(!dados.senha) return alert("Senha é obrigatória para criar usuário.");
+
+            try {
+                const response = await fetch('/api/auth/registrar', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(dados)
+                });
+                const result = await response.json();
+                
+                if(result.sucesso) {
+                    alert("Usuário criado com sucesso!");
+                    limparinput();
+                } else {
+                    alert("Erro: " + result.erro);
+                }
+            } catch (error) {
+                console.error(error);
+                alert("Erro de conexão.");
+            }
+        }
+
+        async function atualizarUsuario() {
+            const id = document.getElementById('adm-id-usuario').value;
+            if(!id) return alert("Busque um usuário primeiro para atualizar.");
+
+            const dados = pegarDadosDoFormulario();
+
+            try {
+                const response = await fetch(`/api/usuarios/${id}`, {
+                    method: 'PUT',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(dados)
+                });
+                const result = await response.json();
+                
+                if(result.sucesso) {
+                    alert("Usuário atualizado!");
+                } else {
+                    alert("Erro ao atualizar: " + (result.erro || "Desconhecido"));
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        async function excluirUsuario() {
+            const id = document.getElementById('adm-id-usuario').value;
+            if(!id) return alert("Selecione um usuário para excluir.");
+
+            if(!confirm("Tem certeza que deseja excluir este usuário?")) return;
+
+            try {
+                const response = await fetch(`/api/usuarios/${id}`, {
+                    method: 'DELETE'
+                });
+                const result = await response.json();
+                
+                if(result.sucesso) {
+                    alert("Usuário excluído.");
+                    limparinput();
+                } else {
+                    alert("Erro ao excluir.");
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        function pegarDadosDoFormulario() {  ///colocar dps nas outras funcoes
+            return {
+                nome: document.getElementById('adm-nome').value,
+                email: document.getElementById('adm-email').value,
+                cargo: document.getElementById('adm-cargo').value,
+                empresa: document.getElementById('adm-empresa').value,
+                cnpj: document.getElementById('adm-cnpj').value,
+                tipo: document.getElementById('adm-tipo').value,
+                senha: document.getElementById('adm-senha').value
+            };
+        }
+
+        function limparinput() {
+            document.querySelectorAll('.input-painel-adm').forEach(input => input.value = ''); //passa do for each o input pro valor nullo
+            document.getElementById('adm-id-usuario').value = '';
+        }
+
+//pega a funcao do on click
+        window.buscarUsuario = buscarUsuario;
+        window.criarUsuario = criarUsuario;
+        window.atualizarUsuario = atualizarUsuario;
+        window.excluirUsuario = excluirUsuario;
+
+    </script>
 </html>

@@ -27,16 +27,16 @@
             if (caminhoAtual.includes('paineladmin')) {
                 if (tipo !== 'ADMIN') {
                     alert("Acesso negado! Área exclusiva para Administradores.");
-                    window.location.href = '/home';
+                    window.location.href = '/index';
                     return;
                 }
             }
 
             // REGRA B: USER (Cliente) não entra no chat nem acompanhamento
-            if (caminhoAtual.includes('chat') || caminhoAtual.includes('acompanhamento')) {
+            if (caminhoAtual.includes('chat') || caminhoAtual.includes('servicos')|| caminhoAtual.includes('paineladmin')) {
                 if (tipo === 'USER') {
                     alert("Acesso restrito a funcionários.");
-                    window.location.href = '/home';
+                    window.location.href = '/index';
                     return;
                 }
             }
@@ -89,4 +89,20 @@ async function obterUsuarioLogado() {
     const usuarioSalvo = localStorage.getItem('usuario');
     return usuarioSalvo ? JSON.parse(usuarioSalvo) : null;
 }
-export { obterUsuarioLogado };
+
+export function logadoBoleana() {
+    const dados = localStorage.getItem("usuarioLogado");
+
+    if (!dados) {
+        return null;
+    }
+
+    try {
+        return JSON.parse(dados);
+    } catch (e) {
+        console.error("Erro ao ler usuário do localStorage:", e);
+        return null;
+    }
+}
+
+export { obterUsuarioLogado,logadoBoleana };
