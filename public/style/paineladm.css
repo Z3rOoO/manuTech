@@ -15,3 +15,12 @@
     font-weight: bold;
     border-radius: 20px;
 }
+.btt-buscar{
+    border: none;
+    color: white;
+    background-color: #0043ad;
+    border-radius: 20px;
+    height: 40px;
+    width: 70px;
+    font-weight: bold;
+}

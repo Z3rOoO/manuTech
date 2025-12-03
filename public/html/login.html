@@ -56,7 +56,7 @@
     
     <input type="password" class="form-control input-login" id="senha" placeholder="Senha">
     
-    <img src="../images/icons/olho.svg" class="icon-ver-senha" 
+    <img src="../images/icons/olho.png" class="icon-ver-senha" 
          onclick="toggleSenha('senha', this)" alt="Ver senha">
 </div>
 
@@ -130,7 +130,7 @@
                     if (tipo === 'ADMIN') {
                         window.location.href = '/painelAdmin'
                     } else if (tipo === 'FUNC') {
-                        window.location.href = '/acompanhamento'
+                        window.location.href = '/index'
                     } else {
                         window.location.href = '/index'
                     }
@@ -161,12 +161,13 @@ function toggleSenha(idInput, icone) {
     
     if (input.type === "password") {
         input.type = "text";
-        icone.style.opacity = "1"; // Indica que está visível
+        icone.src = "../images/icons/olho-fechado.png"; 
     } else {
         input.type = "password";
-        icone.style.opacity = "0.6";
+        icone.src = "../images/icons/olho.png"; 
     }
 }
+
 
 // nome -  miguelglr
 // email - miguel...senai@gmail.com

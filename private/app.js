@@ -27,6 +27,16 @@ app.use(express.json());
 app.use(logMiddleware);
 
 
+//---------
+app.get('/api/usuarios/buscar', UsuarioController.buscarPorEmail); 
+app.put('/api/usuarios/:id', UsuarioController.atualizar);
+app.delete('/api/usuarios/:id', UsuarioController.excluir);
+import UsuarioController from './controllers/UsuarioController.js';
+//----
+
+
+
+
 //  acessa localhost:3000/style/style.css direto
 app.use(express.static(path.join(__dirname, '../public')));
 app.use('/upload', express.static(path.join(__dirname, 'uploads')));
@@ -85,5 +95,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
+
+
 
 export default app;
