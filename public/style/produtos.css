@@ -81,7 +81,7 @@
     white-space: nowrap;
 }
 .btt-comprar{
-    border: 1px solid #ff751f;
+    border: 1px solid #d65601;
     margin-left: 20px
 }
 .nome-produto{
@@ -91,7 +91,7 @@
 /* -------------------------------------------------footer-------------------------------- */
 .footer-laranja {
     margin-top: 207px !important;
-    background: #E7691C;
+    background: #d65601;
     background: -moz-linear-gradient(top, #E7691C 0%, #FF751F 50%, #FF751F 100%);
     background: -webkit-linear-gradient(top, #E7691C 0%, #FF751F 50%, #FF751F 100%);
     background: linear-gradient(to bottom, #E7691C 0%, #FF751F 50%, #FF751F 100%);

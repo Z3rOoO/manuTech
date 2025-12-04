@@ -52,7 +52,8 @@
                                 <a href="#"><img src="../images/icons/icon-home-solicitacoes.png" width="55px"></a>
 
                                 <div class="dropdown" style="display: inline-block; margin-left: 15%;">
-                                    <a href="/manutencoes" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a href="/manutencoes" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
                                         <img src="../images/icons/perfil-azul.png" width="55px">
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-end box-modal">
@@ -61,10 +62,11 @@
                                             <span class="dropdown-item-text fw-bold nome-modal"
                                                 id="nome-usuario-menu"></span>
                                         </li>
-                                        <li><span class="dropdown-item-text empresa-modal" id="empresa-usuario-menu"></span>
-                                                <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
-                                            </li>
-                                        
+                                        <li><span class="dropdown-item-text empresa-modal"
+                                                id="empresa-usuario-menu"></span>
+                                            <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
+                                        </li>
+
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
@@ -114,19 +116,19 @@
                         id="descricao" required></textarea></div>
                 <div class="row"><input class="input-tipo1-chamado" type="text"
                         placeholder="Modelo da máquina/ferramenta:" id="modelo_maquina" required></div>
-                <div class="row"><input class="input-tipo1-chamado" type="text" placeholder="Número de série:"
+                <div class="row"><input class="input-tipo1-chamado" type="number" placeholder="Número de série:"
                         id="numero_serie" required></div>
-                <div class="row"><input class="input-tipo1-chamado" type="text" placeholder="Número de patrimônio:"
+                <div class="row"><input class="input-tipo1-chamado" type="number" placeholder="Número de patrimônio:"
                         id="numero_patrimonio" required></div>
                 <div class="row"><input class="input-tipo1-chamado" type="text" placeholder="Setor:" id="setor"
                         required></div>
-                <div class="row"><input class="input-tipo1-chamado" type="text" placeholder="Responsável:"
+                <div class="row"><input class="input-tipo1-chamado" type="text" placeholder="Responsável pelo setor:"
                         id="responsavel" required></div>
             </div>
             <div class="col-5 row-gap-4 segunda">
                 <div class="row"><input class="input-tipo1-chamado" type="text" placeholder="Endereço:"
                         id="endereco_manutencao" required></div>
-                <div class="row"><input class="input-tipo2-chamado" type="date" id="data_manutencao" required></div>
+                <div class="row"><input class="input-tipo2-chamado" max="9999-12-31" type="date" id="data_manutencao" required></div>
                 <div class="row"><input class="input-tipo2-chamado" type="time" placeholder="Horário da visita"
                         id="hora_manutencao" required></div>
                 <div class="row">
@@ -155,6 +157,14 @@
                 window.location.href = "/login";
                 return;
             }
+
+            const dataAtual = new Date();
+            const dataEscolhida = new Date(document.getElementById('data_manutencao').value);
+            if (dataEscolhida < dataAtual.setHours(0,0,0,0)) {
+                alert("Insira uma data válida.");
+                return;
+            }
+
 
             const dadosChamado = {
                 descricao: document.getElementById('descricao').value,
@@ -200,6 +210,7 @@
             }
         }
     </script>
+
 </body>
 
 </html>

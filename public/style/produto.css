@@ -101,7 +101,7 @@ main {
     font-size: 120%;
     border: none;
     border-radius: 15px;
-    background-color: #ff751f;
+    background-color: #d65601;
     color: #ffffff;
     height: 100%;
     width: 100%;
@@ -138,4 +138,3 @@ p {
 .dadosEspecificos-produto {
     color: #737373;
 }
-
