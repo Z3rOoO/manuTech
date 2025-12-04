@@ -8,6 +8,7 @@ const router = Router();
 // aponta para os métodos estaticoS da classe
 
 router.get('/:id', CarrinhoController.listar);
+router.put("/carrinho/atualizar", CarrinhoController.atualizarQuantidade);
 router.post('/', CarrinhoController.criar);
 
 export default router;

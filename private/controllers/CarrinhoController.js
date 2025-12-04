@@ -59,6 +59,34 @@ class CarrinhoController {
             res.status(500).json({ sucesso: false, erro: "Erro ao listar chamados." });
         }
     }
+    // ATUALIZAR QUANTIDADE
+    static async atualizarQuantidade(req, res) {
+        try {
+            const { produto_id, quantidade } = req.body;
+
+            if (!produto_id || !quantidade) {
+                return res.json({
+                    sucesso: false,
+                    erro: "Dados incompletos."
+                });
+            }
+
+            const resultado = await CarrinhoModel.atualizarQuantidade(produto_id, quantidade);
+
+            return res.json({
+                sucesso: true,
+                mensagem: "Quantidade atualizada com sucesso!",
+                resultado
+            });
+
+        } catch (erro) {
+            console.error("Erro ao atualizar quantidade:", erro);
+            return res.json({
+                sucesso: false,
+                erro: "Erro ao atualizar quantidade."
+            });
+        }
+    }
 }
 
 
