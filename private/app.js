@@ -36,8 +36,8 @@ app.delete('/api/usuarios/:id', UsuarioController.excluir);
 import UsuarioController from './controllers/UsuarioController.js';
 //----
 
-app.post('/api/chat/enviar', verificarToken, MensagemController.enviar);
-app.get('/api/chat/mensagens', verificarToken, MensagemController.listar);
+// app.post('/api/chat/enviar', verificarToken, MensagemController.enviar);
+// app.get('/api/chat/mensagens', verificarToken, MensagemController.listar);
 
 
 //  acessa localhost:3000/style/style.css direto
@@ -73,6 +73,9 @@ siteRouter.get('/teste', (req, res) => res.sendFile(path.join(htmlPath, 'teste.h
 siteRouter.get('/acompanhamento/:id', (req, res) => res.sendFile(path.join(htmlPath, 'acompanhamento.html')));
 siteRouter.get('/manutencoes', (req, res) => res.sendFile(path.join(htmlPath, 'manutencoes.html')));
 siteRouter.get('/servicos', (req, res) => res.sendFile(path.join(htmlPath, 'servicos.html')));
+siteRouter.get('/acompanhamento-func', (req, res) => res.sendFile(path.join(htmlPath, 'acompanhamento-func.html')));
+
+
 
 
 // deixa padrao ( tirando o manutech q tava antes)
