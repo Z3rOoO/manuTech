@@ -66,17 +66,20 @@ const htmlPath = path.join(__dirname, '../public/html');
 siteRouter.get('/login', (req, res) => res.sendFile(path.join(htmlPath, 'login.html')));
 siteRouter.get('/cadastro', (req, res) => res.sendFile(path.join(htmlPath, 'cadastro.html')));
 siteRouter.get('/home', (req, res) => res.sendFile(path.join(htmlPath, 'home.html')));
-siteRouter.get('/index', (req, res) => res.sendFile(path.join(htmlPath, 'index.html')));
+siteRouter.get('/index', (req, res) => res.sendFile(path.join(htmlPath, 'index.html'))); // Opcional se já tem redirect na raiz
 siteRouter.get('/chat', (req, res) => res.sendFile(path.join(htmlPath, 'chat.html')));
 siteRouter.get('/chamado', (req, res) => res.sendFile(path.join(htmlPath, 'chamado.html')));
 siteRouter.get('/carrinho', (req, res) => res.sendFile(path.join(htmlPath, 'carrinho.html')));
-siteRouter.get('/produto', (req, res) => res.sendFile(path.join(htmlPath, 'produto.html'))); // URL Limpa /produto?id=1
+siteRouter.get('/produto/:id', (req, res) => res.sendFile(path.join(htmlPath, 'produto.html')));
+siteRouter.get('/produtos/:id', (req, res) => res.sendFile(path.join(htmlPath, 'produtos.html')));
 siteRouter.get('/catalogo', (req, res) => res.sendFile(path.join(htmlPath, 'catalogo.html')));
 siteRouter.get('/painelAdmin', (req, res) => res.sendFile(path.join(htmlPath, 'painelAdmin.html')));
-siteRouter.get('/acompanhamento', (req, res) => res.sendFile(path.join(htmlPath, 'acompanhamento.html')));
+siteRouter.get('/teste', (req, res) => res.sendFile(path.join(htmlPath, 'teste.html')));
+siteRouter.get('/acompanhamento/:id', (req, res) => res.sendFile(path.join(htmlPath, 'acompanhamento.html')));
 siteRouter.get('/manutencoes', (req, res) => res.sendFile(path.join(htmlPath, 'manutencoes.html')));
 siteRouter.get('/servicos', (req, res) => res.sendFile(path.join(htmlPath, 'servicos.html')));
-siteRouter.get('/produtos', (req, res) => res.sendFile(path.join(htmlPath, 'produtos.html')));
+siteRouter.get('/acompanhamento-func', (req, res) => res.sendFile(path.join(htmlPath, 'acompanhamento-func.html')));
+
 
 app.use('/', siteRouter);
 
