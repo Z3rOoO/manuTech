@@ -156,43 +156,10 @@
 
                 <div class="carrinho-geral ">
 
-                    <div class="divisoes-produtos">
+                    <div class="divisoes-produtos" id="divisoes-produtos">
 
 
-                        <div class="row produto-carrinho">
-
-                            <div class="col-12 col-sm-6 col-md-4 col-lg-2 coluna-img">
-                                <div class="img-produto">
-                                    <img src="../images/ilustracoes/teste-produtoCarrinho.png">
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-sm-6 col-md-4 col-lg-4 coluna-nomeModelo">
-                                <div class="nomeModelo-produto">
-                                    <div class="nome-produto">
-                                        <p>Nome do produto</p>
-                                    </div>
-                                    <div class="modelo-produto">
-                                        <p>Modelo do produto</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-sm-6 col-md-3 col-lg-3 coluna-preco">
-                                <div class="preco-produto">
-                                    <p>R$150,00</p>
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-sm-6 col-md-1 col-lg-1 coluna-quantidade">
-                                <div class="quantidade-produto">
-                                    <button>-</button>
-                                    <p>1</p>
-                                    <button>+</button>
-                                </div>
-                            </div>
-
-                        </div>
+                        
 
                     </div>
 
@@ -264,6 +231,76 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
+        <script type="module">
+            import { obterUsuarioLogado } from '../js/sessao.js';
+    
+            async function carregarCarrinho() {
+                const usuario = await obterUsuarioLogado();
+                if (!usuario) {
+                    alert('Usuário não está logado.');
+                    return;
+                }
+                const resposta = await fetch(`/api/carrinho/${usuario.id}`);
+                const data = await resposta.json();
+                console.log(data);
+    
+                if (!data.sucesso) {
+                    alert('Erro ao carregar carrinho: ' + data.erro);
+                    return;
+                }
+    
+                if (data.sucesso) {
+                    const lista = document.getElementById('divisoes-produtos');
+                    
+    
+                    data.chamados.forEach(chamado => {
+    
+    
+                        const row = document.createElement('div');
+                        row.innerHTML = `
+                            <div class="row produto-carrinho">
+
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-2 coluna-img">
+                                <div class="img-produto">
+                                    <img src="../images/ilustracoes/teste-produtoCarrinho.png">
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-md-4 col-lg-4 coluna-nomeModelo">
+                                <div class="nomeModelo-produto">
+                                    <div class="nome-produto">
+                                        <p>Nome do produto</p>
+                                    </div>
+                                    <div class="modelo-produto">
+                                        <p>Modelo do produto</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-md-3 col-lg-3 coluna-preco">
+                                <div class="preco-produto">
+                                    <p>R$150,00</p>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-md-1 col-lg-1 coluna-quantidade">
+                                <div class="quantidade-produto">
+                                    <button>-</button>
+                                    <p>1</p>
+                                    <button>+</button>
+                                </div>
+                            </div>
+
+                        </div>
+                            `;
+                        lista.appendChild(row);
+                    });
+                }
+            }
+    
+    
+            carregarCarrinho();
+        </script>
 </body>
 
 </html>
