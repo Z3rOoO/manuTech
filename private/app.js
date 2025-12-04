@@ -72,6 +72,9 @@ siteRouter.get('/teste', (req, res) => res.sendFile(path.join(htmlPath, 'teste.h
 siteRouter.get('/acompanhamento/:id', (req, res) => res.sendFile(path.join(htmlPath, 'acompanhamento.html')));
 siteRouter.get('/manutencoes', (req, res) => res.sendFile(path.join(htmlPath, 'manutencoes.html')));
 siteRouter.get('/servicos', (req, res) => res.sendFile(path.join(htmlPath, 'servicos.html')));
+siteRouter.get('/acompanhamento-func', (req, res) => res.sendFile(path.join(htmlPath, 'acompanhamento-func.html')));
+
+
 
 
 // deixa padrao ( tirando o manutech q tava antes)
