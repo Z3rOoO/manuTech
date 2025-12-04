@@ -90,7 +90,7 @@ async function obterUsuarioLogado() {
     return usuarioSalvo ? JSON.parse(usuarioSalvo) : null;
 }
 
-export function logadoBoleana() {
+ async function logadoBoleana() {
     const dados = localStorage.getItem("usuarioLogado");
 
     if (!dados) {
