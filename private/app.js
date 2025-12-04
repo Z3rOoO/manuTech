@@ -35,8 +35,8 @@ app.delete('/api/usuarios/:id', UsuarioController.excluir);
 import UsuarioController from './controllers/UsuarioController.js';
 //----
 
-app.post('/api/chat/enviar', verificarToken, MensagemController.enviar);
-app.get('/api/chat/mensagens', verificarToken, MensagemController.listar);
+// app.post('/api/chat/enviar', verificarToken, MensagemController.enviar);
+// app.get('/api/chat/mensagens', verificarToken, MensagemController.listar);
 
 
 //  acessa localhost:3000/style/style.css direto
