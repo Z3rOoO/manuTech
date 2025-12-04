@@ -285,9 +285,11 @@
         carregarProduto();
     </script>
     <script type="module">
-        import { logadoBoleana } from "/js/sessao.js";
+        import { obterUsuarioLogado } from '../js/sessao.js';
+        const usuario = await obterUsuarioLogado();
 
         function adicionarCarrinho() {
+
             if (!produtoAtual) {
                 alert("Produto não carregado!");
                 return;
@@ -295,45 +297,39 @@
 
             const quantidade = Number(document.getElementById("qtd").innerText);
 
-            logadoBoleana().then(usuario => {
-
-                if (!usuario) {
-                    alert("Você precisa estar logado para comprar.");
-                    window.location.href = "/login";
-                    return;
-                }
+            
 
 
-                const dados = {
-                    usuario_id: usuario.id,
-                    produto_id: produtoAtual.produto_id,
-                    quantidade: quantidade,
-                    nome: produtoAtual.nome,
-                    descricao: produtoAtual.descricao,
-                    preco: produtoAtual.preco,
-                    imagem: produtoAtual.imagem
-                };
-                console.log(dados)
+            const dados = {
+                cliente_id: usuario.id,
+                produto_id: produtoAtual.produto_id,
+                quantidade: quantidade,
+                nome: produtoAtual.nome,
+                descricao: produtoAtual.descricao,
+                preco: produtoAtual.preco,
+                imagem: produtoAtual.imagem
+            };
+            console.log(JSON.stringify(dados))
 
-                fetch("/api/carrinho", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(dados)
-                })
-                    .then(res => res.json())
-                    .then(retorno => {
-
-                        if (retorno.sucesso) {
-                            alert("Produto adicionado ao carrinho!");
-                        } else {
-                            alert("Erro: " + retorno.mensagem);
-                        }
-                    })
-                    .catch(err => console.error(err));
+            fetch("/api/carrinho", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(dados)
             })
-        };
+                .then(res => res.json())
+                .then(retorno => {
+
+                    if (retorno.sucesso) {
+                        alert("Produto adicionado ao carrinho!");
+                    } else {
+                        alert("Erro: " + retorno.mensagem);
+                    }
+                })
+                .catch(err => console.error(err));
+        }
+
 
 
         window.adicionarCarrinho = adicionarCarrinho;

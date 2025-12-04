@@ -1,10 +1,14 @@
 import { Router } from 'express';
-import ChamadoController from '../controllers/ChamadoController.js';
+//importacao
+import CarrinhoController from '../controllers/CarrinhoController.js'; 
 import { verificarToken } from '../middlewares/authMiddleware.js';
 
 const router = Router();
 
-router.get('/:id', ChamadoController.listar);
-router.post('/', verificarToken, ChamadoController.criar);
+// aponta para os métodos estaticoS da classe
+
+router.get('/:id', CarrinhoController.listar);
+router.put("/carrinho/atualizar", CarrinhoController.atualizarQuantidade);
+router.post('/', CarrinhoController.criar);
 
 export default router;
