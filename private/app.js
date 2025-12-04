@@ -1,92 +1,91 @@
 import 'express-async-errors';
 import express from 'express';
 import cors from 'cors';
-import helmet from 'helmet'; //seguranca
+import helmet from 'helmet';
 import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 import path from 'path';
 
-//rotas (importar)
+// controllers
+import MensagemController from './controllers/MensagemController.js';
+import UsuarioController from './controllers/UsuarioController.js';
+import ProdutoController from './controllers/ProdutoController.js'; 
+
+
+// rottas
 import produtoRotas from './routes/produtoRotas.js';
 import authRotas from './routes/authRotas.js';
 import criptografiaRotas from './routes/criptografiaRotas.js';
 import usuarioRotas from './routes/usuarioRotas.js';
 import chamadoRotas from './routes/chamadoRotas.js';
-import carrinhoRotas from './routes/carrinhoRotas.js'
+import carrinhoRotas from './routes/carrinhoRotas.js';
 
+// middleware
 import { logMiddleware } from './middlewares/logMiddleware.js';
 import { errorMiddleware } from './middlewares/errorMiddleware.js';
-import MensagemController from './controllers/MensagemController.js';
 import { verificarToken } from './middlewares/authMiddleware.js';
 
 dotenv.config();
 
 const app = express();
-const __filename = fileURLToPath(import.meta.url); //pega o caminho do app.js
-const __dirname = path.dirname(__filename); //pega a pasta do app.js
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.use(express.json());
 app.use(logMiddleware);
 
+//outras rotas
 
-//---------
-app.get('/api/usuarios/buscar', UsuarioController.buscarPorEmail); 
+// painel adm
+app.get('/api/usuarios/buscar', UsuarioController.buscarPorEmail);
 app.put('/api/usuarios/:id', UsuarioController.atualizar);
 app.delete('/api/usuarios/:id', UsuarioController.excluir);
-import UsuarioController from './controllers/UsuarioController.js';
-//----
 
-// app.post('/api/chat/enviar', verificarToken, MensagemController.enviar);
-// app.get('/api/chat/mensagens', verificarToken, MensagemController.listar);
+// Chat
+app.post('/api/chat/enviar', verificarToken, MensagemController.enviar);
+app.get('/api/chat/mensagens', verificarToken, MensagemController.listar); // Cliente
+app.get('/api/chat/contatos', verificarToken, MensagemController.listarContatos); // Suporte
+app.get('/api/chat/conversa/:idUsuario', verificarToken, MensagemController.buscarPorUsuario); // Suporte
 
 
-//  acessa localhost:3000/style/style.css direto
 app.use(express.static(path.join(__dirname, '../public')));
 app.use('/upload', express.static(path.join(__dirname, 'uploads')));
 
-// rotas backend
+// grupo de rotas da api
 app.use('/api/auth', authRotas);
 app.use('/api/produtos', produtoRotas);
 app.use('/api/criptografia', criptografiaRotas);
 app.use('/api/usuarios', usuarioRotas);
 app.use('/api/chamados', chamadoRotas);
-app.use('/api/carrinho', carrinhoRotas)
+app.use('/api/carrinho', carrinhoRotas);
 
-
+// frontend
 const siteRouter = express.Router();
-
-
 const htmlPath = path.join(__dirname, '../public/html');
 
 siteRouter.get('/login', (req, res) => res.sendFile(path.join(htmlPath, 'login.html')));
 siteRouter.get('/cadastro', (req, res) => res.sendFile(path.join(htmlPath, 'cadastro.html')));
 siteRouter.get('/home', (req, res) => res.sendFile(path.join(htmlPath, 'home.html')));
-siteRouter.get('/index', (req, res) => res.sendFile(path.join(htmlPath, 'index.html'))); // Opcional se já tem redirect na raiz
+siteRouter.get('/index', (req, res) => res.sendFile(path.join(htmlPath, 'index.html')));
 siteRouter.get('/chat', (req, res) => res.sendFile(path.join(htmlPath, 'chat.html')));
 siteRouter.get('/chamado', (req, res) => res.sendFile(path.join(htmlPath, 'chamado.html')));
 siteRouter.get('/carrinho', (req, res) => res.sendFile(path.join(htmlPath, 'carrinho.html')));
-siteRouter.get('/produto/:id', (req, res) => res.sendFile(path.join(htmlPath, 'produto.html')));
-siteRouter.get('/produtos/:id', (req, res) => res.sendFile(path.join(htmlPath, 'produtos.html')));
+siteRouter.get('/produto', (req, res) => res.sendFile(path.join(htmlPath, 'produto.html'))); // URL Limpa /produto?id=1
 siteRouter.get('/catalogo', (req, res) => res.sendFile(path.join(htmlPath, 'catalogo.html')));
 siteRouter.get('/painelAdmin', (req, res) => res.sendFile(path.join(htmlPath, 'painelAdmin.html')));
-siteRouter.get('/teste', (req, res) => res.sendFile(path.join(htmlPath, 'teste.html')));
-siteRouter.get('/acompanhamento/:id', (req, res) => res.sendFile(path.join(htmlPath, 'acompanhamento.html')));
+siteRouter.get('/acompanhamento', (req, res) => res.sendFile(path.join(htmlPath, 'acompanhamento.html')));
 siteRouter.get('/manutencoes', (req, res) => res.sendFile(path.join(htmlPath, 'manutencoes.html')));
 siteRouter.get('/servicos', (req, res) => res.sendFile(path.join(htmlPath, 'servicos.html')));
-siteRouter.get('/acompanhamento-func', (req, res) => res.sendFile(path.join(htmlPath, 'acompanhamento-func.html')));
+siteRouter.get('/produtos', (req, res) => res.sendFile(path.join(htmlPath, 'produtos.html')));
 
+app.use('/', siteRouter);
 
-
-
-// deixa padrao ( tirando o manutech q tava antes)
-app.use('/', siteRouter); 
-
-// caminho padrao é o index
+// Redireciona raiz
 app.get('/', (req, res) => {
-    res.redirect('/index'); 
+    res.redirect('/index');
 });
 
-// (404 e 500) 
+// Erro 404
 app.use('*', (req, res) => {
     res.status(404).json({
         sucesso: false,
@@ -101,7 +100,5 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
-
-
 
 export default app;

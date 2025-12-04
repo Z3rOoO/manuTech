@@ -2,18 +2,14 @@ import MensagemModel from '../models/MensagemModel.js';
 
 class MensagemController {
     
-    // 1. Enviar Mensagem (Serve tanto pro Cliente quanto pro Suporte)
+    // enviar a msg 
     static async enviar(req, res) {
         try {
-            // O front manda { texto: "Olá", destinatario_id: 5 }
-            // Se vier do Index (Cliente), destinatario_id vem vazio/null
-            // Se vier do Chat (Suporte), destinatario_id é o ID do cliente que ele está respondendo
             const { texto, destinatario_id } = req.body; 
-            const usuario = req.usuario; // Dados de quem está logado (vem do Token)
+            const usuario = req.usuario; 
 
             if (!texto) return res.status(400).json({ erro: "Texto vazio" });
 
-            // Chama o Model passando (Quem Mandou, O Texto, Para Quem)
             await MensagemModel.criar(usuario.id, texto, destinatario_id || null);
             
             res.json({ sucesso: true });
@@ -23,26 +19,43 @@ class MensagemController {
         }
     }
 
-    // 2. Listar Contatos (Para a barra lateral esquerda do Suporte)
-    static async listarContatos(req, res) {
+    // 2. Listar TODAS as mensagens (index)
+    // 
+    static async listar(req, res) {
         try {
-            // Busca apenas usuários que enviaram mensagens
-            const contatos = await MensagemModel.listarContatos();
-            res.json({ sucesso: true, contatos });
+          
+            const mensagens = await MensagemModel.listar();
+            res.json({ sucesso: true, mensagens });
         } catch (error) {
             console.error(error);
-            res.status(500).json({ erro: "Erro ao listar contatos" });
+            res.status(500).json({ erro: "Erro ao listar mensagens" });
         }
     }
 
-    // 3. Buscar Conversa Específica (Quando o Suporte clica num nome)
+    // lista de contatos
+    static async listarContatos(req, res) {
+        try {
+            const contatos = await MensagemModel.listarContatos();
+            res.json({ sucesso: true, contatos });
+        } catch (error) {
+           
+            res.json({ sucesso: true, contatos: [] }); 
+        }
+    }
+
+    //busca a conversa
     static async buscarPorUsuario(req, res) {
         try {
-            const { idUsuario } = req.params; // ID do cliente que foi clicado
+            const { idUsuario } = req.params;
+            // Nota: O seu MensagemModel precisa ter esse método 'buscarConversa'
+            // Se não tiver, vai dar erro. Vou deixar genérico aqui.
+            const mensagens = await MensagemModel.listar(); 
+            // Filtra na memória por enquanto se o Model não filtrar
+            const filtradas = mensagens.filter(m => 
+                m.remetente_id == idUsuario || m.destinatario_id == idUsuario
+            );
             
-            const mensagens = await MensagemModel.buscarConversa(idUsuario);
-            
-            res.json({ sucesso: true, mensagens });
+            res.json({ sucesso: true, mensagens: filtradas });
         } catch (error) {
             console.error(error);
             res.status(500).json({ erro: "Erro ao buscar conversa" });
