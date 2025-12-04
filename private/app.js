@@ -17,6 +17,7 @@ import carrinhoRotas from './routes/carrinhoRotas.js'
 import { logMiddleware } from './middlewares/logMiddleware.js';
 import { errorMiddleware } from './middlewares/errorMiddleware.js';
 import MensagemController from './controllers/MensagemController.js';
+import { verificarToken } from './middlewares/authMiddleware.js';
 
 dotenv.config();
 

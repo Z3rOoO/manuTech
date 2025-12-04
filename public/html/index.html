@@ -325,60 +325,124 @@
             </div>
     </footer>
 
-
 <script>
+    // --- 1. ENVIAR MENSAGEM ---
+    async function enviarModal() {
+        let input = document.getElementById('input-msg-modal');
+        let texto = input.value;
+        const token = localStorage.getItem('token');
+
+        if (texto.trim() === "") return;
+        if (!token) return alert("Você precisa fazer login para enviar mensagens!");
+
+        try {
+            const response = await fetch('/api/chat/enviar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ texto: texto })
+            });
+
+            const dados = await response.json();
+
+            if (dados.sucesso) {
+                input.value = ""; // Limpa o campo
+                carregarMensagens(); // Recarrega o chat na hora
+            } else {
+                alert("Erro: " + dados.erro);
+            }
+        } catch (error) {
+            console.error("Erro ao enviar:", error);
+        }
+    }
+
+    // --- 2. CARREGAR MENSAGENS (Polling) ---
+    async function carregarMensagens() {
+        const token = localStorage.getItem('token');
+        const box = document.getElementById('box-mensagens-modal');
+        
+        // Pega o ID do usuário logado para saber qual msg é minha (direita) ou do outro (esquerda)
+        const usuarioLogado = JSON.parse(localStorage.getItem('usuario'));
+        if (!token || !usuarioLogado) return; 
+
+        try {
+            const response = await fetch('/api/chat/mensagens', {
+                method: 'GET',
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+
+            const dados = await response.json();
+
+            if (dados.sucesso) {
+                box.innerHTML = ""; // Limpa o chat para não duplicar
+
+                dados.mensagens.forEach(msg => {
+                    // Se o ID de quem mandou for igual ao meu ID: Laranja (Direita)
+                    // Se não: Cinza (Esquerda)
+                    const ehMinha = msg.remetente_id === usuarioLogado.id;
+                    const classeCss = ehMinha ? 'mensagem2-chatbox' : 'mensagem-chatbox';
+                    const alinhamento = ehMinha ? 'justify-content-end' : 'justify-content-start';
+
+                    // Cria o HTML
+                    const divRow = document.createElement('div');
+                    divRow.className = `row ${alinhamento}`; // Adiciona alinhamento se usar bootstrap flex
+                    
+                    const divCol = document.createElement('div');
+                    divCol.className = `col-auto ${classeCss}`; // col-auto ajusta ao tamanho do texto
+                    
+                    // Mostra nome se não for minha
+                    if(!ehMinha) {
+                        divCol.innerHTML = `<strong>${msg.nome_remetente}:</strong><br>${msg.mensagem}`;
+                    } else {
+                        divCol.innerText = msg.mensagem;
+                    }
+
+                    divRow.appendChild(divCol);
+                    box.appendChild(divRow);
+                });
+
+                // Rola para baixo
+                box.scrollTop = box.scrollHeight;
+            }
+        } catch (error) {
+            console.error("Erro ao atualizar chat:", error);
+        }
+    }
+
   
-      async function enviarModal() {
-    let input = document.getElementById('input-msg-modal');
-    let texto = input.value;
-    if (texto.trim() === "") return;
-
-    const token = localStorage.getItem('token'); // Precisa do token 
-
-    // manda pro servidor
-    const response = await fetch('/api/chat/enviar', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({ texto })
+    
+    // Enviar com Enter
+    document.getElementById('input-msg-modal').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') enviarModal();
     });
 
-    //  e deu certo, mostra na tela
-    if (response.ok) {
-        let box = document.getElementById('box-mensagens-modal');
-        let row = document.createElement('div');
-        row.className = 'row';
-        let col = document.createElement('div');
-        col.className = 'col mensagem2-chatbox';
-        col.innerText = texto;
-        row.appendChild(col);
-        box.appendChild(row);
+    // Abrir o chat
+    document.getElementById('button-chat').addEventListener('click', function () {
+        this.classList.add('oculto');
+        this.classList.remove('visivel');
+        document.getElementById('chat-div').classList.add('visivel');
+        document.getElementById('chat-div').classList.remove('oculto');
         
-        input.value = "";
-        box.scrollTop = box.scrollHeight;
-    } else {
-        alert("Erro ao enviar. Você está logado?");
-    }
-}
-    </script>
+        // Carrega as mensagens assim que abre
+        carregarMensagens();
+        // Começa a atualizar a cada 3 segundos
+        window.chatInterval = setInterval(carregarMensagens, 3000);
+    });
 
-    <script>
-        document.getElementById('button-chat').addEventListener('click', function () {
-            this.classList.add('oculto');
-            this.classList.remove('visivel'); // Remove a classe visivel do botão
-            document.getElementById('chat-div').classList.add('visivel');
-            document.getElementById('chat-div').classList.remove('oculto'); // Remove a classe oculto do chat
-        });
+    // Fechar o chat
+    document.getElementById('fechar-chatbox').addEventListener('click', function () {
+        document.getElementById('chat-div').classList.add('oculto');
+        document.getElementById('chat-div').classList.remove('visivel');
+        document.getElementById('button-chat').classList.add('visivel');
+        document.getElementById('button-chat').classList.remove('oculto');
+        
+        // Para de atualizar para não gastar internet a toa
+        clearInterval(window.chatInterval);
+    });
 
-        document.getElementById('fechar-chatbox').addEventListener('click', function () {
-            document.getElementById('chat-div').classList.add('oculto');
-            document.getElementById('chat-div').classList.remove('visivel'); // Remove a classe visivel do chat
-            document.getElementById('button-chat').classList.add('visivel');
-            document.getElementById('button-chat').classList.remove('oculto'); // Remove a classe oculto do botão
-        });
-    </script>
+</script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

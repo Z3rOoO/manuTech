@@ -6,7 +6,7 @@ USE dbmt;
 CREATE TABLE mensagem (
     id INT PRIMARY KEY AUTO_INCREMENT, 
     remetente_id INTEGER NOT NULL,
-    destinatario_id INTEGER NOT NULL,
+    destinatario_id INT,
     mensagem TEXT NOT NULL,
     criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (remetente_id) REFERENCES usuarios (id),
