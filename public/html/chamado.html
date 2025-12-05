@@ -128,7 +128,8 @@
             <div class="col-5 row-gap-4 segunda">
                 <div class="row"><input class="input-tipo1-chamado" type="text" placeholder="Endereço:"
                         id="endereco_manutencao" required></div>
-                <div class="row"><input class="input-tipo2-chamado" max="9999-12-31" type="date" id="data_manutencao" required></div>
+                <div class="row"><input class="input-tipo2-chamado" max="9999-12-31" type="date" id="data_manutencao"
+                        required></div>
                 <div class="row"><input class="input-tipo2-chamado" type="time" placeholder="Horário da visita"
                         id="hora_manutencao" required></div>
                 <div class="row">
@@ -160,7 +161,7 @@
 
             const dataAtual = new Date();
             const dataEscolhida = new Date(document.getElementById('data_manutencao').value);
-            if (dataEscolhida < dataAtual.setHours(0,0,0,0)) {
+            if (dataEscolhida < dataAtual.setHours(0, 0, 0, 0)) {
                 alert("Insira uma data válida.");
                 return;
             }

@@ -17,7 +17,7 @@ function verificarLogin() {
         headerAdm.style.display = 'none';
     }
     // se o usuario estiver logado como CLIENTE
-     else {
+    else {
         headerPublico.style.display = 'none';
         headerLogado.style.display = 'block';
         headerFunc.style.display = 'none';
@@ -30,6 +30,7 @@ function verificarLogin() {
         headerPublico.style.display = 'none';
         headerAdm.style.display = 'none';
     }
+    // se o usuario estiver logado como ADMIN
     if (tipoUser.tipo == "ADMIN") {
         headerAdm.style.display = 'block';
         headerLogado.style.display = 'none';

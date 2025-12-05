@@ -9,7 +9,8 @@ body {
     font-family: 'Nunito', sans-serif;
     overflow-x: hidden;
 }
-header{
+
+header {
     width: 100%;
 }
 
@@ -39,7 +40,7 @@ header{
 }
 
 /* ===== SEÇÃO DO VÍDEO/BANNER ===== */
-main > div:first-child {
+main>div:first-child {
     position: relative;
     width: 100%;
     height: 600px;
@@ -123,7 +124,7 @@ video {
     padding: 0 2rem;
 }
 
-.topicos-index > div {
+.topicos-index>div {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -198,7 +199,7 @@ video {
 
 .button-solicitarvisita,
 .button-vercatalogo {
-    
+
     position: absolute;
     bottom: 12%;
     left: 35%;
@@ -318,8 +319,9 @@ video {
         font-size: 3rem;
         max-width: 500px;
     }
+
     @media (max-width: 991px) {
-        nav{
+        nav {
             gap: 25%;
         }
     }
@@ -352,7 +354,7 @@ video {
         width: 200px;
     }
 
-    main > div:first-child {
+    main>div:first-child {
         height: 500px;
     }
 
@@ -412,7 +414,7 @@ video {
         width: 160px;
     }
 
-    main > div:first-child {
+    main>div:first-child {
         height: 450px;
     }
 
@@ -492,7 +494,7 @@ video {
 
 /* Mobile médio (481px - 575px) */
 @media (max-width: 575px) {
-    main > div:first-child {
+    main>div:first-child {
         height: 400px;
     }
 
@@ -560,7 +562,7 @@ video {
 
 /* Mobile pequeno (376px - 480px) */
 @media (max-width: 480px) {
-    main > div:first-child {
+    main>div:first-child {
         height: 350px;
     }
 
@@ -624,7 +626,7 @@ video {
         width: 140px;
     }
 
-    main > div:first-child {
+    main>div:first-child {
         height: 320px;
     }
 

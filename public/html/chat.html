@@ -25,7 +25,8 @@
             display: flex;
             flex-direction: column;
             gap: 10px;
-            background-color: #f8f9fa; /* Fundo leve */
+            background-color: #f8f9fa;
+            /* Fundo leve */
         }
 
         /* Área de contatos com rolagem */
@@ -39,12 +40,14 @@
             cursor: pointer;
             transition: background 0.2s;
         }
+
         .contato-chat:hover {
             background-color: rgba(255, 255, 255, 0.1);
         }
 
         /* Balões de mensagem */
-        .msg1 { /* Recebida (Cliente) */
+        .msg1 {
+            /* Recebida (Cliente) */
             align-self: flex-start;
             background-color: #e9ecef;
             color: black;
@@ -54,7 +57,8 @@
             max-width: 70%;
         }
 
-        .msg2 { /* Enviada (Eu/Suporte) */
+        .msg2 {
+            /* Enviada (Eu/Suporte) */
             align-self: flex-end;
             background-color: #ff751f;
             color: white;
@@ -87,12 +91,13 @@
         </nav>
     </header>
 
-    <div style="height: 100px;"></div> <main>
+    <div style="height: 100px;"></div>
+    <main>
         <div class="row" style="margin: 0;">
-            
+
             <div class="col-12 col-md-3 container-contatos" style="background-color: #0043ad; min-height: 80vh;">
                 <h5 style="color: white; padding: 15px; text-align: center;">Atendimentos</h5>
-                
+
                 <div id="lista-contatos-chat">
                     <p style="color: white; text-align: center; margin-top: 20px;">Carregando...</p>
                 </div>
@@ -100,14 +105,14 @@
 
             <div class="col-12 col-md-9">
                 <div class="container-conversa">
-                    
+
                     <div class="header-conversa">
                         <img src="../images/icons/perfil.png">
                         <p class="nome-contato" id="nome-cliente-atual">Selecione um cliente ao lado</p>
                     </div>
 
                     <div id="box-mensagens">
-                        </div>
+                    </div>
 
                     <div class="row footer-conversa">
                         <div class="col">
@@ -140,7 +145,7 @@
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 const dados = await response.json();
-                
+
                 listaDiv.innerHTML = ""; // Limpa "Carregando..."
 
                 if (dados.contatos.length === 0) {
@@ -155,14 +160,14 @@
                         <div class="col-3"><img src="../images/icons/perfil.png" style="width: 40px;"></div>
                         <div class="col-9 d-flex align-items-center"><p style="color: white; margin: 0;">${cliente.nome}</p></div>
                     `;
-                    
+
                     // Ao clicar, abre a conversa
                     div.onclick = () => abrirConversa(cliente.id, cliente.nome);
-                    
+
                     listaDiv.appendChild(div);
                 });
-            } catch (error) { 
-                console.error(error); 
+            } catch (error) {
+                console.error(error);
                 listaDiv.innerHTML = '<p style="color:white;">Erro ao carregar.</p>';
             }
         }
@@ -172,10 +177,10 @@
             // Atualiza visualmente
             document.getElementById('nome-cliente-atual').innerText = nomeCliente;
             document.getElementById('id-cliente-atual').value = idCliente;
-            
+
             // Gerencia o intervalo (para de atualizar o anterior e começa o novo)
-            if(intervaloAtualizacao) clearInterval(intervaloAtualizacao);
-            
+            if (intervaloAtualizacao) clearInterval(intervaloAtualizacao);
+
             carregarMensagensDoCliente(idCliente);
             // Atualiza a cada 3 segundos
             intervaloAtualizacao = setInterval(() => carregarMensagensDoCliente(idCliente), 3000);
@@ -193,24 +198,24 @@
                 });
                 const dados = await response.json();
 
-                if(dados.sucesso) {
+                if (dados.sucesso) {
                     box.innerHTML = ""; // Limpa tela
-                    
+
                     dados.mensagens.forEach(msg => {
                         const souEu = msg.remetente_id === usuarioLogado.id;
-                        
+
                         const div = document.createElement('div');
                         div.className = souEu ? 'msg2' : 'msg1';
                         div.innerText = msg.mensagem;
-                        
+
                         // Adiciona nome se for mensagem do cliente
-                        if(!souEu) {
+                        if (!souEu) {
                             div.innerHTML = `<strong>${msg.nome_remetente}:</strong><br>${msg.mensagem}`;
                         }
 
                         box.appendChild(div);
                     });
-                    
+
                     // Rola para baixo
                     box.scrollTop = box.scrollHeight;
                 }
@@ -224,8 +229,8 @@
             const texto = input.value;
             const token = localStorage.getItem('token');
 
-            if(!idDestino) return alert("Selecione um cliente na lista esquerda primeiro!");
-            if(texto.trim() === "") return;
+            if (!idDestino) return alert("Selecione um cliente na lista esquerda primeiro!");
+            if (texto.trim() === "") return;
 
             try {
                 await fetch('/api/chat/enviar', {
@@ -237,7 +242,7 @@
                     // Manda o ID do destinatário para ser uma resposta direta
                     body: JSON.stringify({ texto: texto, destinatario_id: idDestino })
                 });
-                
+
                 input.value = "";
                 carregarMensagensDoCliente(idDestino); // Atualiza na hora
             } catch (error) {
@@ -254,4 +259,5 @@
         carregarContatos();
     </script>
 </body>
+
 </html>

@@ -164,7 +164,9 @@ main {
     font-size: 140%;
 }
 
-.preco-compra,.precoDoFrete-compra,.precofinal-compra {
+.preco-compra,
+.precoDoFrete-compra,
+.precofinal-compra {
     width: 50%;
     font-size: 140%;
     display: flex;
@@ -197,7 +199,7 @@ main {
     align-items: end;
     display: flex;
     margin-top: 7%;
-    
+
 }
 
 .botaoContinuar-compra button {

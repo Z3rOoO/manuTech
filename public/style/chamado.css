@@ -1,15 +1,18 @@
-body{
+body {
     overflow: hidden;
 }
-.container-chamado{
+
+.container-chamado {
     margin-top: 120px;
 }
-.row-chamado{
+
+.row-chamado {
     display: flex;
     justify-content: center;
     gap: 5px;
 }
-.input-tipo0-chamado{
+
+.input-tipo0-chamado {
     border-radius: 10px;
     border: 2px solid #0043ad;
     max-width: 100%;
@@ -20,7 +23,8 @@ body{
     overflow-wrap: break-word;
     resize: none;
 }
-.input-tipo1-chamado{
+
+.input-tipo1-chamado {
     border-radius: 10px;
     border: 2px solid #0043ad;
     max-width: 100%;
@@ -28,7 +32,8 @@ body{
     height: 40px;
     padding-left: 10px;
 }
-.input-tipo2-chamado{
+
+.input-tipo2-chamado {
     border: none;
     background-color: #0043ad;
     color: white;
@@ -38,7 +43,7 @@ body{
     padding-left: 10px;
 }
 
-.button-enviar-chamado{
+.button-enviar-chamado {
     width: 50%;
     height: 3.5rem;
     border-radius: 25px;
@@ -48,19 +53,21 @@ body{
     font-weight: bold;
     font-size: 1.2vw;
 }
+
 @media (max-width: 576px) {
-    .button-enviar-chamado{
-     width: 100%;
-    height: 3.5rem;
-    border-radius: 25px;
-    border: none;
-    background-color: #0043ad;
-    color: white;
-    font-weight: bold;
-    font-size: 4.2vw;
+    .button-enviar-chamado {
+        width: 100%;
+        height: 3.5rem;
+        border-radius: 25px;
+        border: none;
+        background-color: #0043ad;
+        color: white;
+        font-weight: bold;
+        font-size: 4.2vw;
+    }
 }
-}
-.primeira{
+
+.primeira {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -68,14 +75,18 @@ body{
     height: 100%;
     line-break: auto;
 }
-.primeira p{
-    word-break: break-word; /* Permite quebrar palavras longas */
-width: 200px; /* Define uma largura fixa para demonstrar o efeito */
+
+.primeira p {
+    word-break: break-word;
+    /* Permite quebrar palavras longas */
+    width: 200px;
+    /* Define uma largura fixa para demonstrar o efeito */
 }
-.segunda{
+
+.segunda {
     display: flex;
     flex-direction: column;
-    justify-content: center;    
+    justify-content: center;
     gap: 5px;
     height: 100%;
 }

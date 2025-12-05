@@ -4,24 +4,24 @@
         // 1. PEGAR OS DADOS (Aqui estava faltando o usuarioJson)
         const token = localStorage.getItem('token');
         const usuarioJson = localStorage.getItem('usuario'); // <--- LINHA QUE FALTAVA
-        
+
         const paginasPublicas = ['login', 'cadastro', 'index', '/'];
         const caminhoAtual = window.location.pathname.toLowerCase();
-        
+
         // Verifica se é pública
         const ehPublica = paginasPublicas.some(pagina => caminhoAtual.includes(pagina));
 
         // BLOQUEIO 1: Não tem token e tenta acessar página privada
         if (!token && !ehPublica) {
             alert("É necessário efetuar login para acessar esta página.");
-            window.location.href = '/login'; 
+            window.location.href = '/login';
             return; // Para tudo
         }
 
         // BLOQUEIO 2: VERIFICAÇÃO DE CARGO (Se estiver logado)
         if (token && usuarioJson) {
             const usuario = JSON.parse(usuarioJson);
-            const tipo = usuario.tipo ? usuario.tipo.toUpperCase() : 'USER'; 
+            const tipo = usuario.tipo ? usuario.tipo.toUpperCase() : 'USER';
 
             // REGRA A: Apenas ADMIN entra no painel
             if (caminhoAtual.includes('paineladmin')) {
@@ -33,7 +33,7 @@
             }
 
             // REGRA B: USER (Cliente) não entra no chat nem acompanhamento
-            if (caminhoAtual.includes('chat') || caminhoAtual.includes('servicos')|| caminhoAtual.includes('paineladmin')) {
+            if (caminhoAtual.includes('chat') || caminhoAtual.includes('servicos') || caminhoAtual.includes('paineladmin')) {
                 if (tipo === 'USER') {
                     alert("Acesso restrito a funcionários.");
                     window.location.href = '/index';
@@ -90,7 +90,7 @@ async function obterUsuarioLogado() {
     return usuarioSalvo ? JSON.parse(usuarioSalvo) : null;
 }
 
- async function logadoBoleana() {
+async function logadoBoleana() {
     const dados = localStorage.getItem("usuarioLogado");
 
     if (!dados) {
@@ -105,4 +105,4 @@ async function obterUsuarioLogado() {
     }
 }
 
-export { obterUsuarioLogado,logadoBoleana };
+export { obterUsuarioLogado, logadoBoleana };
