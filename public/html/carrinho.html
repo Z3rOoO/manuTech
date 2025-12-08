@@ -3,6 +3,7 @@
 
 <head>
     <title>Carrinho - Manutech</title>
+    <script src="../js/verficarLoginIndex.js"></script>
     <script src="../js/verificar_login.js"></script>
     <script type="module" src="../js/sessao.js" defer></script>
     <!-- Required meta tags -->
@@ -21,7 +22,7 @@
 
 <body>
 
-    <header class="fixed-top">
+    <header class="fixed-top" id="header-logado">
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
             <div class="row content-navbar">
                 <div class="col-8 col-sm-8 col-md-4 col-lg-2">
@@ -30,6 +31,7 @@
                     </div>
                 </div>
                 <div class="col-3 col-sm-3 d-md-none d-lg-none menu-mobile">
+
                     <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -79,6 +81,7 @@
                 </div>
 
                 <div class="d-none d-md-block col-md-2">
+
                     <div class="header-icons">
                         <a href="/carrinho"><img src="../images/icons/carrinho.svg" width="55px"></a>
 
@@ -87,21 +90,24 @@
                             <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="../images/icons/icon-perfil-orange.png" width="55px">
                             </a>
-
-                            <ul class="dropdown-menu dropdown-menu-end box-modal">
-                                <li class="alinhar-modal">
-                                    <img class="foto-modal" src="../images/icons/icon-perfil-orange.png">
-                                    <span class="dropdown-item-text fw-bold nome-modal" id="nome-usuario-menu"></span>
-                                </li>
-                                <li><span class="dropdown-item-text empresa-modal" id="empresa-usuario-menu"></span>
-                                    <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item text-danger" style="text-align: center; font-size: 20px;"
-                                        href="#" onclick="fazerLogout()">Sair</a></li>
-                            </ul>
+                             <ul class="dropdown-menu dropdown-menu-end box-modal">
+                                            <li class="alinhar-modal">
+                                                <img class="foto-modal" src="../images/icons/icon-perfil-orange.png">
+                                                <span class="dropdown-item-text fw-bold nome-modal"
+                                                    id="nome-usuario-menu"></span>
+                                            </li>
+                                            <li><span class="dropdown-item-text empresa-modal"
+                                                    id="empresa-usuario-menu"></span>
+                                                <span class="dropdown-item-text cargo-modal"
+                                                    id="cargo-usuario-menu"></span>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li><a class="dropdown-item text-danger"
+                                                    style="text-align: center; font-size: 20px;" href="#"
+                                                    onclick="fazerLogout()">Sair</a></li>
+                                        </ul>
                         </div>
                         <!-- fazer o menu suspenso para sair do login e voltar para o index-->
                     </div>
