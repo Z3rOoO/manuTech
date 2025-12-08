@@ -2,10 +2,9 @@
 <html lang="pt-br">
 
 <head>
-
- <script src="../js/verificar_login.js"></script>
+    
+    <script src="../js/verificar_login.js"></script>
     <script type="module" src="../js/sessao.js" defer></script>
-
     <title>Manutech</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -50,7 +49,8 @@
 
                         <div class="col-3 col-sm-3 d-block d-md-none">
                             <div class="header-icons-menu">
-                                <a href="/manutencoes"><img src="../images/icons/icon-home-solicitacoes.png" width="55px"></a>
+                                <a href="/manutencoes"><img src="../images/icons/icon-home-solicitacoes.png"
+                                        width="55px"></a>
 
                                 <div class="dropdown" style="display: inline-block; margin-left: 15%;">
                                     <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -62,10 +62,11 @@
                                             <span class="dropdown-item-text fw-bold nome-modal"
                                                 id="nome-usuario-menu"></span>
                                         </li>
-                                        <li><span class="dropdown-item-text empresa-modal" id="empresa-usuario-menu"></span>
-                                                <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
-                                            </li>
-                                        
+                                        <li><span class="dropdown-item-text empresa-modal"
+                                                id="empresa-usuario-menu"></span>
+                                            <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
+                                        </li>
+
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
@@ -218,7 +219,8 @@
                                         src="../images/icons/checkOFF.png" class="icons"  alt="status"></div>
                                 <div class="card-body">
                                     <p class="card-text" style="color: #0043ad;"><b>Manutentor: --- </b><br>
-                                        <b>Data de acionamento: ${formatarData(chamado.data_chamado)}</b><br>
+                                        <b>Data do chamado: ${formatarData(chamado.data_chamado)}</b><br>
+                                        <b>Data da manutenção: ${formatarData(chamado.data_manutencao)}</b><br>
                                         <b>Modelo do maquinário: ${chamado.modelo_maquina}</b><br>
                                         <b>Ordem de serviço: ${chamado.chamado_id}</b><br>
                                         <b>Status: ${chamado.status_code}</b>
@@ -324,7 +326,7 @@
                     </div>
                         `;
                     lista.appendChild(row);
-                }else if (chamado.status_code === 'Avaliado') {
+                } else if (chamado.status_code === 'Avaliado') {
                     row.innerHTML = `
                     <div class="row g-5 justify-content-center" id="manStatus">
                         <div class="col-lg-3 col-md-6 col-sm-12" style="margin-bottom: 30px;">
@@ -382,7 +384,7 @@
                     </div>
                         `;
                     lista.appendChild(row);
-                }else if (chamado.status_code === 'Orçamento') {
+                } else if (chamado.status_code === 'Orçamento') {
                     row.innerHTML = `
                     <div class="row g-5 justify-content-center" id="manStatus">
                         <div class="col-lg-3 col-md-6 col-sm-12" style="margin-bottom: 30px;">
@@ -440,7 +442,7 @@
                     </div>
                         `;
                     lista.appendChild(row);
-                }else if (chamado.status_code === 'Concluido') {
+                } else if (chamado.status_code === 'Concluido') {
                     row.innerHTML = `
                     <div class="row g-5 justify-content-center" id="manStatus">
                         <div class="col-lg-3 col-md-6 col-sm-12" style="margin-bottom: 30px;">

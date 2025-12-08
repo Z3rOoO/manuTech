@@ -1,6 +1,6 @@
-(function() {
+(function () {
     const token = localStorage.getItem('token');
-   
+
     if (!token) {
         alert("É necessário efetuar login para acessar esta página.");
         window.location.href = '/login';

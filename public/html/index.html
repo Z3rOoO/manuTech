@@ -114,6 +114,199 @@
         </nav>
     </header>
 
+    <header id="header-funcionario" class="fixed-top header-azul">
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <div class="row content-navbar">
+                <div class="col-8 col-sm-8 col-md-5 col-lg-2">
+                    <div style="width: 100%;">
+                        <a href="/index"><img src="../images/icons/logo-manutech.png" style="width: 100%;"></a>
+                    </div>
+                </div>
+
+                <div class="col-3 col-sm-3 d-md-none d-lg-none menu-mobile">
+                    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <div class="d-md-block col-md-2 col-lg-2">
+                    <div class="collapse navbar-collapse lista-header" id="collapsibleNavId">
+                        <ul class="navbar-nav me-auto mt-2 mt-lg-0 botoes-header">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/chamado">Manutenção</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/catalogo">Reposição</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/chat">Chat</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/servicos">Serviços</a>
+                            </li>
+                        </ul>
+
+                        <div class="col-3 col-sm-3 d-block d-md-none">
+                            <div class="header-icons-menu">
+                                <a href="/manutencoes"><img src="../images/icons/icon-home-solicitacoes.png"
+                                        width="55px"></a>
+
+                                <div class="dropdown" style="display: inline-block; margin-left: 15%;">
+                                    <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img src="../images/icons/perfil-azul.png" width="55px">
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end box-modal">
+                                        <li class="alinhar-modal">
+                                            <img class="foto-modal" src="../images/icons/perfil-azul.png">
+                                            <span class="dropdown-item-text fw-bold nome-modal"
+                                                id="nome-usuario-menu"></span>
+                                        </li>
+                                        <li><span class="dropdown-item-text empresa-modal"
+                                                id="empresa-usuario-menu"></span>
+                                            <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
+                                        </li>
+
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item text-danger"
+                                                style="text-align: center; font-size: 20px;" href="#"
+                                                onclick="fazerLogout()">Sair</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-none d-md-block col-md-2">
+                    <div class="header-icons">
+                        <a href="/manutencoes"><img src="../images/icons/icon-home-solicitacoes.png" width="55px"></a>
+                        <div class="dropdown" style="display: inline-block; margin-left: 15%;">
+                            <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="../images/icons/perfil-azul.png" width="55px">
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end box-modal">
+                                <li class="alinhar-modal">
+                                    <img class="foto-modal" src="../images/icons/perfil-azul.png">
+                                    <span class="dropdown-item-text fw-bold nome-modal" id="nome-usuario-menu"></span>
+                                </li>
+                                <li class="empresa-cargo-wrapper">
+                                    <span class="dropdown-item-text empresa-modal" id="empresa-usuario-menu"></span>-
+                                    <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item text-danger" style="text-align: center; font-size: 20px;"
+                                        href="#" onclick="fazerLogout()">Sair</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <header id="header-admin" class="fixed-top header-azul">
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <div class="row content-navbar">
+                <div class="col-8 col-sm-8 col-md-5 col-lg-2">
+                    <div style="width: 100%;">
+                        <a href="/index"><img src="../images/icons/logo-manutech.png" style="width: 100%;"></a>
+                    </div>
+                </div>
+
+                <div class="col-3 col-sm-3 d-md-none d-lg-none menu-mobile">
+                    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <div class="d-md-block col-md-2 col-lg-2">
+                    <div class="collapse navbar-collapse lista-header" id="collapsibleNavId">
+                        <ul class="navbar-nav me-auto mt-2 mt-lg-0 botoes-header">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/chamado">Manutenção</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/catalogo">Reposição</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/chat">Chat</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/servicos">Serviços</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/painelAdmin">Usuários</a>
+                            </li>
+                        </ul>
+
+                        <div class="col-3 col-sm-3 d-block d-md-none">
+                            <div class="header-icons-menu">
+                                <a href="/manutencoes"><img src="../images/icons/icon-home-solicitacoes.png"
+                                        width="55px"></a>
+
+                                <div class="dropdown" style="display: inline-block; margin-left: 15%;">
+                                    <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img src="../images/icons/perfil-azul.png" width="55px">
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end box-modal">
+                                        <li class="alinhar-modal">
+                                            <img class="foto-modal" src="../images/icons/perfil-azul.png">
+                                            <span class="dropdown-item-text fw-bold nome-modal"
+                                                id="nome-usuario-menu"></span>
+                                        </li>
+                                        <li><span class="dropdown-item-text empresa-modal"
+                                                id="empresa-usuario-menu"></span>
+                                            <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
+                                        </li>
+
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item text-danger"
+                                                style="text-align: center; font-size: 20px;" href="#"
+                                                onclick="fazerLogout()">Sair</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-none d-md-block col-md-2">
+                    <div class="header-icons">
+                        <a href="/manutencoes"><img src="../images/icons/icon-home-solicitacoes.png" width="55px"></a>
+                        <div class="dropdown" style="display: inline-block; margin-left: 15%;">
+                            <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="../images/icons/perfil-azul.png" width="55px">
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end box-modal">
+                                <li class="alinhar-modal">
+                                    <img class="foto-modal" src="../images/icons/perfil-azul.png">
+                                    <span class="dropdown-item-text fw-bold nome-modal" id="nome-usuario-menu"></span>
+                                </li>
+                                <li class="empresa-cargo-wrapper">
+                                    <span class="dropdown-item-text empresa-modal" id="empresa-usuario-menu"></span>-
+                                    <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item text-danger" style="text-align: center; font-size: 20px;"
+                                        href="#" onclick="fazerLogout()">Sair</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
     <main>
         <div>
             <video autoplay muted loop playsinline>
@@ -232,7 +425,7 @@
                         src="../images/icons/botaofechar-chat.png"></button>
             </div>
         </div>
-        <div class="content-mensagens"id="box-mensagens-modal">
+        <div class="content-mensagens" id="box-mensagens-modal">
             <div class="row">
                 <div class="col mensagem-chatbox">Oi, eu sou o Miguel Guedes larios!</div>
             </div>
@@ -267,15 +460,15 @@
 
         <div class="fixed-bottom div-enviarmsg">
             <div class="input-msg-chatbox">
-                <input type="text" placeholder="Sua mensagem"id="input-msg-modal">
+                <input type="text" placeholder="Sua mensagem" id="input-msg-modal">
             </div>
 
             <div class="icone-enviarmsg">
-                <button onclick="enviarModal()"><img src="../images/icons/icon-enviarmsg.png" class="icon-img-enviarmsg"></button>
+                <button onclick="enviarModal()"><img src="../images/icons/icon-enviarmsg.png"
+                        class="icon-img-enviarmsg"></button>
             </div>
         </div>
     </div>
-
 
     <footer class="footer-laranja ">
         <div class="container">
@@ -325,124 +518,122 @@
             </div>
     </footer>
 
-<script>
-    // --- 1. ENVIAR MENSAGEM ---
-    async function enviarModal() {
-        let input = document.getElementById('input-msg-modal');
-        let texto = input.value;
-        const token = localStorage.getItem('token');
+    <script>
+        // --- 1. ENVIAR MENSAGEM ---
+        async function enviarModal() {
+            let input = document.getElementById('input-msg-modal');
+            let texto = input.value;
+            const token = localStorage.getItem('token');
 
-        if (texto.trim() === "") return;
-        if (!token) return alert("Você precisa fazer login para enviar mensagens!");
+            if (texto.trim() === "") return;
+            if (!token) return alert("Você precisa fazer login para enviar mensagens!");
 
-        try {
-            const response = await fetch('/api/chat/enviar', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                },
-                body: JSON.stringify({ texto: texto })
-            });
-
-            const dados = await response.json();
-
-            if (dados.sucesso) {
-                input.value = ""; // Limpa o campo
-                carregarMensagens(); // Recarrega o chat na hora
-            } else {
-                alert("Erro: " + dados.erro);
-            }
-        } catch (error) {
-            console.error("Erro ao enviar:", error);
-        }
-    }
-
-    // --- 2. CARREGAR MENSAGENS (Polling) ---
-    async function carregarMensagens() {
-        const token = localStorage.getItem('token');
-        const box = document.getElementById('box-mensagens-modal');
-        
-        // Pega o ID do usuário logado para saber qual msg é minha (direita) ou do outro (esquerda)
-        const usuarioLogado = JSON.parse(localStorage.getItem('usuario'));
-        if (!token || !usuarioLogado) return; 
-
-        try {
-            const response = await fetch('/api/chat/mensagens', {
-                method: 'GET',
-                headers: { 'Authorization': `Bearer ${token}` }
-            });
-
-            const dados = await response.json();
-
-            if (dados.sucesso) {
-                box.innerHTML = ""; // Limpa o chat para não duplicar
-
-                dados.mensagens.forEach(msg => {
-                    // Se o ID de quem mandou for igual ao meu ID: Laranja (Direita)
-                    // Se não: Cinza (Esquerda)
-                    const ehMinha = msg.remetente_id === usuarioLogado.id;
-                    const classeCss = ehMinha ? 'mensagem2-chatbox' : 'mensagem-chatbox';
-                    const alinhamento = ehMinha ? 'justify-content-end' : 'justify-content-start';
-
-                    // Cria o HTML
-                    const divRow = document.createElement('div');
-                    divRow.className = `row ${alinhamento}`; // Adiciona alinhamento se usar bootstrap flex
-                    
-                    const divCol = document.createElement('div');
-                    divCol.className = `col-auto ${classeCss}`; // col-auto ajusta ao tamanho do texto
-                    
-                    // Mostra nome se não for minha
-                    if(!ehMinha) {
-                        divCol.innerHTML = `<strong>${msg.nome_remetente}:</strong><br>${msg.mensagem}`;
-                    } else {
-                        divCol.innerText = msg.mensagem;
-                    }
-
-                    divRow.appendChild(divCol);
-                    box.appendChild(divRow);
+            try {
+                const response = await fetch('/api/chat/enviar', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ texto: texto })
                 });
 
-                // Rola para baixo
-                box.scrollTop = box.scrollHeight;
+                const dados = await response.json();
+
+                if (dados.sucesso) {
+                    input.value = ""; // Limpa o campo
+                    carregarMensagens(); // Recarrega o chat na hora
+                } else {
+                    alert("Erro: " + dados.erro);
+                }
+            } catch (error) {
+                console.error("Erro ao enviar:", error);
             }
-        } catch (error) {
-            console.error("Erro ao atualizar chat:", error);
         }
-    }
 
-  
-    
-    // Enviar com Enter
-    document.getElementById('input-msg-modal').addEventListener('keypress', function (e) {
-        if (e.key === 'Enter') enviarModal();
-    });
+        // --- 2. CARREGAR MENSAGENS (Polling) ---
+        async function carregarMensagens() {
+            const token = localStorage.getItem('token');
+            const box = document.getElementById('box-mensagens-modal');
 
-    // Abrir o chat
-    document.getElementById('button-chat').addEventListener('click', function () {
-        this.classList.add('oculto');
-        this.classList.remove('visivel');
-        document.getElementById('chat-div').classList.add('visivel');
-        document.getElementById('chat-div').classList.remove('oculto');
-        
-        // Carrega as mensagens assim que abre
-        carregarMensagens();
-        // Começa a atualizar a cada 3 segundos
-        window.chatInterval = setInterval(carregarMensagens, 3000);
-    });
+            // Pega o ID do usuário logado para saber qual msg é minha (direita) ou do outro (esquerda)
+            const usuarioLogado = JSON.parse(localStorage.getItem('usuario'));
+            if (!token || !usuarioLogado) return;
 
-    // Fechar o chat
-    document.getElementById('fechar-chatbox').addEventListener('click', function () {
-        document.getElementById('chat-div').classList.add('oculto');
-        document.getElementById('chat-div').classList.remove('visivel');
-        document.getElementById('button-chat').classList.add('visivel');
-        document.getElementById('button-chat').classList.remove('oculto');
-        
-        // Para de atualizar para não gastar internet a toa
-        clearInterval(window.chatInterval);
-    });
+            try {
+                const response = await fetch('/api/chat/mensagens', {
+                    method: 'GET',
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
 
-</script>
+                const dados = await response.json();
+
+                if (dados.sucesso) {
+                    box.innerHTML = ""; // Limpa o chat para não duplicar
+
+                    dados.mensagens.forEach(msg => {
+                        // Se o ID de quem mandou for igual ao meu ID: Laranja (Direita)
+                        // Se não: Cinza (Esquerda)
+                        const ehMinha = msg.remetente_id === usuarioLogado.id;
+                        const classeCss = ehMinha ? 'mensagem2-chatbox' : 'mensagem-chatbox';
+                        const alinhamento = ehMinha ? 'justify-content-end' : 'justify-content-start';
+
+                        // Cria o HTML
+                        const divRow = document.createElement('div');
+                        divRow.className = `row ${alinhamento}`; // Adiciona alinhamento se usar bootstrap flex
+
+                        const divCol = document.createElement('div');
+                        divCol.className = `col-auto ${classeCss}`; // col-auto ajusta ao tamanho do texto
+
+                        // Mostra nome se não for minha
+                        if (!ehMinha) {
+                            divCol.innerHTML = `<strong>${msg.nome_remetente}:</strong><br>${msg.mensagem}`;
+                        } else {
+                            divCol.innerText = msg.mensagem;
+                        }
+
+                        divRow.appendChild(divCol);
+                        box.appendChild(divRow);
+                    });
+
+                    // Rola para baixo
+                    box.scrollTop = box.scrollHeight;
+                }
+            } catch (error) {
+                console.error("Erro ao atualizar chat:", error);
+            }
+        }
+
+        // Enviar com Enter
+        document.getElementById('input-msg-modal').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') enviarModal();
+        });
+
+        // Abrir o chat
+        document.getElementById('button-chat').addEventListener('click', function () {
+            this.classList.add('oculto');
+            this.classList.remove('visivel');
+            document.getElementById('chat-div').classList.add('visivel');
+            document.getElementById('chat-div').classList.remove('oculto');
+
+            // Carrega as mensagens assim que abre
+            carregarMensagens();
+            // Começa a atualizar a cada 3 segundos
+            window.chatInterval = setInterval(carregarMensagens, 3000);
+        });
+
+        // Fechar o chat
+        document.getElementById('fechar-chatbox').addEventListener('click', function () {
+            document.getElementById('chat-div').classList.add('oculto');
+            document.getElementById('chat-div').classList.remove('visivel');
+            document.getElementById('button-chat').classList.add('visivel');
+            document.getElementById('button-chat').classList.remove('oculto');
+
+            // Para de atualizar para não gastar internet a toa
+            clearInterval(window.chatInterval);
+        });
+
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

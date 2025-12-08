@@ -53,13 +53,9 @@ main {
     box-shadow: 0px 8px 18px -7px rgba(0, 0, 0, 0.20);
 }
 
-
 .coluna-preco {
     font-size: 100%;
 }
-
-
-
 
 .img-produto {
     width: 100%;
@@ -67,7 +63,7 @@ main {
 
 .img-produto img {
     width: 100%;
-    border: solid #000000 2px;
+    border: solid #000000 1px;
     border-radius: 10px;
 }
 
@@ -108,12 +104,6 @@ main {
     margin: 0%;
 }
 
-
-
-
-
-
-
 .content-compra {
     display: flex;
     justify-content: center;
@@ -121,7 +111,7 @@ main {
 }
 
 .compra-total {
-    background-color: #ff751f;
+    background-color: #d65601;
     width: 90%;
     border-radius: 20px;
     color: #ffffff;
@@ -174,7 +164,9 @@ main {
     font-size: 140%;
 }
 
-.preco-compra,.precoDoFrete-compra,.precofinal-compra {
+.preco-compra,
+.precoDoFrete-compra,
+.precofinal-compra {
     width: 50%;
     font-size: 140%;
     display: flex;
@@ -207,12 +199,12 @@ main {
     align-items: end;
     display: flex;
     margin-top: 7%;
-    
+
 }
 
 .botaoContinuar-compra button {
     background-color: #ffffff;
-    color: #ff751f;
+    color: #d65601;
     border: none;
     border-radius: 20px;
     width: 40%;

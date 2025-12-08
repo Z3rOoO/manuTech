@@ -28,9 +28,10 @@ INSERT INTO categoria (nome) VALUES
 ('Engrenagens');
 
 
+
 -- Inserir produtos iniciais
 INSERT INTO produto (nome, descricao, preco, categoria_id, imagem) VALUES
-('RPMX 060400-SM 1205', 'descrição', 17.30 , 1, ' RPMX060400-SM1205.png'),
+('RPMX 060400-SM 1205', 'descrição', 17.30 , 1, 'RPMX060400-SM1205.png'),
 ('SNGN120708T01020 675', 'descrição', 47.10, 1, 'SNGN120708T01020675.png'),
 ('TPGN160312T01020 675', 'descrição', 39.95, 1, 'TPGN160312T01020675.png'),
 ('CCET 06 02 01-UM 1205', 'descrição', 28.15, 1, 'CCET060201-UM1205.png'),
@@ -204,7 +205,5 @@ INSERT INTO chamado (cliente_id, data_chamado, descricao, modelo_maquina, numero
 (3, '2025-01-12', 'Notebook não liga', 'Dell Inspiron 15', 'SN123453', 'PAT003', 'TI', 'Maria Souza', 'Avenida B, 456', '2025-01-13', '14:00:00', 'Avaliado'),
 (3, '2025-01-13', 'Notebook não liga', 'Dell Inspiron 15', 'SN123454', 'PAT004', 'TI', 'Maria Souza', 'Avenida B, 456', '2025-01-13', '14:00:00', 'Orçamento'),
 (3, '2025-01-14', 'Notebook não liga', 'Dell Inspiron 15', 'SN123455', 'PAT00', 'TI', 'Maria Souza', 'Avenida B, 456', '2025-01-13', '14:00:00', 'Concluido');
-
-
 
 

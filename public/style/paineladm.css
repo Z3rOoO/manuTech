@@ -1,12 +1,14 @@
-.container-paineladm{
+.container-paineladm {
     border: 2px solid #0043ad;
     padding: 10px;
     border-radius: 15px;
 }
-.input-painel-adm{
+
+.input-painel-adm {
     border: 1.5px solid #0043ad;
 }
-.btt-painel-adm{
+
+.btt-painel-adm {
     width: 70%;
     height: 40px;
     border: none;
@@ -15,7 +17,8 @@
     font-weight: bold;
     border-radius: 20px;
 }
-.btt-buscar{
+
+.btt-buscar {
     border: none;
     color: white;
     background-color: #0043ad;
