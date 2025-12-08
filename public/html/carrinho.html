@@ -342,7 +342,7 @@
                                 <p style="font-size: 3vh;">Produto</p>
                             </div>
                             <div class="preco-compra">
-                                <p style="font-size: 3vh;">R$ 150,00</p>
+                                <p style="font-size: 3vh;" id="total-produtos">R$ 0,00</p>
                             </div>
                         </div>
                         <div class="fretePreco-compra">
@@ -350,7 +350,7 @@
                                 <p style="font-size: 3vh;">Frete</p>
                             </div>
                             <div class="precoDoFrete-compra">
-                                <p style="font-size: 3vh;">R$ 40,00</p>
+                                <p style="font-size: 3vh;" id="valor-frete">R$ 40,00</p>
                             </div>
                         </div>
                     </div>
@@ -359,16 +359,49 @@
                             <p style="font-size: 3vh;">Total</p>
                         </div>
                         <div class="precofinal-compra">
-                            <p style="font-size: 3vh;">R$ 190,00</p>
+                            <p style="font-size: 3vh;" id="total-geral">R$ 40,00</p>
                         </div>
                     </div>
                     <div class="botaoContinuar-compra">
-                        <button>Continuar</button>
+                        <button type="button" class="btn" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                            Continuar
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+
+
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Compra realizada!</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Obrigado por escolher a ManuTech
+                </div>
+                <div class="modal-footer">
+                    <a href="/index"><button type="button" class="btn" style="background-color: #d65601; color: white;">Finalizar</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
 
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -379,8 +412,29 @@
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
 
+
     <script type="module">
         import { obterUsuarioLogado } from '../js/sessao.js';
+
+        const VALOR_FRETE = 40.00;
+
+        // Função para calcular e atualizar os totais
+        function atualizarTotais() {
+            let totalProdutos = 0;
+
+            // Percorre todos os produtos no carrinho
+            document.querySelectorAll('[id^="preco-"]').forEach(precoEl => {
+                const precoTexto = precoEl.innerText.replace('R$', '').replace(',', '.').trim();
+                totalProdutos += parseFloat(precoTexto);
+            });
+
+            const totalGeral = totalProdutos + VALOR_FRETE;
+
+            // Atualiza os elementos na tela
+            document.getElementById('total-produtos').innerText = `R$ ${totalProdutos.toFixed(2).replace('.', ',')}`;
+            document.getElementById('total-geral').innerText = `R$ ${totalGeral.toFixed(2).replace('.', ',')}`;
+        }
+
         async function carregarCarrinho() {
             const usuario = await obterUsuarioLogado();
             if (!usuario) {
@@ -416,8 +470,8 @@
                             </div>
         
                             <div class="col-12 col-sm-6 col-md-3 col-lg-3 coluna-preco">
-                                <p id="preco-${index}" data-unitario="${item.preco}">
-                                    R$ ${(item.preco * item.quantidade).toFixed(2)}
+                                <p id="preco-${index}" data-unitario="${item.preco}" data-produto="${item.produto_id}">
+                                    R$ ${(item.preco * item.quantidade).toFixed(2).replace('.', ',')}
                                 </p>
                             </div>
         
@@ -433,7 +487,14 @@
                     `;
                 lista.appendChild(row);
             });
+
+            // Atualiza os totais após carregar todos os produtos
+            atualizarTotais();
         }
+
+        // Torna a função atualizarTotais global para ser acessada pelo alterarQtd
+        window.atualizarTotais = atualizarTotais;
+
         carregarCarrinho();
     </script>
 
@@ -458,9 +519,14 @@
             // Atualiza quantidade na tela
             qtdEl.innerText = quantidades[index];
 
-            // Recalcular preço
+            // Recalcular preço do item
             const total = precoUnitario * quantidades[index];
-            precoEl.innerText = `R$ ${total.toFixed(2)}`;
+            precoEl.innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+
+            // Atualiza os totais gerais
+            if (typeof window.atualizarTotais === 'function') {
+                window.atualizarTotais();
+            }
 
             // SALVAR NO BANCO
             await salvarQuantidadeNoBanco(produtoId, quantidades[index]);

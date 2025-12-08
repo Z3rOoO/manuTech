@@ -2,19 +2,17 @@ import jwt from 'jsonwebtoken';
 import { JWT_CONFIG } from '../config/jwt.js';
 
 export const verificarToken = (req, res, next) => {
-    // 
-    const authHeader = req.headers.authorization;
+    // ← LINHA CORRIGIDA (ESSA É A SALVAÇÃO)
+    const authHeader = req.get('Authorization') || req.headers.authorization || req.headers.Authorization;
 
-    // ve se ta logado e tem token
-    if (!authHeader) {
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
         return res.status(401).json({ 
             sucesso: false, 
-            erro: 'Token não fornecido',
+            erro: 'Token não fornecido ou mal formatado',
             mensagem: 'Você precisa estar logado para acessar este recurso.'
         });
     }
 
-    // 3. Separa o Bearer
     const token = authHeader.split(' ')[1];
 
     if (!token) {
@@ -25,16 +23,9 @@ export const verificarToken = (req, res, next) => {
     }
 
     try {
-        // token
         const decoded = jwt.verify(token, JWT_CONFIG.secret);
-
-      
-        //  Controlle racessa 'req.usuario.id'
-        req.usuario = decoded; 
-
-        
+        req.usuario = decoded;
         next();
-
     } catch (error) {
         return res.status(401).json({ 
             sucesso: false, 

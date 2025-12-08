@@ -401,8 +401,9 @@
 
                 if (resultado.sucesso) {
                     alert("Chamado aberto com sucesso! ID: " + resultado.id);
-                    // REDIRECIONA PARA A ROTA MANUTENCOES
-                    window.location.href = "/manutencoes";
+                    
+                   window.location.href = `/acompanhamento/${resultado.id}`;
+
                 } else {
                     alert("Erro: " + resultado.erro);
                 }

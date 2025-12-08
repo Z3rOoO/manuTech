@@ -3,14 +3,12 @@
 
 <head>
     <title>Serviços - Manutech</title>
-    <script src="../js/verficarLoginIndex.js"></script>
     <script type="module" src="../js/sessao.js" defer></script>
     <script src="../js/verificar_login.js"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../style/servicos.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -20,22 +18,16 @@
 
 <body>
 
-    <header id="header-publico">
-        <nav class="bg-header">
-            <img class="logo-header-index" src="../images/icons/logo-manutech-white.png">
-            <a href="login"><button class="btn btn-outline-success botao-header-index" type="submit">Entrar</button></a>
-        </nav>
-    </header>
-
     <header id="header-logado" class="fixed-top header-azul">
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
             <div class="row content-navbar">
                 <div class="col-8 col-sm-8 col-md-5 col-lg-2">
                     <div style="width: 100%;">
-                        <a href="/index"><img src="../images/icons/logo-manutech.png" style="width: 100%;"></a>
+                        <a href="/index"><img src="../images/icons/logo-manutech-orange.png" style="width: 100%;"></a>
                     </div>
                 </div>
 
+                <!-- MENU MOBILE -->
                 <div class="col-3 col-sm-3 d-md-none d-lg-none menu-mobile">
                     <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
@@ -47,40 +39,22 @@
                 <div class="d-md-block col-md-2 col-lg-2 w-auto">
                     <div class="collapse navbar-collapse lista-header" id="collapsibleNavId">
                         <ul class="navbar-nav me-auto mt-2 mt-lg-0 botoes-header">
-                            <li class="nav-item">
-                                <a class="nav-link" href="/chamado">Manutenção</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/catalogo">Reposição</a>
-                            </li>
+                            <li class="nav-item"><a class="nav-link" href="/chamado">Manutenção</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/catalogo">Reposição</a></li>
                         </ul>
 
+                        <!-- MENU PERFIL (MOBILE) -->
                         <div class="col-3 col-sm-3 d-block d-md-none">
                             <div class="header-icons-menu">
-                                <a href="/manutencoes"><img src="../images/icons/icon-home-solicitacoes.png"
-                                        width="55px"></a>
-
+                                <a href="/manutencoes"><img src="../images/icons/icon-home-solicitacoes.png" width="55px"></a>
                                 <div class="dropdown" style="display: inline-block; margin-left: 15%;">
-                                    <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src="../images/icons/perfil-azul.png" width="55px">
-                                    </a>
+                                    <a href="#" role="button" data-bs-toggle="dropdown"><img src="../images/icons/perfil-azul.png" width="55px"></a>
                                     <ul class="dropdown-menu dropdown-menu-end box-modal">
-                                        <li class="alinhar-modal">
-                                            <img class="foto-modal" src="../images/icons/perfil-azul.png">
-                                            <span class="dropdown-item-text fw-bold nome-modal"
-                                                id="nome-usuario-menu"></span>
-                                        </li>
-                                        <li><span class="dropdown-item-text empresa-modal"
-                                                id="empresa-usuario-menu"></span>
-                                            <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
-                                        </li>
-
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li><a class="dropdown-item text-danger"
-                                                style="text-align: center; font-size: 20px;" href="#"
-                                                onclick="fazerLogout()">Sair</a></li>
+                                        <li class="alinhar-modal"><span class="dropdown-item-text fw-bold nome-modal user-nome"></span></li>
+                                        <li><span class="dropdown-item-text empresa-modal user-empresa"></span></li>
+                                        <li><span class="dropdown-item-text text-muted small user-cargo"></span></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item text-danger" style="text-align: center; font-size: 20px;" href="#" onclick="fazerLogout()">Sair</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -88,27 +62,18 @@
                     </div>
                 </div>
 
+                <!-- MENU PERFIL (DESKTOP) -->
                 <div class="d-none d-md-block col-md-2">
                     <div class="header-icons">
                         <a href="/manutencoes"><img src="../images/icons/icon-home-solicitacoes.png" width="55px"></a>
                         <div class="dropdown" style="display: inline-block; margin-left: 15%;">
-                            <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="../images/icons/perfil-azul.png" width="55px">
-                            </a>
+                            <a href="#" role="button" data-bs-toggle="dropdown"><img src="../images/icons/perfil-azul.png" width="55px"></a>
                             <ul class="dropdown-menu dropdown-menu-end box-modal">
-                                <li class="alinhar-modal">
-                                    <img class="foto-modal" src="../images/icons/perfil-azul.png">
-                                    <span class="dropdown-item-text fw-bold nome-modal" id="nome-usuario-menu"></span>
-                                </li>
-                                <li class="empresa-cargo-wrapper">
-                                    <span class="dropdown-item-text empresa-modal" id="empresa-usuario-menu"></span>-
-                                    <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item text-danger" style="text-align: center; font-size: 20px;"
-                                        href="#" onclick="fazerLogout()">Sair</a></li>
+                                <li class="alinhar-modal"><span class="dropdown-item-text fw-bold nome-modal user-nome"></span></li>
+                                <li><span class="dropdown-item-text empresa-modal user-empresa"></span></li>
+                                <li><span class="dropdown-item-text text-muted small user-cargo"></span></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" style="text-align: center; font-size: 20px;" href="#" onclick="fazerLogout()">Sair</a></li>
                             </ul>
                         </div>
                     </div>
@@ -310,54 +275,151 @@
         </nav>
     </header>
 
-    <main>
-        <h1 class="">Serviços</h1>
+    <main style="margin-top: 120px;">
+        <h1 class="text-center mb-5" style="color: #0043ad; font-family: 'League Spartan', sans-serif;">Serviços Disponíveis</h1>
+        
         <div class="container">
+            <!-- AQUI É ONDE O JAVASCRIPT VAI JOGAR OS CHAMADOS -->
             <div class="accordion" id="accordionServico">
-
-                <div class="accordion-item" style="border: none; border-radius: 20px;">
-                    <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button collapsed titulo-servico d-flex justify-content-center"
-                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false"
-                            aria-controls="collapseOne">
-                            <h1 class="titulo-servico">Fresa ferramenteira Lagun ISO 30</h1>
-                        </button>
-                    </h2>
-
-                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                        data-bs-parent="#accordionServico">
-                        <div class="accordion-body">
-                            <div class="row txt-descricao"><b>Descrição do problema:</b></div>
-                            <div class="row txt-endereco"><b>Endereço:</b></div>
-                            <div class="row txt-responsavel"><b>Responsável:</b></div>
-                            <div class="row d-flex justify-content-center txt-aceitar-servico">
-                                Deseja aceitar esse serviço?
-                            </div>
-
-                            <div class="row d-flex text-center justify-content-center">
-                                <div class="col">
-                                    <button class="btt-servico">Recusar ✖</button>
-                                </div>
-                                <div class="col">
-                                    <button class="btt-servico">Aceitar ✔</button>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
+                <p class="text-center mt-5">Carregando serviços...</p>
             </div>
         </div>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-        crossorigin="anonymous"></script>
+    <script>
+        function formatarData(dataISO) {
+            if(!dataISO) return "--/--/----";
+            const data = new Date(dataISO);
+            return data.toLocaleDateString('pt-BR');
+        }
 
+        async function carregarServicos() {
+            const token = localStorage.getItem('token');
+            const lista = document.getElementById('accordionServico');
+
+            try {
+                // 1. Busca os chamados pendentes (status = VISITA)
+                const resposta = await fetch('/api/chamados/pendentes', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const dados = await resposta.json();
+
+                lista.innerHTML = "";
+
+                if (!dados.sucesso || dados.chamados.length === 0) {
+                    lista.innerHTML = "<h4 class='text-center text-muted'>Nenhum serviço pendente no momento.</h4>";
+                    return;
+                }
+
+                // 2. Cria o Acordeão Dinâmico
+                dados.chamados.forEach((chamado, index) => {
+                    // IDs únicos para o Bootstrap saber qual abrir/fechar
+                    const idHeading = `heading${index}`;
+                    const idCollapse = `collapse${index}`;
+
+                    const item = document.createElement('div');
+                    item.className = 'accordion-item mb-3';
+                    item.style.border = 'none';
+                    item.style.borderRadius = '20px';
+                    item.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+
+                    item.innerHTML = `
+                        <h2 class="accordion-header" id="${idHeading}">
+                            <button class="accordion-button collapsed titulo-servico d-flex justify-content-between align-items-center"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#${idCollapse}" 
+                                aria-expanded="false" aria-controls="${idCollapse}" 
+                                style="border-radius: 20px;">
+                                <div>
+                                    <span class="fw-bold">#${chamado.chamado_id}</span> - ${chamado.modelo_maquina}
+                                    <small class="ms-2 text-muted">(${chamado.nome_cliente})</small>
+                                </div>
+                                <span class="badge bg-warning text-dark ms-3">${chamado.status_code}</span>
+                            </button>
+                        </h2>
+
+                        <div id="${idCollapse}" class="accordion-collapse collapse" aria-labelledby="${idHeading}"
+                            data-bs-parent="#accordionServico">
+                            <div class="accordion-body">
+                                <div class="row mb-2">
+                                    <div class="col-12"><b>Descrição do problema:</b> ${chamado.descricao}</div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12"><b>Endereço:</b> ${chamado.endereco_manutencao}</div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-6"><b>Data Visita:</b> ${formatarData(chamado.data_manutencao)}</div>
+                                    <div class="col-6"><b>Hora:</b> ${chamado.hora_manutencao}</div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-12"><b>Responsável Local:</b> ${chamado.responsavel}</div>
+                                </div>
+
+                                <hr>
+
+                                <div class="row d-flex justify-content-center txt-aceitar-servico mb-3">
+                                    Deseja aceitar esse serviço?
+                                </div>
+
+                                <div class="row d-flex text-center justify-content-center gap-3">
+                                    <div class="col-auto">
+                                        <!-- Recusar (Muda para CRIACAO ou CANCELADO, dependendo da sua regra) -->
+                                        <button class="btt-servico btn-danger" onclick="atualizarStatus(${chamado.chamado_id}, 'CRIACAO')">
+                                            Recusar ✖
+                                        </button>
+                                    </div>
+                                    <div class="col-auto">
+                                        <!-- Aceitar (Muda para AVALIACAO) -->
+                                        <button class="btt-servico btn-success" onclick="atualizarStatus(${chamado.chamado_id}, 'AVALIACAO')">
+                                            Aceitar ✔
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    lista.appendChild(item);
+                });
+
+            } catch (error) {
+                console.error(error);
+                lista.innerHTML = "<p class='text-center text-danger'>Erro ao carregar serviços.</p>";
+            }
+        }
+
+        // Função de Atualizar Status
+        async function atualizarStatus(id, novoStatus) {
+            const token = localStorage.getItem('token');
+            if(!confirm(`Tem certeza que deseja mudar para ${novoStatus}?`)) return;
+
+            try {
+                const resposta = await fetch(`/api/chamados/${id}/status`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ status_code: novoStatus })
+
+                });
+
+                const dados = await resposta.json();
+                
+                if (dados.sucesso) {
+                    alert("Serviço atualizado com sucesso!");
+                    carregarServicos(); // Recarrega a lista para sumir o item atendido
+                } else {
+                    alert("Erro: " + dados.erro);
+                }
+            } catch (err) {
+                alert("Erro de conexão");
+            }
+        }
+
+        // Inicia
+        carregarServicos();
+    </script>
 </body>
-
 </html>
