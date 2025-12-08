@@ -63,6 +63,8 @@ app.use('/api/carrinho', carrinhoRotas);
 const siteRouter = express.Router();
 const htmlPath = path.join(__dirname, '../public/html');
 
+
+
 siteRouter.get('/login', (req, res) => res.sendFile(path.join(htmlPath, 'login.html')));
 siteRouter.get('/cadastro', (req, res) => res.sendFile(path.join(htmlPath, 'cadastro.html')));
 siteRouter.get('/home', (req, res) => res.sendFile(path.join(htmlPath, 'home.html')));

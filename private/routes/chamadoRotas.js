@@ -4,7 +4,13 @@ import { verificarToken } from '../middlewares/authMiddleware.js';
 
 const router = Router();
 
-router.get('/:id', ChamadoController.listar);
 router.post('/', verificarToken, ChamadoController.criar);
+
+
+router.get('/pendentes', verificarToken, ChamadoController.listarPendentes);
+router.get('/:id', verificarToken, ChamadoController.buscarPorId);
+
+
+router.put('/:id/status', verificarToken, ChamadoController.alterarStatus);
 
 export default router;
