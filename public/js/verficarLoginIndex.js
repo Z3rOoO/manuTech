@@ -17,7 +17,7 @@ function verificarLogin() {
         headerAdm.style.display = 'none';
     }
     // se o usuario estiver logado como CLIENTE
-    else {
+    if (tipoUser.tipo == "USER") {
         headerPublico.style.display = 'none';
         headerLogado.style.display = 'block';
         headerFunc.style.display = 'none';
