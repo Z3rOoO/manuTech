@@ -26,7 +26,7 @@ a {
 
 header {
     width: 100%;
-    border-bottom: 2px solid #ff751f;
+    border-bottom: 2px solid #d65601;
 }
 
 .logo-manutech {
@@ -48,7 +48,7 @@ header {
 
 .titulo-geral h1 {
     font-size: 300%;
-    color: #ff751f !important;
+    color: #d65601 !important;
     font-weight: 700;
 }
 
@@ -104,7 +104,7 @@ header {
 .card {
 
     border: none;
-    background-color: #ff751f;
+    background-color: #d65601;
     border-radius: 7px;
     width: 100%;
 
@@ -143,7 +143,7 @@ header {
 }
 
 .footer-laranja {
-    background: #E7691C;
+    background: #d65601;
     background: -moz-linear-gradient(top, #E7691C 0%, #FF751F 50%, #FF751F 100%);
     background: -webkit-linear-gradient(top, #E7691C 0%, #FF751F 50%, #FF751F 100%);
     background: linear-gradient(to bottom, #E7691C 0%, #FF751F 50%, #FF751F 100%);
