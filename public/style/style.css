@@ -72,7 +72,9 @@ header {
 
 .botoes-header {
     font-size: 2.2vh;
-    justify-self: center;
+   justify-self: center;
+   text-align: center;
+    position: static;
 }
 
 .header-icons a {
