@@ -133,7 +133,6 @@ INSERT INTO produto (nome, descricao, preco, categoria_id, imagem) VALUES
 ('HA04-EH20-20-045', 'Motores oferecem força compacta para acionar máquinas e equipamentos, garantindo eficiência, baixo consumo e desempenho confiável em aplicações que exigem energia em pouco espaço.', 574.00, 6, 'HA04-EH20-20-045.png');
 
 INSERT INTO produto (nome, descricao, preco, categoria_id, imagem) VALUES
-('RPMX 060400-SM 1205', 'descrição', 17.30 , 7, ' RPMX060400-SM1205.png'),
 ('nome', 'descrição', preço, 7, 'imagem.png'),
 ('nome', 'descrição', preço, 7, 'imagem.png'),
 ('nome', 'descrição', preço, 7, 'imagem.png'),
@@ -155,7 +154,6 @@ INSERT INTO produto (nome, descricao, preco, categoria_id, imagem) VALUES
 ('nome', 'descrição', preço, 7, 'imagem.png');
 
 INSERT INTO produto (nome, descricao, preco, categoria_id, imagem) VALUES
-('RPMX 060400-SM 1205', 'descrição', 17.30 , 8, ' RPMX060400-SM1205.png'),
 ('nome', 'descrição', preço, 8, 'imagem.png'),
 ('nome', 'descrição', preço, 8, 'imagem.png'),
 ('nome', 'descrição', preço, 8, 'imagem.png'),
@@ -177,7 +175,6 @@ INSERT INTO produto (nome, descricao, preco, categoria_id, imagem) VALUES
 ('nome', 'descrição', preço, 8, 'imagem.png');
 
 INSERT INTO produto (nome, descricao, preco, categoria_id, imagem) VALUES
-('RPMX 060400-SM 1205', 'descrição', 17.30 , 9, ' RPMX060400-SM1205.png'),
 ('nome', 'descrição', preço, 9, 'imagem.png'),
 ('nome', 'descrição', preço, 9, 'imagem.png'),
 ('nome', 'descrição', preço, 9, 'imagem.png'),
