@@ -357,6 +357,9 @@
                 const lista = document.getElementById('accordionServico');
                 lista.innerHTML = ''; // limpa o container antes de adicionar
 
+                console.log(data);
+                
+
                 data.chamado.forEach(chamado => {
                     const row = document.createElement('div');
                     row.classList.add('accordion-item');
