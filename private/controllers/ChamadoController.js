@@ -17,7 +17,7 @@ class ChamadoController {
     cliente_id, data_chamado, descricao, modelo_maquina, 
     numero_serie, numero_patrimonio, setor, responsavel, 
     endereco_manutencao, data_manutencao, hora_manutencao,
-    status_code: 'VISITA'
+    status_code: 'Criado'
 
 };
 
@@ -35,7 +35,7 @@ class ChamadoController {
     static async listarPendentes(req, res) {
         try {
             // Busca apenas os que estão como 'VISITA'
-            const chamados = await ChamadoModel.listarPorStatus('VISITA');
+            const chamados = await ChamadoModel.listarPorStatus('Criado');
             res.json({ sucesso: true, chamados });
         } catch (error) {
             console.error(error);
