@@ -1,10 +1,10 @@
-import CarrinhoModel from '../models/ChamadoModel.js';
+import CarrinhoModel from '../models/CarrinhoModel.js';
 
 class CarrinhoController {
 
     static async criar(req, res) {
         try {
-            
+
             const {
                 cliente_id,
                 produto_id,
@@ -18,7 +18,7 @@ class CarrinhoController {
             // Token
 
             const adicionar = {
-                cliente_id, 
+                cliente_id,
                 produto_id,
                 quantidade,
                 nome,
@@ -26,10 +26,13 @@ class CarrinhoController {
                 preco,
                 imagem
             }
-            console.log(adicionar);
-            
 
-            const id = await CarrinhoModel.criar(adicionar);
+
+
+
+
+
+            const id = await CarrinhoModel.adicionar(adicionar);
 
             res.status(201).json({ sucesso: true, mensagem: "Produto adicionado ao carrinho", id });
 
@@ -39,13 +42,13 @@ class CarrinhoController {
         }
     }
     static async listar(req, res) {
-        
+
         try {
             console.log(req.usuario);
-            
+
             const { id } = req.params; // Pega o ID do cliente do token
             const carrinho = await CarrinhoModel.listarPorCliente(id);
-            
+
             res.status(200).json({ sucesso: true, carrinho });
 
             if (!carrinho) {
@@ -59,52 +62,23 @@ class CarrinhoController {
             res.status(500).json({ sucesso: false, erro: "Erro ao listar chamados." });
         }
     }
-
-    
-// GET /api/chamados/pendentes
-    static async listarPendentes(req, res) {
-        try {
-            // Busca apenas os que estão como 'VISITA' (ou o status inicial do seu sistema)
-            const chamados = await ChamadoModel.listarPorStatus('VISITA');
-            res.json({ sucesso: true, chamados });
-        } catch (error) {
-            console.error(error);
-            res.status(500).json({ erro: "Erro ao buscar serviços." });
-        }
-    }
-
-    // PUT /api/chamados/:id/status
-    static async alterarStatus(req, res) {
-        try {
-            const { id } = req.params;
-            const { status } = req.body; // Ex: 'AVALIACAO' ou 'CANCELADO'
-            
-            const atualizou = await ChamadoModel.atualizarStatus(id, status);
-            
-            if (atualizou) {
-                res.json({ sucesso: true, mensagem: "Status atualizado!" });
-            } else {
-                res.status(400).json({ erro: "Erro ao atualizar." });
-            }
-        } catch (error) {
-            console.error(error);
-            res.status(500).json({ erro: "Erro interno." });
-        }
-    }
-    
     // ATUALIZAR QUANTIDADE
     static async atualizarQuantidade(req, res) {
         try {
-            const { produto_id, quantidade } = req.body;
+            const { cliente_id, produto_id, quantidade } = req.body;
 
-            if (!produto_id || !quantidade) {
+            if (!cliente_id || !produto_id || !quantidade) {
                 return res.json({
                     sucesso: false,
-                    erro: "Dados incompletos."
+                    erro: "Dados incompletos (cliente_id, produto_id, quantidade necessários)."
                 });
             }
 
-            const resultado = await CarrinhoModel.atualizarQuantidade(produto_id, quantidade);
+            const resultado = await CarrinhoModel.atualizarQuantidade(
+                cliente_id,
+                produto_id,
+                quantidade
+            );
 
             return res.json({
                 sucesso: true,
@@ -120,10 +94,59 @@ class CarrinhoController {
             });
         }
     }
+    static async finalizarCompra(req, res) {
+        try {
+            const { cliente_id } = req.body;
 
+            if (!cliente_id) {
+                return res.status(400).json({ sucesso: false, erro: 'Cliente_id é obrigatório.' });
+            }
 
+            // Aqui você poderia colocar a lógica de registro da compra (ex: salvar pedido), se houver
 
-    
+            // Limpa o carrinho após a compra
+            await CarrinhoModel.limparCarrinho(cliente_id);
+
+            res.status(200).json({ sucesso: true, mensagem: 'Compra finalizada e carrinho limpo.' });
+        } catch (error) {
+            console.error('Erro ao finalizar compra:', error);
+            res.status(500).json({ sucesso: false, erro: 'Erro ao finalizar compra.' });
+        }
+    }
+    static async removerItem(req, res) {
+        try {
+            const { produto_id, cliente_id } = req.body;
+            console.log(produto_id);
+            console.log(cliente_id);
+            console.log(produto_id);
+            console.log(cliente_id);console.log(produto_id);
+            console.log(cliente_id);console.log(produto_id);
+            console.log(cliente_id);console.log(produto_id);
+            console.log(cliente_id);console.log(produto_id);
+            console.log(cliente_id);console.log(produto_id);
+            console.log(cliente_id);console.log(produto_id);
+            console.log(cliente_id);console.log(produto_id);
+            console.log(cliente_id);console.log(produto_id);
+            console.log(cliente_id);console.log(produto_id);
+            console.log(cliente_id);console.log(produto_id);
+            console.log(cliente_id);console.log(produto_id);
+            console.log(cliente_id);
+            
+            
+
+            if (!produto_id || !cliente_id) {
+                return res.status(400).json({ sucesso: false, erro: 'Dados incompletos.' });
+            }
+
+            await CarrinhoModel.removerItem(produto_id, cliente_id);
+
+            res.status(200).json({ sucesso: true, mensagem: 'Item removido do carrinho.' });
+        } catch (error) {
+            console.error('Erro ao remover item do carrinho:', error);
+            res.status(500).json({ sucesso: false, erro: 'Erro ao remover item do carrinho.' });
+        }
+    }
+
 }
 
 

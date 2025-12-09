@@ -227,3 +227,10 @@ main {
     padding-bottom: 3%;
 
 }
+.coluna-preco button{
+    background: none;
+    border: none;
+    color: red;
+    justify-self: end;
+    font-size:xx-large;
+}
