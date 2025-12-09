@@ -330,76 +330,68 @@
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
     <script type="module">
-        
-
         async function carregarChamados() {
-            const usuario = await obterUsuarioLogado();
-            if (!usuario) {
-                alert('Usuário não está logado.');
-                return;
-            }
-            const resposta = await fetch(`/api/chamados/${usuario.id}`);
-            const data = await resposta.json();
-            console.log(data);
+            try {
+                const usuario = await obterUsuarioLogado();
+                if (!usuario) {
+                    alert('Usuário não está logado.');
+                    return;
+                }
 
-            if (!data.sucesso) {
-                alert('Erro ao carregar chamados: ' + data.erro);
-                return;
-            }
+                const resposta = await fetch(`/api/chamados/${usuario.id}`);
+                if (!resposta.ok) {
+                    throw new Error('Erro na requisição: ' + resposta.status);
+                }
 
-            if (data.sucesso) {
+                const data = await resposta.json();
+
+                if (!data.sucesso) {
+                    alert('Erro ao carregar chamados: ' + data.erro);
+                    return;
+                }
+
                 const lista = document.getElementById('accordionServico');
-                
+                lista.innerHTML = ''; // limpa o container antes de adicionar
 
                 data.chamados.forEach(chamado => {
-
-
                     const row = document.createElement('div');
+                    row.classList.add('accordion-item');
                     row.innerHTML = `
-                        <div class="accordion" id="accordionServico${chamado.chamado_id}">
-        
-                <div class="accordion-item" style="border: none; border-radius: 20px;">
-                    <h2 class="accordion-header" id="headingOne${chamado.chamado_id}">
-                        <button class="accordion-button collapsed titulo-servico d-flex justify-content-center"
-                                type="button" 
-                                data-bs-toggle="collapse" 
-                                data-bs-target="#collapseOne${chamado.chamado_id}" 
-                                aria-expanded="false" 
-                                aria-controls="collapseOne${chamado.chamado_id}">
-                            <h1 class="titulo-servico">${chamado.numero_serie}</h1>
-                        </button>
-                    </h2>
-        
-                    <div id="collapseOne${chamado.chamado_id}" class="accordion-collapse collapse" 
-                         aria-labelledby="headingOne${chamado.chamado_id}" 
-                         data-bs-parent="#accordionServico${chamado.chamado_id}">
-        
-                        <div class="accordion-body">
-        
-                            <div class="row txt-descricao"><b>Status: ${chamado.status_code}</b></div>
-                            <div class="row txt-endereco"><b>Endereço: ${chamado.endereco_manutencao}</b></div>
-                            <div class="row txt-responsavel"><b>Responsável: ${chamado.responsavel}</b></div>
-        
-                            <div class="row d-flex text-center justify-content-center">
-                                <a href="acompanhamento/${chamado.chamado_id}">
-                                    <div class="col">
-                                        <button class="btt-servico">VER MAIS</button>
-                                    </div>
-                                </a>
-                            </div>
-                               
-        
+                <h2 class="accordion-header" id="heading${chamado.chamado_id}">
+                    <button class="accordion-button collapsed titulo-servico d-flex justify-content-center"
+                            type="button" 
+                            data-bs-toggle="collapse" 
+                            data-bs-target="#collapse${chamado.chamado_id}" 
+                            aria-expanded="false" 
+                            aria-controls="collapse${chamado.chamado_id}">
+                        <h1 class="titulo-servico">${chamado.numero_serie}</h1>
+                    </button>
+                </h2>
+
+                <div id="collapse${chamado.chamado_id}" class="accordion-collapse collapse" 
+                     aria-labelledby="heading${chamado.chamado_id}" 
+                     data-bs-parent="#accordionServico">
+                    <div class="accordion-body">
+                        <div class="row txt-descricao"><b>Status: ${chamado.status_code}</b></div>
+                        <div class="row txt-endereco"><b>Endereço: ${chamado.endereco_manutencao}</b></div>
+                        <div class="row txt-responsavel"><b>Responsável: ${chamado.responsavel}</b></div>
+                        <div class="row d-flex text-center justify-content-center">
+                            <a href="acompanhamento/${chamado.chamado_id}">
+                                <div class="col">
+                                    <button class="btt-servico">VER MAIS</button>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
-        
-            </div>
-                        `;
+            `;
                     lista.appendChild(row);
                 });
+            } catch (erro) {
+                console.error('Erro ao carregar chamados:', erro);
+                alert('Não foi possível carregar os chamados. Tente novamente mais tarde.');
             }
         }
-
 
         carregarChamados();
     </script>

@@ -9,7 +9,6 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
     <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
@@ -18,26 +17,35 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="../images/icons/icon_manutech.svg">
+    
 </head>
 
 <body>
 
-    <header class="fixed-top" id="header-logado">
+     <header id="header-publico">
+        <nav class="bg-header">
+            <img class="logo-header-index" src="../images/icons/logo-manutech-white.png">
+            <a href="login"><button class="btn btn-outline-success botao-header-index" type="submit">Entrar</button></a>
+        </nav>
+    </header>
+
+    <header id="header-logado" class="fixed-top header-azul">
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
             <div class="row content-navbar">
-                <div class="col-8 col-sm-8 col-md-4 col-lg-2">
+                <div class="col-8 col-sm-8 col-md-5 col-lg-2">
                     <div style="width: 100%;">
                         <a href="/index"><img src="../images/icons/logo-manutech-orange.png" style="width: 100%;"></a>
                     </div>
                 </div>
-                <div class="col-3 col-sm-3 d-md-none d-lg-none menu-mobile">
 
+                <div class="col-3 col-sm-3 d-md-none d-lg-none menu-mobile">
                     <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
                         aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </div>
+
                 <div class="d-md-block col-md-2 col-lg-2 w-auto">
                     <div class="collapse navbar-collapse lista-header" id="collapsibleNavId">
                         <ul class="navbar-nav me-auto mt-2 mt-lg-0 botoes-header">
@@ -48,10 +56,11 @@
                                 <a class="nav-link" href="/catalogo">Reposição</a>
                             </li>
                         </ul>
+
                         <div class="col-3 col-sm-3 d-block d-md-none">
                             <div class="header-icons-menu">
                                 <a href="/carrinho"><img src="../images/icons/carrinho.svg" width="55px"></a>
-                                <!-- fazer o menu suspenso para sair do login e voltar para o index/ substituir o icone azul-->
+
                                 <div class="dropdown" style="display: inline-block; margin-left: 15%;">
                                     <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <img src="../images/icons/icon-perfil-orange.png" width="55px">
@@ -66,6 +75,7 @@
                                                 id="empresa-usuario-menu"></span>
                                             <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
                                         </li>
+
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
@@ -74,19 +84,14 @@
                                                 onclick="fazerLogout()">Sair</a></li>
                                     </ul>
                                 </div>
-                                <!-- fazer o menu suspenso para sair do login e voltar para o index-->
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="d-none d-md-block col-md-2">
-
                     <div class="header-icons">
                         <a href="/carrinho"><img src="../images/icons/carrinho.svg" width="55px"></a>
-
-
-                        <!-- fazer o menu suspenso para sair do login e voltar para o index/ substituir o icone azul-->
                         <div class="dropdown" style="display: inline-block; margin-left: 15%;">
                             <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="../images/icons/icon-perfil-orange.png" width="55px">
@@ -96,7 +101,8 @@
                                     <img class="foto-modal" src="../images/icons/icon-perfil-orange.png">
                                     <span class="dropdown-item-text fw-bold nome-modal" id="nome-usuario-menu"></span>
                                 </li>
-                                <li><span class="dropdown-item-text empresa-modal" id="empresa-usuario-menu"></span>
+                                <li class="empresa-cargo-wrapper">
+                                    <span class="dropdown-item-text empresa-modal" id="empresa-usuario-menu"></span>-
                                     <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
                                 </li>
                                 <li>
@@ -106,28 +112,29 @@
                                         href="#" onclick="fazerLogout()">Sair</a></li>
                             </ul>
                         </div>
-                        <!-- fazer o menu suspenso para sair do login e voltar para o index-->
                     </div>
                 </div>
+            </div>
         </nav>
     </header>
 
-    <header class="fixed-top" id="header-funcionario">
+    <header id="header-funcionario" class="fixed-top header-azul">
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
             <div class="row content-navbar">
-                <div class="col-8 col-sm-8 col-md-4 col-lg-2">
+                <div class="col-8 col-sm-8 col-md-5 col-lg-2">
                     <div style="width: 100%;">
                         <a href="/index"><img src="../images/icons/logo-manutech-orange.png" style="width: 100%;"></a>
                     </div>
                 </div>
-                <div class="col-3 col-sm-3 d-md-none d-lg-none menu-mobile">
 
+                <div class="col-3 col-sm-3 d-md-none d-lg-none menu-mobile">
                     <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
                         aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </div>
+
                 <div class="d-md-block col-md-2 col-lg-2 w-auto">
                     <div class="collapse navbar-collapse lista-header" id="collapsibleNavId">
                         <ul class="navbar-nav me-auto mt-2 mt-lg-0 botoes-header">
@@ -143,10 +150,11 @@
                                 <a class="nav-link" href="/servicos">Serviços</a>
                             </li>
                         </ul>
+
                         <div class="col-3 col-sm-3 d-block d-md-none">
                             <div class="header-icons-menu">
                                 <a href="/carrinho"><img src="../images/icons/carrinho.svg" width="55px"></a>
-                                <!-- fazer o menu suspenso para sair do login e voltar para o index/ substituir o icone azul-->
+
                                 <div class="dropdown" style="display: inline-block; margin-left: 15%;">
                                     <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <img src="../images/icons/icon-perfil-orange.png" width="55px">
@@ -161,6 +169,7 @@
                                                 id="empresa-usuario-menu"></span>
                                             <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
                                         </li>
+
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
@@ -169,19 +178,14 @@
                                                 onclick="fazerLogout()">Sair</a></li>
                                     </ul>
                                 </div>
-                                <!-- fazer o menu suspenso para sair do login e voltar para o index-->
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="d-none d-md-block col-md-2">
-
                     <div class="header-icons">
                         <a href="/carrinho"><img src="../images/icons/carrinho.svg" width="55px"></a>
-
-
-                        <!-- fazer o menu suspenso para sair do login e voltar para o index/ substituir o icone azul-->
                         <div class="dropdown" style="display: inline-block; margin-left: 15%;">
                             <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="../images/icons/icon-perfil-orange.png" width="55px">
@@ -191,7 +195,8 @@
                                     <img class="foto-modal" src="../images/icons/icon-perfil-orange.png">
                                     <span class="dropdown-item-text fw-bold nome-modal" id="nome-usuario-menu"></span>
                                 </li>
-                                <li><span class="dropdown-item-text empresa-modal" id="empresa-usuario-menu"></span>
+                                <li class="empresa-cargo-wrapper">
+                                    <span class="dropdown-item-text empresa-modal" id="empresa-usuario-menu"></span>-
                                     <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
                                 </li>
                                 <li>
@@ -201,28 +206,29 @@
                                         href="#" onclick="fazerLogout()">Sair</a></li>
                             </ul>
                         </div>
-                        <!-- fazer o menu suspenso para sair do login e voltar para o index-->
                     </div>
                 </div>
+            </div>
         </nav>
     </header>
 
-    <header class="fixed-top" id="header-admin">
+    <header id="header-admin" class="fixed-top header-azul">
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
             <div class="row content-navbar">
-                <div class="col-8 col-sm-8 col-md-4 col-lg-2">
+                <div class="col-8 col-sm-8 col-md-5 col-lg-2">
                     <div style="width: 100%;">
                         <a href="/index"><img src="../images/icons/logo-manutech-orange.png" style="width: 100%;"></a>
                     </div>
                 </div>
-                <div class="col-3 col-sm-3 d-md-none d-lg-none menu-mobile">
 
+                <div class="col-3 col-sm-3 d-md-none d-lg-none menu-mobile">
                     <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
                         aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </div>
+
                 <div class="d-md-block col-md-2 col-lg-2 w-auto">
                     <div class="collapse navbar-collapse lista-header" id="collapsibleNavId">
                         <ul class="navbar-nav me-auto mt-2 mt-lg-0 botoes-header">
@@ -241,10 +247,11 @@
                                 <a class="nav-link" href="/painelAdmin">Usuários</a>
                             </li>
                         </ul>
+
                         <div class="col-3 col-sm-3 d-block d-md-none">
                             <div class="header-icons-menu">
                                 <a href="/carrinho"><img src="../images/icons/carrinho.svg" width="55px"></a>
-                                <!-- fazer o menu suspenso para sair do login e voltar para o index/ substituir o icone azul-->
+
                                 <div class="dropdown" style="display: inline-block; margin-left: 15%;">
                                     <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <img src="../images/icons/icon-perfil-orange.png" width="55px">
@@ -259,6 +266,7 @@
                                                 id="empresa-usuario-menu"></span>
                                             <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
                                         </li>
+
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
@@ -267,19 +275,14 @@
                                                 onclick="fazerLogout()">Sair</a></li>
                                     </ul>
                                 </div>
-                                <!-- fazer o menu suspenso para sair do login e voltar para o index-->
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="d-none d-md-block col-md-2">
-
                     <div class="header-icons">
                         <a href="/carrinho"><img src="../images/icons/carrinho.svg" width="55px"></a>
-
-
-                        <!-- fazer o menu suspenso para sair do login e voltar para o index/ substituir o icone azul-->
                         <div class="dropdown" style="display: inline-block; margin-left: 15%;">
                             <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <img src="../images/icons/icon-perfil-orange.png" width="55px">
@@ -289,7 +292,8 @@
                                     <img class="foto-modal" src="../images/icons/icon-perfil-orange.png">
                                     <span class="dropdown-item-text fw-bold nome-modal" id="nome-usuario-menu"></span>
                                 </li>
-                                <li><span class="dropdown-item-text empresa-modal" id="empresa-usuario-menu"></span>
+                                <li class="empresa-cargo-wrapper">
+                                    <span class="dropdown-item-text empresa-modal" id="empresa-usuario-menu"></span>-
                                     <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
                                 </li>
                                 <li>
@@ -299,9 +303,9 @@
                                         href="#" onclick="fazerLogout()">Sair</a></li>
                             </ul>
                         </div>
-                        <!-- fazer o menu suspenso para sair do login e voltar para o index-->
                     </div>
                 </div>
+            </div>
         </nav>
     </header>
 

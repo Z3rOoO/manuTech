@@ -1,3 +1,4 @@
+
 USE dbmt;
 
 CREATE TABLE relatorios_tecnicos (
