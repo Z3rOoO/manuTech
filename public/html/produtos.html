@@ -20,14 +20,22 @@
 
 <body>
 
-    <header class="fixed-top" id="header-logado">
+  <header id="header-publico">
+        <nav class="bg-header">
+            <img class="logo-header-index" src="../images/icons/logo-manutech-white.png">
+            <a href="login"><button class="btn btn-outline-success botao-header-index" type="submit">Entrar</button></a>
+        </nav>
+    </header>
+
+    <header id="header-logado" class="fixed-top header-azul">
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
             <div class="row content-navbar">
-                <div class="col-8 col-sm-8 col-md-4 col-lg-2">
+                <div class="col-8 col-sm-8 col-md-5 col-lg-2">
                     <div style="width: 100%;">
                         <a href="/index"><img src="../images/icons/logo-manutech-orange.png" style="width: 100%;"></a>
                     </div>
                 </div>
+
                 <div class="col-3 col-sm-3 d-md-none d-lg-none menu-mobile">
                     <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
@@ -35,6 +43,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </div>
+
                 <div class="d-md-block col-md-2 col-lg-2 w-auto">
                     <div class="collapse navbar-collapse lista-header" id="collapsibleNavId">
                         <ul class="navbar-nav me-auto mt-2 mt-lg-0 botoes-header">
@@ -45,9 +54,11 @@
                                 <a class="nav-link" href="/catalogo">Reposição</a>
                             </li>
                         </ul>
+
                         <div class="col-3 col-sm-3 d-block d-md-none">
                             <div class="header-icons-menu">
                                 <a href="/carrinho"><img src="../images/icons/carrinho.svg" width="55px"></a>
+
                                 <div class="dropdown" style="display: inline-block; margin-left: 15%;">
                                     <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <img src="../images/icons/icon-perfil-orange.png" width="55px">
@@ -62,6 +73,7 @@
                                                 id="empresa-usuario-menu"></span>
                                             <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
                                         </li>
+
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
@@ -87,7 +99,8 @@
                                     <img class="foto-modal" src="../images/icons/icon-perfil-orange.png">
                                     <span class="dropdown-item-text fw-bold nome-modal" id="nome-usuario-menu"></span>
                                 </li>
-                                <li><span class="dropdown-item-text empresa-modal" id="empresa-usuario-menu"></span>
+                                <li class="empresa-cargo-wrapper">
+                                    <span class="dropdown-item-text empresa-modal" id="empresa-usuario-menu"></span>-
                                     <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
                                 </li>
                                 <li>
@@ -103,14 +116,15 @@
         </nav>
     </header>
 
-    <header class="fixed-top" id="header-funcionario">
+    <header id="header-funcionario" class="fixed-top header-azul">
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
             <div class="row content-navbar">
-                <div class="col-8 col-sm-8 col-md-4 col-lg-2">
+                <div class="col-8 col-sm-8 col-md-5 col-lg-2">
                     <div style="width: 100%;">
                         <a href="/index"><img src="../images/icons/logo-manutech-orange.png" style="width: 100%;"></a>
                     </div>
                 </div>
+
                 <div class="col-3 col-sm-3 d-md-none d-lg-none menu-mobile">
                     <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
@@ -118,6 +132,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </div>
+
                 <div class="d-md-block col-md-2 col-lg-2 w-auto">
                     <div class="collapse navbar-collapse lista-header" id="collapsibleNavId">
                         <ul class="navbar-nav me-auto mt-2 mt-lg-0 botoes-header">
@@ -129,14 +144,15 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/chat">Chat</a>
-                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/servicos">Serviços</a>
                             </li>
                         </ul>
+
                         <div class="col-3 col-sm-3 d-block d-md-none">
                             <div class="header-icons-menu">
                                 <a href="/carrinho"><img src="../images/icons/carrinho.svg" width="55px"></a>
+
                                 <div class="dropdown" style="display: inline-block; margin-left: 15%;">
                                     <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <img src="../images/icons/icon-perfil-orange.png" width="55px">
@@ -151,6 +167,7 @@
                                                 id="empresa-usuario-menu"></span>
                                             <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
                                         </li>
+
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
@@ -176,7 +193,8 @@
                                     <img class="foto-modal" src="../images/icons/icon-perfil-orange.png">
                                     <span class="dropdown-item-text fw-bold nome-modal" id="nome-usuario-menu"></span>
                                 </li>
-                                <li><span class="dropdown-item-text empresa-modal" id="empresa-usuario-menu"></span>
+                                <li class="empresa-cargo-wrapper">
+                                    <span class="dropdown-item-text empresa-modal" id="empresa-usuario-menu"></span>-
                                     <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
                                 </li>
                                 <li>
@@ -192,14 +210,15 @@
         </nav>
     </header>
 
-    <header class="fixed-top" id="header-admin">
+    <header id="header-admin" class="fixed-top header-azul">
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
             <div class="row content-navbar">
-                <div class="col-8 col-sm-8 col-md-4 col-lg-2">
+                <div class="col-8 col-sm-8 col-md-5 col-lg-2">
                     <div style="width: 100%;">
                         <a href="/index"><img src="../images/icons/logo-manutech-orange.png" style="width: 100%;"></a>
                     </div>
                 </div>
+
                 <div class="col-3 col-sm-3 d-md-none d-lg-none menu-mobile">
                     <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
@@ -207,6 +226,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </div>
+
                 <div class="d-md-block col-md-2 col-lg-2 w-auto">
                     <div class="collapse navbar-collapse lista-header" id="collapsibleNavId">
                         <ul class="navbar-nav me-auto mt-2 mt-lg-0 botoes-header">
@@ -218,7 +238,6 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/chat">Chat</a>
-                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/servicos">Serviços</a>
                             </li>
@@ -226,9 +245,11 @@
                                 <a class="nav-link" href="/painelAdmin">Usuários</a>
                             </li>
                         </ul>
+
                         <div class="col-3 col-sm-3 d-block d-md-none">
                             <div class="header-icons-menu">
                                 <a href="/carrinho"><img src="../images/icons/carrinho.svg" width="55px"></a>
+
                                 <div class="dropdown" style="display: inline-block; margin-left: 15%;">
                                     <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <img src="../images/icons/icon-perfil-orange.png" width="55px">
@@ -243,6 +264,7 @@
                                                 id="empresa-usuario-menu"></span>
                                             <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
                                         </li>
+
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
@@ -268,7 +290,8 @@
                                     <img class="foto-modal" src="../images/icons/icon-perfil-orange.png">
                                     <span class="dropdown-item-text fw-bold nome-modal" id="nome-usuario-menu"></span>
                                 </li>
-                                <li><span class="dropdown-item-text empresa-modal" id="empresa-usuario-menu"></span>
+                                <li class="empresa-cargo-wrapper">
+                                    <span class="dropdown-item-text empresa-modal" id="empresa-usuario-menu"></span>-
                                     <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
                                 </li>
                                 <li>
