@@ -463,3 +463,28 @@ header {
     max-width: 180px;
     /* ajuste conforme necessário */
 }
+
+.bg-header {
+    width: 100%;
+    min-height: 100px;
+    background-color: #0043ad !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 3rem;
+}
+
+.logo-header-index {
+    width: 240px;
+    height: auto;
+}
+
+.botao-header-index {
+    background-color: #ffffff !important;
+    width: 105px !important;
+    height: 40px !important;
+    color: #0043ad !important;
+    border: none !important;
+    font-weight: bold;
+    border-radius: 50px;
+}
