@@ -60,8 +60,8 @@
                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionServico">
                         <div class="accordion-body">
                             <!-- DADOS DO CHAMADO -->
-                            <div class="row txt-status mb-2"><b>Status:</b> <span id="status-chamado" class="ms-2 badge bg-warning text-dark">...</span></div>
-                            <div class="row txt-descricao mb-2"><b>Descrição do problema:</b> <span id="desc-chamado" class="ms-2">...</span></div>
+                            <div class="row txt-status mb-2" ><b>Status:</b> <span id="status-chamado" class="ms-2 badge bg-warning text-dark" style="padding-left: 0; margin-left: 0% !important;">...</span></div>
+                            <div class="row txt-descricao mb-2" ><b>Descrição do problema:</b> <span id="desc-chamado" class="ms-2">...</span></div>
                             <div class="row txt-endereco mb-2"><b>Endereço:</b> <span id="end-chamado" class="ms-2">...</span></div>
                             <div class="row txt-responsavel mb-2"><b>Responsável:</b> <span id="resp-chamado" class="ms-2">...</span></div>
                             <div class="row mb-2">
@@ -75,28 +75,28 @@
                             <form id="form-relatorio" onsubmit="enviarRelatorio(event)">
                                 <h3 class="title-form text-center mb-4" style="color: #0043ad;">Relatório Técnico</h3>
                                 
-                                <div class="mb-3">
+                                <div class="mb-3" style="width: 100%;">
                                     <label class="form-label">Diagnóstico / Relatório:</label>
                                     <textarea id="relatorio" class="form-control input-relatorio" rows="3" placeholder="O que foi constatado?" required></textarea>
                                 </div>
                                 
-                                <div class="mb-3">
+                                <div class="mb-3" style="width: 100%;">
                                     <label class="form-label">Peças para reposição:</label>
                                     <input id="pecas" type="text" class="form-control input-relatorio" placeholder="Ex: Rolamento, Correia (ou 'Nenhuma')" required>
                                 </div>
                                 
-                                <div class="mb-3">
+                                <div class="mb-3" style="width: 100%;">
                                     <label class="form-label">Ferramentas necessárias:</label>
                                     <input id="ferramentas" type="text" class="form-control input-relatorio" placeholder="Ex: Chave 12, Torquímetro" required>
                                 </div>
                                 
-                                <div class="mb-3">
+                                <div class="mb-3" style="width: 100%;">
                                     <label class="form-label">Orçamento estimado (R$):</label>
                                     <input id="orcamento" type="number" step="0.01" class="form-control input-relatorio" placeholder="0.00" required>
                                 </div>
 
-                                <div class="text-center mt-4">
-                                    <button class="btt-enviar btn btn-primary px-5" type="submit">Enviar Relatório</button>
+                                <div class="text-center mt-4" style="width: 100%;">
+                                    <button class="btt-enviar btn btn-primary px-5" style="width: 100%;" type="submit">Enviar Relatório</button>
                                 </div>
                             </form>
 
