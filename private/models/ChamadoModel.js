@@ -64,6 +64,35 @@ class ChamadoModel {
         return result.affectedRows > 0;
     }
 
+    static async criarRelatorio(dados) {
+        const connection = await db.getConnection();
+        try {
+            await connection.beginTransaction();
+
+            // 1. Salva o relatório na tabela nova
+            const sqlRelatorio = `
+                INSERT INTO relatorios_tecnicos (chamado_id, tecnico_id, relatorio, pecas, ferramentas, orcamento)
+                VALUES (?, ?, ?, ?, ?, ?)
+            `;
+            await connection.execute(sqlRelatorio, [
+                dados.chamado_id, dados.tecnico_id, dados.relatorio, 
+                dados.pecas, dados.ferramentas, dados.orcamento
+            ]);
+
+            // 2. Atualiza o status do chamado para 'ORCAMENTO' (ou AVALIADO)
+            const sqlUpdate = 'UPDATE chamado SET status_code = ? WHERE chamado_id = ?';
+            await connection.execute(sqlUpdate, ['ORCAMENTO', dados.chamado_id]);
+
+            await connection.commit();
+            return true;
+        } catch (error) {
+            await connection.rollback();
+            throw error;
+        } finally {
+            connection.release();
+        }
+    }
+
     // Listar todos
     static async listarTodos() {
         const sql = `

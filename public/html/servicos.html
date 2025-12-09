@@ -403,10 +403,11 @@
                                         </button>
                                     </div>
                                     <div class="col-auto">
-                                        <!-- Aceitar (Muda para AVALIACAO) -->
-                                        <button class="btt-servico btn-success" onclick="atualizarStatus(${chamado.chamado_id}, 'AVALIACAO')">
-                                            Aceitar ✔
-                                        </button>
+    <button class="btt-servico btn-success" onclick="irParaAcompanhamento(${chamado.chamado_id})">
+        Aceitar ✔
+    </button>
+</div>
+
                                     </div>
                                 </div>
                             </div>
@@ -453,6 +454,12 @@
         // Inicia
         carregarServicos();
     </script>
+    <script>
+function irParaAcompanhamento(id) {
+    window.location.href = "/acompanhamento-func?id=" + id;
+}
+</script>
+
 </body>
 
 </html>

@@ -2,365 +2,196 @@
 <html lang="pt-br">
 
 <head>
-    <script src="../js/verficarLoginIndex.js"></script>
-    <script src="../js/verificar_login.js"></script>
-    <script type="module" src="../js/sessao.js" defer></script>
-    <title>Manutech</title>
+    <title>Relatório Técnico - Manutech</title>
+    <!-- SESSAO NO TOPO -->
+    <script src="../js/sessao.js"></script>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../style/style.css">
-    <link rel="stylesheet" href="../style/acompanhamento-func.css">
+    <link rel="stylesheet" href="../style/acompanhamento-func.css"> <!-- Crie se não existir -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
     <link rel="icon" href="../images/icons/icon_manutech.svg">
 </head>
 
 <body>
-    <header id="header-publico">
-        <nav class="bg-header">
-            <img class="logo-header-index" src="../images/icons/logo-manutech-white.png">
-            <a href="login"><button class="btn btn-outline-success botao-header-index" type="submit">Entrar</button></a>
-        </nav>
-    </header>
-
+    <!-- HEADER IGUAL AO SERVICOS.HTML (Copiei para garantir consistência) -->
     <header id="header-logado" class="fixed-top header-azul">
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
             <div class="row content-navbar">
-                <div class="col-8 col-sm-8 col-md-5 col-lg-2">
+                <div class="col-8 col-sm-8 col-md-4 col-lg-2">
                     <div style="width: 100%;">
-                        <a href="/index"><img src="../images/icons/logo-manutech.png" style="width: 100%;"></a>
+                        <a href="/index"><img src="../images/icons/logo-manutech-orange.png" style="width: 100%;"></a>
                     </div>
                 </div>
-
-                <div class="col-3 col-sm-3 d-md-none d-lg-none menu-mobile">
-                    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
-
-                <div class="d-md-block col-md-2 col-lg-2 w-auto">
-                    <div class="collapse navbar-collapse lista-header" id="collapsibleNavId">
-                        <ul class="navbar-nav me-auto mt-2 mt-lg-0 botoes-header">
-                            <li class="nav-item">
-                                <a class="nav-link" href="/chamado">Manutenção</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/catalogo">Reposição</a>
-                            </li>
-                        </ul>
-
-                        <div class="col-3 col-sm-3 d-block d-md-none">
-                            <div class="header-icons-menu">
-                                <a href="/manutencoes"><img src="../images/icons/icon-home-solicitacoes.png"
-                                        width="55px"></a>
-
-                                <div class="dropdown" style="display: inline-block; margin-left: 15%;">
-                                    <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src="../images/icons/perfil-azul.png" width="55px">
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-end box-modal">
-                                        <li class="alinhar-modal">
-                                            <img class="foto-modal" src="../images/icons/perfil-azul.png">
-                                            <span class="dropdown-item-text fw-bold nome-modal"
-                                                id="nome-usuario-menu"></span>
-                                        </li>
-                                        <li><span class="dropdown-item-text empresa-modal"
-                                                id="empresa-usuario-menu"></span>
-                                            <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
-                                        </li>
-
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li><a class="dropdown-item text-danger"
-                                                style="text-align: center; font-size: 20px;" href="#"
-                                                onclick="fazerLogout()">Sair</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="d-none d-md-block col-md-2">
+                <!-- ... (Resto do menu igual aos outros, omitido para brevidade) ... -->
+                 <div class="d-none d-md-block col-md-2">
                     <div class="header-icons">
-                        <a href="/manutencoes"><img src="../images/icons/icon-home-solicitacoes.png" width="55px"></a>
                         <div class="dropdown" style="display: inline-block; margin-left: 15%;">
-                            <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="../images/icons/perfil-azul.png" width="55px">
-                            </a>
+                            <a href="#" role="button" data-bs-toggle="dropdown"><img src="../images/icons/perfil-azul.png" width="55px"></a>
                             <ul class="dropdown-menu dropdown-menu-end box-modal">
-                                <li class="alinhar-modal">
-                                    <img class="foto-modal" src="../images/icons/perfil-azul.png">
-                                    <span class="dropdown-item-text fw-bold nome-modal" id="nome-usuario-menu"></span>
-                                </li>
-                                <li class="empresa-cargo-wrapper">
-                                    <span class="dropdown-item-text empresa-modal" id="empresa-usuario-menu"></span>-
-                                    <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item text-danger" style="text-align: center; font-size: 20px;"
-                                        href="#" onclick="fazerLogout()">Sair</a></li>
+                                <li class="alinhar-modal"><span class="dropdown-item-text fw-bold nome-modal user-nome"></span></li>
+                                <li><span class="dropdown-item-text empresa-modal user-empresa"></span></li>
+                                <li><span class="dropdown-item-text text-muted small user-cargo"></span></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" style="text-align: center; font-size: 20px;" href="#" onclick="fazerLogout()">Sair</a></li>
                             </ul>
                         </div>
                     </div>
-                </div>
+                 </div>
             </div>
         </nav>
     </header>
 
-    <header id="header-funcionario" class="fixed-top header-azul">
-        <nav class="navbar navbar-expand-sm navbar-light bg-light">
-            <div class="row content-navbar">
-                <div class="col-8 col-sm-8 col-md-5 col-lg-2">
-                    <div style="width: 100%;">
-                        <a href="/index"><img src="../images/icons/logo-manutech.png" style="width: 100%;"></a>
-                    </div>
-                </div>
-
-                <div class="col-3 col-sm-3 d-md-none d-lg-none menu-mobile">
-                    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
-
-                <div class="d-md-block col-md-2 col-lg-2 w-auto">
-                    <div class="collapse navbar-collapse lista-header" id="collapsibleNavId">
-                        <ul class="navbar-nav me-auto mt-2 mt-lg-0 botoes-header">
-                            <li class="nav-item">
-                                <a class="nav-link" href="/chamado">Manutenção</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/catalogo">Reposição</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/chat">Chat</a>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/servicos">Serviços</a>
-                            </li>
-                        </ul>
-
-                        <div class="col-3 col-sm-3 d-block d-md-none">
-                            <div class="header-icons-menu">
-                                <a href="/manutencoes"><img src="../images/icons/icon-home-solicitacoes.png"
-                                        width="55px"></a>
-
-                                <div class="dropdown" style="display: inline-block; margin-left: 15%;">
-                                    <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src="../images/icons/perfil-azul.png" width="55px">
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-end box-modal">
-                                        <li class="alinhar-modal">
-                                            <img class="foto-modal" src="../images/icons/perfil-azul.png">
-                                            <span class="dropdown-item-text fw-bold nome-modal"
-                                                id="nome-usuario-menu"></span>
-                                        </li>
-                                        <li><span class="dropdown-item-text empresa-modal"
-                                                id="empresa-usuario-menu"></span>
-                                            <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
-                                        </li>
-
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li><a class="dropdown-item text-danger"
-                                                style="text-align: center; font-size: 20px;" href="#"
-                                                onclick="fazerLogout()">Sair</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="d-none d-md-block col-md-2">
-                    <div class="header-icons">
-                        <a href="/manutencoes"><img src="../images/icons/icon-home-solicitacoes.png" width="55px"></a>
-                        <div class="dropdown" style="display: inline-block; margin-left: 15%;">
-                            <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="../images/icons/perfil-azul.png" width="55px">
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end box-modal">
-                                <li class="alinhar-modal">
-                                    <img class="foto-modal" src="../images/icons/perfil-azul.png">
-                                    <span class="dropdown-item-text fw-bold nome-modal" id="nome-usuario-menu"></span>
-                                </li>
-                                <li class="empresa-cargo-wrapper">
-                                    <span class="dropdown-item-text empresa-modal" id="empresa-usuario-menu"></span>-
-                                    <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item text-danger" style="text-align: center; font-size: 20px;"
-                                        href="#" onclick="fazerLogout()">Sair</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <header id="header-admin" class="fixed-top header-azul">
-        <nav class="navbar navbar-expand-sm navbar-light bg-light">
-            <div class="row content-navbar">
-                <div class="col-8 col-sm-8 col-md-5 col-lg-2">
-                    <div style="width: 100%;">
-                        <a href="/index"><img src="../images/icons/logo-manutech.png" style="width: 100%;"></a>
-                    </div>
-                </div>
-
-                <div class="col-3 col-sm-3 d-md-none d-lg-none menu-mobile">
-                    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
-
-                <div class="d-md-block col-md-2 col-lg-2 w-auto">
-                    <div class="collapse navbar-collapse lista-header" id="collapsibleNavId">
-                        <ul class="navbar-nav me-auto mt-2 mt-lg-0 botoes-header">
-                            <li class="nav-item">
-                                <a class="nav-link" href="/chamado">Manutenção</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/catalogo">Reposição</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/chat">Chat</a>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/servicos">Serviços</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/painelAdmin">Usuários</a>
-                            </li>
-                        </ul>
-
-                        <div class="col-3 col-sm-3 d-block d-md-none">
-                            <div class="header-icons-menu">
-                                <a href="/manutencoes"><img src="../images/icons/icon-home-solicitacoes.png"
-                                        width="55px"></a>
-
-                                <div class="dropdown" style="display: inline-block; margin-left: 15%;">
-                                    <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src="../images/icons/perfil-azul.png" width="55px">
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-end box-modal">
-                                        <li class="alinhar-modal">
-                                            <img class="foto-modal" src="../images/icons/perfil-azul.png">
-                                            <span class="dropdown-item-text fw-bold nome-modal"
-                                                id="nome-usuario-menu"></span>
-                                        </li>
-                                        <li><span class="dropdown-item-text empresa-modal"
-                                                id="empresa-usuario-menu"></span>
-                                            <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
-                                        </li>
-
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li><a class="dropdown-item text-danger"
-                                                style="text-align: center; font-size: 20px;" href="#"
-                                                onclick="fazerLogout()">Sair</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="d-none d-md-block col-md-2">
-                    <div class="header-icons">
-                        <a href="/manutencoes"><img src="../images/icons/icon-home-solicitacoes.png" width="55px"></a>
-                        <div class="dropdown" style="display: inline-block; margin-left: 15%;">
-                            <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="../images/icons/perfil-azul.png" width="55px">
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end box-modal">
-                                <li class="alinhar-modal">
-                                    <img class="foto-modal" src="../images/icons/perfil-azul.png">
-                                    <span class="dropdown-item-text fw-bold nome-modal" id="nome-usuario-menu"></span>
-                                </li>
-                                <li class="empresa-cargo-wrapper">
-                                    <span class="dropdown-item-text empresa-modal" id="empresa-usuario-menu"></span>-
-                                    <span class="dropdown-item-text cargo-modal" id="cargo-usuario-menu"></span>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item text-danger" style="text-align: center; font-size: 20px;"
-                                        href="#" onclick="fazerLogout()">Sair</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <h1 class="">Serviços</h1>
+    <main style="margin-top: 120px;">
         <div class="container">
             <div class="accordion" id="accordionServico">
-
                 <div class="accordion-item" style="border: none; border-radius: 20px;">
                     <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button collapsed titulo-servico d-flex justify-content-center"
-                            type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false"
-                            aria-controls="collapseOne">
-                            <h1 class="titulo-servico">Fresa ferramenteira Lagun ISO 30</h1>
+                        <button class="accordion-button titulo-servico d-flex justify-content-between" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <!-- TÍTULO DINÂMICO -->
+                            <span id="titulo-chamado" class="titulo-servico">Carregando chamado...</span>
                         </button>
                     </h2>
 
-                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                        data-bs-parent="#accordionServico">
-
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionServico">
                         <div class="accordion-body">
-                            <div class="row txt-status"><b>Status: Aguardando relatório técnico</b></div>
+                            <!-- DADOS DO CHAMADO -->
+                            <div class="row txt-status mb-2"><b>Status:</b> <span id="status-chamado" class="ms-2 badge bg-warning text-dark">...</span></div>
+                            <div class="row txt-descricao mb-2"><b>Descrição do problema:</b> <span id="desc-chamado" class="ms-2">...</span></div>
+                            <div class="row txt-endereco mb-2"><b>Endereço:</b> <span id="end-chamado" class="ms-2">...</span></div>
+                            <div class="row txt-responsavel mb-2"><b>Responsável:</b> <span id="resp-chamado" class="ms-2">...</span></div>
+                            <div class="row mb-2">
+                                <div class="col-6"><b>Data Visita:</b> <span id="data-chamado">...</span></div>
+                                <div class="col-6"><b>Hora Visita:</b> <span id="hora-chamado">...</span></div>
+                            </div>
 
-                            <div class="row txt-descricao"><b>Descrição do problema:</b></div>
-                            <div class="row txt-endereco"><b>Endereço:</b></div>
-                            <div class="row txt-responsavel"><b>Responsável:</b></div>
-                            <div class="row txt-responsavel"><b>Data de visita: 22/06/2025</b></div>
-                            <div class="row txt-responsavel"><b>Horário de visita: 19:01</b></div>
+                            <hr class="my-4">
 
-                            <form>
-                                <h1 class="title-form">Formulário pós visita técnica</h1><input class="input-relatorio "
-                                    placeholder="Relatório:" type="text" required>
-                                <input type="text" placeholder="Peças para reposição:" class="input-relatorio" required>
-                                <input type="text" placeholder="Ferramentas necessárias para a manutenção:"
-                                    class="input-relatorio" required>
-                                <input type="number" placeholder="Orçamento estimado:" class="input-relatorio" required>
-                                <button class="btt-enviar" type="submit">Enviar</button>
+                            <!-- FORMULÁRIO DO TÉCNICO -->
+                            <form id="form-relatorio" onsubmit="enviarRelatorio(event)">
+                                <h3 class="title-form text-center mb-4" style="color: #0043ad;">Relatório Técnico</h3>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label">Diagnóstico / Relatório:</label>
+                                    <textarea id="relatorio" class="form-control input-relatorio" rows="3" placeholder="O que foi constatado?" required></textarea>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label">Peças para reposição:</label>
+                                    <input id="pecas" type="text" class="form-control input-relatorio" placeholder="Ex: Rolamento, Correia (ou 'Nenhuma')" required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label">Ferramentas necessárias:</label>
+                                    <input id="ferramentas" type="text" class="form-control input-relatorio" placeholder="Ex: Chave 12, Torquímetro" required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label">Orçamento estimado (R$):</label>
+                                    <input id="orcamento" type="number" step="0.01" class="form-control input-relatorio" placeholder="0.00" required>
+                                </div>
+
+                                <div class="text-center mt-4">
+                                    <button class="btt-enviar btn btn-primary px-5" type="submit">Enviar Relatório</button>
+                                </div>
                             </form>
-
 
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-        crossorigin="anonymous"></script>
+    <script>
+        function formatarData(dataISO) {
+            if(!dataISO) return "--/--/----";
+            const data = new Date(dataISO);
+            return data.toLocaleDateString('pt-BR');
+        }
 
+        // 1. CARREGAR DADOS NA TELA
+        async function carregarDadosIniciais() {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+
+            if(!id) {
+                alert("Nenhum chamado selecionado!");
+                window.location.href = "/servicos";
+                return;
+            }
+
+            const token = localStorage.getItem('token');
+            
+            try {
+                const resposta = await fetch(`/api/chamados/${id}`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const dados = await resposta.json();
+
+                if(dados.sucesso) {
+                    const c = dados.chamado;
+                    // Preenche os spans
+                    document.getElementById('titulo-chamado').innerText = `#${c.chamado_id} - ${c.modelo_maquina}`;
+                    document.getElementById('status-chamado').innerText = c.status_code;
+                    document.getElementById('desc-chamado').innerText = c.descricao;
+                    document.getElementById('end-chamado').innerText = c.endereco_manutencao;
+                    document.getElementById('resp-chamado').innerText = c.responsavel;
+                    document.getElementById('data-chamado').innerText = formatarData(c.data_manutencao);
+                    document.getElementById('hora-chamado').innerText = c.hora_manutencao;
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        // 2. ENVIAR O RELATÓRIO
+        async function enviarRelatorio(e) {
+            e.preventDefault();
+            const token = localStorage.getItem('token');
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+
+            const dadosRelatorio = {
+                relatorio: document.getElementById('relatorio').value,
+                pecas: document.getElementById('pecas').value,
+                ferramentas: document.getElementById('ferramentas').value,
+                orcamento: document.getElementById('orcamento').value
+            };
+
+            try {
+                const resposta = await fetch(`/api/chamados/${id}/relatorio`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(dadosRelatorio)
+                });
+                
+                const resultado = await resposta.json();
+                
+                if(resultado.sucesso) {
+                    alert("Relatório enviado com sucesso!");
+                    window.location.href = "/servicos"; // Volta para a lista de serviços
+                } else {
+                    alert("Erro: " + resultado.erro);
+                }
+
+            } catch (err) {
+                console.error(err);
+                alert("Erro ao enviar relatório.");
+            }
+        }
+
+        carregarDadosIniciais();
+    </script>
 </body>
-
 </html>
