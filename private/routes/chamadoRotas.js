@@ -8,7 +8,7 @@ router.post('/', verificarToken, ChamadoController.criar);
 
 
 router.get('/pendentes', verificarToken, ChamadoController.listarPendentes);
-router.get('/:id', verificarToken, ChamadoController.buscarPorId);
+router.get('/:id', ChamadoController.buscarPorId);
 
 
 router.put('/:id/status', verificarToken, ChamadoController.alterarStatus);
